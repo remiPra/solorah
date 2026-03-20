@@ -48,7 +48,7 @@ const decks = [
       {decks.map((deck) => (
         <div class="scroll-reveal">
           <a href={deck.href} class="group block">
-            <div class={`relative rounded-lg overflow-hidden bg-gradient-to-br ${deck.gradient} border border-sol-gold/10 p-8 sm:p-10 transition-all duration-500 hover:border-sol-gold/30 hover:shadow-[0_0_40px_rgba(212,168,83,0.1)]`}>
+            <div class={`relative rounded-lg overflow-hidden bg-gradient-to-br ${deck.gradient} border border-sol-gold/10 p-8 sm:p-10 transition-all duration-500 hover:border-sol-gold/30 hover:shadow-[0_0_40px_rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1)]`}>
               <!-- Decorative background -->
               <div class="absolute top-0 right-0 w-48 h-48 bg-sol-gold/5 rounded-full blur-3xl group-hover:bg-sol-gold/10 transition-all duration-700"></div>
 
@@ -58,31 +58,30 @@ const decks = [
               </div>
 
               <!-- Card mockup: 3 cards fanned out -->
-              <div class="relative h-48 mb-8 flex items-center justify-center">
-                <div class="relative w-64">
-                  {[0, 1, 2].map((i) => (
-                    <div
-                      class="absolute top-0 w-28 h-40 rounded-lg bg-sol-charcoal border border-sol-gold/20 shadow-lg transition-all duration-500 group-hover:border-sol-gold/40"
-                      style={`
-                        left: ${30 + i * 40}px;
-                        transform: rotate(${(i - 1) * 8}deg);
-                        z-index: ${i};
-                        transition-delay: ${i * 50}ms;
-                      `}
-                    >
-                      <div class="absolute inset-2 rounded border border-sol-gold/10 flex items-center justify-center">
-                        <span class="text-sol-gold/30 text-2xl">✧</span>
-                      </div>
+              <div class="relative z-0 mb-8 flex items-end justify-center h-44 sm:h-48">
+                {[0, 1, 2].map((i) => (
+                  <div
+                    class="w-24 h-36 sm:w-28 sm:h-40 rounded-lg bg-sol-charcoal border border-sol-gold/20 shadow-lg transition-all duration-500 group-hover:border-sol-gold/40 flex-shrink-0"
+                    style={`
+                      transform: rotate(${(i - 1) * 8}deg);
+                      margin-left: ${i === 0 ? '0' : '-20px'};
+                      z-index: ${i};
+                      transition-delay: ${i * 50}ms;
+                    `}
+                  >
+                    <div class="absolute inset-2 rounded border border-sol-gold/10 flex items-center justify-center">
+                      <span class="text-sol-gold/30 text-2xl">✧</span>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
 
               <!-- Text -->
+              <div class="relative z-10">
               <h3 class="font-display text-xl sm:text-2xl text-sol-cream mb-3 group-hover:text-sol-gold transition-colors">
                 {deck.name}
               </h3>
-              <p class="font-body text-sol-ash text-lg leading-relaxed mb-6">
+              <p class="font-body text-sol-cream text-lg leading-relaxed mb-6">
                 {deck.description}
               </p>
 
@@ -93,6 +92,7 @@ const decks = [
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </span>
+              </div>
             </div>
           </a>
         </div>

@@ -36,7 +36,7 @@ const decks = [
         <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4">
           {t('pages.reading.title')}
         </h1>
-        <p class="font-body text-xl text-sol-cream/80 italic">
+        <p class="font-body text-xl text-sol-cream italic">
           Choisis ton deck et laisse ton intuition te guider.
         </p>
       </div>
@@ -44,10 +44,10 @@ const decks = [
       <div class="grid sm:grid-cols-2 gap-8">
         {decks.map((deck) => (
           <a href={deck.href} class="group block">
-            <div class={`relative rounded-lg overflow-hidden bg-gradient-to-br ${deck.gradient} border border-sol-gold/10 p-8 text-center transition-all duration-500 hover:border-sol-gold/30 hover:shadow-[0_0_40px_rgba(212,168,83,0.1)]`}>
+            <div class={`relative rounded-lg overflow-hidden bg-gradient-to-br ${deck.gradient} border border-sol-gold/10 p-8 text-center transition-all duration-500 hover:border-sol-gold/30 hover:shadow-[0_0_40px_rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1)]`}>
               <div class="text-5xl mb-6 opacity-60 group-hover:opacity-100 transition-opacity">{deck.icon}</div>
               <h2 class="font-display text-2xl text-sol-cream mb-3 group-hover:text-sol-gold transition-colors">{deck.name}</h2>
-              <p class="font-body text-sol-ash text-lg leading-relaxed">{deck.description}</p>
+              <p class="font-body text-sol-cream text-lg leading-relaxed">{deck.description}</p>
               <span class="inline-flex items-center gap-2 font-ui text-sm text-sol-gold tracking-wider uppercase mt-6 group-hover:gap-3 transition-all">
                 {t('decks.cta')}
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

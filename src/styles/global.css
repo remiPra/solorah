@@ -5,7 +5,7 @@
    ============================================ */
 
 @theme {
-  /* Colors */
+  /* Colors (dark mode defaults) */
   --color-sol-gold: #d4a853;
   --color-sol-gold-light: #f0d48a;
   --color-sol-gold-dark: #8b6914;
@@ -19,9 +19,9 @@
   --color-sol-purple-light: #a78fd4;
   --color-sol-purple-dark: #4a2d73;
   --color-sol-celestial: #1e3a5f;
-  --color-sol-ash: #b0a89a;
-  --color-sol-cream: #e8e0d4;
-  --color-sol-white: #faf8f5;
+  --color-sol-ash: #d0c9bd;
+  --color-sol-cream: #f5f0e8;
+  --color-sol-white: #fdfcfa;
 
   /* Fonts */
   --font-display: "Cinzel Decorative", serif;
@@ -77,13 +77,59 @@
 }
 
 /* ============================================
-   CSS Variables (gradients & effects)
+   CSS Variables (gradients & theme-aware)
    ============================================ */
 
 :root {
   --gradient-gold: linear-gradient(135deg, #8b6914, #d4a853, #f0d48a);
   --gradient-mystic: linear-gradient(135deg, #4a2d73, #1e3a5f);
   --gradient-love: linear-gradient(135deg, #c44d6a, #e8718a, #d4a853);
+
+  /* Theme-aware accent colors (for rgba usage) */
+  --accent-r: 212; --accent-g: 168; --accent-b: 83;
+  --glow-r: 212; --glow-g: 168; --glow-b: 83;
+  --shadow-alpha: 0.4;
+
+  --grain-opacity: 0.03;
+  --selection-bg: rgba(212, 168, 83, 0.3);
+}
+
+/* ============================================
+   Light Mode
+   ============================================ */
+
+[data-theme="light"] {
+  --color-sol-deep: #faf8f5;
+  --color-sol-charcoal: #f0ebe3;
+  --color-sol-smoke: #ffffff;
+  --color-sol-cream: #2d1b4e;
+  --color-sol-ash: #7a6892;
+  --color-sol-white: #1a0f2e;
+
+  /* Rose-gold replaces gold */
+  --color-sol-gold: #b84568;
+  --color-sol-gold-light: #d4567e;
+  --color-sol-gold-dark: #983a58;
+  --color-sol-rose: #d4567e;
+  --color-sol-rose-dark: #a33d5c;
+
+  --color-sol-purple: #6b4d96;
+  --color-sol-purple-dark: #3d2266;
+  --color-sol-purple-light: #9478c0;
+  --color-sol-celestial: #5a7eb8;
+
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #c44d6a, #d4a853);
+  --gradient-mystic: linear-gradient(135deg, #7b5ea7, #5a7eb8);
+  --gradient-love: linear-gradient(135deg, #e8718a, #7b5ea7);
+
+  /* Accent for rgba usage */
+  --accent-r: 184; --accent-g: 69; --accent-b: 104;
+  --glow-r: 123; --glow-g: 94; --glow-b: 167;
+  --shadow-alpha: 0.12;
+
+  --grain-opacity: 0.015;
+  --selection-bg: rgba(123, 94, 167, 0.2);
 }
 
 /* ============================================
@@ -102,6 +148,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ============================================
@@ -114,7 +161,7 @@ body::before {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: var(--grain-opacity);
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
@@ -125,7 +172,7 @@ body::before {
    ============================================ */
 
 ::selection {
-  background-color: rgba(212, 168, 83, 0.3);
+  background-color: var(--selection-bg);
   color: var(--color-sol-white);
 }
 
@@ -169,17 +216,32 @@ body::before {
 }
 
 /* ============================================
-   Gold Border Glow Effect
+   Gold / Accent Border Glow Effect
    ============================================ */
 
 .gold-glow {
-  border: 1px solid rgba(212, 168, 83, 0.3);
+  border: 1px solid rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.3);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gold-glow:hover {
-  border-color: rgba(212, 168, 83, 0.6);
-  box-shadow: 0 0 20px rgba(212, 168, 83, 0.15), 0 0 40px rgba(212, 168, 83, 0.05);
+  border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.6);
+  box-shadow:
+    0 0 20px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.15),
+    0 0 40px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.05);
+}
+
+/* Light mode: softer shadows instead of glows */
+[data-theme="light"] .gold-glow {
+  border-color: rgba(184, 69, 104, 0.2);
+  box-shadow: 0 2px 12px rgba(123, 94, 167, 0.08);
+}
+
+[data-theme="light"] .gold-glow:hover {
+  border-color: rgba(184, 69, 104, 0.4);
+  box-shadow:
+    0 4px 20px rgba(123, 94, 167, 0.12),
+    0 2px 8px rgba(184, 69, 104, 0.08);
 }
 
 /* ============================================
@@ -195,4 +257,95 @@ body::before {
 .scroll-reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ============================================
+   Card Back Design (CSS-generated)
+   ============================================ */
+
+.card-back-design {
+  background: var(--color-sol-smoke);
+  border: 1px solid var(--color-sol-gold-dark);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-back-design::before {
+  content: '✦';
+  font-size: 48px;
+  color: var(--color-sol-gold);
+  opacity: 0.6;
+}
+
+.card-back-design::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--color-sol-gold-dark);
+  border-radius: 4px;
+  opacity: 0.4;
+}
+
+/* Light mode: white cards with violet shadow */
+[data-theme="light"] .card-back-design {
+  box-shadow: 0 4px 24px rgba(123, 94, 167, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   Card Hover Glow
+   ============================================ */
+
+.card-hover-glow {
+  transition: all 0.3s ease;
+}
+
+.card-hover-glow:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 0 20px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.3),
+    0 0 40px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.15),
+    0 20px 40px rgba(0, 0, 0, var(--shadow-alpha));
+}
+
+/* ============================================
+   Deck Scroll (horizontal card selection)
+   ============================================ */
+
+.deck-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 40px 20px;
+  scrollbar-width: none;
+}
+
+.deck-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.deck-scroll .card-slot {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

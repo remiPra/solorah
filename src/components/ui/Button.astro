@@ -11,7 +11,7 @@ const { href, variant = 'primary', size = 'md', class: className = '' } = Astro.
 const baseClasses = 'inline-flex items-center justify-center font-ui tracking-wider uppercase transition-all duration-300 rounded-sm';
 
 const variants = {
-  primary: 'bg-sol-gold text-sol-deep hover:bg-sol-gold-light hover:shadow-[0_0_30px_rgba(212,168,83,0.3)] font-semibold',
+  primary: 'bg-sol-gold text-sol-deep hover:bg-sol-gold-light hover:shadow-[0_0_30px_rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3)] font-semibold',
   secondary: 'border border-sol-gold/50 text-sol-gold hover:bg-sol-gold/10 hover:border-sol-gold',
   ghost: 'text-sol-ash hover:text-sol-gold',
 };

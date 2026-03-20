@@ -25,6 +25,15 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://solorah.com');
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL.href} />
 
+    <!-- Theme: apply before paint to prevent FOUC -->
+    <script is:inline>
+      (function() {
+        var stored = localStorage.getItem('solorah-theme');
+        var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
