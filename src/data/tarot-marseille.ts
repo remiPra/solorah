@@ -4,7 +4,7 @@ const cards: TarotCard[] = [
   {
     id: 0,
     slug: 'le-mat',
-    image: '/images/cards/tarot/00-le-mat.jpeg',
+    image: '/images/cards/tarot/arcane____0_Le_Mat.png',
     name: { fr: 'Le Mat', en: 'The Fool', zh: '愚者', es: 'El Loco' },
     message: {
       upright: {
@@ -24,7 +24,7 @@ const cards: TarotCard[] = [
   {
     id: 1,
     slug: 'le-bateleur',
-    image: '/images/cards/tarot/01-le-bateleur.jpeg',
+    image: '/images/cards/tarot/arcane____I_Le_Bateleur.jpeg',
     name: { fr: 'Le Bateleur', en: 'The Magician', zh: '魔术师', es: 'El Mago' },
     message: {
       upright: {
@@ -44,7 +44,7 @@ const cards: TarotCard[] = [
   {
     id: 2,
     slug: 'la-papesse',
-    image: '/images/cards/tarot/02-la-papesse.jpeg',
+    image: '/images/cards/tarot/arcane___II_La_Papesse.png',
     name: { fr: 'La Papesse', en: 'The High Priestess', zh: '女祭司', es: 'La Papisa' },
     message: {
       upright: {
@@ -64,7 +64,7 @@ const cards: TarotCard[] = [
   {
     id: 3,
     slug: 'l-imperatrice',
-    image: '/images/cards/tarot/03-l-imperatrice.jpeg',
+    image: '/images/cards/tarot/arcane__III_L_Imperatrice.jpeg',
     name: { fr: "L'Impératrice", en: 'The Empress', zh: '女皇', es: 'La Emperatriz' },
     message: {
       upright: {
@@ -84,7 +84,7 @@ const cards: TarotCard[] = [
   {
     id: 4,
     slug: 'l-empereur',
-    image: '/images/cards/tarot/04-l-empereur.jpeg',
+    image: '/images/cards/tarot/arcane_IIII_L_Empereur.png',
     name: { fr: "L'Empereur", en: 'The Emperor', zh: '皇帝', es: 'El Emperador' },
     message: {
       upright: {
@@ -104,7 +104,7 @@ const cards: TarotCard[] = [
   {
     id: 5,
     slug: 'le-pape',
-    image: '/images/cards/tarot/05-le-pape.jpeg',
+    image: '/images/cards/tarot/arcane____V_Le_Pape.png',
     name: { fr: 'Le Pape', en: 'The Hierophant', zh: '教皇', es: 'El Papa' },
     message: {
       upright: {
@@ -124,7 +124,7 @@ const cards: TarotCard[] = [
   {
     id: 6,
     slug: 'l-amoureux',
-    image: '/images/cards/tarot/06-l-amoureux.jpeg',
+    image: '/images/cards/tarot/arcane___VI_L_Amoureux.png',
     name: { fr: "L'Amoureux", en: 'The Lovers', zh: '恋人', es: 'Los Enamorados' },
     message: {
       upright: {
@@ -144,7 +144,7 @@ const cards: TarotCard[] = [
   {
     id: 7,
     slug: 'le-chariot',
-    image: '/images/cards/tarot/07-le-chariot.jpeg',
+    image: '/images/cards/tarot/arcane__VII_Le_Chariot.jpeg',
     name: { fr: 'Le Chariot', en: 'The Chariot', zh: '战车', es: 'El Carro' },
     message: {
       upright: {
@@ -164,7 +164,7 @@ const cards: TarotCard[] = [
   {
     id: 8,
     slug: 'la-justice',
-    image: '/images/cards/tarot/08-la-justice.jpeg',
+    image: '/images/cards/tarot/arcane_VIII_La_Justice.png',
     name: { fr: 'La Justice', en: 'Justice', zh: '正义', es: 'La Justicia' },
     message: {
       upright: {
@@ -184,7 +184,7 @@ const cards: TarotCard[] = [
   {
     id: 9,
     slug: 'l-hermite',
-    image: '/images/cards/tarot/09-l-hermite.jpeg',
+    image: '/images/cards/tarot/arcane_VIIII_L_Hermite.jpeg',
     name: { fr: "L'Hermite", en: 'The Hermit', zh: '隐士', es: 'El Ermitaño' },
     message: {
       upright: {
@@ -204,7 +204,7 @@ const cards: TarotCard[] = [
   {
     id: 10,
     slug: 'la-roue-de-fortune',
-    image: '/images/cards/tarot/10-la-roue-de-fortune.jpeg',
+    image: '/images/cards/tarot/arcane____X_La_Roue_de_Fortune.jpeg',
     name: { fr: 'La Roue de Fortune', en: 'Wheel of Fortune', zh: '命运之轮', es: 'La Rueda de la Fortuna' },
     message: {
       upright: {
@@ -224,7 +224,7 @@ const cards: TarotCard[] = [
   {
     id: 11,
     slug: 'la-force',
-    image: '/images/cards/tarot/11-la-force.jpeg',
+    image: '/images/cards/tarot/arcane___XI_La_Force.jpeg',
     name: { fr: 'La Force', en: 'Strength', zh: '力量', es: 'La Fuerza' },
     message: {
       upright: {
@@ -244,7 +244,7 @@ const cards: TarotCard[] = [
   {
     id: 12,
     slug: 'le-pendu',
-    image: '/images/cards/tarot/12-le-pendu.jpeg',
+    image: '/images/cards/tarot/arcane__XII_Le_Pendu.jpeg',
     name: { fr: 'Le Pendu', en: 'The Hanged Man', zh: '倒吊人', es: 'El Colgado' },
     message: {
       upright: {
@@ -264,7 +264,7 @@ const cards: TarotCard[] = [
   {
     id: 13,
     slug: 'l-arcane-sans-nom',
-    image: '/images/cards/tarot/13-l-arcane-sans-nom.jpeg',
+    image: '/images/cards/tarot/arcane_XIII_L_Arcane_Sans_Nom.jpeg',
     name: { fr: "L'Arcane Sans Nom", en: 'The Nameless Arcana', zh: '无名牌', es: 'El Arcano Sin Nombre' },
     message: {
       upright: {
@@ -284,7 +284,7 @@ const cards: TarotCard[] = [
   {
     id: 14,
     slug: 'temperance',
-    image: '/images/cards/tarot/14-temperance.jpeg',
+    image: '/images/cards/tarot/arcane_XIIII_Temperance.png',
     name: { fr: 'Tempérance', en: 'Temperance', zh: '节制', es: 'La Templanza' },
     message: {
       upright: {
@@ -304,7 +304,7 @@ const cards: TarotCard[] = [
   {
     id: 15,
     slug: 'le-diable',
-    image: '/images/cards/tarot/15-le-diable.jpeg',
+    image: '/images/cards/tarot/arcane___XV_Le_Diable.jpeg',
     name: { fr: 'Le Diable', en: 'The Devil', zh: '恶魔', es: 'El Diablo' },
     message: {
       upright: {
@@ -324,7 +324,7 @@ const cards: TarotCard[] = [
   {
     id: 16,
     slug: 'la-maison-dieu',
-    image: '/images/cards/tarot/16-la-maison-dieu.jpeg',
+    image: '/images/cards/tarot/arcane__XVI_La_Maison_Dieu.jpeg',
     name: { fr: 'La Maison Dieu', en: 'The Tower', zh: '塔', es: 'La Torre' },
     message: {
       upright: {
@@ -344,7 +344,7 @@ const cards: TarotCard[] = [
   {
     id: 17,
     slug: 'l-etoile',
-    image: '/images/cards/tarot/17-l-etoile.jpeg',
+    image: '/images/cards/tarot/arcane_XVII_L_Etoile.jpeg',
     name: { fr: "L'Étoile", en: 'The Star', zh: '星星', es: 'La Estrella' },
     message: {
       upright: {
@@ -364,7 +364,7 @@ const cards: TarotCard[] = [
   {
     id: 18,
     slug: 'la-lune',
-    image: '/images/cards/tarot/18-la-lune.jpeg',
+    image: '/images/cards/tarot/arcane_XVIII_La_Lune.png',
     name: { fr: 'La Lune', en: 'The Moon', zh: '月亮', es: 'La Luna' },
     message: {
       upright: {
@@ -384,7 +384,7 @@ const cards: TarotCard[] = [
   {
     id: 19,
     slug: 'le-soleil',
-    image: '/images/cards/tarot/19-le-soleil.jpeg',
+    image: '/images/cards/tarot/arcane_XVIIII_Le_Soleil.jpeg',
     name: { fr: 'Le Soleil', en: 'The Sun', zh: '太阳', es: 'El Sol' },
     message: {
       upright: {
@@ -404,7 +404,7 @@ const cards: TarotCard[] = [
   {
     id: 20,
     slug: 'le-jugement',
-    image: '/images/cards/tarot/20-le-jugement.jpeg',
+    image: '/images/cards/tarot/arcane___XX_Le_Jugement.jpeg',
     name: { fr: 'Le Jugement', en: 'Judgement', zh: '审判', es: 'El Juicio' },
     message: {
       upright: {
@@ -424,7 +424,7 @@ const cards: TarotCard[] = [
   {
     id: 21,
     slug: 'le-monde',
-    image: '/images/cards/tarot/21-le-monde.jpeg',
+    image: '/images/cards/tarot/arcane__XXI_Le_Monde.jpeg',
     name: { fr: 'Le Monde', en: 'The World', zh: '世界', es: 'El Mundo' },
     message: {
       upright: {
