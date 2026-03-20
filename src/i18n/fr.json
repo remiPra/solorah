@@ -26,13 +26,17 @@
       "name": "Tarot de Marseille Remastered",
       "description": "Le tarot ancestral revisité avec une esthétique contemporaine. 78 arcanes pour explorer tous les domaines de ta vie."
     },
+    "oracleShiva": {
+      "name": "Oracle de Shiva",
+      "description": "Un oracle inspiré de la sagesse de Shiva. 20 cartes pour éclairer tes décisions et trouver ta voie."
+    },
     "cta": "Tirer les cartes"
   },
   "howItWorks": {
     "sectionTitle": "Comment ça marche",
     "step1": {
       "title": "Choisis ton deck",
-      "description": "Oracle de l'Amour ou Tarot de Marseille — chaque deck a son énergie unique."
+      "description": "Oracle de l'Amour, Tarot de Marseille ou Oracle de Shiva — chaque deck a son énergie unique."
     },
     "step2": {
       "title": "Tire tes cartes",
@@ -83,6 +87,10 @@
     "tarotMarseille": {
       "title": "Tarot de Marseille",
       "metaDescription": "Tirez les cartes du Tarot de Marseille Remastered gratuitement. 78 arcanes pour explorer votre chemin de vie."
+    },
+    "oracleShiva": {
+      "title": "Oracle de Shiva",
+      "metaDescription": "Tirez une carte de l'Oracle de Shiva gratuitement. 20 cartes de sagesse pour éclairer vos décisions."
     }
   },
   "home": {

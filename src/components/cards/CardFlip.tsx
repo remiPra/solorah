@@ -12,6 +12,9 @@ export default function CardFlip({ card, onFlipComplete }: CardFlipProps) {
   const [showFlash, setShowFlash] = useState(false);
 
   useEffect(() => {
+    // Duck ambient audio during flip
+    window.dispatchEvent(new CustomEvent('solorah:audio-duck'));
+
     const flipTimer = setTimeout(() => {
       setIsFlipped(true);
     }, 600);
@@ -25,6 +28,8 @@ export default function CardFlip({ card, onFlipComplete }: CardFlipProps) {
     }, 1400);
 
     const completeTimer = setTimeout(() => {
+      // Restore ambient audio
+      window.dispatchEvent(new CustomEvent('solorah:audio-unduck'));
       onFlipComplete();
     }, 2000);
 

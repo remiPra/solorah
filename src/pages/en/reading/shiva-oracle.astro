@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ShivaReading from '../../../components/cards/ShivaReading';
+import { oracleShivaDeck } from '../../../data/oracle-shiva';
+---
+
+<BaseLayout
+  title="Shiva Oracle — Spiritual Guidance"
+  description="Draw a card from the Shiva Oracle and receive a message of wisdom to illuminate your decisions and find your path."
+  lang="en"
+>
+  <ShivaReading client:only="react" lang="en" deck={oracleShivaDeck.cards} />
+</BaseLayout>

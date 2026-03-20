@@ -19,6 +19,8 @@
   --color-sol-purple-light: #a78fd4;
   --color-sol-purple-dark: #4a2d73;
   --color-sol-celestial: #1e3a5f;
+  --color-sol-indigo: #6366f1;
+  --color-sol-indigo-dark: #4338ca;
   --color-sol-ash: #d0c9bd;
   --color-sol-cream: #f5f0e8;
   --color-sol-white: #fdfcfa;
@@ -117,6 +119,8 @@
   --color-sol-purple-dark: #3d2266;
   --color-sol-purple-light: #9478c0;
   --color-sol-celestial: #5a7eb8;
+  --color-sol-indigo: #7c6fdb;
+  --color-sol-indigo-dark: #5b4fb8;
 
   /* Gradients */
   --gradient-gold: linear-gradient(135deg, #c44d6a, #d4a853);

@@ -1,0 +1,252 @@
+---
+// Ambient audio player — persists across View Transition navigations
+// Click cycles: low → medium → high → mute → low …
+---
+
+<div id="ambient-player" transition:persist="ambient-player">
+  <audio id="solorah-ambient" src="/audio/Solorah.wav" loop preload="none"></audio>
+
+  <button
+    id="ambient-toggle"
+    type="button"
+    aria-label="Volume"
+    class="ambient-btn"
+  >
+    <!-- Muted (x) -->
+    <svg id="vol-mute" class="ambient-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+      <line x1="23" y1="9" x2="17" y2="15" />
+      <line x1="17" y1="9" x2="23" y2="15" />
+    </svg>
+    <!-- Low (speaker only) -->
+    <svg id="vol-low" class="ambient-icon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+    </svg>
+    <!-- Medium (1 wave) -->
+    <svg id="vol-med" class="ambient-icon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+      <path d="M15.54 8.46a5 5 0 010 7.07" />
+    </svg>
+    <!-- High (2 waves) -->
+    <svg id="vol-high" class="ambient-icon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+      <path d="M19.07 4.93a10 10 0 010 14.14" />
+      <path d="M15.54 8.46a5 5 0 010 7.07" />
+    </svg>
+  </button>
+</div>
+
+<style>
+  .ambient-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9990;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid var(--color-sol-gold-dark);
+    background: rgba(42, 42, 42, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+
+  [data-theme="light"] .ambient-btn {
+    background: rgba(240, 235, 227, 0.85);
+    border-color: rgba(184, 69, 104, 0.3);
+  }
+
+  .ambient-btn:hover {
+    border-color: var(--color-sol-gold);
+  }
+
+  [data-theme="light"] .ambient-btn:hover {
+    border-color: var(--color-sol-gold);
+  }
+
+  .ambient-btn.playing {
+    border-color: var(--color-sol-gold);
+    animation: ambient-pulse 3s ease-in-out infinite;
+  }
+
+  [data-theme="light"] .ambient-btn.playing {
+    animation: ambient-pulse-light 3s ease-in-out infinite;
+  }
+
+  @keyframes ambient-pulse {
+    0%, 100% { box-shadow: 0 0 8px rgba(212, 168, 83, 0.15); }
+    50% { box-shadow: 0 0 18px rgba(212, 168, 83, 0.35); }
+  }
+
+  @keyframes ambient-pulse-light {
+    0%, 100% { box-shadow: 0 0 8px rgba(184, 69, 104, 0.1); }
+    50% { box-shadow: 0 0 18px rgba(184, 69, 104, 0.25); }
+  }
+
+  .ambient-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-sol-gold);
+    transition: color 0.3s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ambient-btn.playing {
+      animation: none;
+      box-shadow: 0 0 12px rgba(212, 168, 83, 0.25);
+    }
+  }
+</style>
+
+<script is:inline>
+(function() {
+  // Guard: only initialize once (persists across View Transitions)
+  if (window.__solarahAudio) return;
+
+  // Volume levels: low → medium → high → mute (cycles)
+  var LEVELS = [
+    { name: 'low',  vol: 0.06 },
+    { name: 'med',  vol: 0.13 },
+    { name: 'high', vol: 0.25 },
+    { name: 'mute', vol: 0    }
+  ];
+  var DUCK_RATIO = 0.3;        // duck to 30% of current volume
+  var FADE_DURATION = 600;
+  var STORAGE_KEY = 'solorah-vol';
+
+  var audio = document.getElementById('solorah-ambient');
+  var btn   = document.getElementById('ambient-toggle');
+  var icons = {
+    mute: document.getElementById('vol-mute'),
+    low:  document.getElementById('vol-low'),
+    med:  document.getElementById('vol-med'),
+    high: document.getElementById('vol-high')
+  };
+
+  if (!audio || !btn) return;
+
+  // Restore saved level index, default to 1 (medium)
+  var savedIdx = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+  var levelIdx = (savedIdx >= 0 && savedIdx < LEVELS.length) ? savedIdx : 1;
+
+  var state = {
+    isPlaying: false,
+    levelIdx: levelIdx,
+    fadeInterval: null,
+    ducked: false
+  };
+  window.__solarahAudio = state;
+
+  function currentLevel() {
+    return LEVELS[state.levelIdx];
+  }
+
+  function setIcon(name) {
+    for (var k in icons) {
+      if (icons[k]) icons[k].style.display = (k === name) ? 'block' : 'none';
+    }
+    if (name === 'mute') {
+      btn.classList.remove('playing');
+    } else {
+      btn.classList.add('playing');
+    }
+  }
+
+  function fadeVolume(from, to, duration, cb) {
+    if (state.fadeInterval) clearInterval(state.fadeInterval);
+    var steps = 20;
+    var stepTime = duration / steps;
+    var stepSize = (to - from) / steps;
+    var current = from;
+    var step = 0;
+    state.fadeInterval = setInterval(function() {
+      step++;
+      current += stepSize;
+      if (step >= steps) {
+        audio.volume = Math.max(0, Math.min(1, to));
+        clearInterval(state.fadeInterval);
+        state.fadeInterval = null;
+        if (cb) cb();
+      } else {
+        audio.volume = Math.max(0, Math.min(1, current));
+      }
+    }, stepTime);
+  }
+
+  function applyLevel(animate) {
+    var lvl = currentLevel();
+    setIcon(lvl.name);
+    localStorage.setItem(STORAGE_KEY, String(state.levelIdx));
+
+    if (lvl.vol === 0) {
+      // Mute: fade out then pause
+      if (state.isPlaying) {
+        fadeVolume(audio.volume, 0, animate ? 300 : 0, function() {
+          audio.pause();
+          state.isPlaying = false;
+        });
+      }
+    } else {
+      // Audible level
+      var targetVol = state.ducked ? lvl.vol * DUCK_RATIO : lvl.vol;
+      if (!state.isPlaying) {
+        audio.volume = 0;
+        var p = audio.play();
+        if (p && p.then) {
+          p.then(function() {
+            state.isPlaying = true;
+            fadeVolume(0, targetVol, animate ? 400 : 0);
+          }).catch(function() {});
+        }
+      } else {
+        fadeVolume(audio.volume, targetVol, animate ? 300 : 0);
+      }
+    }
+  }
+
+  // Click: cycle to next level
+  btn.addEventListener('click', function() {
+    state.levelIdx = (state.levelIdx + 1) % LEVELS.length;
+    applyLevel(true);
+  });
+
+  // Auto-start on first user interaction (sound ON by default)
+  var resumed = false;
+  function tryAutoStart() {
+    if (resumed || state.isPlaying) return;
+    resumed = true;
+    // If saved at mute, start at medium instead
+    if (currentLevel().vol === 0) {
+      state.levelIdx = 1;
+    }
+    applyLevel(true);
+    document.removeEventListener('click', tryAutoStart);
+    document.removeEventListener('scroll', tryAutoStart);
+    document.removeEventListener('touchstart', tryAutoStart);
+    document.removeEventListener('keydown', tryAutoStart);
+  }
+  document.addEventListener('click', tryAutoStart, { passive: true });
+  document.addEventListener('scroll', tryAutoStart, { passive: true });
+  document.addEventListener('touchstart', tryAutoStart, { passive: true });
+  document.addEventListener('keydown', tryAutoStart, { passive: true });
+
+  // Volume ducking for card flip animations
+  window.addEventListener('solorah:audio-duck', function() {
+    if (!state.isPlaying) return;
+    state.ducked = true;
+    var target = currentLevel().vol * DUCK_RATIO;
+    fadeVolume(audio.volume, target, FADE_DURATION);
+  });
+
+  window.addEventListener('solorah:audio-unduck', function() {
+    if (!state.isPlaying) return;
+    state.ducked = false;
+    fadeVolume(audio.volume, currentLevel().vol, FADE_DURATION);
+  });
+})();
+</script>

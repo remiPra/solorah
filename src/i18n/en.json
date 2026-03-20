@@ -26,13 +26,17 @@
       "name": "Tarot de Marseille Remastered",
       "description": "The ancestral tarot reimagined with a contemporary aesthetic. 78 arcana to explore all areas of your life."
     },
+    "oracleShiva": {
+      "name": "Shiva Oracle",
+      "description": "An oracle inspired by Shiva's wisdom. 20 cards to illuminate your decisions and find your path."
+    },
     "cta": "Draw cards"
   },
   "howItWorks": {
     "sectionTitle": "How it works",
     "step1": {
       "title": "Choose your deck",
-      "description": "Love Oracle or Tarot de Marseille — each deck has its unique energy."
+      "description": "Love Oracle, Tarot de Marseille or Shiva Oracle — each deck has its unique energy."
     },
     "step2": {
       "title": "Draw your cards",
@@ -83,6 +87,10 @@
     "tarotMarseille": {
       "title": "Tarot de Marseille",
       "metaDescription": "Draw cards from the Tarot de Marseille Remastered for free. 78 arcana to explore your life path."
+    },
+    "oracleShiva": {
+      "title": "Shiva Oracle",
+      "metaDescription": "Draw a card from the Shiva Oracle for free. 20 cards of wisdom to illuminate your decisions."
     }
   },
   "home": {

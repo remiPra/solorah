@@ -62,6 +62,7 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/tirage': { fr: '/tirage', en: '/reading' },
   '/tirage/oracle-amour': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle' },
   '/tirage/tarot-marseille': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot' },
+  '/tirage/oracle-shiva': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle' },
   '/a-propos': { fr: '/a-propos', en: '/about' },
   '/consultation': { fr: '/consultation', en: '/consultation' },
   '/contact': { fr: '/contact', en: '/contact' },
@@ -69,6 +70,7 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/reading': { fr: '/tirage', en: '/reading' },
   '/reading/love-oracle': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle' },
   '/reading/marseille-tarot': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot' },
+  '/reading/shiva-oracle': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle' },
   '/about': { fr: '/a-propos', en: '/about' },
   '/legal': { fr: '/mentions-legales', en: '/legal' },
 };

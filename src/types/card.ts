@@ -30,3 +30,30 @@ export interface Reading {
   date: string;
   question?: string;
 }
+
+// Tarot de Marseille types
+export interface TarotCard {
+  id: number;
+  slug: string;
+  image: string;
+  name: { fr: string; en: string };
+  message: {
+    upright: { fr: string; en: string };
+    reversed: { fr: string; en: string };
+  };
+}
+
+export interface SelectedTarotCard {
+  card: TarotCard;
+  reversed: boolean;
+  position: 'past' | 'present' | 'future';
+}
+
+export interface TarotDeck {
+  id: string;
+  name: { fr: string; en: string };
+  description: { fr: string; en: string };
+  cards: TarotCard[];
+}
+
+export type TarotPhase = 'intro' | 'select' | 'reveal';

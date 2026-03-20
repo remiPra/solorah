@@ -30,6 +30,15 @@ const decks = [
     accent: 'sol-purple',
     icon: '✦',
   },
+  {
+    id: 'oracle-shiva',
+    name: t('decks.oracleShiva.name'),
+    description: t('decks.oracleShiva.description'),
+    href: lang === 'fr' ? '/fr/tirage/oracle-shiva' : '/en/reading/shiva-oracle',
+    gradient: 'from-sol-indigo-dark/20 via-sol-indigo/10 to-sol-gold/10',
+    accent: 'sol-indigo',
+    icon: 'ॐ',
+  },
 ];
 ---
 
@@ -44,7 +53,7 @@ const decks = [
     </div>
 
     <!-- Deck Cards -->
-    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
       {decks.map((deck) => (
         <div class="scroll-reveal">
           <a href={deck.href} class="group block">

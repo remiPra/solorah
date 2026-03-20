@@ -21,6 +21,13 @@ const decks = [
     icon: '✦',
     gradient: 'from-sol-purple-dark/20 via-sol-celestial/10 to-transparent',
   },
+  {
+    name: t('decks.oracleShiva.name'),
+    description: t('decks.oracleShiva.description'),
+    href: '/en/reading/shiva-oracle',
+    icon: 'ॐ',
+    gradient: 'from-sol-indigo-dark/20 via-sol-indigo/10 to-transparent',
+  },
 ];
 ---
 
@@ -41,7 +48,7 @@ const decks = [
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 gap-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {decks.map((deck) => (
           <a href={deck.href} class="group block">
             <div class={`relative rounded-lg overflow-hidden bg-gradient-to-br ${deck.gradient} border border-sol-gold/10 p-8 text-center transition-all duration-500 hover:border-sol-gold/30 hover:shadow-[0_0_40px_rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1)]`}>

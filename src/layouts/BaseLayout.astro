@@ -1,7 +1,9 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import AmbientPlayer from '../components/ui/AmbientPlayer.astro';
 import type { Lang } from '../i18n/utils';
 
 interface Props {
@@ -24,6 +26,9 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://solorah.com');
     <title>{title} | Solorah</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL.href} />
+
+    <!-- SPA-like navigation: keeps audio playing across pages -->
+    <ClientRouter />
 
     <!-- Theme: apply before paint to prevent FOUC -->
     <script is:inline>
@@ -75,24 +80,30 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://solorah.com');
       <slot />
     </main>
     <Footer lang={lang} />
+    <AmbientPlayer />
 
-    <!-- Scroll Reveal Observer -->
+    <!-- Scroll Reveal Observer — re-run after each navigation -->
     <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-      );
+      function initScrollReveal() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        );
 
-      document.querySelectorAll('.scroll-reveal').forEach((el) => {
-        observer.observe(el);
-      });
+        document.querySelectorAll('.scroll-reveal:not(.visible)').forEach((el) => {
+          observer.observe(el);
+        });
+      }
+
+      // Run on initial load + after each View Transition navigation
+      document.addEventListener('astro:page-load', initScrollReveal);
     </script>
   </body>
 </html>
