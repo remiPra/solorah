@@ -4,7 +4,7 @@
 ---
 
 <div id="ambient-player" transition:persist="ambient-player">
-  <audio id="solorah-ambient" src="/audio/Solorah.wav" loop preload="none"></audio>
+  <audio id="solorah-ambient" src="/audio/Solorah.wav" loop preload="auto"></audio>
 
   <button
     id="ambient-toggle"
@@ -215,7 +215,7 @@
     applyLevel(true);
   });
 
-  // Auto-start on first user interaction (sound ON by default)
+  // Auto-start: try immediately, fall back to first interaction
   var resumed = false;
   function tryAutoStart() {
     if (resumed || state.isPlaying) return;
@@ -230,10 +230,31 @@
     document.removeEventListener('touchstart', tryAutoStart);
     document.removeEventListener('keydown', tryAutoStart);
   }
-  document.addEventListener('click', tryAutoStart, { passive: true });
-  document.addEventListener('scroll', tryAutoStart, { passive: true });
-  document.addEventListener('touchstart', tryAutoStart, { passive: true });
-  document.addEventListener('keydown', tryAutoStart, { passive: true });
+
+  // Try to play immediately (works if browser allows autoplay)
+  if (currentLevel().vol === 0) state.levelIdx = 1;
+  audio.volume = currentLevel().vol;
+  var autoP = audio.play();
+  if (autoP && autoP.then) {
+    autoP.then(function() {
+      resumed = true;
+      state.isPlaying = true;
+      setIcon(currentLevel().name);
+    }).catch(function() {
+      // Browser blocked autoplay — wait for first interaction
+      audio.pause();
+      document.addEventListener('click', tryAutoStart, { passive: true });
+      document.addEventListener('scroll', tryAutoStart, { passive: true });
+      document.addEventListener('touchstart', tryAutoStart, { passive: true });
+      document.addEventListener('keydown', tryAutoStart, { passive: true });
+    });
+  } else {
+    // Fallback for old browsers
+    document.addEventListener('click', tryAutoStart, { passive: true });
+    document.addEventListener('scroll', tryAutoStart, { passive: true });
+    document.addEventListener('touchstart', tryAutoStart, { passive: true });
+    document.addEventListener('keydown', tryAutoStart, { passive: true });
+  }
 
   // Volume ducking for card flip animations
   window.addEventListener('solorah:audio-duck', function() {

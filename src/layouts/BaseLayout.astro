@@ -39,7 +39,7 @@ const esPath = getTranslatedPath(currentPath, 'es');
     <script is:inline>
       (function() {
         var stored = localStorage.getItem('solorah-theme');
-        var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var theme = stored || 'light';
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
