@@ -42,6 +42,12 @@ const esPath = getTranslatedPath(currentPath, 'es');
         var theme = stored || 'light';
         document.documentElement.setAttribute('data-theme', theme);
       })();
+      // Re-apply theme after View Transition swaps the DOM
+      document.addEventListener('astro:after-swap', function() {
+        var stored = localStorage.getItem('solorah-theme');
+        var theme = stored || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      });
     </script>
 
     <!-- Favicon -->
