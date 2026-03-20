@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.contact.title')}
+  description={t('pages.contact.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12">
+        <GoldDivider class="max-w-xs mx-auto mb-8" />
+        <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4">
+          {t('pages.contact.title')}
+        </h1>
+        <p class="font-body text-lg text-sol-cream/80 italic">
+          Have a question? We're here to listen.
+        </p>
+      </div>
+
+      <form class="space-y-6">
+        <div>
+          <label for="name" class="block font-ui text-sm text-sol-ash mb-2 uppercase tracking-wider">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full bg-sol-charcoal border border-sol-gold/20 rounded-sm px-4 py-3 font-body text-sol-cream placeholder-sol-ash/40 focus:border-sol-gold/50 focus:outline-none focus:ring-1 focus:ring-sol-gold/30 transition-colors"
+            placeholder="Your name"
+          />
+        </div>
+        <div>
+          <label for="email" class="block font-ui text-sm text-sol-ash mb-2 uppercase tracking-wider">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full bg-sol-charcoal border border-sol-gold/20 rounded-sm px-4 py-3 font-body text-sol-cream placeholder-sol-ash/40 focus:border-sol-gold/50 focus:outline-none focus:ring-1 focus:ring-sol-gold/30 transition-colors"
+            placeholder="your@email.com"
+          />
+        </div>
+        <div>
+          <label for="message" class="block font-ui text-sm text-sol-ash mb-2 uppercase tracking-wider">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            class="w-full bg-sol-charcoal border border-sol-gold/20 rounded-sm px-4 py-3 font-body text-sol-cream placeholder-sol-ash/40 focus:border-sol-gold/50 focus:outline-none focus:ring-1 focus:ring-sol-gold/30 transition-colors resize-none"
+            placeholder="Your message..."
+          ></textarea>
+        </div>
+        <div class="text-center pt-4">
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center font-ui tracking-wider uppercase bg-sol-gold text-sol-deep hover:bg-sol-gold-light hover:shadow-[0_0_30px_rgba(212,168,83,0.3)] font-semibold px-8 py-4 text-sm rounded-sm transition-all duration-300"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

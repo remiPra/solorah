@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+/* ============================================
+   SOLORAH — Design System (Tailwind v4 @theme)
+   ============================================ */
+
+@theme {
+  /* Colors */
+  --color-sol-gold: #d4a853;
+  --color-sol-gold-light: #f0d48a;
+  --color-sol-gold-dark: #8b6914;
+  --color-sol-deep: #0a0a0a;
+  --color-sol-charcoal: #1a1a1a;
+  --color-sol-smoke: #2a2a2a;
+  --color-sol-rose: #e8718a;
+  --color-sol-rose-light: #f4a0b3;
+  --color-sol-rose-dark: #c44d6a;
+  --color-sol-purple: #7b5ea7;
+  --color-sol-purple-light: #a78fd4;
+  --color-sol-purple-dark: #4a2d73;
+  --color-sol-celestial: #1e3a5f;
+  --color-sol-ash: #b0a89a;
+  --color-sol-cream: #e8e0d4;
+  --color-sol-white: #faf8f5;
+
+  /* Fonts */
+  --font-display: "Cinzel Decorative", serif;
+  --font-body: "Cormorant Garamond", serif;
+  --font-ui: "Inter", sans-serif;
+
+  /* Animations */
+  --animate-float-up: float-up 8s linear infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-reveal: reveal 1s ease-out forwards;
+  --animate-card-flip: card-flip 0.8s ease-in-out;
+  --animate-shimmer: shimmer 3s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-slide-up: slide-up 0.8s ease-out forwards;
+}
+
+/* Keyframes */
+@keyframes float-up {
+  0% { opacity: 0; transform: translateY(0) scale(0); }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.2; }
+  100% { opacity: 0; transform: translateY(-100vh) scale(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes card-flip {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   CSS Variables (gradients & effects)
+   ============================================ */
+
+:root {
+  --gradient-gold: linear-gradient(135deg, #8b6914, #d4a853, #f0d48a);
+  --gradient-mystic: linear-gradient(135deg, #4a2d73, #1e3a5f);
+  --gradient-love: linear-gradient(135deg, #c44d6a, #e8718a, #d4a853);
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-sol-deep);
+  color: var(--color-sol-cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Grain Overlay (SVG noise texture)
+   ============================================ */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ============================================
+   Selection
+   ============================================ */
+
+::selection {
+  background-color: rgba(212, 168, 83, 0.3);
+  color: var(--color-sol-white);
+}
+
+/* ============================================
+   Scrollbar (WebKit)
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sol-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sol-gold-dark);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sol-gold);
+}
+
+/* ============================================
+   Typography Utilities
+   ============================================ */
+
+.text-gradient-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-love {
+  background: var(--gradient-love);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   Gold Border Glow Effect
+   ============================================ */
+
+.gold-glow {
+  border: 1px solid rgba(212, 168, 83, 0.3);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gold-glow:hover {
+  border-color: rgba(212, 168, 83, 0.6);
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.15), 0 0 40px rgba(212, 168, 83, 0.05);
+}
+
+/* ============================================
+   Scroll Reveal (used with IntersectionObserver)
+   ============================================ */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

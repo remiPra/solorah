@@ -1,17 +1,21 @@
 ---
-
+// Root page — redirects to /fr/ by default
+// Language detection happens client-side to stay SSG-compatible
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solorah — Oracle & Tarot</title>
+    <meta http-equiv="refresh" content="0;url=/fr/" />
+    <link rel="canonical" href="https://solorah.com/fr/" />
+    <script is:inline>
+      // Detect preferred language and redirect
+      const lang = navigator.language || navigator.languages?.[0] || 'fr';
+      const target = lang.startsWith('fr') ? '/fr/' : '/en/';
+      window.location.replace(target);
+    </script>
+  </head>
+  <body></body>
 </html>

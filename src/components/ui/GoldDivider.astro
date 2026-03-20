@@ -1,0 +1,13 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class:list={['relative flex items-center justify-center py-4', className]}>
+  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-sol-gold/30 to-transparent"></div>
+  <div class="mx-4 text-sol-gold/40 text-lg">&#10022;</div>
+  <div class="flex-1 h-px bg-gradient-to-r from-transparent via-sol-gold/30 to-transparent"></div>
+</div>

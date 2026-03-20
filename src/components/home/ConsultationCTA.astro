@@ -1,0 +1,38 @@
+---
+import type { Lang } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/utils';
+import Button from '../ui/Button.astro';
+import GoldDivider from '../ui/GoldDivider.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="relative py-24 px-4">
+  <!-- Background -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-sol-purple-dark/15 rounded-full blur-[120px]"></div>
+  </div>
+
+  <div class="relative max-w-3xl mx-auto text-center">
+    <div class="scroll-reveal">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+
+      <h2 class="font-display text-3xl sm:text-4xl text-sol-gold mb-6">
+        {t('consultation.sectionTitle')}
+      </h2>
+
+      <p class="font-body text-xl text-sol-cream/80 italic mb-10 max-w-xl mx-auto leading-relaxed">
+        {t('consultation.description')}
+      </p>
+
+      <Button href={`/${lang}/consultation`} variant="secondary" size="lg">
+        {t('consultation.cta')}
+      </Button>
+    </div>
+  </div>
+</section>

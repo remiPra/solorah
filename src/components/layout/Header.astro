@@ -1,0 +1,123 @@
+---
+import type { Lang } from '../../i18n/utils';
+import { useTranslations, getTranslatedPath, getAlternateLang, languages } from '../../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const altLang = getAlternateLang(lang);
+const altPath = getTranslatedPath(Astro.url.pathname, altLang);
+
+const navLinks = [
+  { href: `/${lang}`, label: t('nav.home') },
+  { href: lang === 'fr' ? '/fr/tirage' : '/en/reading', label: t('nav.reading') },
+  { href: `/${lang}/consultation`, label: t('nav.consultation') },
+  { href: lang === 'fr' ? '/fr/a-propos' : '/en/about', label: t('nav.about') },
+  { href: `/${lang}/contact`, label: t('nav.contact') },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="site-header">
+  <div class="absolute inset-0 bg-sol-deep/80 backdrop-blur-md border-b border-sol-gold/10"></div>
+  <nav class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href={`/${lang}`} class="font-display text-xl sm:text-2xl text-sol-gold tracking-widest hover:text-sol-gold-light transition-colors">
+      SOLORAH
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="font-ui text-sm text-sol-ash hover:text-sol-gold transition-colors tracking-wide uppercase"
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <!-- Language Switcher -->
+      <a
+        href={altPath}
+        class="font-ui text-sm text-sol-gold/70 hover:text-sol-gold border border-sol-gold/30 hover:border-sol-gold/60 rounded-full px-3 py-1 transition-all"
+        aria-label={`Switch to ${languages[altLang]}`}
+      >
+        {altLang.toUpperCase()}
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-sol-ash hover:text-sol-gold transition-colors p-2"
+      aria-label="Menu"
+      aria-expanded="false"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden relative bg-sol-deep/95 backdrop-blur-md border-b border-sol-gold/10">
+    <div class="px-4 py-4 space-y-3">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="block font-ui text-sm text-sol-ash hover:text-sol-gold transition-colors tracking-wide uppercase py-2"
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="pt-2 border-t border-sol-gold/10">
+        <a
+          href={altPath}
+          class="inline-block font-ui text-sm text-sol-gold/70 hover:text-sol-gold border border-sol-gold/30 hover:border-sol-gold/60 rounded-full px-3 py-1 transition-all"
+        >
+          {languages[altLang]}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-16"></div>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    if (menuIcon) {
+      menuIcon.setAttribute(
+        'd',
+        isOpen ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18L18 6M6 6l12 12'
+      );
+    }
+  });
+
+  // Header background on scroll
+  let lastScroll = 0;
+  const header = document.getElementById('site-header');
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (header) {
+      if (currentScroll > 100) {
+        header.classList.add('shadow-lg');
+      } else {
+        header.classList.remove('shadow-lg');
+      }
+    }
+    lastScroll = currentScroll;
+  }, { passive: true });
+</script>

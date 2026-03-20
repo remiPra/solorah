@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'fr';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.about.title')}
+  description={t('pages.about.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-8">
+        {t('pages.about.title')}
+      </h1>
+      <div class="font-body text-lg text-sol-cream/80 leading-relaxed space-y-6">
+        <p>
+          Solorah est née d'une passion pour les arts divinatoires et d'un désir de rendre l'oracle et le tarot accessibles à tous, partout dans le monde.
+        </p>
+        <p>
+          Notre mission est de créer un espace sacré en ligne où chacun peut se connecter à son intuition et recevoir les messages que les cartes portent pour lui.
+        </p>
+        <p>
+          Que tu cherches des réponses sur ta vie amoureuse avec l'Oracle de l'Amour ou que tu souhaites explorer tous les aspects de ta vie avec le Tarot de Marseille, Solorah est là pour t'accompagner dans cette quête de sens.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

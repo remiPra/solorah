@@ -1,0 +1,32 @@
+---
+interface Props {
+  count?: number;
+  class?: string;
+}
+
+const { count = 30, class: className = '' } = Astro.props;
+const particles = Array.from({ length: count }, (_, i) => ({
+  id: i,
+  left: Math.random() * 100,
+  delay: Math.random() * 8,
+  duration: 6 + Math.random() * 6,
+  size: 1 + Math.random() * 3,
+  opacity: 0.1 + Math.random() * 0.4,
+}));
+---
+
+<div class:list={['absolute inset-0 overflow-hidden pointer-events-none', className]} aria-hidden="true">
+  {particles.map((p) => (
+    <div
+      class="absolute rounded-full bg-sol-gold"
+      style={`
+        left: ${p.left}%;
+        bottom: -10px;
+        width: ${p.size}px;
+        height: ${p.size}px;
+        opacity: 0;
+        animation: float-up ${p.duration}s ${p.delay}s linear infinite;
+      `}
+    />
+  ))}
+</div>

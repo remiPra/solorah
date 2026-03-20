@@ -1,0 +1,89 @@
+---
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+  image?: string;
+}
+
+const { title, description, lang, image } = Astro.props;
+const currentPath = Astro.url.pathname;
+const pathWithoutLang = currentPath.replace(/^\/(fr|en)/, '') || '/';
+const canonicalURL = new URL(Astro.url.pathname, 'https://solorah.com');
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Solorah</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL.href} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content={`${title} | Solorah`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image || 'https://solorah.com/images/og/solorah-default.jpg'} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:site_name" content="Solorah" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Solorah`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image || 'https://solorah.com/images/og/solorah-default.jpg'} />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="fr" href={`https://solorah.com/fr${pathWithoutLang}`} />
+    <link rel="alternate" hreflang="en" href={`https://solorah.com/en${pathWithoutLang}`} />
+    <link rel="alternate" hreflang="x-default" href={`https://solorah.com/en${pathWithoutLang}`} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0a0a0a" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header lang={lang} />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+
+    <!-- Scroll Reveal Observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      document.querySelectorAll('.scroll-reveal').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

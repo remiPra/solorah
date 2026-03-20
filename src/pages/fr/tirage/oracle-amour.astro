@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GoldDivider from '../../../components/ui/GoldDivider.astro';
+import Button from '../../../components/ui/Button.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'fr';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.oracleAmour.title')}
+  description={t('pages.oracleAmour.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4">
+        {t('decks.oracleAmour.name')}
+      </h1>
+      <p class="font-body text-xl text-sol-cream/80 italic mb-12 max-w-xl mx-auto">
+        {t('decks.oracleAmour.description')}
+      </p>
+
+      <!-- Placeholder for interactive card drawing -->
+      <div class="gold-glow rounded-lg bg-sol-charcoal/30 p-12 sm:p-16 mb-8">
+        <div class="text-6xl mb-6 text-sol-rose/40">♡</div>
+        <p class="font-body text-sol-ash text-lg italic mb-8">
+          Le tirage interactif arrive bientôt...<br />
+          Concentre-toi sur ta question et reviens vite.
+        </p>
+
+        <!-- Card placeholders -->
+        <div class="flex justify-center gap-4 sm:gap-6 mb-8">
+          {[1, 2, 3].map((i) => (
+            <div class="w-20 h-32 sm:w-28 sm:h-44 rounded-lg bg-sol-smoke border border-sol-gold/20 flex items-center justify-center">
+              <span class="text-sol-gold/20 text-2xl sm:text-3xl">?</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <Button href="/fr/consultation" variant="secondary">
+        Poser une question personnelle
+      </Button>
+    </div>
+  </section>
+</BaseLayout>

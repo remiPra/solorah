@@ -1,0 +1,92 @@
+{
+  "site": {
+    "name": "Solorah",
+    "tagline": "Listen to what the cards have to tell you"
+  },
+  "nav": {
+    "home": "Home",
+    "reading": "Reading",
+    "consultation": "Consultation",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "SOLORAH",
+    "subtitle": "Listen to what the cards have to tell you",
+    "cta": "Start a reading",
+    "scroll": "Discover"
+  },
+  "decks": {
+    "sectionTitle": "Choose your oracle",
+    "oracleAmour": {
+      "name": "Love Oracle",
+      "description": "An oracle dedicated to matters of the heart. 44 cards to illuminate your love life, relationships, and deepest emotions."
+    },
+    "tarotMarseille": {
+      "name": "Tarot de Marseille Remastered",
+      "description": "The ancestral tarot reimagined with a contemporary aesthetic. 78 arcana to explore all areas of your life."
+    },
+    "cta": "Draw cards"
+  },
+  "howItWorks": {
+    "sectionTitle": "How it works",
+    "step1": {
+      "title": "Choose your deck",
+      "description": "Love Oracle or Tarot de Marseille — each deck has its unique energy."
+    },
+    "step2": {
+      "title": "Draw your cards",
+      "description": "Focus on your question, then let your intuition guide your choice."
+    },
+    "step3": {
+      "title": "Receive your message",
+      "description": "Discover the interpretation of your cards and the message they carry for you."
+    }
+  },
+  "consultation": {
+    "sectionTitle": "Go deeper",
+    "description": "Want a personalized, in-depth interpretation? Ask your question to our oracle.",
+    "cta": "Discover consultations"
+  },
+  "footer": {
+    "legal": "Legal notice",
+    "privacy": "Privacy policy",
+    "terms": "Terms of service",
+    "disclaimer": "Readings are offered for entertainment and personal development purposes. They are not a substitute for medical, legal, or financial advice.",
+    "rights": "All rights reserved."
+  },
+  "pages": {
+    "about": {
+      "title": "About",
+      "metaDescription": "Discover Solorah, your online oracle for tarot and love oracle readings."
+    },
+    "contact": {
+      "title": "Contact",
+      "metaDescription": "Contact the Solorah team for any questions about our card readings and consultations."
+    },
+    "legal": {
+      "title": "Legal notice",
+      "metaDescription": "Legal notice for Solorah.com — online oracle and tarot readings."
+    },
+    "consultation": {
+      "title": "Consultation",
+      "metaDescription": "Get a personalized interpretation of your reading with a Solorah consultation."
+    },
+    "reading": {
+      "title": "Reading",
+      "metaDescription": "Choose your deck and draw your cards for free with Solorah."
+    },
+    "oracleAmour": {
+      "title": "Love Oracle",
+      "metaDescription": "Draw cards from the Love Oracle for free. 44 cards to illuminate your love life."
+    },
+    "tarotMarseille": {
+      "title": "Tarot de Marseille",
+      "metaDescription": "Draw cards from the Tarot de Marseille Remastered for free. 78 arcana to explore your life path."
+    }
+  },
+  "home": {
+    "title": "Online Oracle & Tarot",
+    "metaDescription": "Solorah — Free online tarot and love oracle readings. Listen to what the cards have to tell you."
+  }
+}

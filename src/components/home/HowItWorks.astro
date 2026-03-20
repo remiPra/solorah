@@ -1,0 +1,74 @@
+---
+import type { Lang } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/utils';
+import GoldDivider from '../ui/GoldDivider.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const steps = [
+  {
+    number: '01',
+    title: t('howItWorks.step1.title'),
+    description: t('howItWorks.step1.description'),
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>`,
+  },
+  {
+    number: '02',
+    title: t('howItWorks.step2.title'),
+    description: t('howItWorks.step2.description'),
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>`,
+  },
+  {
+    number: '03',
+    title: t('howItWorks.step3.title'),
+    description: t('howItWorks.step3.description'),
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>`,
+  },
+];
+---
+
+<section class="relative py-24 px-4">
+  <!-- Background accent -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sol-celestial/10 rounded-full blur-[150px]"></div>
+  </div>
+
+  <div class="relative max-w-5xl mx-auto">
+    <!-- Section Title -->
+    <div class="text-center mb-16 scroll-reveal">
+      <GoldDivider class="max-w-xs mx-auto mb-6" />
+      <h2 class="font-display text-3xl sm:text-4xl text-sol-gold">
+        {t('howItWorks.sectionTitle')}
+      </h2>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+      {steps.map((step, index) => (
+        <div class="scroll-reveal text-center" style={`transition-delay: ${index * 150}ms`}>
+          <!-- Number badge -->
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full border border-sol-gold/30 text-sol-gold mb-6">
+            <Fragment set:html={step.icon} />
+          </div>
+
+          <!-- Connector line (hidden on mobile) -->
+          {index < 2 && (
+            <div class="hidden md:block absolute top-24 h-px bg-gradient-to-r from-sol-gold/20 to-sol-gold/20" style={`left: ${33 * (index + 1)}%; width: 33%`}></div>
+          )}
+
+          <h3 class="font-display text-lg text-sol-cream mb-3">
+            {step.title}
+          </h3>
+          <p class="font-body text-sol-ash text-lg leading-relaxed">
+            {step.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

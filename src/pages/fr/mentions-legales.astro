@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'fr';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.legal.title')}
+  description={t('pages.legal.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-12 text-center">
+        {t('pages.legal.title')}
+      </h1>
+
+      <div class="font-body text-lg text-sol-cream/80 leading-relaxed space-y-8">
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Éditeur du site</h2>
+          <p>Solorah<br />Site internet : solorah.com<br />Email : contact@solorah.com</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Hébergement</h2>
+          <p>Ce site est hébergé par Vercel Inc.<br />440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Propriété intellectuelle</h2>
+          <p>L'ensemble des contenus (textes, images, illustrations, cartes) présents sur ce site sont protégés par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Protection des données personnelles</h2>
+          <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Pour exercer ces droits, contactez-nous à : contact@solorah.com</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Avertissement</h2>
+          <p class="italic text-sol-ash">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

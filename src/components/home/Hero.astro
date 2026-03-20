@@ -1,0 +1,69 @@
+---
+import type { Lang } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/utils';
+import ParticleField from '../ui/ParticleField.astro';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const ctaHref = lang === 'fr' ? '/fr/tirage' : '/en/reading';
+---
+
+<section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden -mt-16">
+  <!-- Background radial gradients -->
+  <div class="absolute inset-0" aria-hidden="true">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sol-purple-dark/20 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-sol-celestial/15 rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-sol-rose-dark/10 rounded-full blur-[100px]"></div>
+  </div>
+
+  <!-- Particles -->
+  <ParticleField count={40} />
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+    <!-- Decorative top element -->
+    <div class="mb-8 animate-fade-in">
+      <div class="inline-block">
+        <div class="w-16 h-px bg-gradient-to-r from-transparent via-sol-gold to-transparent mx-auto mb-4"></div>
+        <span class="font-ui text-xs tracking-[0.4em] text-sol-gold/60 uppercase">Oracle & Tarot</span>
+        <div class="w-16 h-px bg-gradient-to-r from-transparent via-sol-gold to-transparent mx-auto mt-4"></div>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1
+      class="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-[0.15em] mb-6"
+      style="animation: slide-up 1s ease-out 0.2s both"
+    >
+      <span class="text-gradient-gold">{t('hero.title')}</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p
+      class="font-body text-xl sm:text-2xl md:text-3xl text-sol-cream/80 italic max-w-2xl mx-auto mb-12"
+      style="animation: slide-up 1s ease-out 0.5s both"
+    >
+      {t('hero.subtitle')}
+    </p>
+
+    <!-- CTA -->
+    <div style="animation: slide-up 1s ease-out 0.8s both">
+      <Button href={ctaHref} variant="primary" size="lg">
+        {t('hero.cta')}
+      </Button>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2" style="animation: fade-in 1s ease-out 1.5s both">
+      <div class="flex flex-col items-center gap-2 text-sol-ash/40">
+        <span class="font-ui text-xs tracking-widest uppercase">{t('hero.scroll')}</span>
+        <div class="w-px h-8 bg-gradient-to-b from-sol-gold/40 to-transparent animate-pulse-glow"></div>
+      </div>
+    </div>
+  </div>
+</section>

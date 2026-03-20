@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.legal.title')}
+  description={t('pages.legal.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-12 text-center">
+        {t('pages.legal.title')}
+      </h1>
+
+      <div class="font-body text-lg text-sol-cream/80 leading-relaxed space-y-8">
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Website Publisher</h2>
+          <p>Solorah<br />Website: solorah.com<br />Email: contact@solorah.com</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Hosting</h2>
+          <p>This website is hosted by Vercel Inc.<br />440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Intellectual Property</h2>
+          <p>All content (texts, images, illustrations, cards) on this website is protected by copyright. Any reproduction, even partial, is prohibited without prior authorization.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Data Protection</h2>
+          <p>In accordance with the GDPR, you have the right to access, rectify, and delete your personal data. To exercise these rights, contact us at: contact@solorah.com</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Disclaimer</h2>
+          <p class="italic text-sol-ash">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

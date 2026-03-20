@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import Button from '../../components/ui/Button.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'fr';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.consultation.title')}
+  description={t('pages.consultation.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-8">
+        {t('pages.consultation.title')}
+      </h1>
+
+      <p class="font-body text-xl text-sol-cream/80 italic mb-12 max-w-xl mx-auto leading-relaxed">
+        Tu souhaites aller plus loin dans l'interprétation de tes cartes ? Pose ta question personnelle et reçois une lecture approfondie.
+      </p>
+
+      <!-- Pricing placeholder -->
+      <div class="gold-glow rounded-lg bg-sol-charcoal/50 p-8 sm:p-12 max-w-md mx-auto mb-12">
+        <h3 class="font-display text-2xl text-sol-gold mb-4">Consultation personnalisée</h3>
+        <p class="font-body text-sol-ash text-lg mb-6">
+          Une interprétation approfondie de ton tirage, enrichie par ta question personnelle.
+        </p>
+        <div class="font-display text-3xl text-sol-cream mb-6">
+          Bientôt disponible
+        </div>
+        <Button href="/fr/contact" variant="secondary">
+          Me prévenir du lancement
+        </Button>
+      </div>
+
+      <p class="font-ui text-xs text-sol-ash/50 max-w-md mx-auto">
+        {t('footer.disclaimer')}
+      </p>
+    </div>
+  </section>
+</BaseLayout>

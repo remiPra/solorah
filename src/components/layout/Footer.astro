@@ -1,0 +1,54 @@
+---
+import type { Lang } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/utils';
+import GoldDivider from '../ui/GoldDivider.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+
+const legalLink = lang === 'fr' ? '/fr/mentions-legales' : '/en/legal';
+---
+
+<footer class="relative mt-auto">
+  <GoldDivider />
+
+  <div class="bg-sol-charcoal/50 border-t border-sol-gold/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Logo & Tagline -->
+      <div class="text-center mb-8">
+        <a href={`/${lang}`} class="font-display text-2xl text-sol-gold tracking-widest">
+          SOLORAH
+        </a>
+        <p class="font-body text-sol-ash mt-2 text-lg italic">
+          {t('site.tagline')}
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="flex flex-wrap justify-center gap-6 mb-8 font-ui text-sm">
+        <a href={legalLink} class="text-sol-ash hover:text-sol-gold transition-colors">
+          {t('footer.legal')}
+        </a>
+        <span class="text-sol-gold/20">|</span>
+        <a href={`/${lang}/contact`} class="text-sol-ash hover:text-sol-gold transition-colors">
+          {t('nav.contact')}
+        </a>
+      </div>
+
+      <!-- Disclaimer -->
+      <p class="text-center font-ui text-xs text-sol-ash/60 max-w-2xl mx-auto mb-6 leading-relaxed">
+        {t('footer.disclaimer')}
+      </p>
+
+      <!-- Copyright -->
+      <p class="text-center font-ui text-xs text-sol-ash/40">
+        &copy; {year} Solorah. {t('footer.rights')}
+      </p>
+    </div>
+  </div>
+</footer>

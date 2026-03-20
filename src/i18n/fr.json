@@ -1,0 +1,92 @@
+{
+  "site": {
+    "name": "Solorah",
+    "tagline": "Écoute ce que les cartes ont à te dire"
+  },
+  "nav": {
+    "home": "Accueil",
+    "reading": "Tirage",
+    "consultation": "Consultation",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "SOLORAH",
+    "subtitle": "Écoute ce que les cartes ont à te dire",
+    "cta": "Commencer un tirage",
+    "scroll": "Découvrir"
+  },
+  "decks": {
+    "sectionTitle": "Choisis ton oracle",
+    "oracleAmour": {
+      "name": "Oracle de l'Amour",
+      "description": "Un oracle dédié aux questions du cœur. 44 cartes pour éclairer ta vie sentimentale, tes relations et tes émotions profondes."
+    },
+    "tarotMarseille": {
+      "name": "Tarot de Marseille Remastered",
+      "description": "Le tarot ancestral revisité avec une esthétique contemporaine. 78 arcanes pour explorer tous les domaines de ta vie."
+    },
+    "cta": "Tirer les cartes"
+  },
+  "howItWorks": {
+    "sectionTitle": "Comment ça marche",
+    "step1": {
+      "title": "Choisis ton deck",
+      "description": "Oracle de l'Amour ou Tarot de Marseille — chaque deck a son énergie unique."
+    },
+    "step2": {
+      "title": "Tire tes cartes",
+      "description": "Concentre-toi sur ta question, puis laisse ton intuition guider ton choix."
+    },
+    "step3": {
+      "title": "Reçois ton message",
+      "description": "Découvre l'interprétation de tes cartes et le message qu'elles portent pour toi."
+    }
+  },
+  "consultation": {
+    "sectionTitle": "Aller plus loin",
+    "description": "Tu veux une interprétation personnalisée et approfondie ? Pose ta question à notre oracle.",
+    "cta": "Découvrir les consultations"
+  },
+  "footer": {
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "terms": "CGV",
+    "disclaimer": "Les tirages sont proposés à titre de divertissement et de développement personnel. Ils ne remplacent en aucun cas un avis médical, juridique ou financier.",
+    "rights": "Tous droits réservés."
+  },
+  "pages": {
+    "about": {
+      "title": "À propos",
+      "metaDescription": "Découvrez Solorah, votre oracle en ligne pour des tirages de tarot et d'oracle de l'amour."
+    },
+    "contact": {
+      "title": "Contact",
+      "metaDescription": "Contactez l'équipe Solorah pour toute question sur nos tirages de cartes et consultations."
+    },
+    "legal": {
+      "title": "Mentions légales",
+      "metaDescription": "Mentions légales du site Solorah.com — oracle et tarot en ligne."
+    },
+    "consultation": {
+      "title": "Consultation",
+      "metaDescription": "Obtenez une interprétation personnalisée de votre tirage avec une consultation Solorah."
+    },
+    "reading": {
+      "title": "Tirage",
+      "metaDescription": "Choisissez votre deck et tirez vos cartes gratuitement avec Solorah."
+    },
+    "oracleAmour": {
+      "title": "Oracle de l'Amour",
+      "metaDescription": "Tirez les cartes de l'Oracle de l'Amour gratuitement. 44 cartes pour éclairer votre vie sentimentale."
+    },
+    "tarotMarseille": {
+      "title": "Tarot de Marseille",
+      "metaDescription": "Tirez les cartes du Tarot de Marseille Remastered gratuitement. 78 arcanes pour explorer votre chemin de vie."
+    }
+  },
+  "home": {
+    "title": "Oracle & Tarot en ligne",
+    "metaDescription": "Solorah — Tirage gratuit de tarot et oracle de l'amour en ligne. Écoute ce que les cartes ont à te dire."
+  }
+}

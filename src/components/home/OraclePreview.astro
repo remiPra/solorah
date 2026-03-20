@@ -1,0 +1,102 @@
+---
+import type { Lang } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/utils';
+import Button from '../ui/Button.astro';
+import GoldDivider from '../ui/GoldDivider.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const decks = [
+  {
+    id: 'oracle-amour',
+    name: t('decks.oracleAmour.name'),
+    description: t('decks.oracleAmour.description'),
+    href: lang === 'fr' ? '/fr/tirage/oracle-amour' : '/en/reading/love-oracle',
+    gradient: 'from-sol-rose-dark/20 via-sol-rose/10 to-sol-gold/10',
+    accent: 'sol-rose',
+    icon: '♡',
+  },
+  {
+    id: 'tarot-marseille',
+    name: t('decks.tarotMarseille.name'),
+    description: t('decks.tarotMarseille.description'),
+    href: lang === 'fr' ? '/fr/tirage/tarot-marseille' : '/en/reading/marseille-tarot',
+    gradient: 'from-sol-purple-dark/20 via-sol-celestial/10 to-sol-gold/10',
+    accent: 'sol-purple',
+    icon: '✦',
+  },
+];
+---
+
+<section class="relative py-24 px-4">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section Title -->
+    <div class="text-center mb-16 scroll-reveal">
+      <GoldDivider class="max-w-xs mx-auto mb-6" />
+      <h2 class="font-display text-3xl sm:text-4xl text-sol-gold mb-4">
+        {t('decks.sectionTitle')}
+      </h2>
+    </div>
+
+    <!-- Deck Cards -->
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+      {decks.map((deck) => (
+        <div class="scroll-reveal">
+          <a href={deck.href} class="group block">
+            <div class={`relative rounded-lg overflow-hidden bg-gradient-to-br ${deck.gradient} border border-sol-gold/10 p-8 sm:p-10 transition-all duration-500 hover:border-sol-gold/30 hover:shadow-[0_0_40px_rgba(212,168,83,0.1)]`}>
+              <!-- Decorative background -->
+              <div class="absolute top-0 right-0 w-48 h-48 bg-sol-gold/5 rounded-full blur-3xl group-hover:bg-sol-gold/10 transition-all duration-700"></div>
+
+              <!-- Icon -->
+              <div class={`text-4xl mb-6 text-${deck.accent} opacity-60 group-hover:opacity-100 transition-opacity`}>
+                {deck.icon}
+              </div>
+
+              <!-- Card mockup: 3 cards fanned out -->
+              <div class="relative h-48 mb-8 flex items-center justify-center">
+                <div class="relative w-64">
+                  {[0, 1, 2].map((i) => (
+                    <div
+                      class="absolute top-0 w-28 h-40 rounded-lg bg-sol-charcoal border border-sol-gold/20 shadow-lg transition-all duration-500 group-hover:border-sol-gold/40"
+                      style={`
+                        left: ${30 + i * 40}px;
+                        transform: rotate(${(i - 1) * 8}deg);
+                        z-index: ${i};
+                        transition-delay: ${i * 50}ms;
+                      `}
+                    >
+                      <div class="absolute inset-2 rounded border border-sol-gold/10 flex items-center justify-center">
+                        <span class="text-sol-gold/30 text-2xl">✧</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Text -->
+              <h3 class="font-display text-xl sm:text-2xl text-sol-cream mb-3 group-hover:text-sol-gold transition-colors">
+                {deck.name}
+              </h3>
+              <p class="font-body text-sol-ash text-lg leading-relaxed mb-6">
+                {deck.description}
+              </p>
+
+              <!-- CTA -->
+              <span class="inline-flex items-center gap-2 font-ui text-sm text-sol-gold tracking-wider uppercase group-hover:gap-3 transition-all">
+                {t('decks.cta')}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
