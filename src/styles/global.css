@@ -149,7 +149,7 @@ body {
   background-color: var(--color-sol-deep);
   color: var(--color-sol-cream);
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.4s ease, color 0.4s ease;

@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../../i18n/utils';
-import { useTranslations } from '../../i18n/utils';
+import { useTranslations, getTranslatedPath } from '../../i18n/utils';
 import ParticleField from '../ui/ParticleField.astro';
 import Button from '../ui/Button.astro';
 
@@ -10,12 +10,12 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const ctaHref = lang === 'fr' ? '/fr/tirage' : '/en/reading';
+const ctaHref = getTranslatedPath(`/${lang}/tirage`, lang);
 ---
 
-<section class="relative min-h-[100vh] flex items-center justify-center overflow-hidden -mt-16">
+<section class="relative min-h-[100vh] flex items-center justify-center overflow-x-clip overflow-y-visible -mt-16">
   <!-- Background radial gradients -->
-  <div class="absolute inset-0" aria-hidden="true">
+  <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sol-purple-dark/20 rounded-full blur-[150px]"></div>
     <div class="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-sol-celestial/15 rounded-full blur-[120px]"></div>
     <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-sol-rose-dark/10 rounded-full blur-[100px]"></div>

@@ -60,7 +60,7 @@ export default function CardDeck({ lang, cards, onSelect }: CardDeckProps) {
   return (
     <div className="min-h-[100vh] flex flex-col items-center justify-center relative -mt-16">
       {/* Background */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[120px]"
           style={{ background: 'radial-gradient(circle, rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.08) 0%, transparent 70%)' }}

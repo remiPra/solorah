@@ -67,7 +67,7 @@ export default function IntroScreen({ lang, onReady }: IntroScreenProps) {
   return (
     <div className="min-h-[100vh] flex items-center justify-center relative overflow-hidden -mt-16 px-4">
       {/* Background radial gradients */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px]"
           style={{ background: 'radial-gradient(circle, rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.12) 0%, transparent 70%)' }}
         />
