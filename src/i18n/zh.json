@@ -1,0 +1,100 @@
+{
+  "site": {
+    "name": "Solorah",
+    "tagline": "倾听牌卡想对你说的话"
+  },
+  "nav": {
+    "home": "首页",
+    "reading": "占卜",
+    "consultation": "咨询",
+    "about": "关于",
+    "contact": "联系"
+  },
+  "hero": {
+    "title": "SOLORAH",
+    "subtitle": "倾听牌卡想对你说的话",
+    "cta": "开始占卜",
+    "scroll": "探索"
+  },
+  "decks": {
+    "sectionTitle": "选择你的神谕",
+    "oracleAmour": {
+      "name": "爱情神谕",
+      "description": "专为心灵之问而设的神谕。44张牌卡照亮你的感情生活、人际关系和内心深处的情感。"
+    },
+    "tarotMarseille": {
+      "name": "马赛塔罗重制版",
+      "description": "以现代美学重新诠释的古老塔罗。78张牌卡探索你生活的方方面面。"
+    },
+    "oracleShiva": {
+      "name": "湿婆神谕",
+      "description": "受湿婆智慧启发的神谕。20张牌卡照亮你的决定，帮你找到方向。"
+    },
+    "cta": "抽牌"
+  },
+  "howItWorks": {
+    "sectionTitle": "如何使用",
+    "step1": {
+      "title": "选择你的牌组",
+      "description": "爱情神谕、马赛塔罗或湿婆神谕——每副牌组都有独特的能量。"
+    },
+    "step2": {
+      "title": "抽取你的牌",
+      "description": "专注于你的问题，然后让直觉引导你的选择。"
+    },
+    "step3": {
+      "title": "接收你的信息",
+      "description": "发现牌卡的解读以及它们为你带来的讯息。"
+    }
+  },
+  "consultation": {
+    "sectionTitle": "深入探索",
+    "description": "想要个性化的深度解读？向我们的神谕提出你的问题。",
+    "cta": "了解咨询服务"
+  },
+  "footer": {
+    "legal": "法律声明",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "disclaimer": "占卜服务仅供娱乐和个人发展之用，不能替代任何医疗、法律或财务建议。",
+    "rights": "保留所有权利。"
+  },
+  "pages": {
+    "about": {
+      "title": "关于我们",
+      "metaDescription": "了解Solorah，您的在线塔罗和爱情神谕占卜平台。"
+    },
+    "contact": {
+      "title": "联系我们",
+      "metaDescription": "如有关于牌卡占卜和咨询的问题，请联系Solorah团队。"
+    },
+    "legal": {
+      "title": "法律声明",
+      "metaDescription": "Solorah.com法律声明——在线神谕和塔罗占卜。"
+    },
+    "consultation": {
+      "title": "咨询服务",
+      "metaDescription": "通过Solorah咨询服务获取您的占卜的个性化解读。"
+    },
+    "reading": {
+      "title": "占卜",
+      "metaDescription": "选择你的牌组，在Solorah免费抽取你的牌卡。"
+    },
+    "oracleAmour": {
+      "title": "爱情神谕",
+      "metaDescription": "免费抽取爱情神谕牌卡。44张牌照亮你的感情生活。"
+    },
+    "tarotMarseille": {
+      "title": "马赛塔罗",
+      "metaDescription": "免费抽取马赛塔罗重制版牌卡。78张大阿尔卡那探索你的人生之路。"
+    },
+    "oracleShiva": {
+      "title": "湿婆神谕",
+      "metaDescription": "免费抽取湿婆神谕牌卡。20张智慧之牌照亮你的决定。"
+    }
+  },
+  "home": {
+    "title": "在线神谕与塔罗",
+    "metaDescription": "Solorah——免费在线塔罗和爱情神谕占卜。倾听牌卡想对你说的话。"
+  }
+}

@@ -3,11 +3,11 @@ import type { Card } from '../../types/card';
 
 interface CardRevealProps {
   card: Card;
-  lang: 'fr' | 'en';
+  lang: string;
   onNewReading: () => void;
 }
 
-const texts = {
+const texts: Record<string, { cta: string; newReading: string; share: string; cardOfDay: string }> = {
   fr: {
     cta: 'Poser ta question',
     newReading: 'Nouveau tirage',
@@ -20,15 +20,42 @@ const texts = {
     share: 'Share',
     cardOfDay: 'Your card of the day',
   },
+  zh: {
+    cta: '提出你的问题',
+    newReading: '重新占卜',
+    share: '分享',
+    cardOfDay: '你的每日牌卡',
+  },
+  es: {
+    cta: 'Haz tu pregunta',
+    newReading: 'Nueva lectura',
+    share: 'Compartir',
+    cardOfDay: 'Tu carta del día',
+  },
+};
+
+const consultationPaths: Record<string, string> = {
+  fr: '/fr/consultation',
+  en: '/en/consultation',
+  zh: '/zh/zi-xun',
+  es: '/es/consulta',
 };
 
 export default function CardReveal({ card, lang, onNewReading }: CardRevealProps) {
-  const t = texts[lang];
-  const consultationHref = lang === 'fr' ? '/fr/consultation' : '/en/consultation';
+  const t = texts[lang] || texts.en;
+  const consultationHref = consultationPaths[lang] || consultationPaths.en;
+
+  const cardName = card.name[lang] || card.name.en;
+  const cardMessage = card.message[lang] || card.message.en;
+  const cardInterpretation = card.interpretation ? (card.interpretation[lang] || card.interpretation.en) : undefined;
 
   const shareText = lang === 'fr'
-    ? `Ma carte du jour sur Solorah : ${card.name.fr} — "${card.message.fr}"`
-    : `My card of the day on Solorah: ${card.name.en} — "${card.message.en}"`;
+    ? `Ma carte du jour sur Solorah : ${cardName} — "${cardMessage}"`
+    : lang === 'zh'
+      ? `我在Solorah上的每日牌卡：${cardName} — "${cardMessage}"`
+      : lang === 'es'
+        ? `Mi carta del día en Solorah: ${cardName} — "${cardMessage}"`
+        : `My card of the day on Solorah: ${cardName} — "${cardMessage}"`;
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://solorah.com';
 
@@ -86,7 +113,7 @@ export default function CardReveal({ card, lang, onNewReading }: CardRevealProps
           >
             <img
               src={card.image}
-              alt={card.name[lang]}
+              alt={cardName}
               className="w-full rounded-lg"
               style={{ border: '2px solid rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.4)' }}
             />
@@ -101,7 +128,7 @@ export default function CardReveal({ card, lang, onNewReading }: CardRevealProps
           className="font-[Cinzel_Decorative] text-2xl sm:text-3xl mb-6"
           style={{ color: 'var(--color-sol-gold)' }}
         >
-          ✦ {card.name[lang]} ✦
+          ✦ {cardName} ✦
         </motion.h2>
 
         {/* Card message */}
@@ -112,7 +139,7 @@ export default function CardReveal({ card, lang, onNewReading }: CardRevealProps
           className="font-[Cormorant_Garamond] text-xl sm:text-2xl italic mb-8 leading-relaxed"
           style={{ color: 'var(--color-sol-cream)' }}
         >
-          &ldquo;{card.message[lang]}&rdquo;
+          &ldquo;{cardMessage}&rdquo;
         </motion.p>
 
         {/* Gold divider */}
@@ -128,7 +155,7 @@ export default function CardReveal({ card, lang, onNewReading }: CardRevealProps
         </motion.div>
 
         {/* Interpretation */}
-        {card.interpretation && (
+        {cardInterpretation && (
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -136,7 +163,7 @@ export default function CardReveal({ card, lang, onNewReading }: CardRevealProps
             className="font-[Cormorant_Garamond] text-lg leading-relaxed mb-10"
             style={{ color: 'var(--color-sol-cream)' }}
           >
-            {card.interpretation[lang]}
+            {cardInterpretation}
           </motion.p>
         )}
 

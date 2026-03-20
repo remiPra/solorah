@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ShivaReading from '../../../components/cards/ShivaReading';
+import { oracleShivaDeck } from '../../../data/oracle-shiva';
+
+const lang = 'zh';
+---
+
+<BaseLayout
+  title="湿婆神谕——灵性指引"
+  description="抽取一张湿婆神谕牌，接收智慧的讯息，照亮你的决定，找到你的方向。"
+  lang={lang}
+>
+  <ShivaReading client:only="react" lang={lang} deck={oracleShivaDeck.cards} />
+</BaseLayout>

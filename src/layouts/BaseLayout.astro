@@ -5,6 +5,7 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import AmbientPlayer from '../components/ui/AmbientPlayer.astro';
 import type { Lang } from '../i18n/utils';
+import { getTranslatedPath } from '../i18n/utils';
 
 interface Props {
   title: string;
@@ -15,8 +16,12 @@ interface Props {
 
 const { title, description, lang, image } = Astro.props;
 const currentPath = Astro.url.pathname;
-const pathWithoutLang = currentPath.replace(/^\/(fr|en)/, '') || '/';
 const canonicalURL = new URL(Astro.url.pathname, 'https://solorah.com');
+
+const frPath = getTranslatedPath(currentPath, 'fr');
+const enPath = getTranslatedPath(currentPath, 'en');
+const zhPath = getTranslatedPath(currentPath, 'zh');
+const esPath = getTranslatedPath(currentPath, 'es');
 ---
 
 <html lang={lang}>
@@ -58,15 +63,17 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://solorah.com');
     <meta name="twitter:image" content={image || 'https://solorah.com/images/og/solorah-default.jpg'} />
 
     <!-- Hreflang -->
-    <link rel="alternate" hreflang="fr" href={`https://solorah.com/fr${pathWithoutLang}`} />
-    <link rel="alternate" hreflang="en" href={`https://solorah.com/en${pathWithoutLang}`} />
-    <link rel="alternate" hreflang="x-default" href={`https://solorah.com/en${pathWithoutLang}`} />
+    <link rel="alternate" hreflang="fr" href={`https://solorah.com${frPath}`} />
+    <link rel="alternate" hreflang="en" href={`https://solorah.com${enPath}`} />
+    <link rel="alternate" hreflang="zh" href={`https://solorah.com${zhPath}`} />
+    <link rel="alternate" hreflang="es" href={`https://solorah.com${esPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`https://solorah.com${enPath}`} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
 

@@ -3,17 +3,19 @@ import { motion } from 'framer-motion';
 import type { SelectedTarotCard } from '../../types/card';
 
 interface TarotCardRevealProps {
-  lang: 'fr' | 'en';
+  lang: string;
   selectedCards: SelectedTarotCard[];
   onNewReading: () => void;
 }
 
-const positionLabels = {
+const positionLabels: Record<string, { past: string; present: string; future: string }> = {
   fr: { past: 'Passé', present: 'Présent', future: 'Futur' },
   en: { past: 'Past', present: 'Present', future: 'Future' },
+  zh: { past: '过去', present: '现在', future: '未来' },
+  es: { past: 'Pasado', present: 'Presente', future: 'Futuro' },
 };
 
-const texts = {
+const texts: Record<string, { reversed: string; readingTitle: string; cta: string; newReading: string; share: string }> = {
   fr: {
     reversed: 'Renversée',
     readingTitle: 'Ton tirage',
@@ -28,11 +30,32 @@ const texts = {
     newReading: 'New reading',
     share: 'Share',
   },
+  zh: {
+    reversed: '逆位',
+    readingTitle: '你的占卜',
+    cta: '个性化咨询',
+    newReading: '重新占卜',
+    share: '分享',
+  },
+  es: {
+    reversed: 'Invertida',
+    readingTitle: 'Tu lectura',
+    cta: 'Consulta personalizada',
+    newReading: 'Nueva lectura',
+    share: 'Compartir',
+  },
+};
+
+const consultationPaths: Record<string, string> = {
+  fr: '/fr/consultation',
+  en: '/en/consultation',
+  zh: '/zh/zi-xun',
+  es: '/es/consulta',
 };
 
 export default function TarotCardReveal({ lang, selectedCards, onNewReading }: TarotCardRevealProps) {
-  const t = texts[lang];
-  const consultationHref = lang === 'fr' ? '/fr/consultation' : '/en/consultation';
+  const t = texts[lang] || texts.en;
+  const consultationHref = consultationPaths[lang] || consultationPaths.en;
 
   // Progressive reveal: 0 = nothing, 1-3 = cards flipping, 4 = interpretation
   const [revealStep, setRevealStep] = useState(0);
@@ -52,22 +75,27 @@ export default function TarotCardReveal({ lang, selectedCards, onNewReading }: T
     return () => timers.forEach(clearTimeout);
   }, []);
 
-  const shareText = lang === 'fr'
-    ? `Mon tirage Tarot de Marseille sur Solorah : ${selectedCards.map((s) => s.card.name.fr).join(', ')}`
-    : `My Marseille Tarot reading on Solorah: ${selectedCards.map((s) => s.card.name.en).join(', ')}`;
+  const shareText = selectedCards.map((s) => s.card.name[lang] || s.card.name.en).join(', ');
+  const shareFullText = lang === 'fr'
+    ? `Mon tirage Tarot de Marseille sur Solorah : ${shareText}`
+    : lang === 'zh'
+      ? `我在Solorah上的马赛塔罗占卜：${shareText}`
+      : lang === 'es'
+        ? `Mi lectura del Tarot de Marsella en Solorah: ${shareText}`
+        : `My Marseille Tarot reading on Solorah: ${shareText}`;
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://solorah.com';
 
   const handleShare = async (platform: 'twitter' | 'facebook' | 'native') => {
     if (platform === 'native' && navigator.share) {
       try {
-        await navigator.share({ title: 'Solorah', text: shareText, url: shareUrl });
+        await navigator.share({ title: 'Solorah', text: shareFullText, url: shareUrl });
       } catch { /* user cancelled */ }
       return;
     }
 
     const urls = {
-      twitter: `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`,
+      twitter: `https://x.com/intent/tweet?text=${encodeURIComponent(shareFullText)}&url=${encodeURIComponent(shareUrl)}`,
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
       native: '',
     };
@@ -120,8 +148,10 @@ export default function TarotCardReveal({ lang, selectedCards, onNewReading }: T
             <div className="space-y-8 mb-12">
               {selectedCards.map((selected, i) => {
                 const message = selected.reversed
-                  ? selected.card.message.reversed[lang]
-                  : selected.card.message.upright[lang];
+                  ? (selected.card.message.reversed[lang] || selected.card.message.reversed.en)
+                  : (selected.card.message.upright[lang] || selected.card.message.upright.en);
+
+                const labels = positionLabels[lang] || positionLabels.en;
 
                 return (
                   <motion.div
@@ -136,14 +166,14 @@ export default function TarotCardReveal({ lang, selectedCards, onNewReading }: T
                         className="font-[Cinzel_Decorative] text-base sm:text-lg"
                         style={{ color: 'var(--color-sol-gold)' }}
                       >
-                        {positionLabels[lang][selected.position]}
+                        {labels[selected.position]}
                       </span>
                       <span className="font-[Inter] text-sm" style={{ color: 'var(--color-sol-ash)' }}>—</span>
                       <span
                         className="font-[Cormorant_Garamond] text-lg sm:text-xl"
                         style={{ color: 'var(--color-sol-cream)' }}
                       >
-                        {selected.card.name[lang]}
+                        {selected.card.name[lang] || selected.card.name.en}
                       </span>
                       {selected.reversed && (
                         <span
@@ -265,7 +295,7 @@ export default function TarotCardReveal({ lang, selectedCards, onNewReading }: T
 // ─── Individual card flip sub-component ─────────────────────────────
 interface SingleCardFlipProps {
   selected: SelectedTarotCard;
-  lang: 'fr' | 'en';
+  lang: string;
   isRevealed: boolean;
   index: number;
 }
@@ -296,6 +326,9 @@ function SingleCardFlip({ selected, lang, isRevealed, index }: SingleCardFlipPro
       clearTimeout(unduckTimer);
     };
   }, [isRevealed]);
+
+  const labels = positionLabels[lang] || positionLabels.en;
+  const t = texts[lang] || texts.en;
 
   return (
     <div className="flex flex-col items-center">
@@ -357,7 +390,7 @@ function SingleCardFlip({ selected, lang, isRevealed, index }: SingleCardFlipPro
           >
             <img
               src={selected.card.image}
-              alt={selected.card.name[lang]}
+              alt={selected.card.name[lang] || selected.card.name.en}
               className="w-full h-full object-cover rounded-lg"
               style={{
                 transform: selected.reversed ? 'rotate(180deg)' : 'none',
@@ -408,7 +441,7 @@ function SingleCardFlip({ selected, lang, isRevealed, index }: SingleCardFlipPro
           className="font-[Cinzel_Decorative] text-xs sm:text-sm tracking-wider"
           style={{ color: 'var(--color-sol-gold)' }}
         >
-          {positionLabels[lang][selected.position]}
+          {labels[selected.position]}
         </span>
 
         {/* Reversed indicator */}
@@ -422,7 +455,7 @@ function SingleCardFlip({ selected, lang, isRevealed, index }: SingleCardFlipPro
               className="block font-[Inter] text-[10px] sm:text-xs mt-1"
               style={{ color: 'rgba(128,90,200,0.8)' }}
             >
-              ↻ {texts[lang].reversed}
+              ↻ {t.reversed}
             </span>
           </motion.div>
         )}

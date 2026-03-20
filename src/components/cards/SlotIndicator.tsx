@@ -2,17 +2,19 @@ import { motion } from 'framer-motion';
 import type { SelectedTarotCard } from '../../types/card';
 
 interface SlotIndicatorProps {
-  lang: 'fr' | 'en';
+  lang: string;
   selectedCards: SelectedTarotCard[];
   currentSlot: number;
 }
 
-const positionLabels = {
+const positionLabels: Record<string, string[]> = {
   fr: ['Passé', 'Présent', 'Futur'],
   en: ['Past', 'Present', 'Future'],
+  zh: ['过去', '现在', '未来'],
+  es: ['Pasado', 'Presente', 'Futuro'],
 };
 
-const promptLabels = {
+const promptLabels: Record<string, string[]> = {
   fr: [
     'Choisis ta carte Passé',
     'Choisis ta carte Présent',
@@ -23,10 +25,20 @@ const promptLabels = {
     'Choose your Present card',
     'Choose your Future card',
   ],
+  zh: [
+    '选择你的过去牌',
+    '选择你的现在牌',
+    '选择你的未来牌',
+  ],
+  es: [
+    'Elige tu carta del Pasado',
+    'Elige tu carta del Presente',
+    'Elige tu carta del Futuro',
+  ],
 };
 
 export default function SlotIndicator({ lang, selectedCards, currentSlot }: SlotIndicatorProps) {
-  const labels = positionLabels[lang];
+  const labels = positionLabels[lang] || positionLabels.en;
 
   return (
     <div className="text-center mb-6">
@@ -40,7 +52,7 @@ export default function SlotIndicator({ lang, selectedCards, currentSlot }: Slot
           className="font-[Cormorant_Garamond] text-lg sm:text-xl italic mb-6"
           style={{ color: 'var(--color-sol-cream)' }}
         >
-          {promptLabels[lang][currentSlot]}
+          {(promptLabels[lang] || promptLabels.en)[currentSlot]}
         </motion.p>
       )}
 

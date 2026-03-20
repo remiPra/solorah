@@ -1,0 +1,100 @@
+{
+  "site": {
+    "name": "Solorah",
+    "tagline": "Escucha lo que las cartas tienen para decirte"
+  },
+  "nav": {
+    "home": "Inicio",
+    "reading": "Lectura",
+    "consultation": "Consulta",
+    "about": "Acerca de",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "SOLORAH",
+    "subtitle": "Escucha lo que las cartas tienen para decirte",
+    "cta": "Comenzar una lectura",
+    "scroll": "Descubrir"
+  },
+  "decks": {
+    "sectionTitle": "Elige tu oráculo",
+    "oracleAmour": {
+      "name": "Oráculo del Amor",
+      "description": "Un oráculo dedicado a las cuestiones del corazón. 44 cartas para iluminar tu vida sentimental, tus relaciones y tus emociones más profundas."
+    },
+    "tarotMarseille": {
+      "name": "Tarot de Marsella Remasterizado",
+      "description": "El tarot ancestral reimaginado con una estética contemporánea. 78 arcanos para explorar todas las áreas de tu vida."
+    },
+    "oracleShiva": {
+      "name": "Oráculo de Shiva",
+      "description": "Un oráculo inspirado en la sabiduría de Shiva. 20 cartas para iluminar tus decisiones y encontrar tu camino."
+    },
+    "cta": "Tirar las cartas"
+  },
+  "howItWorks": {
+    "sectionTitle": "Cómo funciona",
+    "step1": {
+      "title": "Elige tu mazo",
+      "description": "Oráculo del Amor, Tarot de Marsella u Oráculo de Shiva — cada mazo tiene su energía única."
+    },
+    "step2": {
+      "title": "Tira tus cartas",
+      "description": "Concéntrate en tu pregunta y deja que tu intuición guíe tu elección."
+    },
+    "step3": {
+      "title": "Recibe tu mensaje",
+      "description": "Descubre la interpretación de tus cartas y el mensaje que llevan para ti."
+    }
+  },
+  "consultation": {
+    "sectionTitle": "Ir más allá",
+    "description": "¿Quieres una interpretación personalizada y profunda? Haz tu pregunta a nuestro oráculo.",
+    "cta": "Descubrir las consultas"
+  },
+  "footer": {
+    "legal": "Aviso legal",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "disclaimer": "Las lecturas se ofrecen con fines de entretenimiento y desarrollo personal. No sustituyen ningún consejo médico, legal o financiero.",
+    "rights": "Todos los derechos reservados."
+  },
+  "pages": {
+    "about": {
+      "title": "Acerca de",
+      "metaDescription": "Descubre Solorah, tu oráculo en línea para lecturas de tarot y oráculo del amor."
+    },
+    "contact": {
+      "title": "Contacto",
+      "metaDescription": "Contacta al equipo de Solorah para cualquier pregunta sobre nuestras lecturas de cartas y consultas."
+    },
+    "legal": {
+      "title": "Aviso legal",
+      "metaDescription": "Aviso legal de Solorah.com — oráculo y tarot en línea."
+    },
+    "consultation": {
+      "title": "Consulta",
+      "metaDescription": "Obtén una interpretación personalizada de tu lectura con una consulta Solorah."
+    },
+    "reading": {
+      "title": "Lectura",
+      "metaDescription": "Elige tu mazo y tira tus cartas gratis con Solorah."
+    },
+    "oracleAmour": {
+      "title": "Oráculo del Amor",
+      "metaDescription": "Tira las cartas del Oráculo del Amor gratis. 44 cartas para iluminar tu vida sentimental."
+    },
+    "tarotMarseille": {
+      "title": "Tarot de Marsella",
+      "metaDescription": "Tira las cartas del Tarot de Marsella Remasterizado gratis. 78 arcanos para explorar tu camino de vida."
+    },
+    "oracleShiva": {
+      "title": "Oráculo de Shiva",
+      "metaDescription": "Tira una carta del Oráculo de Shiva gratis. 20 cartas de sabiduría para iluminar tus decisiones."
+    }
+  },
+  "home": {
+    "title": "Oráculo y Tarot en línea",
+    "metaDescription": "Solorah — Lectura gratuita de tarot y oráculo del amor en línea. Escucha lo que las cartas tienen para decirte."
+  }
+}

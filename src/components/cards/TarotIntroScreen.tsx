@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface TarotIntroScreenProps {
-  lang: 'fr' | 'en';
+  lang: string;
   onReady: () => void;
 }
 
-const lines = {
+const lines: Record<string, string[]> = {
   fr: [
     'Concentre-toi sur ta question...',
     'Respire profondément...',
@@ -21,11 +21,27 @@ const lines = {
     'your past, present and future.',
     "When you're ready, choose three cards.",
   ],
+  zh: [
+    '专注于你的问题...',
+    '深呼吸...',
+    '22张大阿尔卡那将揭示',
+    '你的过去、现在和未来。',
+    '当你准备好了，选择三张牌。',
+  ],
+  es: [
+    'Concéntrate en tu pregunta...',
+    'Respira profundamente...',
+    'Los 22 arcanos mayores te revelarán',
+    'tu pasado, tu presente y tu futuro.',
+    'Cuando estés listo/a, elige tres cartas.',
+  ],
 };
 
-const buttonText = {
+const buttonText: Record<string, string> = {
   fr: 'Je suis prêt(e)',
   en: 'I am ready',
+  zh: '我准备好了',
+  es: 'Estoy listo/a',
 };
 
 export default function TarotIntroScreen({ lang, onReady }: TarotIntroScreenProps) {
@@ -33,7 +49,7 @@ export default function TarotIntroScreen({ lang, onReady }: TarotIntroScreenProp
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    const texts = lines[lang];
+    const texts = lines[lang] || lines.en;
     const timers: ReturnType<typeof setTimeout>[] = [];
 
     texts.forEach((_, i) => {
@@ -69,7 +85,7 @@ export default function TarotIntroScreen({ lang, onReady }: TarotIntroScreenProp
 
       <div className="relative z-10 text-center max-w-2xl mx-auto">
         <div className="space-y-6 mb-16">
-          {lines[lang].map((line, i) => (
+          {(lines[lang] || lines.en).map((line, i) => (
             <motion.p
               key={i}
               initial={{ opacity: 0, y: 15 }}
@@ -105,7 +121,7 @@ export default function TarotIntroScreen({ lang, onReady }: TarotIntroScreenProp
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              {buttonText[lang]}
+              {buttonText[lang] || buttonText.en}
             </motion.button>
           )}
         </AnimatePresence>

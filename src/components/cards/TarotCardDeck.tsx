@@ -4,16 +4,18 @@ import type { TarotCard, SelectedTarotCard } from '../../types/card';
 import SlotIndicator from './SlotIndicator';
 
 interface TarotCardDeckProps {
-  lang: 'fr' | 'en';
+  lang: string;
   cards: TarotCard[];
   onAllSelected: (selected: SelectedTarotCard[]) => void;
 }
 
 const positions = ['past', 'present', 'future'] as const;
 
-const scrollHint = {
+const scrollHint: Record<string, string> = {
   fr: '← Fais défiler et choisis →',
   en: '← Scroll and choose →',
+  zh: '← 滑动并选择 →',
+  es: '← Desliza y elige →',
 };
 
 export default function TarotCardDeck({ lang, cards, onAllSelected }: TarotCardDeckProps) {
@@ -106,7 +108,9 @@ export default function TarotCardDeck({ lang, cards, onAllSelected }: TarotCardD
         className="deck-scroll w-full"
         style={{ padding: '40px 20px' }}
         role="listbox"
-        aria-label={lang === 'fr' ? 'Sélectionne une carte' : 'Select a card'}
+        aria-label={
+          { fr: 'Sélectionne une carte', en: 'Select a card', zh: '选择一张牌', es: 'Selecciona una carta' }[lang] || 'Select a card'
+        }
       >
         {cards.map((card, i) => {
           const isRemoved = removedIds.has(card.id);
@@ -152,9 +156,7 @@ export default function TarotCardDeck({ lang, cards, onAllSelected }: TarotCardD
                     }}
                     role="option"
                     aria-label={
-                      lang === 'fr'
-                        ? `Carte — cliquez pour la sélectionner`
-                        : `Card — click to select`
+                      { fr: 'Carte — cliquez pour la sélectionner', en: 'Card — click to select', zh: '牌 — 点击选择', es: 'Carta — haz clic para seleccionar' }[lang] || 'Card — click to select'
                     }
                     aria-selected={false}
                     disabled={currentSlot >= 3}
@@ -206,7 +208,7 @@ export default function TarotCardDeck({ lang, cards, onAllSelected }: TarotCardD
         className="font-[Inter] text-xs tracking-widest uppercase mt-4"
         style={{ color: 'var(--color-sol-ash)' }}
       >
-        {scrollHint[lang]}
+        {scrollHint[lang] || scrollHint.en}
       </motion.p>
     </div>
   );

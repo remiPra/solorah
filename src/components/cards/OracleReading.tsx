@@ -9,7 +9,7 @@ import CardReveal from './CardReveal';
 type Phase = 'intro' | 'select' | 'flipping' | 'reveal';
 
 interface OracleReadingProps {
-  lang: 'fr' | 'en';
+  lang: string;
   deck: Card[];
 }
 

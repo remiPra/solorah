@@ -12,8 +12,11 @@
     <link rel="canonical" href="https://solorah.com/fr/" />
     <script is:inline>
       // Detect preferred language and redirect
-      const lang = navigator.language || navigator.languages?.[0] || 'fr';
-      const target = lang.startsWith('fr') ? '/fr/' : '/en/';
+      var lang = navigator.language || (navigator.languages && navigator.languages[0]) || 'fr';
+      var target = '/fr/';
+      if (lang.startsWith('en')) target = '/en/';
+      else if (lang.startsWith('zh')) target = '/zh/';
+      else if (lang.startsWith('es')) target = '/es/';
       window.location.replace(target);
     </script>
   </head>

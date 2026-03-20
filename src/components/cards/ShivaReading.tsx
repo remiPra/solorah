@@ -8,12 +8,12 @@ import CardReveal from './CardReveal';
 type Phase = 'intro' | 'select' | 'flipping' | 'reveal';
 
 interface ShivaReadingProps {
-  lang: 'fr' | 'en';
+  lang: string;
   deck: Card[];
 }
 
 // Shiva-specific intro text
-const lines = {
+const lines: Record<string, string[]> = {
   fr: [
     'Concentre-toi sur ta décision...',
     'Respire profondément...',
@@ -26,19 +26,33 @@ const lines = {
     'Shiva guides you toward clarity...',
     'When you feel ready, scroll through the cards and choose the one that calls to you.',
   ],
+  zh: [
+    '专注于你的决定...',
+    '深呼吸...',
+    '湿婆引导你走向清明...',
+    '当你准备好了，滑动牌卡，选择那张召唤你的牌。',
+  ],
+  es: [
+    'Concéntrate en tu decisión...',
+    'Respira profundamente...',
+    'Shiva te guía hacia la claridad...',
+    'Cuando te sientas listo/a, desliza las cartas y elige la que te llame.',
+  ],
 };
 
-const buttonText = {
+const buttonText: Record<string, string> = {
   fr: 'Je suis prêt(e)',
   en: 'I am ready',
+  zh: '我准备好了',
+  es: 'Estoy listo/a',
 };
 
-function ShivaIntroScreen({ lang, onReady }: { lang: 'fr' | 'en'; onReady: () => void }) {
+function ShivaIntroScreen({ lang, onReady }: { lang: string; onReady: () => void }) {
   const [visibleLines, setVisibleLines] = useState(0);
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    const texts = lines[lang];
+    const texts = lines[lang] || lines.en;
     const timers: ReturnType<typeof setTimeout>[] = [];
 
     texts.forEach((_, i) => {
@@ -73,7 +87,7 @@ function ShivaIntroScreen({ lang, onReady }: { lang: 'fr' | 'en'; onReady: () =>
 
       <div className="relative z-10 text-center max-w-2xl mx-auto">
         <div className="space-y-6 mb-16">
-          {lines[lang].map((line, i) => (
+          {(lines[lang] || lines.en).map((line, i) => (
             <motion.p
               key={i}
               initial={{ opacity: 0, y: 15 }}
@@ -109,7 +123,7 @@ function ShivaIntroScreen({ lang, onReady }: { lang: 'fr' | 'en'; onReady: () =>
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              {buttonText[lang]}
+              {buttonText[lang] || buttonText.en}
             </motion.button>
           )}
         </AnimatePresence>

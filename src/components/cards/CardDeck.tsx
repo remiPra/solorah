@@ -3,14 +3,16 @@ import { motion } from 'framer-motion';
 import type { Card } from '../../types/card';
 
 interface CardDeckProps {
-  lang: 'fr' | 'en';
+  lang: string;
   cards: Card[];
   onSelect: (card: Card) => void;
 }
 
-const scrollHint = {
+const scrollHint: Record<string, string> = {
   fr: '← Fais défiler →',
   en: '← Scroll through →',
+  zh: '← 滑动浏览 →',
+  es: '← Desliza →',
 };
 
 export default function CardDeck({ lang, cards, onSelect }: CardDeckProps) {
@@ -73,9 +75,7 @@ export default function CardDeck({ lang, cards, onSelect }: CardDeckProps) {
         className="font-[Cormorant_Garamond] text-lg sm:text-xl italic mb-8 text-center px-4"
         style={{ color: 'var(--color-sol-ash)' }}
       >
-        {lang === 'fr'
-          ? 'Laisse ton intuition te guider... Choisis ta carte.'
-          : 'Let your intuition guide you... Choose your card.'}
+        {{ fr: 'Laisse ton intuition te guider... Choisis ta carte.', en: 'Let your intuition guide you... Choose your card.', zh: '让你的直觉引导你...选择你的牌。', es: 'Deja que tu intuición te guíe... Elige tu carta.' }[lang] || 'Let your intuition guide you... Choose your card.'}
       </motion.p>
 
       {/* Deck scroll container */}
@@ -84,7 +84,9 @@ export default function CardDeck({ lang, cards, onSelect }: CardDeckProps) {
         className="deck-scroll w-full"
         style={{ padding: '40px 20px' }}
         role="listbox"
-        aria-label={lang === 'fr' ? 'Sélectionne une carte' : 'Select a card'}
+        aria-label={
+          { fr: 'Sélectionne une carte', en: 'Select a card', zh: '选择一张牌', es: 'Selecciona una carta' }[lang] || 'Select a card'
+        }
       >
         {cards.map((card, i) => {
           const isCenter = i === centerIndex;
@@ -122,9 +124,7 @@ export default function CardDeck({ lang, cards, onSelect }: CardDeckProps) {
                 }}
                 role="option"
                 aria-label={
-                  lang === 'fr'
-                    ? `Carte numéro ${card.id} — cliquez pour la retourner`
-                    : `Card number ${card.id} — click to flip`
+                  { fr: `Carte numéro ${card.id} — cliquez pour la retourner`, en: `Card number ${card.id} — click to flip`, zh: `第${card.id}张牌 — 点击翻转`, es: `Carta número ${card.id} — haz clic para voltear` }[lang] || `Card number ${card.id} — click to flip`
                 }
                 aria-selected={false}
               >
@@ -173,7 +173,7 @@ export default function CardDeck({ lang, cards, onSelect }: CardDeckProps) {
         className="font-[Inter] text-xs tracking-widest uppercase mt-4"
         style={{ color: 'var(--color-sol-ash)' }}
       >
-        {scrollHint[lang]}
+        {scrollHint[lang] || scrollHint.en}
       </motion.p>
     </div>
   );

@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../../i18n/utils';
-import { useTranslations } from '../../i18n/utils';
+import { useTranslations, getTranslatedPath } from '../../i18n/utils';
 import Button from '../ui/Button.astro';
 import GoldDivider from '../ui/GoldDivider.astro';
 
@@ -16,7 +16,7 @@ const decks = [
     id: 'oracle-amour',
     name: t('decks.oracleAmour.name'),
     description: t('decks.oracleAmour.description'),
-    href: lang === 'fr' ? '/fr/tirage/oracle-amour' : '/en/reading/love-oracle',
+    href: getTranslatedPath(`/${lang}/tirage/oracle-amour`, lang),
     gradient: 'from-sol-rose-dark/20 via-sol-rose/10 to-sol-gold/10',
     accent: 'sol-rose',
     icon: '♡',
@@ -25,7 +25,7 @@ const decks = [
     id: 'tarot-marseille',
     name: t('decks.tarotMarseille.name'),
     description: t('decks.tarotMarseille.description'),
-    href: lang === 'fr' ? '/fr/tirage/tarot-marseille' : '/en/reading/marseille-tarot',
+    href: getTranslatedPath(`/${lang}/tirage/tarot-marseille`, lang),
     gradient: 'from-sol-purple-dark/20 via-sol-celestial/10 to-sol-gold/10',
     accent: 'sol-purple',
     icon: '✦',
@@ -34,7 +34,7 @@ const decks = [
     id: 'oracle-shiva',
     name: t('decks.oracleShiva.name'),
     description: t('decks.oracleShiva.description'),
-    href: lang === 'fr' ? '/fr/tirage/oracle-shiva' : '/en/reading/shiva-oracle',
+    href: getTranslatedPath(`/${lang}/tirage/oracle-shiva`, lang),
     gradient: 'from-sol-indigo-dark/20 via-sol-indigo/10 to-sol-gold/10',
     accent: 'sol-indigo',
     icon: 'ॐ',

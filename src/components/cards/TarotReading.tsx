@@ -6,7 +6,7 @@ import TarotCardDeck from './TarotCardDeck';
 import TarotCardReveal from './TarotCardReveal';
 
 interface TarotReadingProps {
-  lang: 'fr' | 'en';
+  lang: string;
   deck: TarotCard[];
 }
 

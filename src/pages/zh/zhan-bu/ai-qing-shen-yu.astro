@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OracleReading from '../../../components/cards/OracleReading';
+import { oracleAmourDeck } from '../../../data/oracle-amour';
+
+const lang = 'zh';
+---
+
+<BaseLayout
+  title="爱情神谕占卜"
+  description="抽取你的每日牌卡，发现宇宙为你传递的爱的讯息。"
+  lang={lang}
+>
+  <OracleReading client:only="react" lang={lang} deck={oracleAmourDeck.cards} />
+</BaseLayout>

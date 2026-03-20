@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/home/Hero.astro';
+import OraclePreview from '../../components/home/OraclePreview.astro';
+import HowItWorks from '../../components/home/HowItWorks.astro';
+import ConsultationCTA from '../../components/home/ConsultationCTA.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'es';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('home.title')}
+  description={t('home.metaDescription')}
+  lang={lang}
+>
+  <Hero lang={lang} />
+  <OraclePreview lang={lang} />
+  <HowItWorks lang={lang} />
+  <ConsultationCTA lang={lang} />
+</BaseLayout>
