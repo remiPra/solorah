@@ -16,6 +16,9 @@ const scrollHint: Record<string, string> = {
   en: '← Scroll and choose →',
   zh: '← 滑动并选择 →',
   es: '← Desliza y elige →',
+  de: '← Scrolle und wähle →',
+  hi: '← स्क्रॉल करें और चुनें →',
+  ja: '← スクロールして選ぶ →',
 };
 
 export default function TarotCardDeck({ lang, cards, onAllSelected }: TarotCardDeckProps) {
@@ -109,7 +112,7 @@ export default function TarotCardDeck({ lang, cards, onAllSelected }: TarotCardD
         style={{ padding: '40px 20px' }}
         role="listbox"
         aria-label={
-          { fr: 'Sélectionne une carte', en: 'Select a card', zh: '选择一张牌', es: 'Selecciona una carta' }[lang] || 'Select a card'
+          { fr: 'Sélectionne une carte', en: 'Select a card', zh: '选择一张牌', es: 'Selecciona una carta', de: 'Wähle eine Karte', hi: 'एक कार्ड चुनें', ja: 'カードを選ぶ' }[lang] || 'Select a card'
         }
       >
         {cards.map((card, i) => {
@@ -156,7 +159,7 @@ export default function TarotCardDeck({ lang, cards, onAllSelected }: TarotCardD
                     }}
                     role="option"
                     aria-label={
-                      { fr: 'Carte — cliquez pour la sélectionner', en: 'Card — click to select', zh: '牌 — 点击选择', es: 'Carta — haz clic para seleccionar' }[lang] || 'Card — click to select'
+                      { fr: 'Carte — cliquez pour la sélectionner', en: 'Card — click to select', zh: '牌 — 点击选择', es: 'Carta — haz clic para seleccionar', de: 'Karte — klicken zum Auswählen', hi: 'कार्ड — चुनने के लिए क्लिक करें', ja: 'カード — クリックして選択' }[lang] || 'Card — click to select'
                     }
                     aria-selected={false}
                     disabled={currentSlot >= 3}

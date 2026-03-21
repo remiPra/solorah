@@ -32,6 +32,24 @@ const texts: Record<string, { cta: string; newReading: string; share: string; ca
     share: 'Compartir',
     cardOfDay: 'Tu carta del día',
   },
+  de: {
+    cta: 'Stelle deine Frage',
+    newReading: 'Neue Ziehung',
+    share: 'Teilen',
+    cardOfDay: 'Deine Tageskarte',
+  },
+  hi: {
+    cta: 'अपना प्रश्न पूछें',
+    newReading: 'नया पाठ',
+    share: 'साझा करें',
+    cardOfDay: 'आपका आज का कार्ड',
+  },
+  ja: {
+    cta: '質問をする',
+    newReading: '新しいリーディング',
+    share: 'シェア',
+    cardOfDay: '今日のカード',
+  },
 };
 
 const consultationPaths: Record<string, string> = {
@@ -39,6 +57,9 @@ const consultationPaths: Record<string, string> = {
   en: '/en/consultation',
   zh: '/zh/zi-xun',
   es: '/es/consulta',
+  de: '/de/beratung',
+  hi: '/hi/paramarsh',
+  ja: '/ja/soudan',
 };
 
 export default function CardReveal({ card, lang, onNewReading }: CardRevealProps) {
@@ -49,13 +70,16 @@ export default function CardReveal({ card, lang, onNewReading }: CardRevealProps
   const cardMessage = card.message[lang] || card.message.en;
   const cardInterpretation = card.interpretation ? (card.interpretation[lang] || card.interpretation.en) : undefined;
 
-  const shareText = lang === 'fr'
-    ? `Ma carte du jour sur Solorah : ${cardName} — "${cardMessage}"`
-    : lang === 'zh'
-      ? `我在Solorah上的每日牌卡：${cardName} — "${cardMessage}"`
-      : lang === 'es'
-        ? `Mi carta del día en Solorah: ${cardName} — "${cardMessage}"`
-        : `My card of the day on Solorah: ${cardName} — "${cardMessage}"`;
+  const shareTexts: Record<string, string> = {
+    fr: `Ma carte du jour sur Solorah : ${cardName} — "${cardMessage}"`,
+    en: `My card of the day on Solorah: ${cardName} — "${cardMessage}"`,
+    zh: `我在Solorah上的每日牌卡：${cardName} — "${cardMessage}"`,
+    es: `Mi carta del día en Solorah: ${cardName} — "${cardMessage}"`,
+    de: `Meine Tageskarte auf Solorah: ${cardName} — „${cardMessage}"`,
+    hi: `Solorah पर मेरा आज का कार्ड: ${cardName} — "${cardMessage}"`,
+    ja: `Solorahの今日のカード：${cardName}——「${cardMessage}」`,
+  };
+  const shareText = shareTexts[lang] || shareTexts.en;
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://solorah.com';
 

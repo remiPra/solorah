@@ -12,6 +12,9 @@ const positionLabels: Record<string, string[]> = {
   en: ['Past', 'Present', 'Future'],
   zh: ['过去', '现在', '未来'],
   es: ['Pasado', 'Presente', 'Futuro'],
+  de: ['Vergangenheit', 'Gegenwart', 'Zukunft'],
+  hi: ['भूतकाल', 'वर्तमान', 'भविष्य'],
+  ja: ['過去', '現在', '未来'],
 };
 
 const promptLabels: Record<string, string[]> = {
@@ -34,6 +37,21 @@ const promptLabels: Record<string, string[]> = {
     'Elige tu carta del Pasado',
     'Elige tu carta del Presente',
     'Elige tu carta del Futuro',
+  ],
+  de: [
+    'Wähle deine Vergangenheitskarte',
+    'Wähle deine Gegenwartskarte',
+    'Wähle deine Zukunftskarte',
+  ],
+  hi: [
+    'अपना भूतकाल का कार्ड चुनें',
+    'अपना वर्तमान का कार्ड चुनें',
+    'अपना भविष्य का कार्ड चुनें',
+  ],
+  ja: [
+    '過去のカードを選ぶ',
+    '現在のカードを選ぶ',
+    '未来のカードを選ぶ',
   ],
 };
 

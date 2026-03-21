@@ -13,6 +13,9 @@ const positionLabels: Record<string, { past: string; present: string; future: st
   en: { past: 'Past', present: 'Present', future: 'Future' },
   zh: { past: '过去', present: '现在', future: '未来' },
   es: { past: 'Pasado', present: 'Presente', future: 'Futuro' },
+  de: { past: 'Vergangenheit', present: 'Gegenwart', future: 'Zukunft' },
+  hi: { past: 'भूतकाल', present: 'वर्तमान', future: 'भविष्य' },
+  ja: { past: '過去', present: '現在', future: '未来' },
 };
 
 const texts: Record<string, { reversed: string; readingTitle: string; cta: string; newReading: string; share: string }> = {
@@ -44,6 +47,27 @@ const texts: Record<string, { reversed: string; readingTitle: string; cta: strin
     newReading: 'Nueva lectura',
     share: 'Compartir',
   },
+  de: {
+    reversed: 'Umgekehrt',
+    readingTitle: 'Deine Lesung',
+    cta: 'Persönliche Beratung',
+    newReading: 'Neue Ziehung',
+    share: 'Teilen',
+  },
+  hi: {
+    reversed: 'उलटा',
+    readingTitle: 'आपका पाठ',
+    cta: 'व्यक्तिगत परामर्श',
+    newReading: 'नया पाठ',
+    share: 'साझा करें',
+  },
+  ja: {
+    reversed: '逆位置',
+    readingTitle: 'あなたのリーディング',
+    cta: 'パーソナル相談',
+    newReading: '新しいリーディング',
+    share: 'シェア',
+  },
 };
 
 const consultationPaths: Record<string, string> = {
@@ -51,6 +75,9 @@ const consultationPaths: Record<string, string> = {
   en: '/en/consultation',
   zh: '/zh/zi-xun',
   es: '/es/consulta',
+  de: '/de/beratung',
+  hi: '/hi/paramarsh',
+  ja: '/ja/soudan',
 };
 
 export default function TarotCardReveal({ lang, selectedCards, onNewReading }: TarotCardRevealProps) {
@@ -76,13 +103,16 @@ export default function TarotCardReveal({ lang, selectedCards, onNewReading }: T
   }, []);
 
   const shareText = selectedCards.map((s) => s.card.name[lang] || s.card.name.en).join(', ');
-  const shareFullText = lang === 'fr'
-    ? `Mon tirage Tarot de Marseille sur Solorah : ${shareText}`
-    : lang === 'zh'
-      ? `我在Solorah上的马赛塔罗占卜：${shareText}`
-      : lang === 'es'
-        ? `Mi lectura del Tarot de Marsella en Solorah: ${shareText}`
-        : `My Marseille Tarot reading on Solorah: ${shareText}`;
+  const shareFullTexts: Record<string, string> = {
+    fr: `Mon tirage Tarot de Marseille sur Solorah : ${shareText}`,
+    en: `My Marseille Tarot reading on Solorah: ${shareText}`,
+    zh: `我在Solorah上的马赛塔罗占卜：${shareText}`,
+    es: `Mi lectura del Tarot de Marsella en Solorah: ${shareText}`,
+    de: `Meine Marseille-Tarot-Lesung auf Solorah: ${shareText}`,
+    hi: `Solorah पर मेरा मार्सिले टैरो पाठ: ${shareText}`,
+    ja: `Solorahのマルセイユタロットリーディング：${shareText}`,
+  };
+  const shareFullText = shareFullTexts[lang] || shareFullTexts.en;
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://solorah.com';
 
