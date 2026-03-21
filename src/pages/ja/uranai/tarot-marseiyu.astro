@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TarotReading from '../../../components/cards/TarotReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+
+const lang = 'ja';
+---
+
+<BaseLayout
+  title="マルセイユタロット — カード占い"
+  description="3枚のカードを引いて、大アルカナがあなたの過去・現在・未来について何を明かすか発見しましょう。"
+  lang={lang}
+>
+  <TarotReading client:only="react" lang={lang} deck={tarotMarseilleDeck.cards} />
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ShivaReading from '../../../components/cards/ShivaReading';
+import { oracleShivaDeck } from '../../../data/oracle-shiva';
+
+const lang = 'hi';
+---
+
+<BaseLayout
+  title="शिव ओरेकल — आध्यात्मिक मार्गदर्शन"
+  description="शिव ओरेकल का एक पत्ता खींचें और अपने निर्णयों और मार्ग को रोशन करने वाला ज्ञान का संदेश प्राप्त करें।"
+  lang={lang}
+>
+  <ShivaReading client:only="react" lang={lang} deck={oracleShivaDeck.cards} />
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'ja';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.legal.title')}
+  description={t('pages.legal.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-12 text-center">
+        {t('pages.legal.title')}
+      </h1>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-8">
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">サイト運営者</h2>
+          <p>Solorah<br />ウェブサイト: solorah.com<br />メール: contact@solorah.com</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">ホスティング</h2>
+          <p>このウェブサイトはVercel Inc.がホストしています。<br />440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">知的財産権</h2>
+          <p>本サイトに掲載されているすべてのコンテンツ（テキスト、画像、イラスト、カード）は著作権で保護されています。事前の許可なく、部分的であっても複製することは禁止されています。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">データ保護</h2>
+          <p>GDPRに基づき、お客様は個人データへのアクセス、修正、削除の権利を有します。これらの権利を行使するには、contact@solorah.com までご連絡ください。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">免責事項</h2>
+          <p class="italic text-sol-ash">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

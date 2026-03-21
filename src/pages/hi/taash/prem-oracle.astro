@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OracleReading from '../../../components/cards/OracleReading';
+import { oracleAmourDeck } from '../../../data/oracle-amour';
+
+const lang = 'hi';
+---
+
+<BaseLayout
+  title="प्रेम ओरेकल — कार्ड रीडिंग"
+  description="अपना आज का पत्ता खींचें और प्रेम का वह संदेश जानें जो ब्रह्मांड ने आपके लिए रखा है।"
+  lang={lang}
+>
+  <OracleReading client:only="react" lang={lang} deck={oracleAmourDeck.cards} />
+</BaseLayout>

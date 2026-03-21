@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import Button from '../../components/ui/Button.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'ja';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.consultation.title')}
+  description={t('pages.consultation.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-8">
+        {t('pages.consultation.title')}
+      </h1>
+
+      <p class="font-body text-xl text-sol-cream italic mb-12 max-w-xl mx-auto leading-relaxed">
+        カードの解釈をさらに深めたいですか？個人的な質問をして、深い占い結果を受け取りましょう。
+      </p>
+
+      <div class="gold-glow rounded-lg bg-sol-charcoal/50 p-8 sm:p-12 max-w-md mx-auto mb-12">
+        <h3 class="font-display text-2xl text-sol-gold mb-4">パーソナル相談</h3>
+        <p class="font-body text-sol-cream text-lg mb-6">
+          あなたの個人的な質問を踏まえた、カード占いの深い解釈。
+        </p>
+        <div class="font-display text-3xl text-sol-cream mb-6">
+          近日公開
+        </div>
+        <Button href="/ja/otoiawase" variant="secondary">
+          開始時に通知する
+        </Button>
+      </div>
+
+      <p class="font-ui text-xs text-sol-ash/50 max-w-md mx-auto">
+        {t('footer.disclaimer')}
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,100 @@
+{
+  "site": {
+    "name": "Solorah",
+    "tagline": "Höre, was die Karten dir zu sagen haben"
+  },
+  "nav": {
+    "home": "Startseite",
+    "reading": "Kartenziehen",
+    "consultation": "Beratung",
+    "about": "Über uns",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "SOLORAH",
+    "subtitle": "Höre, was die Karten dir zu sagen haben",
+    "cta": "Eine Ziehung beginnen",
+    "scroll": "Entdecken"
+  },
+  "decks": {
+    "sectionTitle": "Wähle dein Orakel",
+    "oracleAmour": {
+      "name": "Liebesorakel",
+      "description": "Ein Orakel für Herzensangelegenheiten. 44 Karten, um dein Liebesleben, deine Beziehungen und tiefsten Gefühle zu beleuchten."
+    },
+    "tarotMarseille": {
+      "name": "Tarot de Marseille Remastered",
+      "description": "Das traditionelle Tarot neu interpretiert mit zeitgenössischer Ästhetik. 78 Arkana, um alle Bereiche deines Lebens zu erkunden."
+    },
+    "oracleShiva": {
+      "name": "Shiva-Orakel",
+      "description": "Ein Orakel inspiriert von der Weisheit Shivas. 20 Karten, um deine Entscheidungen zu erhellen und deinen Weg zu finden."
+    },
+    "cta": "Karten ziehen"
+  },
+  "howItWorks": {
+    "sectionTitle": "So funktioniert es",
+    "step1": {
+      "title": "Wähle dein Deck",
+      "description": "Liebesorakel, Tarot de Marseille oder Shiva-Orakel — jedes Deck hat seine eigene einzigartige Energie."
+    },
+    "step2": {
+      "title": "Ziehe deine Karten",
+      "description": "Konzentriere dich auf deine Frage und lass deine Intuition deine Wahl leiten."
+    },
+    "step3": {
+      "title": "Empfange deine Botschaft",
+      "description": "Entdecke die Deutung deiner Karten und die Botschaft, die sie für dich tragen."
+    }
+  },
+  "consultation": {
+    "sectionTitle": "Weiter gehen",
+    "description": "Möchtest du eine persönliche und vertiefte Deutung? Stelle deine Frage unserem Orakel.",
+    "cta": "Beratungen entdecken"
+  },
+  "footer": {
+    "legal": "Impressum",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "AGB",
+    "disclaimer": "Die Kartenziehungen dienen der Unterhaltung und persönlichen Entwicklung. Sie ersetzen in keinem Fall eine ärztliche, rechtliche oder finanzielle Beratung.",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "pages": {
+    "about": {
+      "title": "Über uns",
+      "metaDescription": "Entdecke Solorah, dein Online-Orakel für Tarot- und Liebesorakel-Ziehungen."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "metaDescription": "Kontaktiere das Solorah-Team bei Fragen zu unseren Kartenziehungen und Beratungen."
+    },
+    "legal": {
+      "title": "Impressum",
+      "metaDescription": "Impressum der Website Solorah.com — Orakel und Tarot online."
+    },
+    "consultation": {
+      "title": "Beratung",
+      "metaDescription": "Erhalte eine persönliche Deutung deiner Kartenziehung mit einer Solorah-Beratung."
+    },
+    "reading": {
+      "title": "Kartenziehen",
+      "metaDescription": "Wähle dein Deck und ziehe deine Karten kostenlos mit Solorah."
+    },
+    "oracleAmour": {
+      "title": "Liebesorakel",
+      "metaDescription": "Ziehe kostenlos die Karten des Liebesorakels. 44 Karten, um dein Liebesleben zu beleuchten."
+    },
+    "tarotMarseille": {
+      "title": "Tarot de Marseille",
+      "metaDescription": "Ziehe kostenlos die Karten des Tarot de Marseille Remastered. 78 Arkana, um deinen Lebensweg zu erkunden."
+    },
+    "oracleShiva": {
+      "title": "Shiva-Orakel",
+      "metaDescription": "Ziehe kostenlos eine Karte des Shiva-Orakels. 20 Weisheitskarten für deine Entscheidungen."
+    }
+  },
+  "home": {
+    "title": "Orakel & Tarot online",
+    "metaDescription": "Solorah — Kostenloses Tarot und Liebesorakel online. Höre, was die Karten dir zu sagen haben."
+  }
+}

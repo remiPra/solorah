@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ShivaReading from '../../../components/cards/ShivaReading';
+import { oracleShivaDeck } from '../../../data/oracle-shiva';
+
+const lang = 'de';
+---
+
+<BaseLayout
+  title="Shiva-Orakel — Spirituelle Führung"
+  description="Ziehe eine Karte des Shiva-Orakels und empfange eine Weisheitsbotschaft für deine Entscheidungen und deinen Weg."
+  lang={lang}
+>
+  <ShivaReading client:only="react" lang={lang} deck={oracleShivaDeck.cards} />
+</BaseLayout>

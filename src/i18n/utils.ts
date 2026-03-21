@@ -2,18 +2,24 @@ import fr from './fr.json';
 import en from './en.json';
 import zh from './zh.json';
 import es from './es.json';
+import de from './de.json';
+import hi from './hi.json';
+import ja from './ja.json';
 
 export const languages = {
   fr: 'Français',
   en: 'English',
   zh: '中文',
   es: 'Español',
+  de: 'Deutsch',
+  hi: 'हिन्दी',
+  ja: '日本語',
 } as const;
 
 export type Lang = keyof typeof languages;
 export const defaultLang: Lang = 'fr';
 
-const translations = { fr, en, zh, es } as const;
+const translations = { fr, en, zh, es, de, hi, ja } as const;
 
 type Translations = typeof fr;
 
@@ -62,47 +68,74 @@ export function getOtherLangs(lang: Lang): Lang[] {
 
 /** Route mappings between languages */
 const routeMap: Record<string, Record<Lang, string>> = {
-  '/': { fr: '/', en: '/', zh: '/', es: '/' },
+  '/': { fr: '/', en: '/', zh: '/', es: '/', de: '/', hi: '/', ja: '/' },
   // FR routes
-  '/tirage': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura' },
-  '/tirage/oracle-amour': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor' },
-  '/tirage/tarot-marseille': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella' },
-  '/tirage/oracle-shiva': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva' },
-  '/a-propos': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de' },
-  '/consultation': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta' },
-  '/contact': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto' },
-  '/mentions-legales': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales' },
+  '/tirage': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
+  '/tirage/oracle-amour': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
+  '/tirage/tarot-marseille': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
+  '/tirage/oracle-shiva': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva', de: '/ziehung/shiva-orakel', hi: '/taash/shiva-oracle', ja: '/uranai/shiva-orakuru' },
+  '/a-propos': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de', de: '/ueber-uns', hi: '/hamare-baare-mein', ja: '/gaiyou' },
+  '/consultation': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
+  '/contact': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
+  '/mentions-legales': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
   // EN routes
-  '/reading': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura' },
-  '/reading/love-oracle': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor' },
-  '/reading/marseille-tarot': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella' },
-  '/reading/shiva-oracle': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva' },
-  '/about': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de' },
-  '/legal': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales' },
+  '/reading': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
+  '/reading/love-oracle': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
+  '/reading/marseille-tarot': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
+  '/reading/shiva-oracle': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva', de: '/ziehung/shiva-orakel', hi: '/taash/shiva-oracle', ja: '/uranai/shiva-orakuru' },
+  '/about': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de', de: '/ueber-uns', hi: '/hamare-baare-mein', ja: '/gaiyou' },
+  '/legal': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
   // ZH routes
-  '/zhan-bu': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura' },
-  '/zhan-bu/ai-qing-shen-yu': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor' },
-  '/zhan-bu/ma-sai-ta-luo': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella' },
-  '/zhan-bu/shi-wa-shen-yu': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva' },
-  '/guan-yu': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de' },
-  '/zi-xun': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta' },
-  '/lian-xi': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto' },
-  '/fa-lv-sheng-ming': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales' },
+  '/zhan-bu': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
+  '/zhan-bu/ai-qing-shen-yu': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
+  '/zhan-bu/ma-sai-ta-luo': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
+  '/zhan-bu/shi-wa-shen-yu': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva', de: '/ziehung/shiva-orakel', hi: '/taash/shiva-oracle', ja: '/uranai/shiva-orakuru' },
+  '/guan-yu': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de', de: '/ueber-uns', hi: '/hamare-baare-mein', ja: '/gaiyou' },
+  '/zi-xun': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
+  '/lian-xi': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
+  '/fa-lv-sheng-ming': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
   // ES routes
-  '/lectura': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura' },
-  '/lectura/oraculo-amor': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor' },
-  '/lectura/tarot-marsella': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella' },
-  '/lectura/oraculo-shiva': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva' },
-  '/acerca-de': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de' },
-  '/consulta': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta' },
-  '/contacto': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto' },
-  '/avisos-legales': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales' },
+  '/lectura': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
+  '/lectura/oraculo-amor': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
+  '/lectura/tarot-marsella': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
+  '/lectura/oraculo-shiva': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva', de: '/ziehung/shiva-orakel', hi: '/taash/shiva-oracle', ja: '/uranai/shiva-orakuru' },
+  '/acerca-de': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de', de: '/ueber-uns', hi: '/hamare-baare-mein', ja: '/gaiyou' },
+  '/consulta': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
+  '/contacto': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
+  '/avisos-legales': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
+  // DE routes
+  '/ziehung': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
+  '/ziehung/liebesorakel': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
+  '/ziehung/tarot-marseille': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
+  '/ziehung/shiva-orakel': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva', de: '/ziehung/shiva-orakel', hi: '/taash/shiva-oracle', ja: '/uranai/shiva-orakuru' },
+  '/ueber-uns': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de', de: '/ueber-uns', hi: '/hamare-baare-mein', ja: '/gaiyou' },
+  '/beratung': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
+  '/kontakt': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
+  '/impressum': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
+  // HI routes
+  '/taash': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
+  '/taash/prem-oracle': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
+  '/taash/tarot-marseille': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
+  '/taash/shiva-oracle': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva', de: '/ziehung/shiva-orakel', hi: '/taash/shiva-oracle', ja: '/uranai/shiva-orakuru' },
+  '/hamare-baare-mein': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de', de: '/ueber-uns', hi: '/hamare-baare-mein', ja: '/gaiyou' },
+  '/paramarsh': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
+  '/sampark': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
+  '/vidhi-suchna': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
+  // JA routes
+  '/uranai': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
+  '/uranai/ai-no-orakuru': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
+  '/uranai/tarot-marseiyu': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
+  '/uranai/shiva-orakuru': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva', de: '/ziehung/shiva-orakel', hi: '/taash/shiva-oracle', ja: '/uranai/shiva-orakuru' },
+  '/gaiyou': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de', de: '/ueber-uns', hi: '/hamare-baare-mein', ja: '/gaiyou' },
+  '/soudan': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
+  '/otoiawase': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
+  '/houki-jouhou': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
 };
 
 /** Get the equivalent path in another language */
 export function getTranslatedPath(currentPath: string, targetLang: Lang): string {
   // Remove the language prefix
-  const pathWithoutLang = currentPath.replace(/^\/(fr|en|zh|es)/, '') || '/';
+  const pathWithoutLang = currentPath.replace(/^\/(fr|en|zh|es|de|hi|ja)/, '') || '/';
   const mapping = routeMap[pathWithoutLang];
   if (mapping) {
     return `/${targetLang}${mapping[targetLang]}`;

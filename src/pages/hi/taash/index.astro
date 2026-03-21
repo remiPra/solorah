@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GoldDivider from '../../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'hi';
+const t = useTranslations(lang);
+
+const decks = [
+  {
+    name: t('decks.oracleAmour.name'),
+    description: t('decks.oracleAmour.description'),
+    href: '/hi/taash/prem-oracle',
+    icon: '♡',
+    gradient: 'from-sol-rose-dark/20 via-sol-rose/10 to-transparent',
+  },
+  {
+    name: t('decks.tarotMarseille.name'),
+    description: t('decks.tarotMarseille.description'),
+    href: '/hi/taash/tarot-marseille',
+    icon: '✦',
+    gradient: 'from-sol-purple-dark/20 via-sol-celestial/10 to-transparent',
+  },
+  {
+    name: t('decks.oracleShiva.name'),
+    description: t('decks.oracleShiva.description'),
+    href: '/hi/taash/shiva-oracle',
+    icon: 'ॐ',
+    gradient: 'from-sol-indigo-dark/20 via-sol-indigo/10 to-transparent',
+  },
+];
+---
+
+<BaseLayout
+  title={t('pages.reading.title')}
+  description={t('pages.reading.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <GoldDivider class="max-w-xs mx-auto mb-8" />
+        <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4">
+          {t('pages.reading.title')}
+        </h1>
+        <p class="font-body text-xl text-sol-cream italic">
+          अपना डेक चुनें और अपनी अंतर्ज्ञान को मार्गदर्शन करने दें।
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {decks.map((deck) => (
+          <a href={deck.href} class="group block">
+            <div class={`relative rounded-lg overflow-hidden bg-gradient-to-br ${deck.gradient} border border-sol-gold/10 p-8 text-center transition-all duration-500 hover:border-sol-gold/30 hover:shadow-[0_0_40px_rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1)]`}>
+              <div class="text-5xl mb-6 opacity-60 group-hover:opacity-100 transition-opacity">{deck.icon}</div>
+              <h2 class="font-display text-2xl text-sol-cream mb-3 group-hover:text-sol-gold transition-colors">{deck.name}</h2>
+              <p class="font-body text-sol-cream text-lg leading-relaxed">{deck.description}</p>
+              <span class="inline-flex items-center gap-2 font-ui text-sm text-sol-gold tracking-wider uppercase mt-6 group-hover:gap-3 transition-all">
+                {t('decks.cta')}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

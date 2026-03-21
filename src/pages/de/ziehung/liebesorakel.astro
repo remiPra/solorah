@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OracleReading from '../../../components/cards/OracleReading';
+import { oracleAmourDeck } from '../../../data/oracle-amour';
+
+const lang = 'de';
+---
+
+<BaseLayout
+  title="Liebesorakel — Kartenziehung"
+  description="Ziehe deine Tageskarte und entdecke die Liebesbotschaft, die das Universum für dich bereithält."
+  lang={lang}
+>
+  <OracleReading client:only="react" lang={lang} deck={oracleAmourDeck.cards} />
+</BaseLayout>

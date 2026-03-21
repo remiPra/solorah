@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'ja';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.about.title')}
+  description={t('pages.about.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-8">
+        {t('pages.about.title')}
+      </h1>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-6">
+        <p>
+          Solorahは、占い芸術への情熱と、世界中のすべての人にオラクルとタロットを届けたいという願いから生まれました。
+        </p>
+        <p>
+          私たちの使命は、すべての人が自分の直感とつながり、カードが届けるメッセージを受け取ることができる、神聖なオンライン空間を作ることです。
+        </p>
+        <p>
+          愛のオラクルで恋愛の答えを探しているときも、マルセイユタロットで人生のあらゆる側面を探求したいときも、Solorahがあなたの意味の探求に寄り添います。
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,100 @@
+{
+  "site": {
+    "name": "Solorah",
+    "tagline": "カードがあなたに伝えたいことに耳を傾けて"
+  },
+  "nav": {
+    "home": "ホーム",
+    "reading": "カード占い",
+    "consultation": "相談",
+    "about": "概要",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "title": "SOLORAH",
+    "subtitle": "カードがあなたに伝えたいことに耳を傾けて",
+    "cta": "占いを始める",
+    "scroll": "詳しく見る"
+  },
+  "decks": {
+    "sectionTitle": "オラクルを選んで",
+    "oracleAmour": {
+      "name": "愛のオラクル",
+      "description": "恋愛の悩みに捧げるオラクル。44枚のカードがあなたの恋愛、人間関係、深い感情を照らします。"
+    },
+    "tarotMarseille": {
+      "name": "マルセイユタロット リマスター版",
+      "description": "現代的な美しさで生まれ変わった伝統のタロット。78枚のアルカナがあなたの人生のあらゆる側面を探ります。"
+    },
+    "oracleShiva": {
+      "name": "シヴァオラクル",
+      "description": "シヴァの知恵からインスピレーションを受けたオラクル。20枚のカードがあなたの決断を照らし、道を示します。"
+    },
+    "cta": "カードを引く"
+  },
+  "howItWorks": {
+    "sectionTitle": "使い方",
+    "step1": {
+      "title": "デッキを選ぶ",
+      "description": "愛のオラクル、マルセイユタロット、シヴァオラクル — それぞれのデッキに固有のエネルギーがあります。"
+    },
+    "step2": {
+      "title": "カードを引く",
+      "description": "質問に集中して、直感に導かれるまま選んでください。"
+    },
+    "step3": {
+      "title": "メッセージを受け取る",
+      "description": "カードの解釈と、あなたへのメッセージを発見してください。"
+    }
+  },
+  "consultation": {
+    "sectionTitle": "さらに深く",
+    "description": "パーソナライズされた深い解釈をお望みですか？私たちのオラクルに質問してください。",
+    "cta": "相談について詳しく"
+  },
+  "footer": {
+    "legal": "法的情報",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "disclaimer": "カード占いは娯楽と自己啓発を目的として提供されています。医療、法律、財務に関する専門的なアドバイスに代わるものではありません。",
+    "rights": "全著作権所有。"
+  },
+  "pages": {
+    "about": {
+      "title": "概要",
+      "metaDescription": "Solorah — タロットと愛のオラクルのオンライン占いサイトをご紹介します。"
+    },
+    "contact": {
+      "title": "お問い合わせ",
+      "metaDescription": "カード占いや相談に関するご質問は、Solorahチームにお問い合わせください。"
+    },
+    "legal": {
+      "title": "法的情報",
+      "metaDescription": "Solorah.com の法的情報 — オンラインオラクルとタロット。"
+    },
+    "consultation": {
+      "title": "相談",
+      "metaDescription": "Solorahの相談サービスで、あなたの占い結果のパーソナライズされた解釈を受け取りましょう。"
+    },
+    "reading": {
+      "title": "カード占い",
+      "metaDescription": "デッキを選んで、Solorahで無料でカードを引きましょう。"
+    },
+    "oracleAmour": {
+      "title": "愛のオラクル",
+      "metaDescription": "愛のオラクルのカードを無料で引きましょう。恋愛を照らす44枚のカード。"
+    },
+    "tarotMarseille": {
+      "title": "マルセイユタロット",
+      "metaDescription": "マルセイユタロット リマスター版のカードを無料で引きましょう。人生の道を探る78枚のアルカナ。"
+    },
+    "oracleShiva": {
+      "title": "シヴァオラクル",
+      "metaDescription": "シヴァオラクルのカードを無料で引きましょう。決断を照らす20枚の知恵のカード。"
+    }
+  },
+  "home": {
+    "title": "オンラインオラクル＆タロット",
+    "metaDescription": "Solorah — 無料のオンラインタロットと愛のオラクル占い。カードがあなたに伝えたいことに耳を傾けて。"
+  }
+}

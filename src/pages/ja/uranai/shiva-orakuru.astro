@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ShivaReading from '../../../components/cards/ShivaReading';
+import { oracleShivaDeck } from '../../../data/oracle-shiva';
+
+const lang = 'ja';
+---
+
+<BaseLayout
+  title="シヴァオラクル — スピリチュアルガイダンス"
+  description="シヴァオラクルのカードを引いて、あなたの決断と道を照らす知恵のメッセージを受け取りましょう。"
+  lang={lang}
+>
+  <ShivaReading client:only="react" lang={lang} deck={oracleShivaDeck.cards} />
+</BaseLayout>

@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'hi';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.about.title')}
+  description={t('pages.about.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-8">
+        {t('pages.about.title')}
+      </h1>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-6">
+        <p>
+          Solorah भविष्यवाणी कलाओं के प्रति जुनून और ओरेकल तथा टैरो को दुनिया भर में सभी के लिए सुलभ बनाने की इच्छा से जन्मा है।
+        </p>
+        <p>
+          हमारा मिशन एक पवित्र ऑनलाइन स्थान बनाना है जहाँ हर व्यक्ति अपनी अंतर्ज्ञान से जुड़ सके और उन संदेशों को प्राप्त कर सके जो पत्ते उनके लिए लेकर आते हैं।
+        </p>
+        <p>
+          चाहे आप प्रेम ओरेकल से अपने प्रेम जीवन के बारे में उत्तर खोज रहे हों या टैरो डी मार्सिले से अपने जीवन के सभी पहलुओं का पता लगाना चाहते हों, Solorah इस अर्थ की खोज में आपका साथ देने के लिए यहाँ है।
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

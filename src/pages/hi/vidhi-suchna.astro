@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'hi';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.legal.title')}
+  description={t('pages.legal.metaDescription')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-12 text-center">
+        {t('pages.legal.title')}
+      </h1>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-8">
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">साइट संपादक</h2>
+          <p>Solorah<br />वेबसाइट: solorah.com<br />ईमेल: contact@solorah.com</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">होस्टिंग</h2>
+          <p>यह वेबसाइट Vercel Inc. द्वारा होस्ट की गई है।<br />440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">बौद्धिक संपदा</h2>
+          <p>इस साइट पर मौजूद सभी सामग्री (पाठ, चित्र, चित्रण, कार्ड) कॉपीराइट द्वारा संरक्षित है। बिना पूर्व अनुमति के किसी भी प्रकार का पुनरुत्पादन वर्जित है।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">डेटा संरक्षण</h2>
+          <p>GDPR के अनुसार, आपको अपने व्यक्तिगत डेटा तक पहुँच, सुधार और हटाने का अधिकार है। इन अधिकारों का प्रयोग करने के लिए हमसे संपर्क करें: contact@solorah.com</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">अस्वीकरण</h2>
+          <p class="italic text-sol-ash">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

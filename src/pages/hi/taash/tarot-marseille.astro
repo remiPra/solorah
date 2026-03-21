@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TarotReading from '../../../components/cards/TarotReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+
+const lang = 'hi';
+---
+
+<BaseLayout
+  title="टैरो डी मार्सिले — कार्ड रीडिंग"
+  description="3 पत्ते खींचें और जानें कि महान आर्काना आपके अतीत, वर्तमान और भविष्य के बारे में क्या प्रकट करते हैं।"
+  lang={lang}
+>
+  <TarotReading client:only="react" lang={lang} deck={tarotMarseilleDeck.cards} />
+</BaseLayout>
