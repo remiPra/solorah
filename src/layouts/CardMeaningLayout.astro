@@ -1,0 +1,206 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import GoldDivider from '../components/ui/GoldDivider.astro';
+import Button from '../components/ui/Button.astro';
+import type { Lang } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+  cardImage: string;
+  cardName: string;
+  cardNumber: number | string;
+  keywords: string[];
+  prevCard?: { name: string; href: string };
+  nextCard?: { name: string; href: string };
+  pillarHref?: string;
+  readingHref?: string;
+}
+
+const {
+  title,
+  description,
+  lang,
+  cardImage,
+  cardName,
+  cardNumber,
+  keywords = [],
+  prevCard,
+  nextCard,
+  pillarHref,
+  readingHref,
+} = Astro.props;
+
+const t = useTranslations(lang);
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": `https://solorah.com${cardImage}`,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Solorah",
+    "url": "https://solorah.com"
+  },
+  "inLanguage": lang,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://solorah.com${Astro.url.pathname}`
+  }
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang={lang}
+  image={`https://solorah.com${cardImage}`}
+  structuredData={articleJsonLd}
+>
+  <article class="py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="mb-8">
+        <ol class="flex items-center gap-2 font-ui text-xs text-sol-ash/60">
+          <li>
+            <a href={`/${lang}/`} class="hover:text-sol-gold transition-colors">
+              {t('nav.home')}
+            </a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-sol-gold/30">/</span>
+            {pillarHref ? (
+              <a href={pillarHref} class="hover:text-sol-gold transition-colors">
+                Arcanes Majeurs
+              </a>
+            ) : (
+              <span>Arcanes Majeurs</span>
+            )}
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-sol-gold/30">/</span>
+            <span class="text-sol-cream/80">{cardName}</span>
+          </li>
+        </ol>
+      </nav>
+
+      <!-- Card hero -->
+      <header class="text-center mb-16">
+        <GoldDivider class="max-w-xs mx-auto mb-8" />
+
+        <!-- Card image with glow -->
+        <div class="relative inline-block mb-8">
+          <div class="absolute inset-0 rounded-lg bg-sol-gold/10 blur-2xl scale-110"></div>
+          <img
+            src={cardImage}
+            alt={cardName}
+            class="relative w-48 sm:w-56 rounded-lg shadow-2xl"
+            loading="eager"
+          />
+        </div>
+
+        <div class="font-ui text-xs text-sol-ash/50 uppercase tracking-[0.3em] mb-3">
+          Arcane {cardNumber}
+        </div>
+        <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-sol-gold mb-4">
+          {cardName}
+        </h1>
+
+        <!-- Keywords -->
+        {keywords.length > 0 && (
+          <div class="flex flex-wrap justify-center gap-2 mt-6">
+            {keywords.map((kw) => (
+              <span class="font-ui text-xs px-3 py-1 rounded-full border border-sol-gold/20 text-sol-gold/70">
+                {kw}
+              </span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <!-- Content (upright, reversed, love, career...) -->
+      <div class="guide-prose font-body text-sol-cream/90 text-lg leading-relaxed space-y-6 max-w-3xl mx-auto">
+        <slot />
+      </div>
+
+      <!-- Card navigation prev/next -->
+      <nav class="mt-20 flex items-center justify-between gap-4">
+        {prevCard ? (
+          <a
+            href={prevCard.href}
+            class="group flex items-center gap-2 font-ui text-sm text-sol-ash/60 hover:text-sol-gold transition-colors"
+          >
+            <span class="text-lg group-hover:-translate-x-1 transition-transform">&larr;</span>
+            <span>{prevCard.name}</span>
+          </a>
+        ) : <div />}
+
+        {nextCard ? (
+          <a
+            href={nextCard.href}
+            class="group flex items-center gap-2 font-ui text-sm text-sol-ash/60 hover:text-sol-gold transition-colors"
+          >
+            <span>{nextCard.name}</span>
+            <span class="text-lg group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </a>
+        ) : <div />}
+      </nav>
+
+      <!-- Bottom CTA -->
+      <div class="mt-16 text-center">
+        <GoldDivider class="max-w-xs mx-auto mb-8" />
+        <p class="font-body text-sol-cream/70 italic mb-6">
+          Envie de tirer cette carte ?
+        </p>
+        {readingHref && (
+          <Button href={readingHref} variant="primary" size="lg">
+            Tirer les cartes du Tarot
+          </Button>
+        )}
+      </div>
+
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .guide-prose h2 {
+    font-family: var(--font-display), serif;
+    font-size: 1.75rem;
+    color: var(--color-sol-gold);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+  .guide-prose h3 {
+    font-family: var(--font-display), serif;
+    font-size: 1.25rem;
+    color: var(--color-sol-cream);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .guide-prose a {
+    color: var(--color-sol-gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-sol-gold);
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .guide-prose a:hover { opacity: 1; }
+  .guide-prose strong {
+    color: var(--color-sol-cream);
+    font-weight: 600;
+  }
+  .guide-prose blockquote {
+    border-left: 3px solid var(--color-sol-gold);
+    padding-left: 1.25rem;
+    font-style: italic;
+    opacity: 0.85;
+    margin: 1.5rem 0;
+  }
+</style>

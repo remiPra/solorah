@@ -1,0 +1,208 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import GoldDivider from '../components/ui/GoldDivider.astro';
+import Button from '../components/ui/Button.astro';
+import type { Lang } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+  image?: string;
+  breadcrumbs?: Array<{ label: string; href?: string }>;
+  ctaHref?: string;
+  ctaLabel?: string;
+  toc?: Array<{ id: string; label: string }>;
+  structuredData?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description,
+  lang,
+  image,
+  breadcrumbs = [],
+  ctaHref,
+  ctaLabel,
+  toc = [],
+  structuredData,
+} = Astro.props;
+
+const t = useTranslations(lang);
+
+// Build Article JSON-LD if none provided
+const articleJsonLd = structuredData || {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": image || "https://solorah.com/images/og/solorah-default.jpg",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Solorah",
+    "url": "https://solorah.com"
+  },
+  "inLanguage": lang,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://solorah.com${Astro.url.pathname}`
+  }
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang={lang}
+  image={image}
+  structuredData={articleJsonLd}
+>
+  <article class="py-24 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Breadcrumb -->
+      {breadcrumbs.length > 0 && (
+        <nav aria-label="Breadcrumb" class="mb-8">
+          <ol class="flex items-center gap-2 font-ui text-xs text-sol-ash/60">
+            <li>
+              <a href={`/${lang}/`} class="hover:text-sol-gold transition-colors">
+                {t('nav.home')}
+              </a>
+            </li>
+            {breadcrumbs.map((crumb, i) => (
+              <li class="flex items-center gap-2">
+                <span class="text-sol-gold/30">/</span>
+                {crumb.href ? (
+                  <a href={crumb.href} class="hover:text-sol-gold transition-colors">
+                    {crumb.label}
+                  </a>
+                ) : (
+                  <span class="text-sol-cream/80">{crumb.label}</span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )}
+
+      <!-- Header -->
+      <header class="text-center mb-16">
+        <GoldDivider class="max-w-xs mx-auto mb-8" />
+        <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-sol-gold mb-6 leading-tight">
+          {title}
+        </h1>
+        <p class="font-body text-lg text-sol-cream/80 italic max-w-2xl mx-auto leading-relaxed">
+          {description}
+        </p>
+      </header>
+
+      <!-- Content grid: main + optional sidebar TOC -->
+      <div class:list={[
+        'gap-12',
+        toc.length > 0 ? 'lg:grid lg:grid-cols-[1fr_220px]' : ''
+      ]}>
+
+        <!-- Main content -->
+        <div class="guide-prose font-body text-sol-cream/90 text-lg leading-relaxed space-y-6">
+          <slot />
+        </div>
+
+        <!-- Table of contents sidebar -->
+        {toc.length > 0 && (
+          <aside class="hidden lg:block">
+            <nav class="sticky top-24 space-y-3">
+              <h3 class="font-display text-sm text-sol-gold uppercase tracking-widest mb-4">
+                Sommaire
+              </h3>
+              {toc.map((item) => (
+                <a
+                  href={`#${item.id}`}
+                  class="block font-ui text-sm text-sol-ash/70 hover:text-sol-gold transition-colors leading-snug"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </aside>
+        )}
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="mt-20 text-center">
+        <GoldDivider class="max-w-xs mx-auto mb-8" />
+        {ctaHref && ctaLabel && (
+          <Button href={ctaHref} variant="primary" size="lg">
+            {ctaLabel}
+          </Button>
+        )}
+      </div>
+
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  /* Guide prose styles — headings, links, lists, blockquotes */
+  .guide-prose h2 {
+    font-family: var(--font-display), serif;
+    font-size: 1.75rem;
+    color: var(--color-sol-gold);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .guide-prose h3 {
+    font-family: var(--font-display), serif;
+    font-size: 1.25rem;
+    color: var(--color-sol-cream);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .guide-prose a {
+    color: var(--color-sol-gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-sol-gold);
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .guide-prose a:hover {
+    opacity: 1;
+  }
+
+  .guide-prose ul, .guide-prose ol {
+    padding-left: 1.5rem;
+  }
+  .guide-prose ul {
+    list-style-type: disc;
+  }
+  .guide-prose ol {
+    list-style-type: decimal;
+  }
+  .guide-prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .guide-prose blockquote {
+    border-left: 3px solid var(--color-sol-gold);
+    padding-left: 1.25rem;
+    font-style: italic;
+    opacity: 0.85;
+    margin: 1.5rem 0;
+  }
+
+  .guide-prose strong {
+    color: var(--color-sol-cream);
+    font-weight: 600;
+  }
+
+  .guide-prose img {
+    border-radius: 0.5rem;
+    margin: 2rem auto;
+    max-width: 100%;
+  }
+</style>

@@ -50,3 +50,24 @@ export interface TarotDeck {
 }
 
 export type TarotPhase = 'intro' | 'select' | 'reveal';
+
+// Extended meanings for card meaning pages (SEO)
+export interface TarotMeaning {
+  slug: string;
+  number: number | string;
+  image: string;
+  name: LocalizedString;
+  keywords: LocalizedString;
+  element?: string;
+  planet?: string;
+  upright: {
+    meaning: LocalizedString;
+    love: LocalizedString;
+    career: LocalizedString;
+  };
+  reversed: {
+    meaning: LocalizedString;
+    love: LocalizedString;
+    career: LocalizedString;
+  };
+}

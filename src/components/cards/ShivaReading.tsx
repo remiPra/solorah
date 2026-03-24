@@ -38,6 +38,24 @@ const lines: Record<string, string[]> = {
     'Shiva te guía hacia la claridad...',
     'Cuando te sientas listo/a, desliza las cartas y elige la que te llame.',
   ],
+  de: [
+    'Konzentriere dich auf deine Entscheidung...',
+    'Atme tief ein...',
+    'Shiva führt dich zur Klarheit...',
+    'Wenn du bereit bist, scrolle durch die Karten und wähle die, die dich ruft.',
+  ],
+  hi: [
+    'अपने निर्णय पर ध्यान केंद्रित करो...',
+    'गहरी साँस लो...',
+    'शिव तुम्हें स्पष्टता की ओर ले जाते हैं...',
+    'जब तुम तैयार हो, पत्तों को स्क्रॉल करो और उसे चुनो जो तुम्हें बुलाए।',
+  ],
+  ja: [
+    '決断に集中して...',
+    '深く息を吸って...',
+    'シヴァが明晰さへと導きます...',
+    '準備ができたら、カードをスクロールして、呼びかけるカードを選んで。',
+  ],
 };
 
 const buttonText: Record<string, string> = {
@@ -45,6 +63,9 @@ const buttonText: Record<string, string> = {
   en: 'I am ready',
   zh: '我准备好了',
   es: 'Estoy listo/a',
+  de: 'Ich bin bereit',
+  hi: 'मैं तैयार हूँ',
+  ja: '準備できました',
 };
 
 function ShivaIntroScreen({ lang, onReady }: { lang: string; onReady: () => void }) {

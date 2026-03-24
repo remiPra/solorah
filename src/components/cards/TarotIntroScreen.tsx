@@ -35,6 +35,27 @@ const lines: Record<string, string[]> = {
     'tu pasado, tu presente y tu futuro.',
     'Cuando estés listo/a, elige tres cartas.',
   ],
+  de: [
+    'Konzentriere dich auf deine Frage...',
+    'Atme tief ein...',
+    'Die 22 großen Arkana werden dir',
+    'deine Vergangenheit, Gegenwart und Zukunft enthüllen.',
+    'Wenn du bereit bist, wähle drei Karten.',
+  ],
+  hi: [
+    'अपने सवाल पर ध्यान केंद्रित करो...',
+    'गहरी साँस लो...',
+    '22 महान आर्काना तुम्हें बताएंगे',
+    'तुम्हारा अतीत, वर्तमान और भविष्य।',
+    'जब तुम तैयार हो, तीन पत्ते चुनो।',
+  ],
+  ja: [
+    '質問に集中して...',
+    '深く息を吸って...',
+    '22枚の大アルカナが明かします',
+    'あなたの過去、現在、そして未来を。',
+    '準備ができたら、3枚のカードを選んで。',
+  ],
 };
 
 const buttonText: Record<string, string> = {
@@ -42,6 +63,9 @@ const buttonText: Record<string, string> = {
   en: 'I am ready',
   zh: '我准备好了',
   es: 'Estoy listo/a',
+  de: 'Ich bin bereit',
+  hi: 'मैं तैयार हूँ',
+  ja: '準備できました',
 };
 
 export default function TarotIntroScreen({ lang, onReady }: TarotIntroScreenProps) {

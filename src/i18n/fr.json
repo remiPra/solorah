@@ -91,6 +91,42 @@
     "oracleShiva": {
       "title": "Oracle de Shiva",
       "metaDescription": "Tirez une carte de l'Oracle de Shiva gratuitement. 20 cartes de sagesse pour éclairer vos décisions."
+    },
+    "dailyReading": {
+      "title": "Tirage du Jour",
+      "metaDescription": "Découvrez votre carte du tarot du jour gratuitement. Un tirage quotidien pour guider votre journée avec Solorah."
+    },
+    "yesNo": {
+      "title": "Tirage Oui ou Non",
+      "metaDescription": "Posez votre question et tirez une carte. Tirage oui/non gratuit avec le Tarot de Marseille sur Solorah."
+    },
+    "threeCards": {
+      "title": "Tirage 3 Cartes",
+      "metaDescription": "Tirage passé-présent-futur gratuit avec 3 cartes. Découvrez ce que les cartes révèlent sur votre chemin."
+    },
+    "crossSpread": {
+      "title": "Tirage en Croix",
+      "metaDescription": "Tirage en croix celtique gratuit avec 5 cartes du Tarot de Marseille. Un tirage complet et approfondi."
+    },
+    "loveReading": {
+      "title": "Tirage Amour",
+      "metaDescription": "Tirage amour gratuit en ligne. Découvrez ce que les cartes révèlent sur votre vie sentimentale avec Solorah."
+    },
+    "cardMeaning": {
+      "title": "Signification des Arcanes",
+      "metaDescription": "Découvrez la signification des arcanes majeurs du Tarot de Marseille. Interprétation détaillée à l'endroit et inversé."
+    },
+    "guide": {
+      "title": "Guides",
+      "metaDescription": "Guides et articles sur le tarot et l'oracle. Apprenez à tirer les cartes et interpréter vos tirages."
+    },
+    "freeTarot": {
+      "title": "Tarot Gratuit en Ligne",
+      "metaDescription": "Tirage de tarot gratuit en ligne avec Solorah. Tarot de Marseille, tirage du jour, tirage en croix — 100% gratuit."
+    },
+    "freeOracle": {
+      "title": "Oracle Gratuit en Ligne",
+      "metaDescription": "Oracle gratuit en ligne avec Solorah. Oracle de l'Amour, Oracle de Shiva, tirage oui/non — sans inscription."
     }
   },
   "home": {

@@ -91,6 +91,42 @@
     "oracleShiva": {
       "title": "Shiva Oracle",
       "metaDescription": "Draw a card from the Shiva Oracle for free. 20 cards of wisdom to illuminate your decisions."
+    },
+    "dailyReading": {
+      "title": "Daily Reading",
+      "metaDescription": "Discover your free daily tarot card. A daily reading to guide your day with Solorah."
+    },
+    "yesNo": {
+      "title": "Yes or No Reading",
+      "metaDescription": "Ask your question and draw a card. Free yes/no tarot reading with the Tarot de Marseille on Solorah."
+    },
+    "threeCards": {
+      "title": "Three Card Reading",
+      "metaDescription": "Free past-present-future reading with 3 cards. Discover what the cards reveal about your path."
+    },
+    "crossSpread": {
+      "title": "Cross Spread",
+      "metaDescription": "Free Celtic cross spread with 5 Tarot de Marseille cards. A complete and in-depth reading."
+    },
+    "loveReading": {
+      "title": "Love Reading",
+      "metaDescription": "Free online love reading. Discover what the cards reveal about your love life with Solorah."
+    },
+    "cardMeaning": {
+      "title": "Card Meanings",
+      "metaDescription": "Discover the meaning of the Tarot de Marseille major arcana. Detailed upright and reversed interpretation."
+    },
+    "guide": {
+      "title": "Guides",
+      "metaDescription": "Guides and articles about tarot and oracle. Learn to draw cards and interpret your readings."
+    },
+    "freeTarot": {
+      "title": "Free Online Tarot",
+      "metaDescription": "Free online tarot reading with Solorah. Tarot de Marseille, daily reading, cross spread — 100% free."
+    },
+    "freeOracle": {
+      "title": "Free Online Oracle",
+      "metaDescription": "Free online oracle with Solorah. Love Oracle, Shiva Oracle, yes/no reading — no signup required."
     }
   },
   "home": {

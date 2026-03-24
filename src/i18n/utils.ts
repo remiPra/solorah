@@ -78,6 +78,19 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/consultation': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
   '/contact': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/mentions-legales': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
+  // FR new reading routes
+  '/tirage/tirage-du-jour': { fr: '/tirage/tirage-du-jour', en: '/reading/daily-reading', zh: '/zhan-bu/mei-ri-zhan-bu', es: '/lectura/lectura-del-dia', de: '/ziehung/tageskarte', hi: '/taash/dainik-taash', ja: '/uranai/kyou-no-uranai' },
+  '/tirage/tirage-oui-non': { fr: '/tirage/tirage-oui-non', en: '/reading/yes-no', zh: '/zhan-bu/shi-fou-zhan-bu', es: '/lectura/si-o-no', de: '/ziehung/ja-nein', hi: '/taash/haan-na', ja: '/uranai/hai-iie' },
+  '/tirage/tirage-3-cartes': { fr: '/tirage/tirage-3-cartes', en: '/reading/three-cards', zh: '/zhan-bu/san-zhang-pai', es: '/lectura/tres-cartas', de: '/ziehung/drei-karten', hi: '/taash/teen-patte', ja: '/uranai/san-mai' },
+  '/tirage/tirage-en-croix': { fr: '/tirage/tirage-en-croix', en: '/reading/cross-spread', zh: '/zhan-bu/shi-zi-zhan-bu', es: '/lectura/tirada-en-cruz', de: '/ziehung/kreuzlegung', hi: '/taash/cross-spread', ja: '/uranai/juuji-uranai' },
+  '/tirage/tirage-amour': { fr: '/tirage/tirage-amour', en: '/reading/love-reading', zh: '/zhan-bu/ai-qing-zhan-bu', es: '/lectura/lectura-amor', de: '/ziehung/liebeslegung', hi: '/taash/prem-taash', ja: '/uranai/ai-no-uranai' },
+  // FR signification routes (same slug across languages for now)
+  '/signification': { fr: '/signification', en: '/meaning', zh: '/han-yi', es: '/significado', de: '/bedeutung', hi: '/arth', ja: '/imi' },
+  // FR guide routes
+  '/guide': { fr: '/guide', en: '/guide', zh: '/zhi-nan', es: '/guia', de: '/ratgeber', hi: '/margdarshak', ja: '/gaido' },
+  // FR landing pages
+  '/tarot-gratuit': { fr: '/tarot-gratuit', en: '/free-tarot', zh: '/mian-fei-ta-luo', es: '/tarot-gratis', de: '/tarot-kostenlos', hi: '/muft-tarot', ja: '/muryou-tarot' },
+  '/oracle-gratuit': { fr: '/oracle-gratuit', en: '/free-oracle', zh: '/mian-fei-shen-yu', es: '/oraculo-gratis', de: '/orakel-kostenlos', hi: '/muft-oracle', ja: '/muryou-orakuru' },
   // EN routes
   '/reading': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
   '/reading/love-oracle': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
@@ -85,6 +98,15 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/reading/shiva-oracle': { fr: '/tirage/oracle-shiva', en: '/reading/shiva-oracle', zh: '/zhan-bu/shi-wa-shen-yu', es: '/lectura/oraculo-shiva', de: '/ziehung/shiva-orakel', hi: '/taash/shiva-oracle', ja: '/uranai/shiva-orakuru' },
   '/about': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de', de: '/ueber-uns', hi: '/hamare-baare-mein', ja: '/gaiyou' },
   '/legal': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
+  // EN new reading routes
+  '/reading/daily-reading': { fr: '/tirage/tirage-du-jour', en: '/reading/daily-reading', zh: '/zhan-bu/mei-ri-zhan-bu', es: '/lectura/lectura-del-dia', de: '/ziehung/tageskarte', hi: '/taash/dainik-taash', ja: '/uranai/kyou-no-uranai' },
+  '/reading/yes-no': { fr: '/tirage/tirage-oui-non', en: '/reading/yes-no', zh: '/zhan-bu/shi-fou-zhan-bu', es: '/lectura/si-o-no', de: '/ziehung/ja-nein', hi: '/taash/haan-na', ja: '/uranai/hai-iie' },
+  '/reading/three-cards': { fr: '/tirage/tirage-3-cartes', en: '/reading/three-cards', zh: '/zhan-bu/san-zhang-pai', es: '/lectura/tres-cartas', de: '/ziehung/drei-karten', hi: '/taash/teen-patte', ja: '/uranai/san-mai' },
+  '/reading/cross-spread': { fr: '/tirage/tirage-en-croix', en: '/reading/cross-spread', zh: '/zhan-bu/shi-zi-zhan-bu', es: '/lectura/tirada-en-cruz', de: '/ziehung/kreuzlegung', hi: '/taash/cross-spread', ja: '/uranai/juuji-uranai' },
+  '/reading/love-reading': { fr: '/tirage/tirage-amour', en: '/reading/love-reading', zh: '/zhan-bu/ai-qing-zhan-bu', es: '/lectura/lectura-amor', de: '/ziehung/liebeslegung', hi: '/taash/prem-taash', ja: '/uranai/ai-no-uranai' },
+  '/meaning': { fr: '/signification', en: '/meaning', zh: '/han-yi', es: '/significado', de: '/bedeutung', hi: '/arth', ja: '/imi' },
+  '/free-tarot': { fr: '/tarot-gratuit', en: '/free-tarot', zh: '/mian-fei-ta-luo', es: '/tarot-gratis', de: '/tarot-kostenlos', hi: '/muft-tarot', ja: '/muryou-tarot' },
+  '/free-oracle': { fr: '/oracle-gratuit', en: '/free-oracle', zh: '/mian-fei-shen-yu', es: '/oraculo-gratis', de: '/orakel-kostenlos', hi: '/muft-oracle', ja: '/muryou-orakuru' },
   // ZH routes
   '/zhan-bu': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
   '/zhan-bu/ai-qing-shen-yu': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },

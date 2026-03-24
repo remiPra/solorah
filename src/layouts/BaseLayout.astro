@@ -12,9 +12,10 @@ interface Props {
   description: string;
   lang: Lang;
   image?: string;
+  structuredData?: Record<string, unknown>;
 }
 
-const { title, description, lang, image } = Astro.props;
+const { title, description, lang, image, structuredData } = Astro.props;
 const currentPath = Astro.url.pathname;
 const canonicalURL = new URL(Astro.url.pathname, 'https://solorah.com');
 
@@ -92,6 +93,25 @@ const jaPath = getTranslatedPath(currentPath, 'ja');
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Structured Data (JSON-LD) -->
+    {structuredData ? (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    ) : (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Solorah",
+        "url": "https://solorah.com",
+        "description": "Oracle & Tarot en ligne — Tirage gratuit",
+        "inLanguage": ["fr", "en", "es", "de", "zh", "hi", "ja"],
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://solorah.com/fr/tirage",
+          "query-input": "required name=search_term_string"
+        }
+      })} />
+    )}
   </head>
   <body class="min-h-screen flex flex-col">
     <Header lang={lang} />

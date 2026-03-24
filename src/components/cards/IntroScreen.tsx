@@ -31,6 +31,24 @@ const lines: Record<string, string[]> = {
     'Piensa en tu pregunta de amor...',
     'Cuando te sientas listo/a, desliza las cartas y elige la que te llame.',
   ],
+  de: [
+    'Schließe für einen Moment die Augen...',
+    'Atme...',
+    'Denke an deine Liebesfrage...',
+    'Wenn du bereit bist, scrolle durch die Karten und wähle die, die dich ruft.',
+  ],
+  hi: [
+    'एक पल के लिए अपनी आँखें बंद करो...',
+    'साँस लो...',
+    'अपने प्रेम के सवाल के बारे में सोचो...',
+    'जब तुम तैयार हो, पत्तों को स्क्रॉल करो और उसे चुनो जो तुम्हें बुलाए।',
+  ],
+  ja: [
+    '少し目を閉じて...',
+    '息をして...',
+    '恋の質問を思い浮かべて...',
+    '準備ができたら、カードをスクロールして、呼びかけるカードを選んで。',
+  ],
 };
 
 const buttonText: Record<string, string> = {
@@ -38,6 +56,9 @@ const buttonText: Record<string, string> = {
   en: 'I am ready',
   zh: '我准备好了',
   es: 'Estoy listo/a',
+  de: 'Ich bin bereit',
+  hi: 'मैं तैयार हूँ',
+  ja: '準備できました',
 };
 
 export default function IntroScreen({ lang, onReady }: IntroScreenProps) {

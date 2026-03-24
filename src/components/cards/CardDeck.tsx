@@ -13,6 +13,9 @@ const scrollHint: Record<string, string> = {
   en: '← Scroll through →',
   zh: '← 滑动浏览 →',
   es: '← Desliza →',
+  de: '← Durchblättern →',
+  hi: '← स्क्रॉल करें →',
+  ja: '← スクロール →',
 };
 
 export default function CardDeck({ lang, cards, onSelect }: CardDeckProps) {
@@ -75,7 +78,7 @@ export default function CardDeck({ lang, cards, onSelect }: CardDeckProps) {
         className="font-[Cormorant_Garamond] text-lg sm:text-xl italic mb-8 text-center px-4"
         style={{ color: 'var(--color-sol-ash)' }}
       >
-        {{ fr: 'Laisse ton intuition te guider... Choisis ta carte.', en: 'Let your intuition guide you... Choose your card.', zh: '让你的直觉引导你...选择你的牌。', es: 'Deja que tu intuición te guíe... Elige tu carta.' }[lang] || 'Let your intuition guide you... Choose your card.'}
+        {{ fr: 'Laisse ton intuition te guider... Choisis ta carte.', en: 'Let your intuition guide you... Choose your card.', zh: '让你的直觉引导你...选择你的牌。', es: 'Deja que tu intuición te guíe... Elige tu carta.', de: 'Lass deine Intuition dich leiten... Wähle deine Karte.', hi: 'अपनी अंतर्ज्ञान को मार्गदर्शन करने दो... अपना पत्ता चुनो।', ja: '直感に導かれるまま...カードを選んで。' }[lang] || 'Let your intuition guide you... Choose your card.'}
       </motion.p>
 
       {/* Deck scroll container */}
@@ -85,7 +88,7 @@ export default function CardDeck({ lang, cards, onSelect }: CardDeckProps) {
         style={{ padding: '40px 20px' }}
         role="listbox"
         aria-label={
-          { fr: 'Sélectionne une carte', en: 'Select a card', zh: '选择一张牌', es: 'Selecciona una carta' }[lang] || 'Select a card'
+          { fr: 'Sélectionne une carte', en: 'Select a card', zh: '选择一张牌', es: 'Selecciona una carta', de: 'Wähle eine Karte', hi: 'एक पत्ता चुनें', ja: 'カードを選んで' }[lang] || 'Select a card'
         }
       >
         {cards.map((card, i) => {
@@ -124,7 +127,7 @@ export default function CardDeck({ lang, cards, onSelect }: CardDeckProps) {
                 }}
                 role="option"
                 aria-label={
-                  { fr: `Carte numéro ${card.id} — cliquez pour la retourner`, en: `Card number ${card.id} — click to flip`, zh: `第${card.id}张牌 — 点击翻转`, es: `Carta número ${card.id} — haz clic para voltear` }[lang] || `Card number ${card.id} — click to flip`
+                  { fr: `Carte numéro ${card.id} — cliquez pour la retourner`, en: `Card number ${card.id} — click to flip`, zh: `第${card.id}张牌 — 点击翻转`, es: `Carta número ${card.id} — haz clic para voltear`, de: `Karte ${card.id} — klicken zum Umdrehen`, hi: `पत्ता ${card.id} — पलटने के लिए क्लिक करें`, ja: `カード${card.id} — クリックで裏返す` }[lang] || `Card number ${card.id} — click to flip`
                 }
                 aria-selected={false}
               >
