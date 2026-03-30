@@ -30,6 +30,26 @@
       "name": "Oráculo de Shiva",
       "description": "Un oráculo inspirado en la sabiduría de Shiva. 20 cartas para iluminar tus decisiones y encontrar tu camino."
     },
+    "dailyReading": {
+      "name": "Lectura del Día",
+      "description": "Una carta del Tarot de Marsella cada día para guiar tu jornada. Vuelve cada mañana para tu mensaje diario."
+    },
+    "yesNo": {
+      "name": "Lectura Sí / No",
+      "description": "Haz tu pregunta y tira una carta. El Tarot de Marsella te da una tendencia clara: sí o no."
+    },
+    "threeCards": {
+      "name": "Lectura 3 Cartas",
+      "description": "Pasado, Presente, Futuro — tres cartas del Oráculo del Amor para iluminar tu camino sentimental."
+    },
+    "crossSpread": {
+      "name": "Tirada en Cruz",
+      "description": "Cinco cartas del Tarot de Marsella dispuestas en cruz para un análisis completo de tu situación."
+    },
+    "loveReading": {
+      "name": "Lectura de Amor",
+      "description": "Una lectura especial de amor con el Oráculo del Amor. Descubre el mensaje que el corazón tiene para ti."
+    },
     "cta": "Tirar las cartas"
   },
   "howItWorks": {
@@ -66,7 +86,17 @@
     },
     "contact": {
       "title": "Contacto",
-      "metaDescription": "Contacta al equipo de Solorah para cualquier pregunta sobre nuestras lecturas de cartas y consultas."
+      "metaDescription": "Contacta al equipo de Solorah para cualquier pregunta sobre nuestras lecturas de cartas y consultas.",
+      "subtitle": "¿Una pregunta? ¿Un mensaje? Estamos a tu disposición.",
+      "nameLabel": "Nombre",
+      "emailLabel": "Correo",
+      "messageLabel": "Mensaje",
+      "namePlaceholder": "Tu nombre",
+      "emailPlaceholder": "tu@email.com",
+      "messagePlaceholder": "Tu mensaje...",
+      "send": "Enviar",
+      "success": "¡Mensaje enviado! Te responderemos pronto.",
+      "error": "Algo salió mal. Inténtalo de nuevo."
     },
     "legal": {
       "title": "Aviso legal",
@@ -91,7 +121,64 @@
     "oracleShiva": {
       "title": "Oráculo de Shiva",
       "metaDescription": "Tira una carta del Oráculo de Shiva gratis. 20 cartas de sabiduría para iluminar tus decisiones."
+    },
+    "dailyReading": {
+      "title": "Lectura del Día",
+      "metaDescription": "Descubre tu carta del tarot del día gratis. Una lectura diaria para guiar tu jornada con Solorah."
+    },
+    "yesNo": {
+      "title": "Lectura Sí o No",
+      "metaDescription": "Haz tu pregunta y tira una carta. Lectura sí/no gratuita con el Tarot de Marsella en Solorah."
+    },
+    "threeCards": {
+      "title": "Lectura 3 Cartas",
+      "metaDescription": "Lectura pasado-presente-futuro gratuita con 3 cartas. Descubre lo que las cartas revelan sobre tu camino."
+    },
+    "crossSpread": {
+      "title": "Tirada en Cruz",
+      "metaDescription": "Tirada en cruz gratuita con 5 cartas del Tarot de Marsella. Una lectura completa y profunda."
+    },
+    "loveReading": {
+      "title": "Lectura de Amor",
+      "metaDescription": "Lectura de amor gratuita en línea. Descubre lo que las cartas revelan sobre tu vida sentimental con Solorah."
+    },
+    "cardMeaning": {
+      "title": "Significado de los Arcanos",
+      "metaDescription": "Descubre el significado de los arcanos mayores del Tarot de Marsella. Interpretación detallada al derecho e invertida."
+    },
+    "guide": {
+      "title": "Guías",
+      "metaDescription": "Guías y artículos sobre tarot y oráculo. Aprende a tirar las cartas e interpretar tus lecturas."
+    },
+    "freeTarot": {
+      "title": "Tarot Gratis en Línea",
+      "metaDescription": "Lectura de tarot gratuita en línea con Solorah. Tarot de Marsella, lectura del día, tirada en cruz — 100% gratis."
+    },
+    "freeOracle": {
+      "title": "Oráculo Gratis en Línea",
+      "metaDescription": "Oráculo gratuito en línea con Solorah. Oráculo del Amor, Oráculo de Shiva, lectura sí/no — sin registro."
     }
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "myReadings": "Mis lecturas",
+    "emailPlaceholder": "tu@email.com",
+    "sendMagicLink": "Enviar enlace mágico",
+    "magicLinkSent": "¡Se ha enviado un enlace mágico a tu correo!",
+    "magicLinkDesc": "Revisa tu bandeja de entrada y haz clic en el enlace para conectarte.",
+    "loginTitle": "Iniciar sesión",
+    "loginSubtitle": "Introduce tu correo para recibir un enlace de acceso mágico.",
+    "noPassword": "Sin contraseña que recordar.",
+    "error": "Algo salió mal. Inténtalo de nuevo.",
+    "noReadings": "No tienes lecturas guardadas.",
+    "noReadingsDesc": "Haz una lectura y guárdala para encontrarla aquí.",
+    "savedOn": "Guardado el",
+    "deleteReading": "Eliminar",
+    "confirmDelete": "¿Eliminar esta lectura?",
+    "save": "Guardar esta lectura",
+    "saved": "¡Lectura guardada!",
+    "loginToSave": "Inicia sesión para guardar tus lecturas"
   },
   "home": {
     "title": "Oráculo y Tarot en línea",

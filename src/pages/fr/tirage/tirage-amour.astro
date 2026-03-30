@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GoldDivider from '../../../components/ui/GoldDivider.astro';
+import OracleReading from '../../../components/cards/OracleReading';
+import { oracleAmourDeck } from '../../../data/oracle-amour';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'fr';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.loveReading.title')}
+  description={t('pages.loveReading.metaDescription')}
+  lang={lang}
+>
+  <!-- SEO intro -->
+  <section class="pt-24 pb-8 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-6">
+        {t('pages.loveReading.title')}
+      </h1>
+      <p class="font-body text-lg text-sol-cream leading-relaxed mb-4">
+        Tire une carte de l'Oracle de l'Amour et découvre le message que l'univers réserve à ton cœur. 44 cartes pour éclairer ta vie sentimentale.
+      </p>
+      <p class="font-body text-sol-ash text-base italic">
+        Concentre-toi sur ta question d'amour, puis laisse ton intuition guider ton choix.
+      </p>
+    </div>
+  </section>
+
+  <!-- Interactive reading -->
+  <OracleReading client:only="react" lang={lang} deck={oracleAmourDeck.cards} />
+
+  <!-- FAQ -->
+  <section class="py-16 px-4">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-10">Questions fréquentes</h2>
+      <div class="space-y-6">
+        <details class="group border border-sol-gold/10 rounded-lg p-4">
+          <summary class="font-body text-sol-cream cursor-pointer font-semibold">Comment fonctionne le tirage amour ?</summary>
+          <p class="font-body text-sol-ash mt-3 leading-relaxed">Concentre-toi sur ta question sentimentale, parcours les cartes et choisis celle qui t'attire. L'Oracle de l'Amour te délivrera un message personnalisé.</p>
+        </details>
+        <details class="group border border-sol-gold/10 rounded-lg p-4">
+          <summary class="font-body text-sol-cream cursor-pointer font-semibold">Puis-je faire plusieurs tirages ?</summary>
+          <p class="font-body text-sol-ash mt-3 leading-relaxed">Oui, tu peux recommencer autant de fois que tu le souhaites. Cependant, pour un tirage plus précis, nous recommandons de te concentrer sur une seule question par session.</p>
+        </details>
+        <details class="group border border-sol-gold/10 rounded-lg p-4">
+          <summary class="font-body text-sol-cream cursor-pointer font-semibold">Le tirage est-il gratuit ?</summary>
+          <p class="font-body text-sol-ash mt-3 leading-relaxed">Oui, tous nos tirages sont 100% gratuits et sans inscription. Pour aller plus loin, tu peux demander une consultation personnalisée.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

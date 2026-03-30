@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DailyReading from '../../../components/cards/DailyReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'zh';
+const t = useTranslations(lang);
+---
+
+<BaseLayout title={t('pages.dailyReading.title')} description={t('pages.dailyReading.metaDescription')} lang={lang}>
+  <DailyReading client:only="react" lang={lang} deck={tarotMarseilleDeck.cards} />
+</BaseLayout>

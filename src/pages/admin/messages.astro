@@ -1,0 +1,264 @@
+---
+export const prerender = false;
+
+const isAdmin = Astro.cookies.get('solorah-admin')?.value === 'true';
+if (!isAdmin) {
+  return Astro.redirect('/admin');
+}
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages — Admin Solorah</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { background: #0a0a0a; color: #e8e0d0; font-family: Georgia, serif; min-height: 100vh; }
+      .header { background: #1a1a1a; border-bottom: 1px solid rgba(212,168,83,0.2); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+      .logo { color: #d4a853; font-size: 18px; letter-spacing: 0.2em; text-decoration: none; }
+      .logout { color: #888; font-size: 13px; text-decoration: none; font-family: sans-serif; }
+      .logout:hover { color: #e8e0d0; }
+      .container { max-width: 900px; margin: 0 auto; padding: 24px; }
+      .filters { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+      .filter-btn { background: transparent; border: 1px solid rgba(212,168,83,0.2); color: #888; padding: 6px 16px; font-size: 13px; cursor: pointer; font-family: sans-serif; }
+      .filter-btn.active { border-color: #d4a853; color: #d4a853; }
+      .filter-btn:hover { border-color: rgba(212,168,83,0.5); color: #e8e0d0; }
+      .msg { background: #1a1a1a; border: 1px solid rgba(212,168,83,0.1); padding: 16px 20px; margin-bottom: 8px; cursor: pointer; transition: border-color 0.2s; }
+      .msg:hover { border-color: rgba(212,168,83,0.3); }
+      .msg-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+      .msg-name { font-size: 16px; color: #e8e0d0; }
+      .msg-date { font-size: 12px; color: #666; font-family: sans-serif; }
+      .msg-email { font-size: 13px; color: #888; margin-bottom: 6px; font-family: sans-serif; }
+      .msg-preview { font-size: 14px; color: #aaa; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .badge { display: inline-block; font-size: 11px; padding: 2px 8px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 0.05em; margin-left: 8px; }
+      .badge-unread { background: #d4a853; color: #0a0a0a; }
+      .badge-read { background: transparent; border: 1px solid #555; color: #888; }
+      .badge-replied { background: transparent; border: 1px solid #22c55e; color: #22c55e; }
+      .empty { text-align: center; padding: 60px 20px; color: #666; }
+      .loading { text-align: center; padding: 60px; color: #666; }
+      .count { color: #888; font-size: 13px; font-family: sans-serif; margin-bottom: 16px; }
+
+      /* Detail modal */
+      .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(10,10,10,0.9); z-index: 100; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; }
+      .modal-overlay.show { display: flex; }
+      .modal { background: #1a1a1a; border: 1px solid rgba(212,168,83,0.2); max-width: 600px; width: 100%; padding: 30px; }
+      .modal-close { float: right; background: none; border: none; color: #888; font-size: 20px; cursor: pointer; }
+      .modal-close:hover { color: #e8e0d0; }
+      .modal h2 { color: #d4a853; font-size: 20px; margin-bottom: 16px; }
+      .modal .field { margin-bottom: 12px; }
+      .modal .field-label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; font-family: sans-serif; margin-bottom: 4px; }
+      .modal .field-value { font-size: 15px; color: #e8e0d0; }
+      .modal .message-body { background: #0a0a0a; border: 1px solid rgba(212,168,83,0.1); padding: 16px; margin: 16px 0; white-space: pre-wrap; line-height: 1.6; }
+      .modal .reply-section { margin-top: 24px; border-top: 1px solid rgba(212,168,83,0.1); padding-top: 20px; }
+      .modal textarea { width: 100%; background: #0a0a0a; border: 1px solid rgba(212,168,83,0.2); color: #e8e0d0; padding: 12px; font-family: inherit; font-size: 14px; resize: vertical; min-height: 120px; outline: none; }
+      .modal textarea:focus { border-color: rgba(212,168,83,0.5); }
+      .modal .reply-btn { background: #d4a853; color: #0a0a0a; border: none; padding: 10px 24px; font-family: sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; margin-top: 12px; }
+      .modal .reply-btn:hover { background: #e0ba6e; }
+      .modal .reply-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+      .modal .existing-reply { background: #0a0a0a; border-left: 3px solid #22c55e; padding: 16px; margin-top: 12px; white-space: pre-wrap; }
+      .modal .reply-date { font-size: 12px; color: #22c55e; font-family: sans-serif; margin-top: 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <a href="/admin/messages" class="logo">SOLORAH ADMIN</a>
+      <a href="/admin" class="logout" id="logout-btn">Déconnexion</a>
+    </div>
+
+    <div class="container">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="unread">Non lus</button>
+        <button class="filter-btn" data-filter="read">Lus</button>
+        <button class="filter-btn" data-filter="replied">Répondus</button>
+      </div>
+      <div class="count" id="count"></div>
+      <div id="messages-list">
+        <div class="loading">Chargement...</div>
+      </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div class="modal-overlay" id="modal">
+      <div class="modal">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <h2 id="modal-name"></h2>
+        <div class="field">
+          <div class="field-label">Email</div>
+          <div class="field-value" id="modal-email"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Langue</div>
+          <div class="field-value" id="modal-lang"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Date</div>
+          <div class="field-value" id="modal-date"></div>
+        </div>
+        <div class="message-body" id="modal-message"></div>
+
+        <div class="reply-section" id="reply-section">
+          <div class="field-label">Répondre</div>
+          <textarea id="reply-text" placeholder="Votre réponse..."></textarea>
+          <button class="reply-btn" id="reply-btn">Envoyer la réponse</button>
+        </div>
+
+        <div class="reply-section" id="existing-reply" style="display:none;">
+          <div class="field-label">Réponse envoyée</div>
+          <div class="existing-reply" id="existing-reply-text"></div>
+          <div class="reply-date" id="reply-date"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let allMessages = [];
+      let currentFilter = 'all';
+      let currentMessageId = null;
+
+      async function loadMessages() {
+        const res = await fetch('/api/admin/messages');
+        if (res.status === 401) {
+          window.location.href = '/admin';
+          return;
+        }
+        allMessages = await res.json();
+        renderMessages();
+      }
+
+      function renderMessages() {
+        const list = document.getElementById('messages-list');
+        const countEl = document.getElementById('count');
+        const filtered = currentFilter === 'all'
+          ? allMessages
+          : allMessages.filter(m => m.status === currentFilter);
+
+        countEl.textContent = `${filtered.length} message(s)`;
+
+        if (filtered.length === 0) {
+          list.innerHTML = '<div class="empty">Aucun message</div>';
+          return;
+        }
+
+        list.innerHTML = filtered.map(m => `
+          <div class="msg" data-id="${m.id}">
+            <div class="msg-header">
+              <span class="msg-name">${esc(m.name)}
+                <span class="badge badge-${m.status}">${m.status === 'unread' ? 'Nouveau' : m.status === 'read' ? 'Lu' : 'Répondu'}</span>
+              </span>
+              <span class="msg-date">${new Date(m.created_at).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
+            </div>
+            <div class="msg-email">${esc(m.email)}</div>
+            <div class="msg-preview">${esc(m.message)}</div>
+          </div>
+        `).join('');
+
+        list.querySelectorAll('.msg').forEach(el => {
+          el.addEventListener('click', () => openMessage(el.dataset.id));
+        });
+      }
+
+      async function openMessage(id) {
+        currentMessageId = id;
+        const res = await fetch(`/api/admin/messages/${id}`);
+        if (!res.ok) return;
+        const msg = await res.json();
+
+        document.getElementById('modal-name').textContent = msg.name;
+        document.getElementById('modal-email').textContent = msg.email;
+        document.getElementById('modal-lang').textContent = msg.lang || 'fr';
+        document.getElementById('modal-date').textContent = new Date(msg.created_at).toLocaleString('fr-FR');
+        document.getElementById('modal-message').textContent = msg.message;
+
+        const replySection = document.getElementById('reply-section');
+        const existingReply = document.getElementById('existing-reply');
+
+        if (msg.status === 'replied' && msg.admin_reply) {
+          replySection.style.display = 'none';
+          existingReply.style.display = 'block';
+          document.getElementById('existing-reply-text').textContent = msg.admin_reply;
+          document.getElementById('reply-date').textContent = 'Envoyé le ' + new Date(msg.replied_at).toLocaleString('fr-FR');
+        } else {
+          replySection.style.display = 'block';
+          existingReply.style.display = 'none';
+          document.getElementById('reply-text').value = '';
+        }
+
+        document.getElementById('modal').classList.add('show');
+
+        // Update local status to read
+        const idx = allMessages.findIndex(m => m.id === id);
+        if (idx !== -1 && allMessages[idx].status === 'unread') {
+          allMessages[idx].status = 'read';
+          renderMessages();
+        }
+      }
+
+      document.getElementById('modal-close').addEventListener('click', () => {
+        document.getElementById('modal').classList.remove('show');
+      });
+
+      document.getElementById('modal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('modal')) {
+          document.getElementById('modal').classList.remove('show');
+        }
+      });
+
+      document.getElementById('reply-btn').addEventListener('click', async () => {
+        const reply = document.getElementById('reply-text').value.trim();
+        if (!reply || !currentMessageId) return;
+
+        const btn = document.getElementById('reply-btn');
+        btn.disabled = true;
+        btn.textContent = 'Envoi...';
+
+        const res = await fetch(`/api/admin/messages/${currentMessageId}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ reply }),
+        });
+
+        if (res.ok) {
+          const idx = allMessages.findIndex(m => m.id === currentMessageId);
+          if (idx !== -1) {
+            allMessages[idx].status = 'replied';
+            allMessages[idx].admin_reply = reply;
+            allMessages[idx].replied_at = new Date().toISOString();
+          }
+          renderMessages();
+          document.getElementById('modal').classList.remove('show');
+        }
+
+        btn.disabled = false;
+        btn.textContent = 'Envoyer la réponse';
+      });
+
+      // Filters
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.dataset.filter;
+          renderMessages();
+        });
+      });
+
+      // Logout
+      document.getElementById('logout-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.cookie = 'solorah-admin=; path=/; max-age=0';
+        window.location.href = '/admin';
+      });
+
+      function esc(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      loadMessages();
+    </script>
+  </body>
+</html>

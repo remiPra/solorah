@@ -30,6 +30,26 @@
       "name": "シヴァオラクル",
       "description": "シヴァの知恵からインスピレーションを受けたオラクル。20枚のカードがあなたの決断を照らし、道を示します。"
     },
+    "dailyReading": {
+      "name": "今日の占い",
+      "description": "毎日マルセイユタロットから1枚のカードを引いて、一日を導きましょう。毎朝デイリーメッセージをチェック。"
+    },
+    "yesNo": {
+      "name": "はい / いいえ占い",
+      "description": "質問をして、カードを1枚引きましょう。マルセイユタロットが明確な傾向を示します：はいか、いいえか。"
+    },
+    "threeCards": {
+      "name": "3枚カード占い",
+      "description": "過去・現在・未来——愛のオラクルの3枚のカードが感情の道を照らします。"
+    },
+    "crossSpread": {
+      "name": "十字占い",
+      "description": "マルセイユタロットの5枚のカードを十字に配置し、あなたの状況を完全に分析します。"
+    },
+    "loveReading": {
+      "name": "恋愛占い",
+      "description": "愛のオラクルによる特別な恋愛占い。心があなたに伝えたいメッセージを発見して。"
+    },
     "cta": "カードを引く"
   },
   "howItWorks": {
@@ -66,7 +86,17 @@
     },
     "contact": {
       "title": "お問い合わせ",
-      "metaDescription": "カード占いや相談に関するご質問は、Solorahチームにお問い合わせください。"
+      "metaDescription": "カード占いや相談に関するご質問は、Solorahチームにお問い合わせください。",
+      "subtitle": "ご質問やメッセージがありますか？お聞かせください。",
+      "nameLabel": "お名前",
+      "emailLabel": "メール",
+      "messageLabel": "メッセージ",
+      "namePlaceholder": "お名前",
+      "emailPlaceholder": "your@email.com",
+      "messagePlaceholder": "メッセージ...",
+      "send": "送信",
+      "success": "メッセージを送信しました！すぐにご返信いたします。",
+      "error": "エラーが発生しました。もう一度お試しください。"
     },
     "legal": {
       "title": "法的情報",
@@ -91,7 +121,64 @@
     "oracleShiva": {
       "title": "シヴァオラクル",
       "metaDescription": "シヴァオラクルのカードを無料で引きましょう。決断を照らす20枚の知恵のカード。"
+    },
+    "dailyReading": {
+      "title": "今日の占い",
+      "metaDescription": "無料の毎日のタロットカード。Solorahであなたの一日を導くデイリーリーディング。"
+    },
+    "yesNo": {
+      "title": "はい・いいえ占い",
+      "metaDescription": "質問をしてカードを引きましょう。Solorahのマルセイユタロットで無料のはい/いいえ占い。"
+    },
+    "threeCards": {
+      "title": "3枚カード占い",
+      "metaDescription": "3枚のカードで無料の過去・現在・未来リーディング。カードがあなたの道について何を明かすか発見して。"
+    },
+    "crossSpread": {
+      "title": "十字占い",
+      "metaDescription": "マルセイユタロット5枚による無料の十字占い。完全で深いリーディング。"
+    },
+    "loveReading": {
+      "title": "恋愛占い",
+      "metaDescription": "無料オンライン恋愛占い。Solorahであなたの恋愛についてカードが明かすメッセージを発見して。"
+    },
+    "cardMeaning": {
+      "title": "アルカナの意味",
+      "metaDescription": "マルセイユタロットの大アルカナの意味を発見。正位置と逆位置の詳しい解釈。"
+    },
+    "guide": {
+      "title": "ガイド",
+      "metaDescription": "タロットとオラクルのガイドと記事。カードの引き方とリーディングの解釈を学ぼう。"
+    },
+    "freeTarot": {
+      "title": "無料オンラインタロット",
+      "metaDescription": "Solorahで無料のオンラインタロット占い。マルセイユタロット、デイリー、十字占い——100%無料。"
+    },
+    "freeOracle": {
+      "title": "無料オンラインオラクル",
+      "metaDescription": "Solorahで無料のオンラインオラクル。愛のオラクル、シヴァオラクル、はい/いいえ占い——登録不要。"
     }
+  },
+  "auth": {
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "myReadings": "私の占い",
+    "emailPlaceholder": "your@email.com",
+    "sendMagicLink": "マジックリンクを送信",
+    "magicLinkSent": "マジックリンクをメールに送信しました！",
+    "magicLinkDesc": "受信トレイを確認し、リンクをクリックしてログインしてください。",
+    "loginTitle": "ログイン",
+    "loginSubtitle": "メールアドレスを入力してマジックログインリンクを受け取りましょう。",
+    "noPassword": "パスワードを覚える必要はありません。",
+    "error": "エラーが発生しました。もう一度お試しください。",
+    "noReadings": "保存された占いはありません。",
+    "noReadingsDesc": "占いを行って保存すると、ここに表示されます。",
+    "savedOn": "保存日",
+    "deleteReading": "削除",
+    "confirmDelete": "この占いを削除しますか？",
+    "save": "この占いを保存",
+    "saved": "占いを保存しました！",
+    "loginToSave": "占いを保存するにはログインしてください"
   },
   "home": {
     "title": "オンラインオラクル＆タロット",

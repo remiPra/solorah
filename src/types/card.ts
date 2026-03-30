@@ -51,6 +51,21 @@ export interface TarotDeck {
 
 export type TarotPhase = 'intro' | 'select' | 'reveal';
 
+// Oracle card selection (for 3-card oracle reading)
+export interface SelectedOracleCard {
+  card: Card;
+  position: 'past' | 'present' | 'future';
+}
+
+// Cross spread types
+export type CrossPosition = 'situation' | 'obstacle' | 'past' | 'future' | 'synthesis';
+
+export interface SelectedCrossCard {
+  card: TarotCard;
+  reversed: boolean;
+  position: CrossPosition;
+}
+
 // Extended meanings for card meaning pages (SEO)
 export interface TarotMeaning {
   slug: string;

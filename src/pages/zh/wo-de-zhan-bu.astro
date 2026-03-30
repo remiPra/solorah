@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import ReadingHistory from '../../components/auth/ReadingHistory';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'zh';
+const t = useTranslations(lang);
+
+const translations: Record<string, string> = {
+  'auth.login': t('auth.login'),
+  'auth.logout': t('auth.logout'),
+  'auth.myReadings': t('auth.myReadings'),
+  'auth.emailPlaceholder': t('auth.emailPlaceholder'),
+  'auth.sendMagicLink': t('auth.sendMagicLink'),
+  'auth.magicLinkSent': t('auth.magicLinkSent'),
+  'auth.magicLinkDesc': t('auth.magicLinkDesc'),
+  'auth.loginTitle': t('auth.loginTitle'),
+  'auth.loginSubtitle': t('auth.loginSubtitle'),
+  'auth.noPassword': t('auth.noPassword'),
+  'auth.error': t('auth.error'),
+  'auth.noReadings': t('auth.noReadings'),
+  'auth.noReadingsDesc': t('auth.noReadingsDesc'),
+  'auth.savedOn': t('auth.savedOn'),
+  'auth.deleteReading': t('auth.deleteReading'),
+  'auth.confirmDelete': t('auth.confirmDelete'),
+  'auth.loginToSave': t('auth.loginToSave'),
+};
+
+const deckLabels: Record<string, string> = {
+  'oracle-amour': t('decks.oracleAmour.name'),
+  'tarot-marseille': t('decks.tarotMarseille.name'),
+  'oracle-shiva': t('decks.oracleShiva.name'),
+};
+
+const spreadLabels: Record<string, string> = {
+  'single': t('decks.oracleAmour.name'),
+  'daily': t('decks.dailyReading.name'),
+  'yes-no': t('decks.yesNo.name'),
+  'three-cards': t('decks.threeCards.name'),
+  'cross': t('decks.crossSpread.name'),
+  'love': t('decks.loveReading.name'),
+};
+---
+
+<BaseLayout
+  title={t('auth.myReadings')}
+  description={t('auth.myReadings')}
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <GoldDivider class="max-w-xs mx-auto mb-8" />
+        <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4">
+          {t('auth.myReadings')}
+        </h1>
+      </div>
+
+      <ReadingHistory
+        client:only="react"
+        lang={lang}
+        translations={translations}
+        deckLabels={deckLabels}
+        spreadLabels={spreadLabels}
+      />
+    </div>
+  </section>
+</BaseLayout>

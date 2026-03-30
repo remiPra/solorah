@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GoldDivider from '../../../components/ui/GoldDivider.astro';
+import OracleReading from '../../../components/cards/OracleReading';
+import { oracleAmourDeck } from '../../../data/oracle-amour';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'hi';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.loveReading.title')}
+  description={t('pages.loveReading.metaDescription')}
+  lang={lang}
+>
+  <section class="pt-24 pb-8 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-6">
+        {t('pages.loveReading.title')}
+      </h1>
+      <p class="font-body text-lg text-sol-cream leading-relaxed mb-4">
+        प्रेम ओरेकल से एक पत्ता खींचें और जानें कि ब्रह्मांड आपके दिल के लिए क्या संदेश रखता है। 44 पत्ते आपके प्रेम जीवन को रोशन करते हैं।
+      </p>
+      <p class="font-body text-sol-ash text-base italic">
+        अपने प्रेम के सवाल पर ध्यान केंद्रित करें, फिर अपनी अंतर्ज्ञान को मार्गदर्शन करने दें।
+      </p>
+    </div>
+  </section>
+
+  <OracleReading client:only="react" lang={lang} deck={oracleAmourDeck.cards} />
+
+  <section class="py-16 px-4">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-10">अक्सर पूछे जाने वाले प्रश्न</h2>
+      <div class="space-y-6">
+        <details class="group border border-sol-gold/10 rounded-lg p-4">
+          <summary class="font-body text-sol-cream cursor-pointer font-semibold">प्रेम ताश कैसे काम करता है?</summary>
+          <p class="font-body text-sol-ash mt-3 leading-relaxed">अपने प्रेम के सवाल पर ध्यान केंद्रित करें, पत्तों को स्क्रॉल करें और जो आपको बुलाए उसे चुनें। प्रेम ओरेकल आपको एक व्यक्तिगत संदेश देगा।</p>
+        </details>
+        <details class="group border border-sol-gold/10 rounded-lg p-4">
+          <summary class="font-body text-sol-cream cursor-pointer font-semibold">क्या मैं कई बार ताश खींच सकता हूँ?</summary>
+          <p class="font-body text-sol-ash mt-3 leading-relaxed">हाँ, आप जितनी बार चाहें फिर से शुरू कर सकते हैं। लेकिन अधिक सटीक परिणाम के लिए, प्रति सत्र एक ही सवाल पर ध्यान केंद्रित करें।</p>
+        </details>
+        <details class="group border border-sol-gold/10 rounded-lg p-4">
+          <summary class="font-body text-sol-cream cursor-pointer font-semibold">क्या यह मुफ्त है?</summary>
+          <p class="font-body text-sol-ash mt-3 leading-relaxed">हाँ, हमारे सभी ताश 100% मुफ्त हैं और बिना पंजीकरण के। गहन जानकारी के लिए, आप व्यक्तिगत परामर्श का अनुरोध कर सकते हैं।</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

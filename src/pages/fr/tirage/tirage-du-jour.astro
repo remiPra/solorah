@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GoldDivider from '../../../components/ui/GoldDivider.astro';
+import DailyReading from '../../../components/cards/DailyReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'fr';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.dailyReading.title')}
+  description={t('pages.dailyReading.metaDescription')}
+  lang={lang}
+>
+  <section class="pt-24 pb-8 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-6">
+        {t('pages.dailyReading.title')}
+      </h1>
+      <p class="font-body text-lg text-sol-cream leading-relaxed">
+        Chaque jour, une carte du Tarot de Marseille est tirée pour toi. Reviens chaque matin pour découvrir ton message quotidien.
+      </p>
+    </div>
+  </section>
+
+  <DailyReading client:only="react" lang={lang} deck={tarotMarseilleDeck.cards} />
+</BaseLayout>

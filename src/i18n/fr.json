@@ -30,6 +30,26 @@
       "name": "Oracle de Shiva",
       "description": "Un oracle inspiré de la sagesse de Shiva. 20 cartes pour éclairer tes décisions et trouver ta voie."
     },
+    "dailyReading": {
+      "name": "Tirage du Jour",
+      "description": "Une carte du Tarot de Marseille tirée chaque jour pour guider ta journée. Reviens chaque matin pour ton message quotidien."
+    },
+    "yesNo": {
+      "name": "Tirage Oui / Non",
+      "description": "Pose ta question et tire une carte. Le Tarot de Marseille te donne une tendance claire : oui ou non."
+    },
+    "threeCards": {
+      "name": "Tirage 3 Cartes",
+      "description": "Passé, Présent, Futur — trois cartes de l'Oracle de l'Amour pour éclairer ton chemin sentimental."
+    },
+    "crossSpread": {
+      "name": "Tirage en Croix",
+      "description": "Cinq cartes du Tarot de Marseille disposées en croix pour une analyse complète de ta situation."
+    },
+    "loveReading": {
+      "name": "Tirage Amour",
+      "description": "Un tirage spécial amour avec l'Oracle de l'Amour. Découvre le message que le cœur a pour toi."
+    },
     "cta": "Tirer les cartes"
   },
   "howItWorks": {
@@ -66,7 +86,17 @@
     },
     "contact": {
       "title": "Contact",
-      "metaDescription": "Contactez l'équipe Solorah pour toute question sur nos tirages de cartes et consultations."
+      "metaDescription": "Contactez l'équipe Solorah pour toute question sur nos tirages de cartes et consultations.",
+      "subtitle": "Une question ? Un message ? Nous sommes à ton écoute.",
+      "nameLabel": "Nom",
+      "emailLabel": "Email",
+      "messageLabel": "Message",
+      "namePlaceholder": "Ton nom",
+      "emailPlaceholder": "ton@email.com",
+      "messagePlaceholder": "Ton message...",
+      "send": "Envoyer",
+      "success": "Message envoyé ! Nous te répondrons bientôt.",
+      "error": "Une erreur est survenue. Réessaie."
     },
     "legal": {
       "title": "Mentions légales",
@@ -128,6 +158,27 @@
       "title": "Oracle Gratuit en Ligne",
       "metaDescription": "Oracle gratuit en ligne avec Solorah. Oracle de l'Amour, Oracle de Shiva, tirage oui/non — sans inscription."
     }
+  },
+  "auth": {
+    "login": "Se connecter",
+    "logout": "Déconnexion",
+    "myReadings": "Mes tirages",
+    "emailPlaceholder": "ton@email.com",
+    "sendMagicLink": "Recevoir le lien magique",
+    "magicLinkSent": "Un lien magique a été envoyé à ton email !",
+    "magicLinkDesc": "Vérifie ta boîte de réception et clique sur le lien pour te connecter.",
+    "loginTitle": "Connexion",
+    "loginSubtitle": "Entre ton email pour recevoir un lien de connexion magique.",
+    "noPassword": "Pas de mot de passe à retenir.",
+    "error": "Une erreur est survenue. Réessaie.",
+    "noReadings": "Tu n'as aucun tirage sauvegardé.",
+    "noReadingsDesc": "Fais un tirage et sauvegarde-le pour le retrouver ici.",
+    "savedOn": "Sauvegardé le",
+    "deleteReading": "Supprimer",
+    "confirmDelete": "Supprimer ce tirage ?",
+    "save": "Sauvegarder ce tirage",
+    "saved": "Tirage sauvegardé !",
+    "loginToSave": "Connecte-toi pour sauvegarder tes tirages"
   },
   "home": {
     "title": "Oracle & Tarot en ligne",

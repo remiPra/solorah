@@ -30,6 +30,26 @@
       "name": "Shiva-Orakel",
       "description": "Ein Orakel inspiriert von der Weisheit Shivas. 20 Karten, um deine Entscheidungen zu erhellen und deinen Weg zu finden."
     },
+    "dailyReading": {
+      "name": "Tageskarte",
+      "description": "Jeden Tag eine Karte aus dem Tarot de Marseille, um deinen Tag zu begleiten. Komm jeden Morgen für deine tägliche Botschaft."
+    },
+    "yesNo": {
+      "name": "Ja / Nein Ziehung",
+      "description": "Stelle deine Frage und ziehe eine Karte. Das Tarot de Marseille gibt dir eine klare Tendenz: Ja oder Nein."
+    },
+    "threeCards": {
+      "name": "3-Karten-Ziehung",
+      "description": "Vergangenheit, Gegenwart, Zukunft — drei Karten des Liebesorakels, um deinen emotionalen Weg zu beleuchten."
+    },
+    "crossSpread": {
+      "name": "Kreuzlegung",
+      "description": "Fünf Karten des Tarot de Marseille im Kreuz gelegt für eine vollständige Analyse deiner Situation."
+    },
+    "loveReading": {
+      "name": "Liebeslegung",
+      "description": "Eine besondere Liebeslegung mit dem Liebesorakel. Entdecke die Botschaft, die das Herz für dich bereithält."
+    },
     "cta": "Karten ziehen"
   },
   "howItWorks": {
@@ -66,7 +86,17 @@
     },
     "contact": {
       "title": "Kontakt",
-      "metaDescription": "Kontaktiere das Solorah-Team bei Fragen zu unseren Kartenziehungen und Beratungen."
+      "metaDescription": "Kontaktiere das Solorah-Team bei Fragen zu unseren Kartenziehungen und Beratungen.",
+      "subtitle": "Eine Frage? Eine Nachricht? Wir hören dir zu.",
+      "nameLabel": "Name",
+      "emailLabel": "E-Mail",
+      "messageLabel": "Nachricht",
+      "namePlaceholder": "Dein Name",
+      "emailPlaceholder": "deine@email.com",
+      "messagePlaceholder": "Deine Nachricht...",
+      "send": "Senden",
+      "success": "Nachricht gesendet! Wir melden uns bald.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     },
     "legal": {
       "title": "Impressum",
@@ -91,7 +121,64 @@
     "oracleShiva": {
       "title": "Shiva-Orakel",
       "metaDescription": "Ziehe kostenlos eine Karte des Shiva-Orakels. 20 Weisheitskarten für deine Entscheidungen."
+    },
+    "dailyReading": {
+      "title": "Tageskarte",
+      "metaDescription": "Entdecke kostenlos deine Tarot-Tageskarte. Eine tägliche Ziehung, um deinen Tag mit Solorah zu begleiten."
+    },
+    "yesNo": {
+      "title": "Ja oder Nein Ziehung",
+      "metaDescription": "Stelle deine Frage und ziehe eine Karte. Kostenlose Ja/Nein-Ziehung mit dem Tarot de Marseille auf Solorah."
+    },
+    "threeCards": {
+      "title": "3-Karten-Ziehung",
+      "metaDescription": "Kostenlose Vergangenheit-Gegenwart-Zukunft-Ziehung mit 3 Karten. Entdecke, was die Karten über deinen Weg enthüllen."
+    },
+    "crossSpread": {
+      "title": "Kreuzlegung",
+      "metaDescription": "Kostenlose Kreuzlegung mit 5 Karten des Tarot de Marseille. Eine vollständige und tiefgehende Ziehung."
+    },
+    "loveReading": {
+      "title": "Liebeslegung",
+      "metaDescription": "Kostenlose Liebeslegung online. Entdecke, was die Karten über dein Liebesleben enthüllen, mit Solorah."
+    },
+    "cardMeaning": {
+      "title": "Bedeutung der Arkana",
+      "metaDescription": "Entdecke die Bedeutung der großen Arkana des Tarot de Marseille. Detaillierte Deutung aufrecht und umgekehrt."
+    },
+    "guide": {
+      "title": "Ratgeber",
+      "metaDescription": "Ratgeber und Artikel über Tarot und Orakel. Lerne Karten zu ziehen und deine Ziehungen zu deuten."
+    },
+    "freeTarot": {
+      "title": "Kostenloses Online-Tarot",
+      "metaDescription": "Kostenlose Tarot-Ziehung online mit Solorah. Tarot de Marseille, Tageskarte, Kreuzlegung — 100% kostenlos."
+    },
+    "freeOracle": {
+      "title": "Kostenloses Online-Orakel",
+      "metaDescription": "Kostenloses Orakel online mit Solorah. Liebesorakel, Shiva-Orakel, Ja/Nein-Ziehung — ohne Registrierung."
     }
+  },
+  "auth": {
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "myReadings": "Meine Ziehungen",
+    "emailPlaceholder": "deine@email.com",
+    "sendMagicLink": "Magischen Link senden",
+    "magicLinkSent": "Ein magischer Link wurde an deine E-Mail gesendet!",
+    "magicLinkDesc": "Überprüfe deinen Posteingang und klicke auf den Link zum Anmelden.",
+    "loginTitle": "Anmelden",
+    "loginSubtitle": "Gib deine E-Mail ein, um einen magischen Anmeldelink zu erhalten.",
+    "noPassword": "Kein Passwort nötig.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "noReadings": "Du hast keine gespeicherten Ziehungen.",
+    "noReadingsDesc": "Mache eine Ziehung und speichere sie, um sie hier zu finden.",
+    "savedOn": "Gespeichert am",
+    "deleteReading": "Löschen",
+    "confirmDelete": "Diese Ziehung löschen?",
+    "save": "Diese Ziehung speichern",
+    "saved": "Ziehung gespeichert!",
+    "loginToSave": "Melde dich an, um deine Ziehungen zu speichern"
   },
   "home": {
     "title": "Orakel & Tarot online",

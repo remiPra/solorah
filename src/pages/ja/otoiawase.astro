@@ -1,10 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GoldDivider from '../../components/ui/GoldDivider.astro';
+import ContactForm from '../../components/ContactForm';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'ja';
 const t = useTranslations(lang);
+
+const contactLabels = {
+  name: t('pages.contact.nameLabel'),
+  email: t('pages.contact.emailLabel'),
+  message: t('pages.contact.messageLabel'),
+  send: t('pages.contact.send'),
+  namePlaceholder: t('pages.contact.namePlaceholder'),
+  emailPlaceholder: t('pages.contact.emailPlaceholder'),
+  messagePlaceholder: t('pages.contact.messagePlaceholder'),
+  success: t('pages.contact.success'),
+  error: t('pages.contact.error'),
+};
 ---
 
 <BaseLayout
@@ -20,29 +33,11 @@ const t = useTranslations(lang);
           {t('pages.contact.title')}
         </h1>
         <p class="font-body text-lg text-sol-cream italic">
-          ご質問がありますか？お気軽にどうぞ。
+          {t('pages.contact.subtitle')}
         </p>
       </div>
 
-      <form class="space-y-6">
-        <div>
-          <label for="name" class="block font-ui text-sm text-sol-ash mb-2 uppercase tracking-wider">お名前</label>
-          <input type="text" id="name" name="name" required class="w-full bg-sol-charcoal border border-sol-gold/20 rounded-sm px-4 py-3 font-body text-sol-cream placeholder-sol-ash/40 focus:border-sol-gold/50 focus:outline-none focus:ring-1 focus:ring-sol-gold/30 transition-colors" placeholder="お名前" />
-        </div>
-        <div>
-          <label for="email" class="block font-ui text-sm text-sol-ash mb-2 uppercase tracking-wider">メールアドレス</label>
-          <input type="email" id="email" name="email" required class="w-full bg-sol-charcoal border border-sol-gold/20 rounded-sm px-4 py-3 font-body text-sol-cream placeholder-sol-ash/40 focus:border-sol-gold/50 focus:outline-none focus:ring-1 focus:ring-sol-gold/30 transition-colors" placeholder="your@email.com" />
-        </div>
-        <div>
-          <label for="message" class="block font-ui text-sm text-sol-ash mb-2 uppercase tracking-wider">メッセージ</label>
-          <textarea id="message" name="message" rows="5" required class="w-full bg-sol-charcoal border border-sol-gold/20 rounded-sm px-4 py-3 font-body text-sol-cream placeholder-sol-ash/40 focus:border-sol-gold/50 focus:outline-none focus:ring-1 focus:ring-sol-gold/30 transition-colors resize-none" placeholder="メッセージを入力..."></textarea>
-        </div>
-        <div class="text-center pt-4">
-          <button type="submit" class="inline-flex items-center justify-center font-ui tracking-wider uppercase bg-sol-gold text-sol-deep hover:bg-sol-gold-light hover:shadow-[0_0_30px_rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3)] font-semibold px-8 py-4 text-sm rounded-sm transition-all duration-300">
-            送信
-          </button>
-        </div>
-      </form>
+      <ContactForm client:only="react" lang={lang} labels={contactLabels} />
     </div>
   </section>
 </BaseLayout>

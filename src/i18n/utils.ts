@@ -79,6 +79,7 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/contact': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/mentions-legales': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
   // FR new reading routes
+  '/mes-tirages': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/tirage/tirage-du-jour': { fr: '/tirage/tirage-du-jour', en: '/reading/daily-reading', zh: '/zhan-bu/mei-ri-zhan-bu', es: '/lectura/lectura-del-dia', de: '/ziehung/tageskarte', hi: '/taash/dainik-taash', ja: '/uranai/kyou-no-uranai' },
   '/tirage/tirage-oui-non': { fr: '/tirage/tirage-oui-non', en: '/reading/yes-no', zh: '/zhan-bu/shi-fou-zhan-bu', es: '/lectura/si-o-no', de: '/ziehung/ja-nein', hi: '/taash/haan-na', ja: '/uranai/hai-iie' },
   '/tirage/tirage-3-cartes': { fr: '/tirage/tirage-3-cartes', en: '/reading/three-cards', zh: '/zhan-bu/san-zhang-pai', es: '/lectura/tres-cartas', de: '/ziehung/drei-karten', hi: '/taash/teen-patte', ja: '/uranai/san-mai' },
@@ -99,6 +100,7 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/about': { fr: '/a-propos', en: '/about', zh: '/guan-yu', es: '/acerca-de', de: '/ueber-uns', hi: '/hamare-baare-mein', ja: '/gaiyou' },
   '/legal': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
   // EN new reading routes
+  '/my-readings': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/reading/daily-reading': { fr: '/tirage/tirage-du-jour', en: '/reading/daily-reading', zh: '/zhan-bu/mei-ri-zhan-bu', es: '/lectura/lectura-del-dia', de: '/ziehung/tageskarte', hi: '/taash/dainik-taash', ja: '/uranai/kyou-no-uranai' },
   '/reading/yes-no': { fr: '/tirage/tirage-oui-non', en: '/reading/yes-no', zh: '/zhan-bu/shi-fou-zhan-bu', es: '/lectura/si-o-no', de: '/ziehung/ja-nein', hi: '/taash/haan-na', ja: '/uranai/hai-iie' },
   '/reading/three-cards': { fr: '/tirage/tirage-3-cartes', en: '/reading/three-cards', zh: '/zhan-bu/san-zhang-pai', es: '/lectura/tres-cartas', de: '/ziehung/drei-karten', hi: '/taash/teen-patte', ja: '/uranai/san-mai' },
@@ -108,6 +110,7 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/free-tarot': { fr: '/tarot-gratuit', en: '/free-tarot', zh: '/mian-fei-ta-luo', es: '/tarot-gratis', de: '/tarot-kostenlos', hi: '/muft-tarot', ja: '/muryou-tarot' },
   '/free-oracle': { fr: '/oracle-gratuit', en: '/free-oracle', zh: '/mian-fei-shen-yu', es: '/oraculo-gratis', de: '/orakel-kostenlos', hi: '/muft-oracle', ja: '/muryou-orakuru' },
   // ZH routes
+  '/wo-de-zhan-bu': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/zhan-bu': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
   '/zhan-bu/ai-qing-shen-yu': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
   '/zhan-bu/ma-sai-ta-luo': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
@@ -117,6 +120,7 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/lian-xi': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/fa-lv-sheng-ming': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
   // ES routes
+  '/mis-lecturas': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/lectura': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
   '/lectura/oraculo-amor': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
   '/lectura/tarot-marsella': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
@@ -126,6 +130,7 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/contacto': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/avisos-legales': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
   // DE routes
+  '/meine-ziehungen': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/ziehung': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
   '/ziehung/liebesorakel': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
   '/ziehung/tarot-marseille': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
@@ -135,6 +140,7 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/kontakt': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/impressum': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
   // HI routes
+  '/mere-taash': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/taash': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
   '/taash/prem-oracle': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
   '/taash/tarot-marseille': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },
@@ -144,6 +150,7 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/sampark': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/vidhi-suchna': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
   // JA routes
+  '/watashi-no-uranai': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/uranai': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
   '/uranai/ai-no-orakuru': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },
   '/uranai/tarot-marseiyu': { fr: '/tirage/tarot-marseille', en: '/reading/marseille-tarot', zh: '/zhan-bu/ma-sai-ta-luo', es: '/lectura/tarot-marsella', de: '/ziehung/tarot-marseille', hi: '/taash/tarot-marseille', ja: '/uranai/tarot-marseiyu' },

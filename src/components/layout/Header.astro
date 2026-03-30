@@ -1,6 +1,7 @@
 ---
 import type { Lang } from '../../i18n/utils';
 import { useTranslations, getTranslatedPath, getOtherLangs, languages } from '../../i18n/utils';
+import HeaderAuth from '../auth/HeaderAuth';
 
 interface Props {
   lang: Lang;
@@ -17,6 +18,22 @@ const navLinks = [
   { href: getTranslatedPath(`/${lang}/a-propos`, lang), label: t('nav.about') },
   { href: getTranslatedPath(`/${lang}/contact`, lang), label: t('nav.contact') },
 ];
+
+const myReadingsPath = getTranslatedPath(`/${lang}/mes-tirages`, lang);
+
+const authTranslations: Record<string, string> = {
+  'auth.login': t('auth.login'),
+  'auth.logout': t('auth.logout'),
+  'auth.myReadings': t('auth.myReadings'),
+  'auth.emailPlaceholder': t('auth.emailPlaceholder'),
+  'auth.sendMagicLink': t('auth.sendMagicLink'),
+  'auth.magicLinkSent': t('auth.magicLinkSent'),
+  'auth.magicLinkDesc': t('auth.magicLinkDesc'),
+  'auth.loginTitle': t('auth.loginTitle'),
+  'auth.loginSubtitle': t('auth.loginSubtitle'),
+  'auth.noPassword': t('auth.noPassword'),
+  'auth.error': t('auth.error'),
+};
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="site-header">
@@ -27,8 +44,16 @@ const navLinks = [
       SOLORAH
     </a>
 
-    <!-- Right side: theme toggle + hamburger (all screens) -->
+    <!-- Right side: auth + theme toggle + hamburger (all screens) -->
     <div class="flex items-center gap-3">
+      <!-- Auth (React island) -->
+      <HeaderAuth
+        client:only="react"
+        lang={lang}
+        translations={authTranslations}
+        myReadingsPath={myReadingsPath}
+      />
+
       <!-- Theme Toggle -->
       <button
         id="theme-toggle"

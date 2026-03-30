@@ -30,6 +30,26 @@
       "name": "湿婆神谕",
       "description": "受湿婆智慧启发的神谕。20张牌卡照亮你的决定，帮你找到方向。"
     },
+    "dailyReading": {
+      "name": "每日占卜",
+      "description": "每天抽取一张马赛塔罗牌来指引你的一天。每天早上回来查看你的每日信息。"
+    },
+    "yesNo": {
+      "name": "是 / 否占卜",
+      "description": "提出你的问题并抽取一张牌。马赛塔罗给你一个明确的趋势：是或否。"
+    },
+    "threeCards": {
+      "name": "三牌占卜",
+      "description": "过去、现在、未来——三张爱情神谕牌照亮你的情感之路。"
+    },
+    "crossSpread": {
+      "name": "十字占卜",
+      "description": "五张马赛塔罗牌以十字形排列，全面分析你的处境。"
+    },
+    "loveReading": {
+      "name": "爱情占卜",
+      "description": "使用爱情神谕进行特别的爱情占卜。发现心灵为你传递的信息。"
+    },
     "cta": "抽牌"
   },
   "howItWorks": {
@@ -66,7 +86,17 @@
     },
     "contact": {
       "title": "联系我们",
-      "metaDescription": "如有关于牌卡占卜和咨询的问题，请联系Solorah团队。"
+      "metaDescription": "如有关于牌卡占卜和咨询的问题，请联系Solorah团队。",
+      "subtitle": "有问题？留言给我们。",
+      "nameLabel": "姓名",
+      "emailLabel": "邮箱",
+      "messageLabel": "留言",
+      "namePlaceholder": "您的姓名",
+      "emailPlaceholder": "your@email.com",
+      "messagePlaceholder": "您的留言...",
+      "send": "发送",
+      "success": "消息已发送！我们会尽快回复您。",
+      "error": "出了点问题，请重试。"
     },
     "legal": {
       "title": "法律声明",
@@ -91,7 +121,64 @@
     "oracleShiva": {
       "title": "湿婆神谕",
       "metaDescription": "免费抽取湿婆神谕牌卡。20张智慧之牌照亮你的决定。"
+    },
+    "dailyReading": {
+      "title": "每日占卜",
+      "metaDescription": "免费每日塔罗牌占卜。每天一张牌指引你的方向，来自Solorah。"
+    },
+    "yesNo": {
+      "title": "是否占卜",
+      "metaDescription": "提出你的问题，抽一张牌。使用马赛塔罗进行免费是/否占卜。"
+    },
+    "threeCards": {
+      "title": "三牌占卜",
+      "metaDescription": "免费过去-现在-未来三牌占卜。发现牌卡揭示的人生之路。"
+    },
+    "crossSpread": {
+      "title": "十字占卜",
+      "metaDescription": "免费五牌十字占卜。马赛塔罗的完整深度解读。"
+    },
+    "loveReading": {
+      "title": "爱情占卜",
+      "metaDescription": "免费在线爱情占卜。发现牌卡为你的感情生活揭示的信息。"
+    },
+    "cardMeaning": {
+      "title": "大阿尔卡那含义",
+      "metaDescription": "发现马赛塔罗大阿尔卡那的含义。正位和逆位的详细解读。"
+    },
+    "guide": {
+      "title": "指南",
+      "metaDescription": "关于塔罗和神谕的指南和文章。学习抽牌和解读。"
+    },
+    "freeTarot": {
+      "title": "免费在线塔罗",
+      "metaDescription": "Solorah免费在线塔罗占卜。马赛塔罗、每日占卜、十字占卜——100%免费。"
+    },
+    "freeOracle": {
+      "title": "免费在线神谕",
+      "metaDescription": "Solorah免费在线神谕。爱情神谕、湿婆神谕、是否占卜——无需注册。"
     }
+  },
+  "auth": {
+    "login": "登录",
+    "logout": "退出",
+    "myReadings": "我的占卜",
+    "emailPlaceholder": "your@email.com",
+    "sendMagicLink": "发送魔法链接",
+    "magicLinkSent": "魔法链接已发送到您的邮箱！",
+    "magicLinkDesc": "请查看您的收件箱并点击链接登录。",
+    "loginTitle": "登录",
+    "loginSubtitle": "输入您的邮箱以接收魔法登录链接。",
+    "noPassword": "无需记住密码。",
+    "error": "出了点问题，请重试。",
+    "noReadings": "您还没有保存的占卜。",
+    "noReadingsDesc": "进行占卜并保存以在此处找到。",
+    "savedOn": "保存于",
+    "deleteReading": "删除",
+    "confirmDelete": "删除这个占卜？",
+    "save": "保存此占卜",
+    "saved": "占卜已保存！",
+    "loginToSave": "登录以保存您的占卜"
   },
   "home": {
     "title": "在线神谕与塔罗",

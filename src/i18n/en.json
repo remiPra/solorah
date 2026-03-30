@@ -30,6 +30,26 @@
       "name": "Shiva Oracle",
       "description": "An oracle inspired by Shiva's wisdom. 20 cards to illuminate your decisions and find your path."
     },
+    "dailyReading": {
+      "name": "Daily Reading",
+      "description": "A Tarot de Marseille card drawn each day to guide your journey. Come back every morning for your daily message."
+    },
+    "yesNo": {
+      "name": "Yes / No Reading",
+      "description": "Ask your question and draw a card. The Tarot de Marseille gives you a clear tendency: yes or no."
+    },
+    "threeCards": {
+      "name": "Three Card Reading",
+      "description": "Past, Present, Future — three Love Oracle cards to illuminate your emotional path."
+    },
+    "crossSpread": {
+      "name": "Cross Spread",
+      "description": "Five Tarot de Marseille cards laid out in a cross for a complete analysis of your situation."
+    },
+    "loveReading": {
+      "name": "Love Reading",
+      "description": "A special love reading with the Love Oracle. Discover the message the heart holds for you."
+    },
     "cta": "Draw cards"
   },
   "howItWorks": {
@@ -66,7 +86,17 @@
     },
     "contact": {
       "title": "Contact",
-      "metaDescription": "Contact the Solorah team for any questions about our card readings and consultations."
+      "metaDescription": "Contact the Solorah team for any questions about our card readings and consultations.",
+      "subtitle": "A question? A message? We're all ears.",
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "messageLabel": "Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your@email.com",
+      "messagePlaceholder": "Your message...",
+      "send": "Send",
+      "success": "Message sent! We'll get back to you soon.",
+      "error": "Something went wrong. Please try again."
     },
     "legal": {
       "title": "Legal notice",
@@ -128,6 +158,27 @@
       "title": "Free Online Oracle",
       "metaDescription": "Free online oracle with Solorah. Love Oracle, Shiva Oracle, yes/no reading — no signup required."
     }
+  },
+  "auth": {
+    "login": "Sign in",
+    "logout": "Sign out",
+    "myReadings": "My readings",
+    "emailPlaceholder": "your@email.com",
+    "sendMagicLink": "Send magic link",
+    "magicLinkSent": "A magic link has been sent to your email!",
+    "magicLinkDesc": "Check your inbox and click the link to sign in.",
+    "loginTitle": "Sign in",
+    "loginSubtitle": "Enter your email to receive a magic sign-in link.",
+    "noPassword": "No password to remember.",
+    "error": "Something went wrong. Please try again.",
+    "noReadings": "You have no saved readings.",
+    "noReadingsDesc": "Do a reading and save it to find it here.",
+    "savedOn": "Saved on",
+    "deleteReading": "Delete",
+    "confirmDelete": "Delete this reading?",
+    "save": "Save this reading",
+    "saved": "Reading saved!",
+    "loginToSave": "Sign in to save your readings"
   },
   "home": {
     "title": "Online Oracle & Tarot",

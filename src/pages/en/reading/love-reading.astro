@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GoldDivider from '../../../components/ui/GoldDivider.astro';
+import OracleReading from '../../../components/cards/OracleReading';
+import { oracleAmourDeck } from '../../../data/oracle-amour';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.loveReading.title')}
+  description={t('pages.loveReading.metaDescription')}
+  lang={lang}
+>
+  <section class="pt-24 pb-8 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-6">
+        {t('pages.loveReading.title')}
+      </h1>
+      <p class="font-body text-lg text-sol-cream leading-relaxed mb-4">
+        Draw a card from the Love Oracle and discover the message the universe holds for your heart. 44 cards to illuminate your love life.
+      </p>
+      <p class="font-body text-sol-ash text-base italic">
+        Focus on your love question, then let your intuition guide your choice.
+      </p>
+    </div>
+  </section>
+
+  <OracleReading client:only="react" lang={lang} deck={oracleAmourDeck.cards} />
+
+  <section class="py-16 px-4">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-10">Frequently Asked Questions</h2>
+      <div class="space-y-6">
+        <details class="group border border-sol-gold/10 rounded-lg p-4">
+          <summary class="font-body text-sol-cream cursor-pointer font-semibold">How does the love reading work?</summary>
+          <p class="font-body text-sol-ash mt-3 leading-relaxed">Focus on your love question, scroll through the cards and choose the one that calls to you. The Love Oracle will deliver a personalized message.</p>
+        </details>
+        <details class="group border border-sol-gold/10 rounded-lg p-4">
+          <summary class="font-body text-sol-cream cursor-pointer font-semibold">Can I do multiple readings?</summary>
+          <p class="font-body text-sol-ash mt-3 leading-relaxed">Yes, you can start over as many times as you like. However, for a more accurate reading, we recommend focusing on a single question per session.</p>
+        </details>
+        <details class="group border border-sol-gold/10 rounded-lg p-4">
+          <summary class="font-body text-sol-cream cursor-pointer font-semibold">Is the reading free?</summary>
+          <p class="font-body text-sol-ash mt-3 leading-relaxed">Yes, all our readings are 100% free with no registration required. For deeper insight, you can request a personalized consultation.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
