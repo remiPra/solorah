@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrossReading from '../../../components/cards/CrossReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+---
+
+<BaseLayout
+  title="Cross Spread"
+  description="Free Celtic cross spread with 5 Tarot de Marseille cards. A complete and in-depth reading."
+  lang="en"
+>
+  <CrossReading client:only="react" lang="en" deck={tarotMarseilleDeck.cards} />
+</BaseLayout>

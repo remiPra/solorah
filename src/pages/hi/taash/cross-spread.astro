@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrossReading from '../../../components/cards/CrossReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+---
+
+<BaseLayout
+  title="क्रॉस स्प्रेड"
+  description="मार्सिले टैरो के 5 पत्तों के साथ मुफ्त क्रॉस स्प्रेड। एक पूर्ण और गहन रीडिंग।"
+  lang="hi"
+>
+  <CrossReading client:only="react" lang="hi" deck={tarotMarseilleDeck.cards} />
+</BaseLayout>
