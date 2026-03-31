@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrossReading from '../../../components/cards/CrossReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+---
+
+<BaseLayout
+  title="Tirage en Croix"
+  description="Tirage en croix celtique gratuit avec 5 cartes du Tarot de Marseille. Un tirage complet et approfondi."
+  lang="fr"
+>
+  <CrossReading client:only="react" lang="fr" deck={tarotMarseilleDeck.cards} />
+</BaseLayout>

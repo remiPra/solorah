@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrossReading from '../../../components/cards/CrossReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+---
+
+<BaseLayout
+  title="Kreuzlegung"
+  description="Kostenlose Kreuzlegung mit 5 Karten des Tarot de Marseille. Eine vollständige und tiefgehende Ziehung."
+  lang="de"
+>
+  <CrossReading client:only="react" lang="de" deck={tarotMarseilleDeck.cards} />
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrossReading from '../../../components/cards/CrossReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+---
+
+<BaseLayout
+  title="十字占卜"
+  description="免费五牌十字占卜。马赛塔罗的完整深度解读。"
+  lang="zh"
+>
+  <CrossReading client:only="react" lang="zh" deck={tarotMarseilleDeck.cards} />
+</BaseLayout>

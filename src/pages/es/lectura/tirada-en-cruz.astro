@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CrossReading from '../../../components/cards/CrossReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+---
+
+<BaseLayout
+  title="Tirada en Cruz"
+  description="Tirada en cruz gratuita con 5 cartas del Tarot de Marsella. Una lectura completa y profunda."
+  lang="es"
+>
+  <CrossReading client:only="react" lang="es" deck={tarotMarseilleDeck.cards} />
+</BaseLayout>
