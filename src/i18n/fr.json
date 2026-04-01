@@ -157,7 +157,18 @@
     "freeOracle": {
       "title": "Oracle Gratuit en Ligne",
       "metaDescription": "Oracle gratuit en ligne avec Solorah. Oracle de l'Amour, Oracle de Shiva, tirage oui/non — sans inscription."
+    },
+    "blog": {
+      "title": "Blog",
+      "metaDescription": "Articles et conseils sur le tarot, l'oracle et la spiritualité. Apprenez à interpréter les cartes avec Solorah."
     }
+  },
+  "blog": {
+    "readMore": "Lire la suite",
+    "publishedOn": "Publié le",
+    "backToList": "Retour au blog",
+    "noArticles": "Aucun article pour le moment.",
+    "tags": "Tags"
   },
   "auth": {
     "login": "Se connecter",

@@ -157,7 +157,18 @@
     "freeOracle": {
       "title": "免费在线神谕",
       "metaDescription": "Solorah免费在线神谕。爱情神谕、湿婆神谕、是否占卜——无需注册。"
+    },
+    "blog": {
+      "title": "博客",
+      "metaDescription": "关于塔罗、神谕和灵性的文章与建议。在Solorah学习如何解读牌卡。"
     }
+  },
+  "blog": {
+    "readMore": "阅读更多",
+    "publishedOn": "发布于",
+    "backToList": "返回博客",
+    "noArticles": "暂无文章。",
+    "tags": "标签"
   },
   "auth": {
     "login": "登录",

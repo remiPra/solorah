@@ -157,7 +157,18 @@
     "freeOracle": {
       "title": "Free Online Oracle",
       "metaDescription": "Free online oracle with Solorah. Love Oracle, Shiva Oracle, yes/no reading — no signup required."
+    },
+    "blog": {
+      "title": "Blog",
+      "metaDescription": "Articles and tips about tarot, oracle and spirituality. Learn to interpret cards with Solorah."
     }
+  },
+  "blog": {
+    "readMore": "Read more",
+    "publishedOn": "Published on",
+    "backToList": "Back to blog",
+    "noArticles": "No articles yet.",
+    "tags": "Tags"
   },
   "auth": {
     "login": "Sign in",

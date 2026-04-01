@@ -157,7 +157,18 @@
     "freeOracle": {
       "title": "Kostenloses Online-Orakel",
       "metaDescription": "Kostenloses Orakel online mit Solorah. Liebesorakel, Shiva-Orakel, Ja/Nein-Ziehung — ohne Registrierung."
+    },
+    "blog": {
+      "title": "Blog",
+      "metaDescription": "Artikel und Tipps über Tarot, Orakel und Spiritualität. Lernen Sie mit Solorah die Karten zu deuten."
     }
+  },
+  "blog": {
+    "readMore": "Weiterlesen",
+    "publishedOn": "Veröffentlicht am",
+    "backToList": "Zurück zum Blog",
+    "noArticles": "Noch keine Artikel.",
+    "tags": "Tags"
   },
   "auth": {
     "login": "Anmelden",

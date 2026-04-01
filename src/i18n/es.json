@@ -157,7 +157,18 @@
     "freeOracle": {
       "title": "Oráculo Gratis en Línea",
       "metaDescription": "Oráculo gratuito en línea con Solorah. Oráculo del Amor, Oráculo de Shiva, lectura sí/no — sin registro."
+    },
+    "blog": {
+      "title": "Blog",
+      "metaDescription": "Artículos y consejos sobre tarot, oráculo y espiritualidad. Aprende a interpretar las cartas con Solorah."
     }
+  },
+  "blog": {
+    "readMore": "Leer más",
+    "publishedOn": "Publicado el",
+    "backToList": "Volver al blog",
+    "noArticles": "No hay artículos aún.",
+    "tags": "Etiquetas"
   },
   "auth": {
     "login": "Iniciar sesión",

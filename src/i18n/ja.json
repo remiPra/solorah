@@ -157,7 +157,18 @@
     "freeOracle": {
       "title": "無料オンラインオラクル",
       "metaDescription": "Solorahで無料のオンラインオラクル。愛のオラクル、シヴァオラクル、はい/いいえ占い——登録不要。"
+    },
+    "blog": {
+      "title": "ブログ",
+      "metaDescription": "タロット、オラクル、スピリチュアリティに関する記事とアドバイス。Solorahでカードの解釈を学びましょう。"
     }
+  },
+  "blog": {
+    "readMore": "続きを読む",
+    "publishedOn": "公開日",
+    "backToList": "ブログに戻る",
+    "noArticles": "まだ記事がありません。",
+    "tags": "タグ"
   },
   "auth": {
     "login": "ログイン",
