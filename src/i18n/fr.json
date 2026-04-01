@@ -76,7 +76,7 @@
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité",
     "terms": "CGV",
-    "disclaimer": "Les tirages sont proposés à titre de divertissement et de développement personnel. Ils ne remplacent en aucun cas un avis médical, juridique ou financier.",
+    "disclaimer": "Les tirages sont proposés à titre de divertissement et de développement personnel. Ils revêtent un caractère purement culturel, récréatif et ludique. La voyance et les tirages de cartes ne constituent pas une science exacte. Les interprétations sont générées automatiquement à titre indicatif et ne peuvent en aucun cas se substituer à un avis médical, psychologique, juridique ou financier. Service réservé aux personnes majeures.",
     "rights": "Tous droits réservés."
   },
   "pages": {
@@ -96,7 +96,8 @@
       "messagePlaceholder": "Ton message...",
       "send": "Envoyer",
       "success": "Message envoyé ! Nous te répondrons bientôt.",
-      "error": "Une erreur est survenue. Réessaie."
+      "error": "Une erreur est survenue. Réessaie.",
+      "consent": "J'accepte que mes données soient traitées pour répondre à ma demande, conformément à la politique de confidentialité."
     },
     "legal": {
       "title": "Mentions légales",

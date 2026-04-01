@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'ja';
+const t = useTranslations(lang);
+const lastUpdated = '2026年4月1日';
+---
+
+<BaseLayout
+  title="プライバシーポリシー"
+  description="Solorah.comのプライバシーポリシー — お客様の個人データをどのように保護しているかについて。"
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4 text-center">
+        プライバシーポリシー
+      </h1>
+      <p class="text-center text-sol-ash mb-12 font-ui text-sm">最終更新日：{lastUpdated}</p>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-10">
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">1. データ管理者</h2>
+          <p>
+            Solorah<br />
+            メール：<a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">2. 収集するデータ</h2>
+
+          <div class="space-y-6 ml-4">
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">a) お問い合わせフォーム</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>データ：</strong>氏名、メールアドレス、メッセージ</li>
+                <li><strong>目的：</strong>お問い合わせへの回答</li>
+                <li><strong>法的根拠：</strong>同意（GDPR第6条1項a号）</li>
+                <li><strong>保存期間：</strong>お問い合わせ処理後12か月</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">b) ユーザーアカウント</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>データ：</strong>メールアドレス（マジックリンクログイン経由）</li>
+                <li><strong>目的：</strong>タロットリーディングの保存機能へのアクセス</li>
+                <li><strong>法的根拠：</strong>契約の履行（GDPR第6条1項b号）</li>
+                <li><strong>保存期間：</strong>ユーザーによるアカウント削除まで</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">c) 保存されたリーディング</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>データ：</strong>リーディングの種類、引いたカード、質問内容、日付</li>
+                <li><strong>目的：</strong>個人の履歴の閲覧を可能にすること</li>
+                <li><strong>法的根拠：</strong>契約の履行（GDPR第6条1項b号）</li>
+                <li><strong>保存期間：</strong>アカウント削除まで</li>
+              </ul>
+              <p class="text-sol-ash/80 text-base mt-2 italic">
+                注：リーディング時に入力された質問には、機密性の高い個人情報（恋愛、健康など）が含まれる場合があります。リーディングを保存することにより、これらの情報の処理に同意したものとみなされます。
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">d) ユーザープロフィール</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>データ：</strong>表示名（任意）、希望言語</li>
+                <li><strong>目的：</strong>体験のパーソナライゼーション</li>
+                <li><strong>法的根拠：</strong>契約の履行（GDPR第6条1項b号）</li>
+                <li><strong>保存期間：</strong>アカウント削除まで</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">e) 技術データ</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>データ：</strong>IPアドレス、セッショントークン</li>
+                <li><strong>目的：</strong>サイトのセキュリティと適切な運営</li>
+                <li><strong>法的根拠：</strong>正当な利益（GDPR第6条1項f号）</li>
+                <li><strong>保存期間：</strong>セッションの期間</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">3. Cookieとローカルストレージ</h2>
+          <p>本サイトでは以下のみ使用しています：</p>
+          <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
+            <li><strong>セッションCookie</strong>（Supabase Auth）：運営に必要不可欠であり、ePrivacy指令に基づき同意が免除されます。</li>
+            <li><strong>ローカルストレージ（localStorage）</strong>：表示設定（ライト/ダークテーマ、オーディオ音量）。これらのデータは個人データではありません。</li>
+          </ul>
+          <p class="mt-3 font-semibold">本サイトでは、広告、トラッキング、またはアナリティクスのCookieは一切使用していません。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">4. 委託先</h2>
+          <p class="mb-4">お客様のデータは以下の委託先により処理されます：</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sol-ash">
+              <thead>
+                <tr class="border-b border-sol-gold/20">
+                  <th class="pb-2 pr-4 text-sol-gold font-display">委託先</th>
+                  <th class="pb-2 pr-4 text-sol-gold font-display">役割</th>
+                  <th class="pb-2 text-sol-gold font-display">所在地</th>
+                </tr>
+              </thead>
+              <tbody class="text-base">
+                <tr class="border-b border-sol-gold/10">
+                  <td class="py-2 pr-4">Supabase Inc.</td>
+                  <td class="py-2 pr-4">データベース、認証</td>
+                  <td class="py-2">米国</td>
+                </tr>
+                <tr class="border-b border-sol-gold/10">
+                  <td class="py-2 pr-4">Resend Inc.</td>
+                  <td class="py-2 pr-4">トランザクションメールの送信</td>
+                  <td class="py-2">米国</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-4">Vercel Inc.</td>
+                  <td class="py-2 pr-4">ウェブサイトのホスティング</td>
+                  <td class="py-2">米国</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-sol-ash/80 text-base mt-3 italic">
+            欧州連合外の米国へのデータ転送が行われます。これらの委託先は、EU-米国データプライバシーフレームワークまたはGDPRに準拠した標準契約条項（SCC）によりカバーされています。
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">5. お客様の権利（GDPR第15条～第21条）</h2>
+          <p>お客様には以下の権利があります：</p>
+          <ul class="list-disc ml-6 space-y-1 text-sol-ash mt-3">
+            <li>データへのアクセス権</li>
+            <li>訂正の権利</li>
+            <li>消去の権利（「忘れられる権利」）</li>
+            <li>データポータビリティの権利</li>
+            <li>処理に対する異議申立の権利</li>
+            <li>処理の制限を求める権利</li>
+          </ul>
+          <p class="mt-4">
+            これらの権利を行使するには：<a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a><br />
+            回答期限：最大30日。
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">6. アカウントの削除</h2>
+          <p>
+            <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a>宛にご連絡いただくことで、アカウントおよび関連するすべてのデータ（保存されたリーディング、プロフィール、メッセージ）の削除をリクエストできます。削除は30日以内に実行されます。
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">7. 苦情</h2>
+          <p>
+            お客様のデータの処理が適用法令に準拠していないと思われる場合は、所轄のデータ保護機関に苦情を申し立てることができます。<br />
+            <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" class="text-sol-gold underline">www.cnil.fr</a>
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-sol-gold/10">
+          <p class="italic text-sol-ash text-base">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

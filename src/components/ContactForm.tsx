@@ -12,6 +12,7 @@ interface ContactFormProps {
     messagePlaceholder: string;
     success: string;
     error: string;
+    consent?: string;
   };
 }
 
@@ -19,11 +20,12 @@ export default function ContactForm({ lang, labels }: ContactFormProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !email.trim() || !message.trim() || status === 'sending') return;
+    if (!name.trim() || !email.trim() || !message.trim() || !consent || status === 'sending') return;
 
     setStatus('sending');
     try {
@@ -101,6 +103,20 @@ export default function ContactForm({ lang, labels }: ContactFormProps) {
           className="w-full bg-sol-charcoal border border-sol-gold/20 rounded-sm px-4 py-3 font-body text-sol-cream placeholder-sol-ash/40 focus:border-sol-gold/50 focus:outline-none focus:ring-1 focus:ring-sol-gold/30 transition-colors resize-none"
           placeholder={labels.messagePlaceholder}
         />
+      </div>
+
+      <div className="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="contact-consent"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          required
+          className="mt-1 w-4 h-4 accent-sol-gold bg-sol-charcoal border-sol-gold/20 rounded-sm"
+        />
+        <label htmlFor="contact-consent" className="font-ui text-sm text-sol-ash leading-relaxed">
+          {labels.consent || "J'accepte que mes données soient traitées pour répondre à ma demande, conformément à la politique de confidentialité."}
+        </label>
       </div>
 
       {status === 'error' && (

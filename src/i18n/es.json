@@ -76,7 +76,7 @@
     "legal": "Aviso legal",
     "privacy": "Política de privacidad",
     "terms": "Términos de servicio",
-    "disclaimer": "Las lecturas se ofrecen con fines de entretenimiento y desarrollo personal. No sustituyen ningún consejo médico, legal o financiero.",
+    "disclaimer": "Las lecturas se ofrecen exclusivamente con fines de entretenimiento y desarrollo personal. Tienen un carácter puramente cultural, recreativo y lúdico. La adivinación y las lecturas de cartas no constituyen una ciencia exacta. Las interpretaciones se generan automáticamente a título indicativo y no pueden sustituir en ningún caso un consejo médico, psicológico, jurídico o financiero. Servicio reservado a personas mayores de 18 años.",
     "rights": "Todos los derechos reservados."
   },
   "pages": {
@@ -96,7 +96,8 @@
       "messagePlaceholder": "Tu mensaje...",
       "send": "Enviar",
       "success": "¡Mensaje enviado! Te responderemos pronto.",
-      "error": "Algo salió mal. Inténtalo de nuevo."
+      "error": "Algo salió mal. Inténtalo de nuevo.",
+      "consent": "Acepto que mis datos sean tratados para responder a mi solicitud, de acuerdo con la política de privacidad."
     },
     "legal": {
       "title": "Aviso legal",

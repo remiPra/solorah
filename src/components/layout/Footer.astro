@@ -12,6 +12,26 @@ const t = useTranslations(lang);
 const year = new Date().getFullYear();
 
 const legalLink = getTranslatedPath(`/${lang}/mentions-legales`, lang);
+
+const privacyPaths: Record<string, string> = {
+  fr: 'politique-confidentialite',
+  en: 'privacy-policy',
+  es: 'politica-privacidad',
+  de: 'datenschutz',
+  hi: 'gopniyata-niti',
+  ja: 'puraibashii-porishi',
+  zh: 'yin-si-zheng-ce',
+};
+
+const cguPaths: Record<string, string> = {
+  fr: 'cgu',
+  en: 'terms',
+  es: 'condiciones',
+  de: 'nutzungsbedingungen',
+  hi: 'upayog-ki-sharten',
+  ja: 'riyou-kiyaku',
+  zh: 'shi-yong-tiao-kuan',
+};
 ---
 
 <footer class="relative mt-auto">
@@ -33,6 +53,14 @@ const legalLink = getTranslatedPath(`/${lang}/mentions-legales`, lang);
       <div class="flex flex-wrap justify-center gap-6 mb-8 font-ui text-sm">
         <a href={legalLink} class="text-sol-ash hover:text-sol-gold transition-colors">
           {t('footer.legal')}
+        </a>
+        <span class="text-sol-gold/20">|</span>
+        <a href={`/${lang}/${privacyPaths[lang]}`} class="text-sol-ash hover:text-sol-gold transition-colors">
+          {t('footer.privacy')}
+        </a>
+        <span class="text-sol-gold/20">|</span>
+        <a href={`/${lang}/${cguPaths[lang]}`} class="text-sol-ash hover:text-sol-gold transition-colors">
+          {t('footer.terms')}
         </a>
         <span class="text-sol-gold/20">|</span>
         <a href={`/${lang}/contact`} class="text-sol-ash hover:text-sol-gold transition-colors">

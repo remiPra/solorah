@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'hi';
+const t = useTranslations(lang);
+const lastUpdated = '1 अप्रैल 2026';
+---
+
+<BaseLayout
+  title="गोपनीयता नीति"
+  description="Solorah.com की गोपनीयता नीति — हम आपके व्यक्तिगत डेटा की सुरक्षा कैसे करते हैं।"
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4 text-center">
+        गोपनीयता नीति
+      </h1>
+      <p class="text-center text-sol-ash mb-12 font-ui text-sm">अंतिम अपडेट: {lastUpdated}</p>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-10">
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">1. डेटा नियंत्रक</h2>
+          <p>
+            Solorah<br />
+            ईमेल: <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">2. एकत्रित डेटा</h2>
+
+          <div class="space-y-6 ml-4">
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">a) संपर्क फ़ॉर्म</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>डेटा:</strong> नाम, ईमेल, संदेश</li>
+                <li><strong>उद्देश्य:</strong> आपके अनुरोध का उत्तर देना</li>
+                <li><strong>कानूनी आधार:</strong> सहमति (GDPR अनुच्छेद 6.1.a)</li>
+                <li><strong>अवधि:</strong> अनुरोध के संसाधन के बाद 12 महीने</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">b) उपयोगकर्ता खाता</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>डेटा:</strong> ईमेल पता (मैजिक लिंक लॉगिन के माध्यम से)</li>
+                <li><strong>उद्देश्य:</strong> टैरो रीडिंग सहेजने की सुविधाओं तक पहुँच</li>
+                <li><strong>कानूनी आधार:</strong> अनुबंध का निष्पादन (GDPR अनुच्छेद 6.1.b)</li>
+                <li><strong>अवधि:</strong> उपयोगकर्ता द्वारा खाता हटाने तक</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">c) सहेजी गई रीडिंग</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>डेटा:</strong> रीडिंग का प्रकार, निकाले गए कार्ड, पूछा गया प्रश्न, तिथि</li>
+                <li><strong>उद्देश्य:</strong> आपके व्यक्तिगत इतिहास की समीक्षा की अनुमति देना</li>
+                <li><strong>कानूनी आधार:</strong> अनुबंध का निष्पादन (GDPR अनुच्छेद 6.1.b)</li>
+                <li><strong>अवधि:</strong> खाता हटाने तक</li>
+              </ul>
+              <p class="text-sol-ash/80 text-base mt-2 italic">
+                नोट: रीडिंग के दौरान पूछे गए प्रश्नों में संवेदनशील व्यक्तिगत जानकारी हो सकती है (प्रेम जीवन, स्वास्थ्य, आदि)। रीडिंग सहेजकर, आप इन जानकारियों के संसाधन के लिए सहमति देते हैं।
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">d) उपयोगकर्ता प्रोफ़ाइल</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>डेटा:</strong> प्रदर्शन नाम (वैकल्पिक), पसंदीदा भाषा</li>
+                <li><strong>उद्देश्य:</strong> अनुभव का वैयक्तिकरण</li>
+                <li><strong>कानूनी आधार:</strong> अनुबंध का निष्पादन (GDPR अनुच्छेद 6.1.b)</li>
+                <li><strong>अवधि:</strong> खाता हटाने तक</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">e) तकनीकी डेटा</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>डेटा:</strong> IP पता, सत्र टोकन</li>
+                <li><strong>उद्देश्य:</strong> साइट की सुरक्षा और उचित संचालन</li>
+                <li><strong>कानूनी आधार:</strong> वैध हित (GDPR अनुच्छेद 6.1.f)</li>
+                <li><strong>अवधि:</strong> सत्र की अवधि</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">3. कुकीज़ और स्थानीय भंडारण</h2>
+          <p>यह साइट केवल निम्नलिखित का उपयोग करती है:</p>
+          <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
+            <li><strong>सत्र कुकीज़</strong> (Supabase Auth): संचालन के लिए सख्ती से आवश्यक, ePrivacy निर्देश के अनुसार सहमति से मुक्त।</li>
+            <li><strong>स्थानीय भंडारण (localStorage)</strong>: प्रदर्शन प्राथमिकताएँ (लाइट/डार्क थीम, ऑडियो वॉल्यूम)। ये डेटा व्यक्तिगत डेटा नहीं हैं।</li>
+          </ul>
+          <p class="mt-3 font-semibold">इस साइट पर कोई विज्ञापन, ट्रैकिंग या एनालिटिक्स कुकीज़ का उपयोग नहीं किया जाता।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">4. उप-प्रोसेसर</h2>
+          <p class="mb-4">आपका डेटा निम्नलिखित उप-प्रोसेसरों द्वारा संसाधित किया जाता है:</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sol-ash">
+              <thead>
+                <tr class="border-b border-sol-gold/20">
+                  <th class="pb-2 pr-4 text-sol-gold font-display">उप-प्रोसेसर</th>
+                  <th class="pb-2 pr-4 text-sol-gold font-display">भूमिका</th>
+                  <th class="pb-2 text-sol-gold font-display">स्थान</th>
+                </tr>
+              </thead>
+              <tbody class="text-base">
+                <tr class="border-b border-sol-gold/10">
+                  <td class="py-2 pr-4">Supabase Inc.</td>
+                  <td class="py-2 pr-4">डेटाबेस, प्रमाणीकरण</td>
+                  <td class="py-2">USA</td>
+                </tr>
+                <tr class="border-b border-sol-gold/10">
+                  <td class="py-2 pr-4">Resend Inc.</td>
+                  <td class="py-2 pr-4">ट्रांज़ैक्शनल ईमेल भेजना</td>
+                  <td class="py-2">USA</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-4">Vercel Inc.</td>
+                  <td class="py-2 pr-4">वेबसाइट होस्टिंग</td>
+                  <td class="py-2">USA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-sol-ash/80 text-base mt-3 italic">
+            यूरोपीय संघ के बाहर संयुक्त राज्य अमेरिका में डेटा स्थानांतरण किया जाता है। ये उप-प्रोसेसर EU-US डेटा गोपनीयता फ्रेमवर्क या GDPR के अनुरूप मानक संविदात्मक खंडों (SCCs) द्वारा कवर किए गए हैं।
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">5. आपके अधिकार (GDPR अनुच्छेद 15 से 21)</h2>
+          <p>आपके पास निम्नलिखित अधिकार हैं:</p>
+          <ul class="list-disc ml-6 space-y-1 text-sol-ash mt-3">
+            <li>अपने डेटा तक पहुँच का अधिकार</li>
+            <li>सुधार का अधिकार</li>
+            <li>मिटाने का अधिकार ("भूले जाने का अधिकार")</li>
+            <li>डेटा पोर्टेबिलिटी का अधिकार</li>
+            <li>संसाधन पर आपत्ति का अधिकार</li>
+            <li>संसाधन पर प्रतिबंध का अधिकार</li>
+          </ul>
+          <p class="mt-4">
+            इन अधिकारों का उपयोग करने के लिए: <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a><br />
+            प्रतिक्रिया की अवधि: अधिकतम 30 दिन।
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">6. अपना खाता हटाना</h2>
+          <p>
+            आप <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a> पर लिखकर अपने खाते और उससे जुड़े सभी डेटा (सहेजी गई रीडिंग, प्रोफ़ाइल, संदेश) को हटाने का अनुरोध कर सकते हैं। हटाने की प्रक्रिया 30 दिनों के भीतर पूरी की जाएगी।
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">7. शिकायत</h2>
+          <p>
+            यदि आप मानते हैं कि आपके डेटा का संसाधन लागू नियमों का पालन नहीं करता है, तो आप संबंधित डेटा सुरक्षा प्राधिकरण के पास शिकायत दर्ज कर सकते हैं।<br />
+            <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" class="text-sol-gold underline">www.cnil.fr</a>
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-sol-gold/10">
+          <p class="italic text-sol-ash text-base">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

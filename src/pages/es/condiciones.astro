@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'es';
+const t = useTranslations(lang);
+const lastUpdated = '1 de abril de 2026';
+---
+
+<BaseLayout
+  title="Condiciones de uso"
+  description="Condiciones de uso de Solorah.com — servicio de lecturas de tarot y oráculo en línea."
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4 text-center">
+        Condiciones de uso
+      </h1>
+      <p class="text-center text-sol-ash mb-12 font-ui text-sm">Última actualización: {lastUpdated}</p>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-10">
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">1. Objeto</h2>
+          <p>Las presentes condiciones de uso regulan el acceso y la utilización del sitio Solorah.com. Al utilizar el sitio, usted acepta estas condiciones sin reserva.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">2. Descripción del servicio</h2>
+          <p>Solorah ofrece un servicio gratuito de lecturas de cartas de tarot y oráculo en línea. Las lecturas se generan aleatoriamente y las interpretaciones son producidas automáticamente por inteligencia artificial.</p>
+          <p class="mt-3 font-semibold">Este servicio se ofrece exclusivamente con fines de entretenimiento, desarrollo personal y recreativos. No constituye en ningún caso una prestación de videncia, asesoramiento profesional o servicio a la persona.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">3. Acceso al servicio</h2>
+          <p>El servicio es accesible gratuitamente para cualquier persona con acceso a Internet. Ciertas funcionalidades (guardar lecturas) requieren la creación de una cuenta.</p>
+          <p class="mt-3"><strong>Requisito de edad:</strong> el servicio está reservado a personas mayores de 18 años. Al utilizar el sitio, usted declara ser mayor de edad.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">4. Cuenta de usuario</h2>
+          <p>La creación de cuenta se realiza mediante un enlace de conexión enviado por email ("magic link"). Usted es responsable de la confidencialidad de su cuenta.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">5. Responsabilidades del usuario</h2>
+          <p>Al utilizar el sitio, usted se compromete a:</p>
+          <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
+            <li>No utilizar los resultados de las lecturas para tomar decisiones médicas, jurídicas, financieras o profesionales</li>
+            <li>No utilizar el servicio de manera abusiva o automatizada</li>
+            <li>No intentar comprometer la seguridad o el funcionamiento del sitio</li>
+            <li>Proporcionar información exacta al crear su cuenta</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">6. Limitación de responsabilidad</h2>
+          <p>Las lecturas de cartas y las interpretaciones proporcionadas en el sitio se generan automáticamente con fines indicativos y de entretenimiento. Solorah declina toda responsabilidad por las decisiones tomadas por el usuario basándose en los resultados mostrados.</p>
+          <p class="mt-3">Solorah no garantiza la disponibilidad permanente del servicio y se reserva el derecho de modificar, suspender o interrumpir el servicio en cualquier momento sin previo aviso.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">7. Propiedad intelectual</h2>
+          <p>Todo el contenido del sitio (textos, imágenes, ilustraciones de cartas, diseño, código) está protegido por el derecho de propiedad intelectual. Queda prohibida cualquier reproducción o uso no autorizado.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">8. Datos personales</h2>
+          <p>El tratamiento de sus datos personales se rige por nuestra <a href={`/${lang}/politica-privacidad`} class="text-sol-gold underline">política de privacidad</a>.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">9. Modificación de las condiciones</h2>
+          <p>Solorah se reserva el derecho de modificar las presentes condiciones en cualquier momento. Las modificaciones entran en vigor desde su publicación en el sitio.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">10. Legislación aplicable</h2>
+          <p>Las presentes condiciones se rigen por el derecho francés. Cualquier litigio relativo al uso del sitio será sometido a los tribunales competentes.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">11. Contacto</h2>
+          <p>Para cualquier consulta relativa a estas condiciones: <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a></p>
+        </div>
+
+        <div class="pt-4 border-t border-sol-gold/10">
+          <p class="italic text-sol-ash text-base">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

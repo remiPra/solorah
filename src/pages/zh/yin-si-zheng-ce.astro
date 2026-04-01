@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'zh';
+const t = useTranslations(lang);
+const lastUpdated = '2026年4月1日';
+---
+
+<BaseLayout
+  title="隐私政策"
+  description="Solorah.com的隐私政策——我们如何保护您的个人数据。"
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4 text-center">
+        隐私政策
+      </h1>
+      <p class="text-center text-sol-ash mb-12 font-ui text-sm">最后更新：{lastUpdated}</p>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-10">
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">1. 数据控制者</h2>
+          <p>
+            Solorah<br />
+            电子邮件：<a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">2. 收集的数据</h2>
+
+          <div class="space-y-6 ml-4">
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">a) 联系表单</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>数据：</strong>姓名、电子邮件、消息</li>
+                <li><strong>目的：</strong>回复您的请求</li>
+                <li><strong>法律依据：</strong>同意（GDPR第6条第1款a项）</li>
+                <li><strong>保存期限：</strong>请求处理后12个月</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">b) 用户账户</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>数据：</strong>电子邮件地址（通过魔法链接登录）</li>
+                <li><strong>目的：</strong>访问塔罗牌阅读保存功能</li>
+                <li><strong>法律依据：</strong>合同履行（GDPR第6条第1款b项）</li>
+                <li><strong>保存期限：</strong>直到用户删除账户</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">c) 已保存的塔罗牌阅读</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>数据：</strong>阅读类型、抽取的牌、提出的问题、日期</li>
+                <li><strong>目的：</strong>允许查阅您的个人历史记录</li>
+                <li><strong>法律依据：</strong>合同履行（GDPR第6条第1款b项）</li>
+                <li><strong>保存期限：</strong>直到删除账户</li>
+              </ul>
+              <p class="text-sol-ash/80 text-base mt-2 italic">
+                注意：塔罗牌阅读期间提出的问题可能包含敏感个人信息（情感生活、健康等）。保存阅读记录即表示您同意对这些信息的处理。
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">d) 用户资料</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>数据：</strong>显示名称（可选）、首选语言</li>
+                <li><strong>目的：</strong>个性化体验</li>
+                <li><strong>法律依据：</strong>合同履行（GDPR第6条第1款b项）</li>
+                <li><strong>保存期限：</strong>直到删除账户</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">e) 技术数据</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>数据：</strong>IP地址、会话令牌</li>
+                <li><strong>目的：</strong>网站的安全和正常运行</li>
+                <li><strong>法律依据：</strong>合法利益（GDPR第6条第1款f项）</li>
+                <li><strong>保存期限：</strong>会话持续期间</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">3. Cookie和本地存储</h2>
+          <p>本网站仅使用以下内容：</p>
+          <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
+            <li><strong>会话Cookie</strong>（Supabase Auth）：运行所必需的，根据ePrivacy指令免于同意要求。</li>
+            <li><strong>本地存储（localStorage）</strong>：显示偏好设置（明/暗主题、音频音量）。这些数据不属于个人数据。</li>
+          </ul>
+          <p class="mt-3 font-semibold">本网站不使用任何广告、跟踪或分析Cookie。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">4. 数据处理方</h2>
+          <p class="mb-4">您的数据由以下数据处理方处理：</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sol-ash">
+              <thead>
+                <tr class="border-b border-sol-gold/20">
+                  <th class="pb-2 pr-4 text-sol-gold font-display">数据处理方</th>
+                  <th class="pb-2 pr-4 text-sol-gold font-display">角色</th>
+                  <th class="pb-2 text-sol-gold font-display">所在地</th>
+                </tr>
+              </thead>
+              <tbody class="text-base">
+                <tr class="border-b border-sol-gold/10">
+                  <td class="py-2 pr-4">Supabase Inc.</td>
+                  <td class="py-2 pr-4">数据库、身份验证</td>
+                  <td class="py-2">美国</td>
+                </tr>
+                <tr class="border-b border-sol-gold/10">
+                  <td class="py-2 pr-4">Resend Inc.</td>
+                  <td class="py-2 pr-4">发送事务性电子邮件</td>
+                  <td class="py-2">美国</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-4">Vercel Inc.</td>
+                  <td class="py-2 pr-4">网站托管</td>
+                  <td class="py-2">美国</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-sol-ash/80 text-base mt-3 italic">
+            存在向欧盟以外的美国进行的数据传输。这些数据处理方受EU-US数据隐私框架或符合GDPR的标准合同条款（SCCs）的约束。
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">5. 您的权利（GDPR第15至21条）</h2>
+          <p>您拥有以下权利：</p>
+          <ul class="list-disc ml-6 space-y-1 text-sol-ash mt-3">
+            <li>访问您数据的权利</li>
+            <li>更正的权利</li>
+            <li>删除的权利（"被遗忘权"）</li>
+            <li>数据可移植性权利</li>
+            <li>反对处理的权利</li>
+            <li>限制处理的权利</li>
+          </ul>
+          <p class="mt-4">
+            行使这些权利请联系：<a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a><br />
+            回复期限：最长30天。
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">6. 删除您的账户</h2>
+          <p>
+            您可以通过发送电子邮件至<a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a>来请求删除您的账户及所有相关数据（已保存的塔罗牌阅读、个人资料、消息）。删除将在30天内完成。
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">7. 投诉</h2>
+          <p>
+            如果您认为对您数据的处理不符合现行法规，您可以向相关数据保护机构提出投诉。<br />
+            <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" class="text-sol-gold underline">www.cnil.fr</a>
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-sol-gold/10">
+          <p class="italic text-sol-ash text-base">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

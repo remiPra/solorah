@@ -76,7 +76,7 @@
     "legal": "Legal notice",
     "privacy": "Privacy policy",
     "terms": "Terms of service",
-    "disclaimer": "Readings are offered for entertainment and personal development purposes. They are not a substitute for medical, legal, or financial advice.",
+    "disclaimer": "Readings are offered for entertainment and personal development purposes only. They are purely cultural, recreational and playful in nature. Divination and card readings are not an exact science. Interpretations are automatically generated for informational purposes only and should never be used as a substitute for medical, psychological, legal or financial advice. This service is intended for adults (18+) only.",
     "rights": "All rights reserved."
   },
   "pages": {
@@ -96,7 +96,8 @@
       "messagePlaceholder": "Your message...",
       "send": "Send",
       "success": "Message sent! We'll get back to you soon.",
-      "error": "Something went wrong. Please try again."
+      "error": "Something went wrong. Please try again.",
+      "consent": "I agree that my data will be processed to respond to my request, in accordance with the privacy policy."
     },
     "legal": {
       "title": "Legal notice",

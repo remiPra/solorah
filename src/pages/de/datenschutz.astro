@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'de';
+const t = useTranslations(lang);
+const lastUpdated = '1. April 2026';
+---
+
+<BaseLayout
+  title="Datenschutzerklärung"
+  description="Datenschutzerklärung von Solorah.com — wie wir Ihre personenbezogenen Daten schützen."
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4 text-center">
+        Datenschutzerklärung
+      </h1>
+      <p class="text-center text-sol-ash mb-12 font-ui text-sm">Letzte Aktualisierung: {lastUpdated}</p>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-10">
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">1. Verantwortlicher</h2>
+          <p>
+            Solorah<br />
+            E-Mail: <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a>
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">2. Erhobene Daten</h2>
+
+          <div class="space-y-6 ml-4">
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">a) Kontaktformular</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>Daten:</strong> Name, E-Mail-Adresse, Nachricht</li>
+                <li><strong>Zweck:</strong> Beantwortung Ihrer Anfrage</li>
+                <li><strong>Rechtsgrundlage:</strong> Einwilligung (DSGVO Art. 6 Abs. 1 lit. a)</li>
+                <li><strong>Speicherdauer:</strong> 12 Monate nach Bearbeitung der Anfrage</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">b) Benutzerkonto</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>Daten:</strong> E-Mail-Adresse (über Magic-Link-Anmeldung)</li>
+                <li><strong>Zweck:</strong> Zugang zu den Speicherfunktionen für Kartenlegungen</li>
+                <li><strong>Rechtsgrundlage:</strong> Vertragserfüllung (DSGVO Art. 6 Abs. 1 lit. b)</li>
+                <li><strong>Speicherdauer:</strong> bis zur Löschung des Kontos durch den Benutzer</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">c) Gespeicherte Kartenlegungen</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>Daten:</strong> Art der Legung, gezogene Karten, gestellte Frage, Datum</li>
+                <li><strong>Zweck:</strong> Einsicht in Ihren persönlichen Verlauf ermöglichen</li>
+                <li><strong>Rechtsgrundlage:</strong> Vertragserfüllung (DSGVO Art. 6 Abs. 1 lit. b)</li>
+                <li><strong>Speicherdauer:</strong> bis zur Löschung des Kontos</li>
+              </ul>
+              <p class="text-sol-ash/80 text-base mt-2 italic">
+                Hinweis: Die bei Kartenlegungen gestellten Fragen können sensible personenbezogene Informationen enthalten (Liebesleben, Gesundheit usw.). Mit dem Speichern einer Legung stimmen Sie der Verarbeitung dieser Informationen zu.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">d) Benutzerprofil</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>Daten:</strong> Anzeigename (optional), bevorzugte Sprache</li>
+                <li><strong>Zweck:</strong> Personalisierung des Erlebnisses</li>
+                <li><strong>Rechtsgrundlage:</strong> Vertragserfüllung (DSGVO Art. 6 Abs. 1 lit. b)</li>
+                <li><strong>Speicherdauer:</strong> bis zur Löschung des Kontos</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg text-sol-cream mb-2">e) Technische Daten</h3>
+              <ul class="list-disc ml-6 space-y-1 text-sol-ash">
+                <li><strong>Daten:</strong> IP-Adresse, Sitzungs-Token</li>
+                <li><strong>Zweck:</strong> Sicherheit und ordnungsgemäßer Betrieb der Website</li>
+                <li><strong>Rechtsgrundlage:</strong> berechtigtes Interesse (DSGVO Art. 6 Abs. 1 lit. f)</li>
+                <li><strong>Speicherdauer:</strong> Dauer der Sitzung</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">3. Cookies und lokaler Speicher</h2>
+          <p>Diese Website verwendet ausschließlich:</p>
+          <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
+            <li><strong>Sitzungs-Cookies</strong> (Supabase Auth): unbedingt erforderlich für den Betrieb, gemäß der ePrivacy-Richtlinie von der Einwilligung ausgenommen.</li>
+            <li><strong>Lokaler Speicher (localStorage)</strong>: Anzeigeeinstellungen (helles/dunkles Design, Audiolautstärke). Diese Daten sind keine personenbezogenen Daten.</li>
+          </ul>
+          <p class="mt-3 font-semibold">Auf dieser Website werden keine Werbe-, Tracking- oder Analyse-Cookies verwendet.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">4. Auftragsverarbeiter</h2>
+          <p class="mb-4">Ihre Daten werden von folgenden Auftragsverarbeitern verarbeitet:</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sol-ash">
+              <thead>
+                <tr class="border-b border-sol-gold/20">
+                  <th class="pb-2 pr-4 text-sol-gold font-display">Auftragsverarbeiter</th>
+                  <th class="pb-2 pr-4 text-sol-gold font-display">Funktion</th>
+                  <th class="pb-2 text-sol-gold font-display">Standort</th>
+                </tr>
+              </thead>
+              <tbody class="text-base">
+                <tr class="border-b border-sol-gold/10">
+                  <td class="py-2 pr-4">Supabase Inc.</td>
+                  <td class="py-2 pr-4">Datenbank, Authentifizierung</td>
+                  <td class="py-2">USA</td>
+                </tr>
+                <tr class="border-b border-sol-gold/10">
+                  <td class="py-2 pr-4">Resend Inc.</td>
+                  <td class="py-2 pr-4">Versand transaktionaler E-Mails</td>
+                  <td class="py-2">USA</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-4">Vercel Inc.</td>
+                  <td class="py-2 pr-4">Hosting der Website</td>
+                  <td class="py-2">USA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-sol-ash/80 text-base mt-3 italic">
+            Es finden Datenübermittlungen außerhalb der Europäischen Union in die Vereinigten Staaten statt. Diese Auftragsverarbeiter sind durch das EU-US Data Privacy Framework oder Standardvertragsklauseln (SCCs) gemäß der DSGVO abgedeckt.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">5. Ihre Rechte (DSGVO Art. 15 bis 21)</h2>
+          <p>Ihnen stehen folgende Rechte zu:</p>
+          <ul class="list-disc ml-6 space-y-1 text-sol-ash mt-3">
+            <li>Recht auf Auskunft über Ihre Daten</li>
+            <li>Recht auf Berichtigung</li>
+            <li>Recht auf Löschung ("Recht auf Vergessenwerden")</li>
+            <li>Recht auf Datenübertragbarkeit</li>
+            <li>Widerspruchsrecht gegen die Verarbeitung</li>
+            <li>Recht auf Einschränkung der Verarbeitung</li>
+          </ul>
+          <p class="mt-4">
+            Zur Ausübung dieser Rechte: <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a><br />
+            Antwortfrist: maximal 30 Tage.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">6. Löschung Ihres Kontos</h2>
+          <p>
+            Sie können die Löschung Ihres Kontos und aller zugehörigen Daten (gespeicherte Kartenlegungen, Profil, Nachrichten) beantragen, indem Sie an <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a> schreiben. Die Löschung erfolgt innerhalb von 30 Tagen.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">7. Beschwerde</h2>
+          <p>
+            Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer Daten nicht den geltenden Vorschriften entspricht, können Sie eine Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einreichen.<br />
+            <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" class="text-sol-gold underline">www.cnil.fr</a>
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-sol-gold/10">
+          <p class="italic text-sol-ash text-base">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

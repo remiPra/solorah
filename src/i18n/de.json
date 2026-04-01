@@ -76,7 +76,7 @@
     "legal": "Impressum",
     "privacy": "Datenschutzrichtlinie",
     "terms": "AGB",
-    "disclaimer": "Die Kartenziehungen dienen der Unterhaltung und persönlichen Entwicklung. Sie ersetzen in keinem Fall eine ärztliche, rechtliche oder finanzielle Beratung.",
+    "disclaimer": "Die Kartenziehungen dienen ausschließlich der Unterhaltung und persönlichen Entwicklung. Sie haben einen rein kulturellen, spielerischen und freizeitlichen Charakter. Wahrsagerei und Kartenlegung sind keine exakte Wissenschaft. Die Interpretationen werden automatisch generiert und dienen nur als Hinweis. Sie können in keinem Fall eine ärztliche, psychologische, rechtliche oder finanzielle Beratung ersetzen. Dieser Dienst ist nur für Personen ab 18 Jahren bestimmt.",
     "rights": "Alle Rechte vorbehalten."
   },
   "pages": {
@@ -96,7 +96,8 @@
       "messagePlaceholder": "Deine Nachricht...",
       "send": "Senden",
       "success": "Nachricht gesendet! Wir melden uns bald.",
-      "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+      "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+      "consent": "Ich stimme zu, dass meine Daten zur Beantwortung meiner Anfrage verarbeitet werden, gemäß der Datenschutzerklärung."
     },
     "legal": {
       "title": "Impressum",
