@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../../i18n/utils';
+import { getCollection, render } from 'astro:content';
+
+export const prerender = true;
+
+const lang = 'de';
+const t = useTranslations(lang);
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter((p) => p.data.lang === 'de');
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": post.data.date.toISOString(),
+  "url": `https://solorah.com/fr/blog/${post.data.slug}`,
+  "inLanguage": lang,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Solorah",
+    "url": "https://solorah.com",
+  },
+  "keywords": post.data.tags,
+};
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  lang={lang}
+  image={post.data.image}
+  structuredData={structuredData}
+>
+  <article class="max-w-3xl mx-auto px-4 py-16 sm:py-24">
+    <a
+      href={`/${lang}/blog`}
+      class="inline-flex items-center gap-1 font-ui text-xs text-sol-ash hover:text-sol-gold uppercase tracking-wider mb-8 transition-colors"
+    >
+      &larr; {t('blog.backToList')}
+    </a>
+
+    <header class="mb-10">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <time
+          datetime={post.data.date.toISOString()}
+          class="font-ui text-xs text-sol-ash/60 uppercase tracking-wider"
+        >
+          {t('blog.publishedOn')} {post.data.date.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        {post.data.tags.map((tag: string) => (
+          <span class="font-ui text-xs text-sol-gold/60 border border-sol-gold/20 rounded-full px-2 py-0.5">
+            {tag}
+          </span>
+        ))}
+      </div>
+      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-sol-gold leading-tight">
+        {post.data.title}
+      </h1>
+    </header>
+
+    <div class="prose prose-invert prose-gold max-w-none font-body text-sol-cream/90 leading-relaxed
+      [&_h2]:font-display [&_h2]:text-sol-gold [&_h2]:text-2xl [&_h2]:mt-12 [&_h2]:mb-4
+      [&_h3]:font-display [&_h3]:text-sol-gold/80 [&_h3]:text-xl [&_h3]:mt-8 [&_h3]:mb-3
+      [&_p]:mb-4
+      [&_a]:text-sol-gold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-sol-gold-light
+      [&_strong]:text-sol-cream [&_strong]:font-semibold
+      [&_em]:text-sol-ash
+      [&_blockquote]:border-l-2 [&_blockquote]:border-sol-gold/30 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-sol-ash
+      [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1
+      [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-1
+      [&_li]:text-sol-cream/80
+      [&_code]:bg-sol-gold/10 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded-sm [&_code]:text-sol-gold/80 [&_code]:text-sm
+    ">
+      <Content />
+    </div>
+
+    <footer class="mt-16 pt-8 border-t border-sol-gold/10">
+      <a
+        href={`/${lang}/blog`}
+        class="inline-flex items-center gap-1 font-ui text-sm text-sol-gold hover:text-sol-gold-light uppercase tracking-wider transition-colors"
+      >
+        &larr; {t('blog.backToList')}
+      </a>
+    </footer>
+  </article>
+</BaseLayout>

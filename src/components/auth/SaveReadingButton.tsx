@@ -1,5 +1,7 @@
 import { useState, useCallback } from 'react';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useAuth } from './AuthProvider';
+import { db } from '../../lib/firebase';
 import type { SaveReadingPayload } from '../../types/reading';
 
 interface SaveReadingButtonProps {
@@ -9,12 +11,12 @@ interface SaveReadingButtonProps {
 }
 
 export default function SaveReadingButton({ payload, t, onLoginRequest }: SaveReadingButtonProps) {
-  const { user, session } = useAuth();
+  const { user } = useAuth();
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
 
   const handleSave = useCallback(async () => {
-    if (!user || !session) {
+    if (!user) {
       onLoginRequest();
       return;
     }
@@ -22,23 +24,22 @@ export default function SaveReadingButton({ payload, t, onLoginRequest }: SaveRe
 
     setSaving(true);
     try {
-      const res = await fetch('/api/readings', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${session.access_token}`,
-        },
-        body: JSON.stringify(payload),
+      await addDoc(collection(db, 'saved_readings'), {
+        user_id: user.uid,
+        deck: payload.deck,
+        spread_type: payload.spread_type,
+        cards: payload.cards,
+        question: payload.question || null,
+        lang: payload.lang,
+        created_at: serverTimestamp(),
       });
-      if (res.ok) {
-        setSaved(true);
-      }
+      setSaved(true);
     } catch {
       // silently fail
     } finally {
       setSaving(false);
     }
-  }, [user, session, payload, saving, saved, onLoginRequest]);
+  }, [user, payload, saving, saved, onLoginRequest]);
 
   if (saved) {
     return (

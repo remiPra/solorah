@@ -1,7 +1,7 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import { getSupabaseAdmin } from '../../../../lib/supabase';
+import { getAdminFirestore } from '../../../../lib/firebase-admin';
 
 function isAdmin(cookies: any): boolean {
   return cookies.get('solorah-admin')?.value === 'true';
@@ -12,23 +12,17 @@ export const GET: APIRoute = async ({ cookies, url }) => {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
   }
 
-  const supabase = getSupabaseAdmin();
+  const firestore = getAdminFirestore();
   const status = url.searchParams.get('status');
 
-  let query = supabase
-    .from('contact_messages')
-    .select('*')
-    .order('created_at', { ascending: false });
+  let ref = firestore.collection('contact_messages').orderBy('created_at', 'desc');
 
   if (status) {
-    query = query.eq('status', status);
+    ref = ref.where('status', '==', status);
   }
 
-  const { data, error } = await query;
-
-  if (error) {
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
-  }
+  const snapshot = await ref.get();
+  const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
   return new Response(JSON.stringify(data));
 };

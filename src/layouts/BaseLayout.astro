@@ -4,6 +4,7 @@ import { ClientRouter } from 'astro:transitions';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import AmbientPlayer from '../components/ui/AmbientPlayer.astro';
+import CookieBanner from '../components/ui/CookieBanner.astro';
 import type { Lang } from '../i18n/utils';
 import { getTranslatedPath } from '../i18n/utils';
 
@@ -85,13 +86,7 @@ const jaPath = getTranslatedPath(currentPath, 'ja');
     <link rel="alternate" hreflang="ja" href={`https://solorah.com${jaPath}`} />
     <link rel="alternate" hreflang="x-default" href={`https://solorah.com${enPath}`} />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts: self-hosted via @fontsource (RGPD compliant, no external requests) -->
 
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json" />
@@ -123,6 +118,7 @@ const jaPath = getTranslatedPath(currentPath, 'ja');
     </main>
     <Footer lang={lang} />
     <AmbientPlayer />
+    <CookieBanner lang={lang} />
 
     <!-- Scroll Reveal Observer — re-run after each navigation -->
     <script>

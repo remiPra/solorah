@@ -6,7 +6,7 @@
   "nav": {
     "home": "Accueil",
     "reading": "Tirage",
-    "consultation": "Consultation",
+    "consultation": "Lecture approfondie",
     "about": "À propos",
     "contact": "Contact"
   },
@@ -70,14 +70,16 @@
   "consultation": {
     "sectionTitle": "Aller plus loin",
     "description": "Tu veux une interprétation personnalisée et approfondie ? Pose ta question à notre oracle.",
-    "cta": "Découvrir les consultations"
+    "cta": "Découvrir la lecture approfondie"
   },
   "footer": {
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité",
     "terms": "CGV",
     "disclaimer": "Les tirages sont proposés à titre de divertissement et de développement personnel. Ils revêtent un caractère purement culturel, récréatif et ludique. La voyance et les tirages de cartes ne constituent pas une science exacte. Les interprétations sont générées automatiquement à titre indicatif et ne peuvent en aucun cas se substituer à un avis médical, psychologique, juridique ou financier. Service réservé aux personnes majeures.",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "cookies": "Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement (préférences, authentification). Aucun cookie publicitaire ou de suivi.",
+    "cookiesOk": "Compris"
   },
   "pages": {
     "about": {
@@ -104,8 +106,8 @@
       "metaDescription": "Mentions légales du site Solorah.com — oracle et tarot en ligne."
     },
     "consultation": {
-      "title": "Consultation",
-      "metaDescription": "Obtenez une interprétation personnalisée de votre tirage avec une consultation Solorah."
+      "title": "Lecture approfondie",
+      "metaDescription": "Obtenez une interprétation personnalisée et approfondie de votre tirage avec Solorah."
     },
     "reading": {
       "title": "Tirage",
@@ -158,19 +160,27 @@
     "freeOracle": {
       "title": "Oracle Gratuit en Ligne",
       "metaDescription": "Oracle gratuit en ligne avec Solorah. Oracle de l'Amour, Oracle de Shiva, tirage oui/non — sans inscription."
+    },
+    "blog": {
+      "title": "Blog",
+      "metaDescription": "Articles et conseils sur le tarot, l'oracle et la spiritualité. Apprenez à interpréter les cartes avec Solorah."
     }
+  },
+  "blog": {
+    "readMore": "Lire la suite",
+    "publishedOn": "Publié le",
+    "backToList": "Retour au blog",
+    "noArticles": "Aucun article pour le moment.",
+    "tags": "Tags"
   },
   "auth": {
     "login": "Se connecter",
     "logout": "Déconnexion",
     "myReadings": "Mes tirages",
-    "emailPlaceholder": "ton@email.com",
-    "sendMagicLink": "Recevoir le lien magique",
-    "magicLinkSent": "Un lien magique a été envoyé à ton email !",
-    "magicLinkDesc": "Vérifie ta boîte de réception et clique sur le lien pour te connecter.",
     "loginTitle": "Connexion",
-    "loginSubtitle": "Entre ton email pour recevoir un lien de connexion magique.",
-    "noPassword": "Pas de mot de passe à retenir.",
+    "loginSubtitle": "Connecte-toi en un clic pour sauvegarder tes tirages.",
+    "signInWithGoogle": "Continuer avec Google",
+    "freeAndSecure": "Gratuit et sécurisé. Aucun mot de passe requis.",
     "error": "Une erreur est survenue. Réessaie.",
     "noReadings": "Tu n'as aucun tirage sauvegardé.",
     "noReadingsDesc": "Fais un tirage et sauvegarde-le pour le retrouver ici.",

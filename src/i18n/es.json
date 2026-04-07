@@ -6,7 +6,7 @@
   "nav": {
     "home": "Inicio",
     "reading": "Lectura",
-    "consultation": "Consulta",
+    "consultation": "Lectura profunda",
     "about": "Acerca de",
     "contact": "Contacto"
   },
@@ -70,14 +70,16 @@
   "consultation": {
     "sectionTitle": "Ir más allá",
     "description": "¿Quieres una interpretación personalizada y profunda? Haz tu pregunta a nuestro oráculo.",
-    "cta": "Descubrir las consultas"
+    "cta": "Descubrir la lectura profunda"
   },
   "footer": {
     "legal": "Aviso legal",
     "privacy": "Política de privacidad",
     "terms": "Términos de servicio",
     "disclaimer": "Las lecturas se ofrecen exclusivamente con fines de entretenimiento y desarrollo personal. Tienen un carácter puramente cultural, recreativo y lúdico. La adivinación y las lecturas de cartas no constituyen una ciencia exacta. Las interpretaciones se generan automáticamente a título indicativo y no pueden sustituir en ningún caso un consejo médico, psicológico, jurídico o financiero. Servicio reservado a personas mayores de 18 años.",
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos los derechos reservados.",
+    "cookies": "Este sitio solo utiliza cookies técnicas necesarias para su funcionamiento (preferencias, autenticación). Sin cookies publicitarias ni de seguimiento.",
+    "cookiesOk": "Entendido"
   },
   "pages": {
     "about": {
@@ -104,8 +106,8 @@
       "metaDescription": "Aviso legal de Solorah.com — oráculo y tarot en línea."
     },
     "consultation": {
-      "title": "Consulta",
-      "metaDescription": "Obtén una interpretación personalizada de tu lectura con una consulta Solorah."
+      "title": "Lectura profunda",
+      "metaDescription": "Obtén una interpretación personalizada y profunda de tu lectura con Solorah."
     },
     "reading": {
       "title": "Lectura",
@@ -158,19 +160,27 @@
     "freeOracle": {
       "title": "Oráculo Gratis en Línea",
       "metaDescription": "Oráculo gratuito en línea con Solorah. Oráculo del Amor, Oráculo de Shiva, lectura sí/no — sin registro."
+    },
+    "blog": {
+      "title": "Blog",
+      "metaDescription": "Artículos y consejos sobre tarot, oráculo y espiritualidad. Aprende a interpretar las cartas con Solorah."
     }
+  },
+  "blog": {
+    "readMore": "Leer más",
+    "publishedOn": "Publicado el",
+    "backToList": "Volver al blog",
+    "noArticles": "No hay artículos aún.",
+    "tags": "Etiquetas"
   },
   "auth": {
     "login": "Iniciar sesión",
     "logout": "Cerrar sesión",
     "myReadings": "Mis lecturas",
-    "emailPlaceholder": "tu@email.com",
-    "sendMagicLink": "Enviar enlace mágico",
-    "magicLinkSent": "¡Se ha enviado un enlace mágico a tu correo!",
-    "magicLinkDesc": "Revisa tu bandeja de entrada y haz clic en el enlace para conectarte.",
     "loginTitle": "Iniciar sesión",
-    "loginSubtitle": "Introduce tu correo para recibir un enlace de acceso mágico.",
-    "noPassword": "Sin contraseña que recordar.",
+    "loginSubtitle": "Conéctate en un clic para guardar tus lecturas.",
+    "signInWithGoogle": "Continuar con Google",
+    "freeAndSecure": "Gratis y seguro. Sin contraseña.",
     "error": "Algo salió mal. Inténtalo de nuevo.",
     "noReadings": "No tienes lecturas guardadas.",
     "noReadingsDesc": "Haz una lectura y guárdala para encontrarla aquí.",

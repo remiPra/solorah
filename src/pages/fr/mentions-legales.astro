@@ -22,22 +22,40 @@ const t = useTranslations(lang);
       <div class="font-body text-lg text-sol-cream leading-relaxed space-y-8">
         <div>
           <h2 class="font-display text-xl text-sol-gold mb-3">Éditeur du site</h2>
-          <p>Solorah<br />Site internet : solorah.com<br />Email : contact@solorah.com</p>
+          <p>
+            <strong>Dénomination sociale :</strong> [A compléter]<br />
+            <strong>Forme juridique :</strong> [A compléter]<br />
+            <strong>Siège social :</strong> [A compléter]<br />
+            <strong>SIRET :</strong> [A compléter]<br />
+            <strong>Directeur de la publication :</strong> [A compléter]<br />
+            <strong>Email :</strong> <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a><br />
+            <strong>Site internet :</strong> solorah.com
+          </p>
         </div>
 
         <div>
           <h2 class="font-display text-xl text-sol-gold mb-3">Hébergement</h2>
-          <p>Ce site est hébergé par Vercel Inc.<br />440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
+          <p>
+            Vercel Inc.<br />
+            440 N Barranca Ave #4133, Covina, CA 91723, USA<br />
+            Site : <a href="https://vercel.com" class="text-sol-gold underline" rel="noopener noreferrer">vercel.com</a>
+          </p>
         </div>
 
         <div>
           <h2 class="font-display text-xl text-sol-gold mb-3">Propriété intellectuelle</h2>
-          <p>L'ensemble des contenus (textes, images, illustrations, cartes) présents sur ce site sont protégés par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+          <p>L'ensemble des contenus (textes, images, illustrations de cartes, design, code) présents sur ce site sont protégés par le droit de la propriété intellectuelle. Toute reproduction, même partielle, est interdite sans autorisation préalable de l'éditeur.</p>
         </div>
 
         <div>
           <h2 class="font-display text-xl text-sol-gold mb-3">Protection des données personnelles</h2>
-          <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Pour exercer ces droits, contactez-nous à : contact@solorah.com</p>
+          <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données personnelles. Pour exercer ces droits : <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a></p>
+          <p class="mt-2">Pour en savoir plus, consultez notre <a href={`/${lang}/politique-confidentialite`} class="text-sol-gold underline">politique de confidentialité</a>.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">Cookies</h2>
+          <p>Ce site utilise uniquement des cookies techniques strictement nécessaires à son fonctionnement (préférences de thème, authentification). Aucun cookie publicitaire ou de suivi n'est utilisé.</p>
         </div>
 
         <div>

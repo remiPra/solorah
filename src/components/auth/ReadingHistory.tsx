@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { collection, query, where, orderBy, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import AuthProvider, { useAuth } from './AuthProvider';
 import AuthModal from './AuthModal';
+import { db } from '../../lib/firebase';
 import type { SavedReading } from '../../types/reading';
 
 interface ReadingHistoryProps {
@@ -16,7 +18,7 @@ function t(translations: Record<string, string>) {
 }
 
 function ReadingHistoryInner({ lang, translations, deckLabels, spreadLabels }: ReadingHistoryProps) {
-  const { user, session, loading: authLoading } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [readings, setReadings] = useState<SavedReading[]>([]);
   const [loading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
@@ -24,44 +26,52 @@ function ReadingHistoryInner({ lang, translations, deckLabels, spreadLabels }: R
   const translate = t(translations);
 
   useEffect(() => {
-    if (!user || !session) {
+    if (!user) {
       setLoading(false);
       return;
     }
     (async () => {
       try {
-        const res = await fetch('/api/readings', {
-          headers: { 'Authorization': `Bearer ${session.access_token}` },
+        const q = query(
+          collection(db, 'saved_readings'),
+          where('user_id', '==', user.uid),
+          orderBy('created_at', 'desc')
+        );
+        const snapshot = await getDocs(q);
+        const data: SavedReading[] = snapshot.docs.map((doc) => {
+          const d = doc.data();
+          return {
+            id: doc.id,
+            user_id: d.user_id,
+            deck: d.deck,
+            spread_type: d.spread_type,
+            cards: d.cards,
+            question: d.question,
+            lang: d.lang,
+            created_at: d.created_at?.toDate?.()?.toISOString() || new Date().toISOString(),
+          };
         });
-        if (res.ok) {
-          const data = await res.json();
-          setReadings(data);
-        }
+        setReadings(data);
       } catch {
         // silently fail
       } finally {
         setLoading(false);
       }
     })();
-  }, [user, session]);
+  }, [user]);
 
   const handleDelete = useCallback(async (id: string) => {
-    if (!session || !confirm(translate('auth.confirmDelete'))) return;
+    if (!confirm(translate('auth.confirmDelete'))) return;
     setDeletingId(id);
     try {
-      const res = await fetch(`/api/readings/${id}`, {
-        method: 'DELETE',
-        headers: { 'Authorization': `Bearer ${session.access_token}` },
-      });
-      if (res.ok) {
-        setReadings((prev) => prev.filter((r) => r.id !== id));
-      }
+      await deleteDoc(doc(db, 'saved_readings', id));
+      setReadings((prev) => prev.filter((r) => r.id !== id));
     } catch {
       // silently fail
     } finally {
       setDeletingId(null);
     }
-  }, [session, translate]);
+  }, [translate]);
 
   if (authLoading || loading) {
     return (
@@ -139,7 +149,7 @@ function ReadingHistoryInner({ lang, translations, deckLabels, spreadLabels }: R
                       key={i}
                       className="inline-block bg-sol-deep/60 border border-sol-gold/10 rounded-sm px-2 py-1 font-body text-xs text-sol-cream/70"
                     >
-                      {card.name}{card.reversed ? ' ↓' : ''}
+                      {card.name}{card.reversed ? ' \u2193' : ''}
                     </span>
                   ))}
                 </div>

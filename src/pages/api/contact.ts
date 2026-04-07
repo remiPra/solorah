@@ -1,7 +1,7 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import { getSupabaseAdmin } from '../../lib/supabase';
+import { getAdminFirestore } from '../../lib/firebase-admin';
 import { getResend, FROM_EMAIL } from '../../lib/resend';
 
 export const POST: APIRoute = async ({ request }) => {
@@ -12,15 +12,22 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: 'Missing fields' }), { status: 400 });
   }
 
-  const supabase = getSupabaseAdmin();
+  const firestore = getAdminFirestore();
 
   // Insert into contact_messages
-  const { error: dbError } = await supabase
-    .from('contact_messages')
-    .insert({ name, email, message, lang: lang || 'fr' });
-
-  if (dbError) {
-    return new Response(JSON.stringify({ error: dbError.message }), { status: 500 });
+  try {
+    await firestore.collection('contact_messages').add({
+      name,
+      email,
+      message,
+      lang: lang || 'fr',
+      status: 'unread',
+      admin_reply: null,
+      replied_at: null,
+      created_at: new Date().toISOString(),
+    });
+  } catch (err: any) {
+    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
   }
 
   // Send confirmation email to user

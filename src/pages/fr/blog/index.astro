@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../../i18n/utils';
+import { getCollection } from 'astro:content';
+
+export const prerender = true;
+
+const lang = 'fr';
+const t = useTranslations(lang);
+
+const posts = (await getCollection('blog'))
+  .filter((post) => post.data.lang === lang)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": `${t('pages.blog.title')} | Solorah`,
+  "description": t('pages.blog.metaDescription'),
+  "url": `https://solorah.com/fr/blog`,
+  "inLanguage": lang,
+  "blogPost": posts.map((post) => ({
+    "@type": "BlogPosting",
+    "headline": post.data.title,
+    "description": post.data.description,
+    "datePublished": post.data.date.toISOString(),
+    "url": `https://solorah.com/fr/blog/${post.data.slug}`,
+    "inLanguage": lang,
+  })),
+};
+---
+
+<BaseLayout
+  title={t('pages.blog.title')}
+  description={t('pages.blog.metaDescription')}
+  lang={lang}
+  structuredData={structuredData}
+>
+  <section class="max-w-4xl mx-auto px-4 py-16 sm:py-24">
+    <h1 class="font-display text-4xl sm:text-5xl text-sol-gold text-center mb-4">
+      {t('pages.blog.title')}
+    </h1>
+    <p class="font-body text-sol-ash text-center mb-12 max-w-2xl mx-auto">
+      {t('pages.blog.metaDescription')}
+    </p>
+
+    {posts.length === 0 ? (
+      <p class="font-body text-sol-ash text-center">{t('blog.noArticles')}</p>
+    ) : (
+      <div class="grid gap-8">
+        {posts.map((post) => (
+          <a
+            href={`/${lang}/blog/${post.data.slug}`}
+            class="group block border border-sol-gold/10 hover:border-sol-gold/30 rounded-sm p-6 sm:p-8 transition-all duration-300 hover:bg-sol-gold/5"
+          >
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <time
+                datetime={post.data.date.toISOString()}
+                class="font-ui text-xs text-sol-ash/60 uppercase tracking-wider"
+              >
+                {t('blog.publishedOn')} {post.data.date.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              {post.data.tags.map((tag) => (
+                <span class="font-ui text-xs text-sol-gold/60 border border-sol-gold/20 rounded-full px-2 py-0.5">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <h2 class="font-display text-xl sm:text-2xl text-sol-cream group-hover:text-sol-gold transition-colors mb-2">
+              {post.data.title}
+            </h2>
+            <p class="font-body text-sol-ash text-sm leading-relaxed">
+              {post.data.description}
+            </p>
+            <span class="inline-block mt-4 font-ui text-xs text-sol-gold uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+              {t('blog.readMore')} &rarr;
+            </span>
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>

@@ -6,7 +6,7 @@
   "nav": {
     "home": "首页",
     "reading": "占卜",
-    "consultation": "咨询",
+    "consultation": "深度解读",
     "about": "关于",
     "contact": "联系"
   },
@@ -70,14 +70,16 @@
   "consultation": {
     "sectionTitle": "深入探索",
     "description": "想要个性化的深度解读？向我们的神谕提出你的问题。",
-    "cta": "了解咨询服务"
+    "cta": "了解深度解读"
   },
   "footer": {
     "legal": "法律声明",
     "privacy": "隐私政策",
     "terms": "服务条款",
     "disclaimer": "占卜服务仅供娱乐和个人发展之用，具有纯粹的文化、休闲和趣味性质。占卜和牌卡解读不是精确科学。解读内容由系统自动生成，仅供参考，不能替代任何医疗、心理、法律或财务建议。本服务仅面向18岁及以上用户。",
-    "rights": "保留所有权利。"
+    "rights": "保留所有权利。",
+    "cookies": "本网站仅使用运营所必需的技术性Cookie（偏好设置、身份验证）。不使用广告或跟踪Cookie。",
+    "cookiesOk": "知道了"
   },
   "pages": {
     "about": {
@@ -104,8 +106,8 @@
       "metaDescription": "Solorah.com法律声明——在线神谕和塔罗占卜。"
     },
     "consultation": {
-      "title": "咨询服务",
-      "metaDescription": "通过Solorah咨询服务获取您的占卜的个性化解读。"
+      "title": "深度解读",
+      "metaDescription": "通过Solorah获取您的占卜的个性化深度解读。"
     },
     "reading": {
       "title": "占卜",
@@ -158,19 +160,27 @@
     "freeOracle": {
       "title": "免费在线神谕",
       "metaDescription": "Solorah免费在线神谕。爱情神谕、湿婆神谕、是否占卜——无需注册。"
+    },
+    "blog": {
+      "title": "博客",
+      "metaDescription": "关于塔罗、神谕和灵性的文章与建议。在Solorah学习如何解读牌卡。"
     }
+  },
+  "blog": {
+    "readMore": "阅读更多",
+    "publishedOn": "发布于",
+    "backToList": "返回博客",
+    "noArticles": "暂无文章。",
+    "tags": "标签"
   },
   "auth": {
     "login": "登录",
     "logout": "退出",
     "myReadings": "我的占卜",
-    "emailPlaceholder": "your@email.com",
-    "sendMagicLink": "发送魔法链接",
-    "magicLinkSent": "魔法链接已发送到您的邮箱！",
-    "magicLinkDesc": "请查看您的收件箱并点击链接登录。",
     "loginTitle": "登录",
-    "loginSubtitle": "输入您的邮箱以接收魔法登录链接。",
-    "noPassword": "无需记住密码。",
+    "loginSubtitle": "一键登录，保存您的占卜。",
+    "signInWithGoogle": "使用Google继续",
+    "freeAndSecure": "免费且安全，无需密码。",
     "error": "出了点问题，请重试。",
     "noReadings": "您还没有保存的占卜。",
     "noReadingsDesc": "进行占卜并保存以在此处找到。",

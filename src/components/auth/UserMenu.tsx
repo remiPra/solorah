@@ -12,7 +12,9 @@ export default function UserMenu({ lang, t, myReadingsPath }: UserMenuProps) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const initial = user?.email?.charAt(0).toUpperCase() || '?';
+  const displayName = user?.displayName || user?.email || '?';
+  const initial = displayName.charAt(0).toUpperCase();
+  const photoURL = user?.photoURL;
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -35,16 +37,25 @@ export default function UserMenu({ lang, t, myReadingsPath }: UserMenuProps) {
     <div ref={menuRef} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="w-8 h-8 rounded-full bg-sol-gold/20 border border-sol-gold/40 flex items-center justify-center text-sol-gold font-ui text-sm font-semibold hover:bg-sol-gold/30 hover:border-sol-gold/60 transition-all"
+        className="w-8 h-8 rounded-full overflow-hidden border border-sol-gold/40 hover:border-sol-gold/60 transition-all"
         aria-label="User menu"
       >
-        {initial}
+        {photoURL ? (
+          <img src={photoURL} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        ) : (
+          <div className="w-full h-full bg-sol-gold/20 flex items-center justify-center text-sol-gold font-ui text-sm font-semibold">
+            {initial}
+          </div>
+        )}
       </button>
 
       {open && (
         <div className="absolute right-0 top-full mt-2 w-48 bg-sol-charcoal border border-sol-gold/20 rounded-sm shadow-2xl overflow-hidden z-[70]">
           <div className="px-4 py-3 border-b border-sol-gold/10">
-            <p className="font-body text-xs text-sol-ash truncate">{user?.email}</p>
+            <p className="font-body text-xs text-sol-cream truncate">{displayName}</p>
+            {user?.email && user.email !== displayName && (
+              <p className="font-body text-xs text-sol-ash/60 truncate mt-0.5">{user.email}</p>
+            )}
           </div>
           <a
             href={myReadingsPath}

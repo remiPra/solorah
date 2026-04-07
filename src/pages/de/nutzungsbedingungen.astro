@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'de';
+const t = useTranslations(lang);
+const lastUpdated = '1. April 2026';
+---
+
+<BaseLayout
+  title="Nutzungsbedingungen"
+  description="Nutzungsbedingungen von Solorah.com — Online-Dienst für Tarot- und Orakelkarten-Ziehungen."
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4 text-center">
+        Nutzungsbedingungen
+      </h1>
+      <p class="text-center text-sol-ash mb-12 font-ui text-sm">Zuletzt aktualisiert: {lastUpdated}</p>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-10">
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">1. Gegenstand</h2>
+          <p>Diese Nutzungsbedingungen regeln den Zugang und die Nutzung der Website Solorah.com. Durch die Nutzung der Website akzeptieren Sie diese Bedingungen ohne Vorbehalt.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">2. Beschreibung des Dienstes</h2>
+          <p>Solorah bietet einen kostenlosen Online-Dienst für Tarot- und Orakelkarten-Ziehungen. Die Ziehungen werden zufällig generiert und die Interpretationen werden automatisch durch künstliche Intelligenz erstellt.</p>
+          <p class="mt-3 font-semibold">Dieser Dienst dient ausschließlich der Unterhaltung, der persönlichen Entwicklung und Freizeitgestaltung. Er stellt in keinem Fall eine Wahrsageleistung, professionelle Beratung oder personenbezogene Dienstleistung dar.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">3. Zugang zum Dienst</h2>
+          <p>Der Dienst ist für jede Person mit Internetzugang kostenlos zugänglich. Bestimmte Funktionen (Speichern von Ziehungen) erfordern die Erstellung eines Benutzerkontos.</p>
+          <p class="mt-3"><strong>Altersvoraussetzung:</strong> Der Dienst ist Personen ab 18 Jahren vorbehalten. Durch die Nutzung der Website erklären Sie, volljährig zu sein.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">4. Benutzerkonto</h2>
+          <p>Die Kontoerstellung erfolgt über einen per E-Mail versendeten Anmeldelink („Magic Link"). Sie sind für die Vertraulichkeit Ihres Kontos verantwortlich. Jede Nutzung der Website über Ihr Konto gilt als von Ihnen vorgenommen.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">5. Pflichten des Nutzers</h2>
+          <p>Durch die Nutzung der Website verpflichten Sie sich:</p>
+          <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
+            <li>Die Ergebnisse der Ziehungen nicht für medizinische, rechtliche, finanzielle oder berufliche Entscheidungen zu verwenden</li>
+            <li>Den Dienst nicht missbräuchlich oder automatisiert zu nutzen</li>
+            <li>Nicht zu versuchen, die Sicherheit oder den Betrieb der Website zu beeinträchtigen</li>
+            <li>Bei der Kontoerstellung korrekte Angaben zu machen</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">6. Haftungsbeschränkung</h2>
+          <p>Die auf der Website bereitgestellten Kartenziehungen und Interpretationen werden automatisch zu Unterhaltungszwecken generiert. Solorah lehnt jede Haftung für Entscheidungen ab, die der Nutzer auf Grundlage der angezeigten Ergebnisse trifft.</p>
+          <p class="mt-3">Solorah garantiert keine ständige Verfügbarkeit des Dienstes und behält sich das Recht vor, den Dienst jederzeit ohne Vorankündigung zu ändern, auszusetzen oder einzustellen.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">7. Geistiges Eigentum</h2>
+          <p>Alle Inhalte der Website (Texte, Bilder, Kartenillustrationen, Design, Code) sind durch das Urheberrecht geschützt. Jede nicht autorisierte Vervielfältigung oder Nutzung ist untersagt.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">8. Personenbezogene Daten</h2>
+          <p>Die Verarbeitung Ihrer personenbezogenen Daten wird durch unsere <a href={`/${lang}/datenschutz`} class="text-sol-gold underline">Datenschutzerklärung</a> geregelt.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">9. Änderung der Nutzungsbedingungen</h2>
+          <p>Solorah behält sich das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern. Änderungen treten mit ihrer Veröffentlichung auf der Website in Kraft. Das Datum der letzten Aktualisierung ist oben auf dieser Seite angegeben.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">10. Anwendbares Recht</h2>
+          <p>Diese Nutzungsbedingungen unterliegen dem französischen Recht. Jede Streitigkeit im Zusammenhang mit der Nutzung der Website wird den zuständigen Gerichten vorgelegt.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">11. Kontakt</h2>
+          <p>Bei Fragen zu diesen Nutzungsbedingungen: <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a></p>
+        </div>
+
+        <div class="pt-4 border-t border-sol-gold/10">
+          <p class="italic text-sol-ash text-base">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

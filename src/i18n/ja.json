@@ -6,7 +6,7 @@
   "nav": {
     "home": "ホーム",
     "reading": "カード占い",
-    "consultation": "相談",
+    "consultation": "深い鑑定",
     "about": "概要",
     "contact": "お問い合わせ"
   },
@@ -70,14 +70,16 @@
   "consultation": {
     "sectionTitle": "さらに深く",
     "description": "パーソナライズされた深い解釈をお望みですか？私たちのオラクルに質問してください。",
-    "cta": "相談について詳しく"
+    "cta": "深い鑑定について詳しく"
   },
   "footer": {
     "legal": "法的情報",
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",
     "disclaimer": "カード占いは娯楽と自己啓発のみを目的として提供されています。純粋に文化的、娯楽的、遊戯的な性質のものです。占いやカードリーディングは正確な科学ではありません。解釈は自動的に生成された参考情報であり、医療、心理、法律、財務に関する専門的なアドバイスに代わるものではありません。本サービスは18歳以上の方のみご利用いただけます。",
-    "rights": "全著作権所有。"
+    "rights": "全著作権所有。",
+    "cookies": "このサイトは、運営に必要な技術的なCookieのみを使用しています（設定、認証）。広告やトラッキングCookieは使用していません。",
+    "cookiesOk": "了解"
   },
   "pages": {
     "about": {
@@ -104,8 +106,8 @@
       "metaDescription": "Solorah.com の法的情報 — オンラインオラクルとタロット。"
     },
     "consultation": {
-      "title": "相談",
-      "metaDescription": "Solorahの相談サービスで、あなたの占い結果のパーソナライズされた解釈を受け取りましょう。"
+      "title": "深い鑑定",
+      "metaDescription": "Solorahで、あなたの占い結果のパーソナライズされた深い鑑定を受け取りましょう。"
     },
     "reading": {
       "title": "カード占い",
@@ -158,19 +160,27 @@
     "freeOracle": {
       "title": "無料オンラインオラクル",
       "metaDescription": "Solorahで無料のオンラインオラクル。愛のオラクル、シヴァオラクル、はい/いいえ占い——登録不要。"
+    },
+    "blog": {
+      "title": "ブログ",
+      "metaDescription": "タロット、オラクル、スピリチュアリティに関する記事とアドバイス。Solorahでカードの解釈を学びましょう。"
     }
+  },
+  "blog": {
+    "readMore": "続きを読む",
+    "publishedOn": "公開日",
+    "backToList": "ブログに戻る",
+    "noArticles": "まだ記事がありません。",
+    "tags": "タグ"
   },
   "auth": {
     "login": "ログイン",
     "logout": "ログアウト",
     "myReadings": "私の占い",
-    "emailPlaceholder": "your@email.com",
-    "sendMagicLink": "マジックリンクを送信",
-    "magicLinkSent": "マジックリンクをメールに送信しました！",
-    "magicLinkDesc": "受信トレイを確認し、リンクをクリックしてログインしてください。",
     "loginTitle": "ログイン",
-    "loginSubtitle": "メールアドレスを入力してマジックログインリンクを受け取りましょう。",
-    "noPassword": "パスワードを覚える必要はありません。",
+    "loginSubtitle": "ワンクリックでログインして占いを保存しましょう。",
+    "signInWithGoogle": "Googleで続ける",
+    "freeAndSecure": "無料で安全。パスワード不要。",
     "error": "エラーが発生しました。もう一度お試しください。",
     "noReadings": "保存された占いはありません。",
     "noReadingsDesc": "占いを行って保存すると、ここに表示されます。",

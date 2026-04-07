@@ -6,7 +6,7 @@
   "nav": {
     "home": "Home",
     "reading": "Reading",
-    "consultation": "Consultation",
+    "consultation": "Deep Reading",
     "about": "About",
     "contact": "Contact"
   },
@@ -70,14 +70,16 @@
   "consultation": {
     "sectionTitle": "Go deeper",
     "description": "Want a personalized, in-depth interpretation? Ask your question to our oracle.",
-    "cta": "Discover consultations"
+    "cta": "Discover deep readings"
   },
   "footer": {
     "legal": "Legal notice",
     "privacy": "Privacy policy",
     "terms": "Terms of service",
     "disclaimer": "Readings are offered for entertainment and personal development purposes only. They are purely cultural, recreational and playful in nature. Divination and card readings are not an exact science. Interpretations are automatically generated for informational purposes only and should never be used as a substitute for medical, psychological, legal or financial advice. This service is intended for adults (18+) only.",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "cookies": "This site only uses technical cookies necessary for its operation (preferences, authentication). No advertising or tracking cookies.",
+    "cookiesOk": "Got it"
   },
   "pages": {
     "about": {
@@ -104,8 +106,8 @@
       "metaDescription": "Legal notice for Solorah.com — online oracle and tarot readings."
     },
     "consultation": {
-      "title": "Consultation",
-      "metaDescription": "Get a personalized interpretation of your reading with a Solorah consultation."
+      "title": "Deep Reading",
+      "metaDescription": "Get a personalized, in-depth interpretation of your reading with Solorah."
     },
     "reading": {
       "title": "Reading",
@@ -158,19 +160,27 @@
     "freeOracle": {
       "title": "Free Online Oracle",
       "metaDescription": "Free online oracle with Solorah. Love Oracle, Shiva Oracle, yes/no reading — no signup required."
+    },
+    "blog": {
+      "title": "Blog",
+      "metaDescription": "Articles and tips about tarot, oracle and spirituality. Learn to interpret cards with Solorah."
     }
+  },
+  "blog": {
+    "readMore": "Read more",
+    "publishedOn": "Published on",
+    "backToList": "Back to blog",
+    "noArticles": "No articles yet.",
+    "tags": "Tags"
   },
   "auth": {
     "login": "Sign in",
     "logout": "Sign out",
     "myReadings": "My readings",
-    "emailPlaceholder": "your@email.com",
-    "sendMagicLink": "Send magic link",
-    "magicLinkSent": "A magic link has been sent to your email!",
-    "magicLinkDesc": "Check your inbox and click the link to sign in.",
     "loginTitle": "Sign in",
-    "loginSubtitle": "Enter your email to receive a magic sign-in link.",
-    "noPassword": "No password to remember.",
+    "loginSubtitle": "Sign in with one click to save your readings.",
+    "signInWithGoogle": "Continue with Google",
+    "freeAndSecure": "Free and secure. No password required.",
     "error": "Something went wrong. Please try again.",
     "noReadings": "You have no saved readings.",
     "noReadingsDesc": "Do a reading and save it to find it here.",

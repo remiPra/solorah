@@ -1,7 +1,7 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-import { getSupabaseAdmin } from '../../../../lib/supabase';
+import { getAdminFirestore } from '../../../../lib/firebase-admin';
 import { getResend, FROM_EMAIL } from '../../../../lib/resend';
 
 function isAdmin(cookies: any): boolean {
@@ -13,25 +13,21 @@ export const GET: APIRoute = async ({ params, cookies }) => {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
   }
 
-  const supabase = getSupabaseAdmin();
+  const firestore = getAdminFirestore();
   const { id } = params;
 
-  const { data, error } = await supabase
-    .from('contact_messages')
-    .select('*')
-    .eq('id', id)
-    .single();
+  const docRef = firestore.collection('contact_messages').doc(id!);
+  const doc = await docRef.get();
 
-  if (error) {
-    return new Response(JSON.stringify({ error: error.message }), { status: 404 });
+  if (!doc.exists) {
+    return new Response(JSON.stringify({ error: 'Not found' }), { status: 404 });
   }
 
+  const data = { id: doc.id, ...doc.data() };
+
   // Mark as read if unread
-  if (data.status === 'unread') {
-    await supabase
-      .from('contact_messages')
-      .update({ status: 'read' })
-      .eq('id', id);
+  if (doc.data()?.status === 'unread') {
+    await docRef.update({ status: 'read' });
   }
 
   return new Response(JSON.stringify(data));
@@ -42,7 +38,7 @@ export const POST: APIRoute = async ({ params, request, cookies }) => {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
   }
 
-  const supabase = getSupabaseAdmin();
+  const firestore = getAdminFirestore();
   const { id } = params;
   const body = await request.json();
   const { reply } = body;
@@ -52,29 +48,21 @@ export const POST: APIRoute = async ({ params, request, cookies }) => {
   }
 
   // Get the original message
-  const { data: msg, error: fetchError } = await supabase
-    .from('contact_messages')
-    .select('*')
-    .eq('id', id)
-    .single();
+  const docRef = firestore.collection('contact_messages').doc(id!);
+  const doc = await docRef.get();
 
-  if (fetchError || !msg) {
+  if (!doc.exists) {
     return new Response(JSON.stringify({ error: 'Message not found' }), { status: 404 });
   }
 
-  // Update the message
-  const { error: updateError } = await supabase
-    .from('contact_messages')
-    .update({
-      admin_reply: reply.trim(),
-      status: 'replied',
-      replied_at: new Date().toISOString(),
-    })
-    .eq('id', id);
+  const msg = doc.data()!;
 
-  if (updateError) {
-    return new Response(JSON.stringify({ error: updateError.message }), { status: 500 });
-  }
+  // Update the message
+  await docRef.update({
+    admin_reply: reply.trim(),
+    status: 'replied',
+    replied_at: new Date().toISOString(),
+  });
 
   // Send reply email
   const resend = getResend();

@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'ja';
+const t = useTranslations(lang);
+const lastUpdated = '2026年4月1日';
+---
+
+<BaseLayout
+  title="利用規約"
+  description="Solorah.comの利用規約 — オンラインタロット・オラクルカードリーディングサービス。"
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4 text-center">
+        利用規約
+      </h1>
+      <p class="text-center text-sol-ash mb-12 font-ui text-sm">最終更新日: {lastUpdated}</p>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-10">
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">1. 目的</h2>
+          <p>本利用規約は、Solorah.comウェブサイトへのアクセスおよび利用を規定するものです。本サイトを利用することにより、お客様は本規約に無条件で同意したものとみなされます。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">2. サービスの説明</h2>
+          <p>Solorahは、無料のオンラインタロットおよびオラクルカードリーディングサービスを提供しています。リーディングはランダムに生成され、解釈は人工知能によって自動的に作成されます。</p>
+          <p class="mt-3 font-semibold">本サービスは、エンターテインメント、自己啓発、およびレクリエーション目的でのみ提供されます。占い、専門的なアドバイス、または法律に基づく個人向けサービスには該当しません。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">3. サービスへのアクセス</h2>
+          <p>本サービスは、インターネットアクセスを持つすべての方が無料でご利用いただけます。一部の機能（リーディングの保存）にはユーザーアカウントの作成が必要です。</p>
+          <p class="mt-3"><strong>年齢要件：</strong>本サービスは18歳以上の成人の方に限りご利用いただけます。本サイトを利用することにより、お客様は成人であることを確認するものとします。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">4. ユーザーアカウント</h2>
+          <p>アカウントの作成は、メールで送信されるログインリンク（「マジックリンク」）を介して行われます。お客様はアカウントの機密性について責任を負います。お客様のアカウントを通じた本サイトの利用は、すべてお客様自身が行ったものとみなされます。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">5. ユーザーの責任</h2>
+          <p>本サイトを利用することにより、お客様は以下に同意するものとします：</p>
+          <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
+            <li>リーディング結果を医療、法律、財務、または職業上の意思決定に使用しないこと</li>
+            <li>サービスを不正または自動化された方法で使用しないこと</li>
+            <li>サイトのセキュリティまたは運営を妨害しようとしないこと</li>
+            <li>アカウント作成時に正確な情報を提供すること</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">6. 責任の制限</h2>
+          <p>本サイトで提供されるカードリーディングおよび解釈は、情報提供およびエンターテインメント目的で自動的に生成されます。Solorahは、表示された結果に基づいてユーザーが行った決定について一切の責任を負いません。</p>
+          <p class="mt-3">Solorahはサービスの常時利用可能性を保証せず、予告なくいつでもサービスを変更、一時停止、または終了する権利を留保します。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">7. 知的財産権</h2>
+          <p>本サイトのすべてのコンテンツ（テキスト、画像、カードイラスト、デザイン、コード）は知的財産権法により保護されています。無断での複製または使用は禁止されています。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">8. 個人データ</h2>
+          <p>お客様の個人データの取り扱いは、当社の<a href={`/${lang}/puraibashii-porishi`} class="text-sol-gold underline">プライバシーポリシー</a>に準拠します。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">9. 規約の変更</h2>
+          <p>Solorahは、いつでも本規約を変更する権利を留保します。変更は本サイトへの掲載をもって効力を生じます。最終更新日はこのページの上部に記載されています。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">10. 準拠法</h2>
+          <p>本規約はフランス法に準拠します。本サイトの利用に関するすべての紛争は、管轄裁判所に提出されるものとします。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">11. お問い合わせ</h2>
+          <p>本規約に関するご質問は：<a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a></p>
+        </div>
+
+        <div class="pt-4 border-t border-sol-gold/10">
+          <p class="italic text-sol-ash text-base">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

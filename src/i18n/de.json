@@ -6,7 +6,7 @@
   "nav": {
     "home": "Startseite",
     "reading": "Kartenziehen",
-    "consultation": "Beratung",
+    "consultation": "Vertiefte Deutung",
     "about": "Über uns",
     "contact": "Kontakt"
   },
@@ -70,14 +70,16 @@
   "consultation": {
     "sectionTitle": "Weiter gehen",
     "description": "Möchtest du eine persönliche und vertiefte Deutung? Stelle deine Frage unserem Orakel.",
-    "cta": "Beratungen entdecken"
+    "cta": "Vertiefte Deutung entdecken"
   },
   "footer": {
     "legal": "Impressum",
     "privacy": "Datenschutzrichtlinie",
     "terms": "AGB",
     "disclaimer": "Die Kartenziehungen dienen ausschließlich der Unterhaltung und persönlichen Entwicklung. Sie haben einen rein kulturellen, spielerischen und freizeitlichen Charakter. Wahrsagerei und Kartenlegung sind keine exakte Wissenschaft. Die Interpretationen werden automatisch generiert und dienen nur als Hinweis. Sie können in keinem Fall eine ärztliche, psychologische, rechtliche oder finanzielle Beratung ersetzen. Dieser Dienst ist nur für Personen ab 18 Jahren bestimmt.",
-    "rights": "Alle Rechte vorbehalten."
+    "rights": "Alle Rechte vorbehalten.",
+    "cookies": "Diese Website verwendet ausschließlich technische Cookies, die für den Betrieb erforderlich sind (Einstellungen, Authentifizierung). Keine Werbe- oder Tracking-Cookies.",
+    "cookiesOk": "Verstanden"
   },
   "pages": {
     "about": {
@@ -104,8 +106,8 @@
       "metaDescription": "Impressum der Website Solorah.com — Orakel und Tarot online."
     },
     "consultation": {
-      "title": "Beratung",
-      "metaDescription": "Erhalte eine persönliche Deutung deiner Kartenziehung mit einer Solorah-Beratung."
+      "title": "Vertiefte Deutung",
+      "metaDescription": "Erhalte eine persönliche und vertiefte Deutung deiner Kartenziehung mit Solorah."
     },
     "reading": {
       "title": "Kartenziehen",
@@ -158,19 +160,27 @@
     "freeOracle": {
       "title": "Kostenloses Online-Orakel",
       "metaDescription": "Kostenloses Orakel online mit Solorah. Liebesorakel, Shiva-Orakel, Ja/Nein-Ziehung — ohne Registrierung."
+    },
+    "blog": {
+      "title": "Blog",
+      "metaDescription": "Artikel und Tipps über Tarot, Orakel und Spiritualität. Lernen Sie mit Solorah die Karten zu deuten."
     }
+  },
+  "blog": {
+    "readMore": "Weiterlesen",
+    "publishedOn": "Veröffentlicht am",
+    "backToList": "Zurück zum Blog",
+    "noArticles": "Noch keine Artikel.",
+    "tags": "Tags"
   },
   "auth": {
     "login": "Anmelden",
     "logout": "Abmelden",
     "myReadings": "Meine Ziehungen",
-    "emailPlaceholder": "deine@email.com",
-    "sendMagicLink": "Magischen Link senden",
-    "magicLinkSent": "Ein magischer Link wurde an deine E-Mail gesendet!",
-    "magicLinkDesc": "Überprüfe deinen Posteingang und klicke auf den Link zum Anmelden.",
     "loginTitle": "Anmelden",
-    "loginSubtitle": "Gib deine E-Mail ein, um einen magischen Anmeldelink zu erhalten.",
-    "noPassword": "Kein Passwort nötig.",
+    "loginSubtitle": "Melde dich mit einem Klick an, um deine Ziehungen zu speichern.",
+    "signInWithGoogle": "Weiter mit Google",
+    "freeAndSecure": "Kostenlos und sicher. Kein Passwort nötig.",
     "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
     "noReadings": "Du hast keine gespeicherten Ziehungen.",
     "noReadingsDesc": "Mache eine Ziehung und speichere sie, um sie hier zu finden.",

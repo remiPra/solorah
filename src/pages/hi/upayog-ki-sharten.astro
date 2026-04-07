@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'hi';
+const t = useTranslations(lang);
+const lastUpdated = '1 अप्रैल 2026';
+---
+
+<BaseLayout
+  title="उपयोग की शर्तें"
+  description="Solorah.com की उपयोग की शर्तें — ऑनलाइन टैरो और ऑरेकल कार्ड रीडिंग सेवा।"
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4 text-center">
+        उपयोग की शर्तें
+      </h1>
+      <p class="text-center text-sol-ash mb-12 font-ui text-sm">अंतिम अपडेट: {lastUpdated}</p>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-10">
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">1. उद्देश्य</h2>
+          <p>ये उपयोग की शर्तें Solorah.com वेबसाइट तक पहुँच और उसके उपयोग को नियंत्रित करती हैं। साइट का उपयोग करके, आप बिना किसी आपत्ति के इन शर्तों को स्वीकार करते हैं।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">2. सेवा का विवरण</h2>
+          <p>Solorah एक निःशुल्क ऑनलाइन टैरो और ऑरेकल कार्ड रीडिंग सेवा प्रदान करता है। रीडिंग यादृच्छिक रूप से उत्पन्न होती हैं और व्याख्याएँ कृत्रिम बुद्धिमत्ता द्वारा स्वचालित रूप से बनाई जाती हैं।</p>
+          <p class="mt-3 font-semibold">यह सेवा विशेष रूप से मनोरंजन, व्यक्तिगत विकास और मनोरंजक उद्देश्यों के लिए प्रदान की जाती है। यह किसी भी कानून के तहत भविष्यवाणी, पेशेवर सलाह या व्यक्तिगत सेवा नहीं है।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">3. सेवा तक पहुँच</h2>
+          <p>यह सेवा इंटरनेट एक्सेस वाले किसी भी व्यक्ति के लिए निःशुल्क उपलब्ध है। कुछ सुविधाओं (रीडिंग सहेजना) के लिए उपयोगकर्ता खाता बनाना आवश्यक है।</p>
+          <p class="mt-3"><strong>आयु आवश्यकता:</strong> यह सेवा 18 वर्ष और उससे अधिक आयु के वयस्कों के लिए आरक्षित है। साइट का उपयोग करके, आप पुष्टि करते हैं कि आप वयस्क हैं।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">4. उपयोगकर्ता खाता</h2>
+          <p>खाता निर्माण ईमेल द्वारा भेजे गए लॉगिन लिंक ("मैजिक लिंक") के माध्यम से किया जाता है। आप अपने खाते की गोपनीयता के लिए जिम्मेदार हैं। आपके खाते के माध्यम से साइट का कोई भी उपयोग आपके द्वारा किया गया माना जाएगा।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">5. उपयोगकर्ता की जिम्मेदारियाँ</h2>
+          <p>साइट का उपयोग करके, आप सहमत होते हैं:</p>
+          <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
+            <li>रीडिंग परिणामों का उपयोग चिकित्सा, कानूनी, वित्तीय या पेशेवर निर्णय लेने के लिए नहीं करना</li>
+            <li>सेवा का दुरुपयोग या स्वचालित तरीके से उपयोग नहीं करना</li>
+            <li>साइट की सुरक्षा या संचालन को नुकसान पहुँचाने का प्रयास नहीं करना</li>
+            <li>खाता बनाते समय सटीक जानकारी प्रदान करना</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">6. दायित्व की सीमा</h2>
+          <p>साइट पर प्रदान की गई कार्ड रीडिंग और व्याख्याएँ सूचनात्मक और मनोरंजन उद्देश्यों के लिए स्वचालित रूप से उत्पन्न की जाती हैं। Solorah प्रदर्शित परिणामों के आधार पर उपयोगकर्ताओं द्वारा लिए गए निर्णयों के लिए सभी दायित्व अस्वीकार करता है।</p>
+          <p class="mt-3">Solorah सेवा की स्थायी उपलब्धता की गारंटी नहीं देता और बिना पूर्व सूचना के किसी भी समय सेवा को संशोधित, निलंबित या बंद करने का अधिकार सुरक्षित रखता है।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">7. बौद्धिक संपदा</h2>
+          <p>साइट की सभी सामग्री (पाठ, चित्र, कार्ड चित्रण, डिज़ाइन, कोड) बौद्धिक संपदा कानून द्वारा संरक्षित है। किसी भी अनधिकृत पुनरुत्पादन या उपयोग की मनाही है।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">8. व्यक्तिगत डेटा</h2>
+          <p>आपके व्यक्तिगत डेटा का प्रसंस्करण हमारी <a href={`/${lang}/gopniyata-niti`} class="text-sol-gold underline">गोपनीयता नीति</a> द्वारा नियंत्रित होता है।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">9. शर्तों में परिवर्तन</h2>
+          <p>Solorah किसी भी समय इन शर्तों को संशोधित करने का अधिकार सुरक्षित रखता है। परिवर्तन साइट पर प्रकाशन के साथ प्रभावी होते हैं। अंतिम अपडेट की तिथि इस पृष्ठ के शीर्ष पर दर्शाई गई है।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">10. लागू कानून</h2>
+          <p>ये शर्तें फ्रांसीसी कानून द्वारा शासित हैं। साइट के उपयोग से संबंधित कोई भी विवाद सक्षम न्यायालयों के समक्ष प्रस्तुत किया जाएगा।</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">11. संपर्क</h2>
+          <p>इन शर्तों के बारे में किसी भी प्रश्न के लिए: <a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a></p>
+        </div>
+
+        <div class="pt-4 border-t border-sol-gold/10">
+          <p class="italic text-sol-ash text-base">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

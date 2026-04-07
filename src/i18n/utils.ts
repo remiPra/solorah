@@ -92,6 +92,8 @@ const routeMap: Record<string, Record<Lang, string>> = {
   // FR landing pages
   '/tarot-gratuit': { fr: '/tarot-gratuit', en: '/free-tarot', zh: '/mian-fei-ta-luo', es: '/tarot-gratis', de: '/tarot-kostenlos', hi: '/muft-tarot', ja: '/muryou-tarot' },
   '/oracle-gratuit': { fr: '/oracle-gratuit', en: '/free-oracle', zh: '/mian-fei-shen-yu', es: '/oraculo-gratis', de: '/orakel-kostenlos', hi: '/muft-oracle', ja: '/muryou-orakuru' },
+  // Blog routes
+  '/blog': { fr: '/blog', en: '/blog', zh: '/blog', es: '/blog', de: '/blog', hi: '/blog', ja: '/blog' },
   // EN routes
   '/reading': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
   '/reading/love-oracle': { fr: '/tirage/oracle-amour', en: '/reading/love-oracle', zh: '/zhan-bu/ai-qing-shen-yu', es: '/lectura/oraculo-amor', de: '/ziehung/liebesorakel', hi: '/taash/prem-oracle', ja: '/uranai/ai-no-orakuru' },

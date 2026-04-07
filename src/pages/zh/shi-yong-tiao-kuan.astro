@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'zh';
+const t = useTranslations(lang);
+const lastUpdated = '2026年4月1日';
+---
+
+<BaseLayout
+  title="使用条款"
+  description="Solorah.com使用条款 — 在线塔罗牌和神谕牌占卜服务。"
+  lang={lang}
+>
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-4 text-center">
+        使用条款
+      </h1>
+      <p class="text-center text-sol-ash mb-12 font-ui text-sm">最后更新: {lastUpdated}</p>
+
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-10">
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">1. 目的</h2>
+          <p>本使用条款规定了Solorah.com网站的访问和使用规则。使用本网站即表示您无条件接受本条款。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">2. 服务说明</h2>
+          <p>Solorah提供免费的在线塔罗牌和神谕牌占卜服务。占卜结果随机生成，解读由人工智能自动产生。</p>
+          <p class="mt-3 font-semibold">本服务仅供娱乐、个人发展和休闲目的。它不构成任何法律意义上的占卜、专业咨询或个人服务。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">3. 服务访问</h2>
+          <p>本服务免费向所有拥有互联网访问权限的人开放。某些功能（保存占卜记录）需要创建用户账户。</p>
+          <p class="mt-3"><strong>年龄要求：</strong>本服务仅供18岁及以上成年人使用。使用本网站即表示您确认已达到法定成年年龄。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">4. 用户账户</h2>
+          <p>账户创建通过电子邮件发送的登录链接（"魔法链接"）完成。您对账户的保密性负责。通过您的账户对本网站的任何使用均视为由您本人进行。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">5. 用户责任</h2>
+          <p>使用本网站即表示您同意：</p>
+          <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
+            <li>不将占卜结果用于医疗、法律、财务或职业决策</li>
+            <li>不以滥用或自动化方式使用本服务</li>
+            <li>不试图破坏网站的安全或运营</li>
+            <li>在创建账户时提供准确的信息</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">6. 责任限制</h2>
+          <p>本网站提供的牌面占卜和解读是为信息和娱乐目的自动生成的。Solorah对用户根据显示结果做出的任何决定不承担任何责任。</p>
+          <p class="mt-3">Solorah不保证服务的持续可用性，并保留随时修改、暂停或终止服务的权利，恕不另行通知。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">7. 知识产权</h2>
+          <p>本网站的所有内容（文字、图片、卡牌插图、设计、代码）受知识产权法保护。禁止任何未经授权的复制或使用。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">8. 个人数据</h2>
+          <p>您的个人数据处理受我们的<a href={`/${lang}/yin-si-zheng-ce`} class="text-sol-gold underline">隐私政策</a>约束。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">9. 条款修改</h2>
+          <p>Solorah保留随时修改本条款的权利。修改自在网站上发布之日起生效。最后更新日期在本页顶部标注。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">10. 适用法律</h2>
+          <p>本条款受法国法律管辖。与本网站使用有关的任何争议应提交至有管辖权的法院。</p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl text-sol-gold mb-3">11. 联系方式</h2>
+          <p>如有关于本条款的任何问题：<a href="mailto:contact@solorah.com" class="text-sol-gold underline">contact@solorah.com</a></p>
+        </div>
+
+        <div class="pt-4 border-t border-sol-gold/10">
+          <p class="italic text-sol-ash text-base">
+            {t('footer.disclaimer')}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
