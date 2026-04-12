@@ -23,6 +23,8 @@ function ReadingHistoryInner({ lang, translations, deckLabels, spreadLabels }: R
   const [loading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [loadError, setLoadError] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
   const translate = t(translations);
 
   useEffect(() => {
@@ -52,8 +54,9 @@ function ReadingHistoryInner({ lang, translations, deckLabels, spreadLabels }: R
           };
         });
         setReadings(data);
+        setLoadError(false);
       } catch {
-        // silently fail
+        setLoadError(true);
       } finally {
         setLoading(false);
       }
@@ -66,8 +69,9 @@ function ReadingHistoryInner({ lang, translations, deckLabels, spreadLabels }: R
     try {
       await deleteDoc(doc(db, 'saved_readings', id));
       setReadings((prev) => prev.filter((r) => r.id !== id));
+      setDeleteError(null);
     } catch {
-      // silently fail
+      setDeleteError(id);
     } finally {
       setDeletingId(null);
     }
@@ -77,6 +81,20 @@ function ReadingHistoryInner({ lang, translations, deckLabels, spreadLabels }: R
     return (
       <div className="flex justify-center py-20">
         <div className="w-8 h-8 border-2 border-sol-gold/30 border-t-sol-gold rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <div className="text-center py-20">
+        <p className="font-body text-red-400 mb-4">{translate('auth.loadError')}</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="font-ui text-sm text-sol-gold hover:text-sol-gold-light transition-colors underline"
+        >
+          {translate('auth.retry')}
+        </button>
       </div>
     );
   }
@@ -157,16 +175,21 @@ function ReadingHistoryInner({ lang, translations, deckLabels, spreadLabels }: R
                   {translate('auth.savedOn')} {new Date(reading.created_at).toLocaleDateString(lang)}
                 </p>
               </div>
-              <button
-                onClick={() => handleDelete(reading.id)}
-                disabled={deletingId === reading.id}
-                className="flex-shrink-0 text-sol-ash/40 hover:text-red-400 transition-colors disabled:opacity-50"
-                title={translate('auth.deleteReading')}
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                </svg>
-              </button>
+              <div className="flex flex-col items-end gap-1">
+                <button
+                  onClick={() => handleDelete(reading.id)}
+                  disabled={deletingId === reading.id}
+                  className="flex-shrink-0 text-sol-ash/40 hover:text-red-400 transition-colors disabled:opacity-50"
+                  title={translate('auth.deleteReading')}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                  </svg>
+                </button>
+                {deleteError === reading.id && (
+                  <span className="font-body text-xs text-red-400">{translate('auth.deleteError')}</span>
+                )}
+              </div>
             </div>
           </motion.div>
         ))}

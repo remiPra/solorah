@@ -189,7 +189,11 @@
     "confirmDelete": "Diese Ziehung löschen?",
     "save": "Diese Ziehung speichern",
     "saved": "Ziehung gespeichert!",
-    "loginToSave": "Melde dich an, um deine Ziehungen zu speichern"
+    "loginToSave": "Melde dich an, um deine Ziehungen zu speichern",
+    "saveError": "Fehler — erneut versuchen",
+    "loadError": "Deine Ziehungen konnten nicht geladen werden.",
+    "deleteError": "Fehler",
+    "retry": "Erneut versuchen"
   },
   "home": {
     "title": "Orakel & Tarot online",

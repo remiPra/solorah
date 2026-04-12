@@ -189,7 +189,11 @@
     "confirmDelete": "¿Eliminar esta lectura?",
     "save": "Guardar esta lectura",
     "saved": "¡Lectura guardada!",
-    "loginToSave": "Inicia sesión para guardar tus lecturas"
+    "loginToSave": "Inicia sesión para guardar tus lecturas",
+    "saveError": "Error — reintentar",
+    "loadError": "No se pudieron cargar tus lecturas.",
+    "deleteError": "Error",
+    "retry": "Reintentar"
   },
   "home": {
     "title": "Oráculo y Tarot en línea",

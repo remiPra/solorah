@@ -189,7 +189,11 @@
     "confirmDelete": "Supprimer ce tirage ?",
     "save": "Sauvegarder ce tirage",
     "saved": "Tirage sauvegardé !",
-    "loginToSave": "Connecte-toi pour sauvegarder tes tirages"
+    "loginToSave": "Connecte-toi pour sauvegarder tes tirages",
+    "saveError": "Erreur — réessayer",
+    "loadError": "Impossible de charger tes tirages.",
+    "deleteError": "Erreur",
+    "retry": "Réessayer"
   },
   "home": {
     "title": "Oracle & Tarot en ligne",

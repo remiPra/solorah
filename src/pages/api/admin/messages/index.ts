@@ -2,13 +2,10 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import { getAdminFirestore } from '../../../../lib/firebase-admin';
-
-function isAdmin(cookies: any): boolean {
-  return cookies.get('solorah-admin')?.value === 'true';
-}
+import { isValidAdminToken } from '../../../../lib/admin-auth';
 
 export const GET: APIRoute = async ({ cookies, url }) => {
-  if (!isAdmin(cookies)) {
+  if (!isValidAdminToken(cookies.get('solorah-admin')?.value)) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
   }
 

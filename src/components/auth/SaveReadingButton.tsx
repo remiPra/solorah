@@ -14,6 +14,7 @@ export default function SaveReadingButton({ payload, t, onLoginRequest }: SaveRe
   const { user } = useAuth();
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSave = useCallback(async () => {
     if (!user) {
@@ -34,12 +35,27 @@ export default function SaveReadingButton({ payload, t, onLoginRequest }: SaveRe
         created_at: serverTimestamp(),
       });
       setSaved(true);
+      setError(false);
     } catch {
-      // silently fail
+      setError(true);
     } finally {
       setSaving(false);
     }
   }, [user, payload, saving, saved, onLoginRequest]);
+
+  if (error) {
+    return (
+      <button
+        onClick={() => { setError(false); handleSave(); }}
+        className="flex items-center gap-2 font-ui text-sm text-red-400 hover:text-red-300 transition-colors"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </svg>
+        {t('auth.saveError')}
+      </button>
+    );
+  }
 
   if (saved) {
     return (

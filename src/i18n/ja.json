@@ -189,7 +189,11 @@
     "confirmDelete": "この占いを削除しますか？",
     "save": "この占いを保存",
     "saved": "占いを保存しました！",
-    "loginToSave": "占いを保存するにはログインしてください"
+    "loginToSave": "占いを保存するにはログインしてください",
+    "saveError": "エラー — もう一度",
+    "loadError": "占いを読み込めませんでした。",
+    "deleteError": "エラー",
+    "retry": "もう一度試す"
   },
   "home": {
     "title": "オンラインオラクル＆タロット",

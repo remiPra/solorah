@@ -1,7 +1,9 @@
 ---
 export const prerender = false;
 
-const isAdmin = Astro.cookies.get('solorah-admin')?.value === 'true';
+import { isValidAdminToken } from '../../lib/admin-auth';
+
+const isAdmin = isValidAdminToken(Astro.cookies.get('solorah-admin')?.value);
 if (!isAdmin) {
   return Astro.redirect('/admin');
 }

@@ -189,7 +189,11 @@
     "confirmDelete": "删除这个占卜？",
     "save": "保存此占卜",
     "saved": "占卜已保存！",
-    "loginToSave": "登录以保存您的占卜"
+    "loginToSave": "登录以保存您的占卜",
+    "saveError": "错误 — 重试",
+    "loadError": "无法加载您的占卜。",
+    "deleteError": "错误",
+    "retry": "重试"
   },
   "home": {
     "title": "在线神谕与塔罗",

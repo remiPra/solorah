@@ -3,13 +3,10 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { getAdminFirestore } from '../../../../lib/firebase-admin';
 import { getResend, FROM_EMAIL } from '../../../../lib/resend';
-
-function isAdmin(cookies: any): boolean {
-  return cookies.get('solorah-admin')?.value === 'true';
-}
+import { isValidAdminToken } from '../../../../lib/admin-auth';
 
 export const GET: APIRoute = async ({ params, cookies }) => {
-  if (!isAdmin(cookies)) {
+  if (!isValidAdminToken(cookies.get('solorah-admin')?.value)) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
   }
 
@@ -34,7 +31,7 @@ export const GET: APIRoute = async ({ params, cookies }) => {
 };
 
 export const POST: APIRoute = async ({ params, request, cookies }) => {
-  if (!isAdmin(cookies)) {
+  if (!isValidAdminToken(cookies.get('solorah-admin')?.value)) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
   }
 

@@ -189,7 +189,11 @@
     "confirmDelete": "Delete this reading?",
     "save": "Save this reading",
     "saved": "Reading saved!",
-    "loginToSave": "Sign in to save your readings"
+    "loginToSave": "Sign in to save your readings",
+    "saveError": "Error — try again",
+    "loadError": "Could not load your readings.",
+    "deleteError": "Error",
+    "retry": "Try again"
   },
   "home": {
     "title": "Online Oracle & Tarot",

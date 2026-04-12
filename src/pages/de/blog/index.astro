@@ -17,14 +17,14 @@ const structuredData = {
   "@type": "Blog",
   "name": `${t('pages.blog.title')} | Solorah`,
   "description": t('pages.blog.metaDescription'),
-  "url": `https://solorah.com/fr/blog`,
+  "url": `https://solorah.com/${lang}/blog`,
   "inLanguage": lang,
   "blogPost": posts.map((post) => ({
     "@type": "BlogPosting",
     "headline": post.data.title,
     "description": post.data.description,
     "datePublished": post.data.date.toISOString(),
-    "url": `https://solorah.com/fr/blog/${post.data.slug}`,
+    "url": `https://solorah.com/${lang}/blog/${post.data.slug}`,
     "inLanguage": lang,
   })),
 };
