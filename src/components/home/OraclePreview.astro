@@ -1,7 +1,6 @@
 ---
 import type { Lang } from '../../i18n/utils';
 import { useTranslations, getTranslatedPath } from '../../i18n/utils';
-import Button from '../ui/Button.astro';
 import GoldDivider from '../ui/GoldDivider.astro';
 
 interface Props {
@@ -19,7 +18,7 @@ const decks = [
     href: getTranslatedPath(`/${lang}/tirage/oracle-amour`, lang),
     gradient: 'from-sol-rose-dark/20 via-sol-rose/10 to-sol-gold/10',
     accent: 'sol-rose',
-    icon: '♡',
+    icon: '\u2661',
   },
   {
     id: 'tarot-marseille',
@@ -28,7 +27,7 @@ const decks = [
     href: getTranslatedPath(`/${lang}/tirage/tarot-marseille`, lang),
     gradient: 'from-sol-purple-dark/20 via-sol-celestial/10 to-sol-gold/10',
     accent: 'sol-purple',
-    icon: '✦',
+    icon: '\u2726',
   },
   {
     id: 'oracle-shiva',
@@ -37,7 +36,16 @@ const decks = [
     href: getTranslatedPath(`/${lang}/tirage/oracle-shiva`, lang),
     gradient: 'from-sol-indigo-dark/20 via-sol-indigo/10 to-sol-gold/10',
     accent: 'sol-indigo',
-    icon: 'ॐ',
+    icon: '\u0950',
+  },
+  {
+    id: 'oracle-des-jours',
+    name: t('decks.oracleDesJours.name'),
+    description: t('decks.oracleDesJours.description'),
+    href: getTranslatedPath(`/${lang}/tirage/oracle-des-jours`, lang),
+    gradient: 'from-sol-gold/20 via-sol-gold/10 to-transparent',
+    accent: 'sol-gold',
+    icon: '\u2609',
   },
 ];
 ---
@@ -52,60 +60,171 @@ const decks = [
       </h2>
     </div>
 
-    <!-- Deck Cards -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-      {decks.map((deck) => (
-        <div class="scroll-reveal">
-          <a href={deck.href} class="group block">
-            <div class={`relative rounded-lg overflow-hidden bg-gradient-to-br ${deck.gradient} border border-sol-gold/10 p-8 sm:p-10 transition-all duration-500 hover:border-sol-gold/30 hover:shadow-[0_0_40px_rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1)]`}>
-              <!-- Decorative background -->
-              <div class="absolute top-0 right-0 w-48 h-48 bg-sol-gold/5 rounded-full blur-3xl group-hover:bg-sol-gold/10 transition-all duration-700"></div>
+    <!-- Slider Container -->
+    <div class="relative">
+      <!-- Nav arrows (desktop) -->
+      <button
+        id="slider-prev"
+        class="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full border border-sol-gold/20 bg-sol-obsidian/80 backdrop-blur-sm text-sol-gold hover:border-sol-gold/50 hover:bg-sol-gold/10 transition-all"
+        aria-label="Previous"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button
+        id="slider-next"
+        class="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center rounded-full border border-sol-gold/20 bg-sol-obsidian/80 backdrop-blur-sm text-sol-gold hover:border-sol-gold/50 hover:bg-sol-gold/10 transition-all"
+        aria-label="Next"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
 
-              <!-- Icon -->
-              <div class={`text-4xl mb-6 text-${deck.accent} opacity-60 group-hover:opacity-100 transition-opacity`}>
-                {deck.icon}
-              </div>
+      <!-- Scrollable cards -->
+      <div
+        id="deck-slider"
+        class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4"
+        style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;"
+      >
+        {decks.map((deck) => (
+          <div class="snap-center flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[45vw] lg:w-[calc(33.333%-1rem)]">
+            <a href={deck.href} class="group block h-full">
+              <div class={`relative rounded-lg overflow-hidden bg-gradient-to-br ${deck.gradient} border border-sol-gold/10 p-8 sm:p-10 transition-all duration-500 hover:border-sol-gold/30 hover:shadow-[0_0_40px_rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.1)] h-full flex flex-col`}>
+                <!-- Decorative background -->
+                <div class="absolute top-0 right-0 w-48 h-48 bg-sol-gold/5 rounded-full blur-3xl group-hover:bg-sol-gold/10 transition-all duration-700"></div>
 
-              <!-- Card mockup: 3 cards fanned out -->
-              <div class="relative z-0 mb-8 flex items-end justify-center h-44 sm:h-48">
-                {[0, 1, 2].map((i) => (
-                  <div
-                    class="w-24 h-36 sm:w-28 sm:h-40 rounded-lg bg-sol-charcoal border border-sol-gold/20 shadow-lg transition-all duration-500 group-hover:border-sol-gold/40 flex-shrink-0"
-                    style={`
-                      transform: rotate(${(i - 1) * 8}deg);
-                      margin-left: ${i === 0 ? '0' : '-20px'};
-                      z-index: ${i};
-                      transition-delay: ${i * 50}ms;
-                    `}
-                  >
-                    <div class="absolute inset-2 rounded border border-sol-gold/10 flex items-center justify-center">
-                      <span class="text-sol-gold/30 text-2xl">✧</span>
+                <!-- Icon -->
+                <div class={`text-4xl mb-6 text-${deck.accent} opacity-60 group-hover:opacity-100 transition-opacity`}>
+                  {deck.icon}
+                </div>
+
+                <!-- Card mockup: 3 cards fanned out -->
+                <div class="relative z-0 mb-8 flex items-end justify-center h-44 sm:h-48">
+                  {[0, 1, 2].map((i) => (
+                    <div
+                      class="w-24 h-36 sm:w-28 sm:h-40 rounded-lg bg-sol-charcoal border border-sol-gold/20 shadow-lg transition-all duration-500 group-hover:border-sol-gold/40 flex-shrink-0"
+                      style={`
+                        transform: rotate(${(i - 1) * 8}deg);
+                        margin-left: ${i === 0 ? '0' : '-20px'};
+                        z-index: ${i};
+                        transition-delay: ${i * 50}ms;
+                      `}
+                    >
+                      <div class="absolute inset-2 rounded border border-sol-gold/10 flex items-center justify-center">
+                        <span class="text-sol-gold/30 text-2xl">{deck.id === 'oracle-des-jours' ? '\u2609' : '\u2727'}</span>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              <!-- Text -->
-              <div class="relative z-10">
-              <h3 class="font-display text-xl sm:text-2xl text-sol-cream mb-3 group-hover:text-sol-gold transition-colors">
-                {deck.name}
-              </h3>
-              <p class="font-body text-sol-cream text-lg leading-relaxed mb-6">
-                {deck.description}
-              </p>
+                <!-- Text -->
+                <div class="relative z-10 flex-1 flex flex-col">
+                  <h3 class="font-display text-xl sm:text-2xl text-sol-cream mb-3 group-hover:text-sol-gold transition-colors">
+                    {deck.name}
+                  </h3>
+                  <p class="font-body text-sol-cream text-lg leading-relaxed mb-6 flex-1">
+                    {deck.description}
+                  </p>
 
-              <!-- CTA -->
-              <span class="inline-flex items-center gap-2 font-ui text-sm text-sol-gold tracking-wider uppercase group-hover:gap-3 transition-all">
-                {t('decks.cta')}
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
+                  <!-- CTA -->
+                  <span class="inline-flex items-center gap-2 font-ui text-sm text-sol-gold tracking-wider uppercase group-hover:gap-3 transition-all">
+                    {t('decks.cta')}
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
               </div>
-            </div>
-          </a>
-        </div>
-      ))}
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Dots indicator -->
+      <div class="flex justify-center gap-2 mt-6" id="slider-dots">
+        {decks.map((deck, i) => (
+          <button
+            class="slider-dot w-2 h-2 rounded-full transition-all duration-300"
+            data-index={i}
+            style={i === 0 ? 'background: var(--color-sol-gold); transform: scale(1.3);' : 'background: var(--color-sol-gold); opacity: 0.3;'}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  const slider = document.getElementById('deck-slider');
+  const dots = document.querySelectorAll('.slider-dot');
+  const prevBtn = document.getElementById('slider-prev');
+  const nextBtn = document.getElementById('slider-next');
+
+  if (slider && dots.length) {
+    let currentIndex = 0;
+
+    function getCardWidth() {
+      const firstCard = slider!.children[0] as HTMLElement;
+      return firstCard ? firstCard.offsetWidth + 24 : 0; // 24 = gap-6
+    }
+
+    function updateDots(index: number) {
+      dots.forEach((dot, i) => {
+        const el = dot as HTMLElement;
+        if (i === index) {
+          el.style.opacity = '1';
+          el.style.transform = 'scale(1.3)';
+        } else {
+          el.style.opacity = '0.3';
+          el.style.transform = 'scale(1)';
+        }
+      });
+      currentIndex = index;
+    }
+
+    function scrollToIndex(index: number) {
+      const cardWidth = getCardWidth();
+      slider!.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+      updateDots(index);
+    }
+
+    // Scroll event to update dots
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+    slider.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const cardWidth = getCardWidth();
+        if (cardWidth > 0) {
+          const index = Math.round(slider!.scrollLeft / cardWidth);
+          updateDots(Math.min(index, dots.length - 1));
+        }
+      }, 50);
+    });
+
+    // Dot clicks
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => scrollToIndex(i));
+    });
+
+    // Arrow clicks
+    prevBtn?.addEventListener('click', () => {
+      scrollToIndex(Math.max(0, currentIndex - 1));
+    });
+    nextBtn?.addEventListener('click', () => {
+      scrollToIndex(Math.min(dots.length - 1, currentIndex + 1));
+    });
+  }
+</script>

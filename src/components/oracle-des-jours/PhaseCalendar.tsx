@@ -10,6 +10,24 @@ interface PhaseCalendarProps {
   onNewReading: () => void;
 }
 
+// Monday-first weekday headers
+const WEEKDAY_HEADERS: Record<string, string[]> = {
+  fr: ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'],
+  en: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+  zh: ['\u4E00','\u4E8C','\u4E09','\u56DB','\u4E94','\u516D','\u65E5'],
+  es: ['Lun','Mar','Mie','Jue','Vie','Sab','Dom'],
+  de: ['Mo','Di','Mi','Do','Fr','Sa','So'],
+  hi: ['\u0938\u094B\u092E','\u092E\u0902\u0917\u0932','\u092C\u0941\u0927','\u0917\u0941\u0930\u0941','\u0936\u0941\u0915\u094D\u0930','\u0936\u0928\u093F','\u0930\u0935\u093F'],
+  ja: ['\u6708','\u706B','\u6C34','\u6728','\u91D1','\u571F','\u65E5'],
+};
+
+// Get number of empty cells before first day (Monday = 0, Sunday = 6)
+function getStartOffset(forecasts: DayForecast[]): number {
+  if (!forecasts.length) return 0;
+  const jsDay = forecasts[0].date.getDay(); // 0=Sun, 1=Mon, ...
+  return jsDay === 0 ? 6 : jsDay - 1; // Convert to Monday-first: Mon=0, Tue=1, ..., Sun=6
+}
+
 const summaryLabels: Record<string, { favorable: string; neutral: string; cautious: string; goldWindows: string; title: string; newReading: string }> = {
   fr: { favorable: 'jours favorables', neutral: 'neutres', cautious: 'prudents', goldWindows: "Fenetres d'or", title: 'Vos 30 prochains jours', newReading: 'Nouveau tirage' },
   en: { favorable: 'favorable days', neutral: 'neutral', cautious: 'cautious', goldWindows: 'Golden windows', title: 'Your next 30 days', newReading: 'New reading' },
@@ -91,8 +109,21 @@ export default function PhaseCalendar({ lang, result, onSelectDay, onNewReading 
           ))}
         </div>
 
+        {/* Weekday headers */}
+        <div className="grid grid-cols-7 gap-1 sm:gap-2 mb-1">
+          {(WEEKDAY_HEADERS[lang] || WEEKDAY_HEADERS.en).map((d: string) => (
+            <div key={d} className="text-center font-[Inter] text-[10px] sm:text-xs tracking-wider uppercase py-1" style={{ color: 'var(--color-sol-gold)', opacity: 0.5 }}>
+              {d}
+            </div>
+          ))}
+        </div>
+
         {/* Calendar grid */}
-        <div className="grid grid-cols-5 sm:grid-cols-6 gap-2 sm:gap-3 mb-12">
+        <div className="grid grid-cols-7 gap-1 sm:gap-2 mb-12">
+          {/* Empty cells before first day */}
+          {Array.from({ length: getStartOffset(forecasts) }).map((_, i) => (
+            <div key={`empty-${i}`} />
+          ))}
           {forecasts.map((f, i) => (
             <DayCell
               key={i}
