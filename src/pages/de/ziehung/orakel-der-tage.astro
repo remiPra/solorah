@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GoldDivider from '../../../components/ui/GoldDivider.astro';
+import OracleDesJours from '../../../components/oracle-des-jours/OracleDesJours';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'de';
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={t('pages.oracleDesJours.title')}
+  description={t('pages.oracleDesJours.metaDescription')}
+  lang={lang}
+>
+  <OracleDesJours client:only="react" lang={lang} />
+</BaseLayout>

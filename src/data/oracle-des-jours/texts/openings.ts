@@ -1,0 +1,176 @@
+import type { HarmonyLevel } from '../../../types/oracle-des-jours';
+
+type L = Record<string, string>;
+
+export const openingTexts: Record<HarmonyLevel, L[]> = {
+  gold: [
+    {
+      fr: "Les astres s'alignent en votre faveur. C'est un jour rare où toutes les énergies convergent.",
+      en: "The stars align in your favor. This is a rare day when all energies converge.",
+      zh: "群星为你排列。这是一个罕见的日子，所有能量汇聚一堂。",
+      es: "Los astros se alinean a tu favor. Es un día raro en el que todas las energías convergen.",
+      de: "Die Sterne stehen zu Ihren Gunsten. Dies ist ein seltener Tag, an dem alle Energien zusammenfließen.",
+      hi: "तारे आपके पक्ष में संरेखित हो रहे हैं। यह एक दुर्लभ दिन है जब सभी ऊर्जाएँ एक साथ मिलती हैं।",
+      ja: "星々があなたに味方しています。すべてのエネルギーが収束する稀有な一日です。",
+    },
+    {
+      fr: "Un portail s'ouvre dans votre ciel intérieur. L'harmonie est à son apogée.",
+      en: "A portal opens in your inner sky. Harmony has reached its zenith.",
+      zh: "一道门户在你内心的天空中开启。和谐已达到巅峰。",
+      es: "Un portal se abre en tu cielo interior. La armonía está en su apogeo.",
+      de: "Ein Portal öffnet sich in Ihrem inneren Himmel. Die Harmonie hat ihren Höhepunkt erreicht.",
+      hi: "आपके आंतरिक आकाश में एक द्वार खुलता है। सामंजस्य अपने चरम पर है।",
+      ja: "あなたの内なる空にポータルが開きます。調和はその頂点に達しています。",
+    },
+    {
+      fr: "Journée exceptionnelle. Votre intention vibre à l'unisson avec les cycles cosmiques.",
+      en: "An exceptional day. Your intention vibrates in unison with the cosmic cycles.",
+      zh: "非凡的一天。你的意念与宇宙的循环共振。",
+      es: "Día excepcional. Tu intención vibra al unísono con los ciclos cósmicos.",
+      de: "Ein außergewöhnlicher Tag. Ihre Absicht schwingt im Einklang mit den kosmischen Zyklen.",
+      hi: "असाधारण दिन। आपका संकल्प ब्रह्मांडीय चक्रों के साथ एक स्वर में कंपन करता है।",
+      ja: "特別な一日です。あなたの意図は宇宙のサイクルと共鳴しています。",
+    },
+  ],
+
+  favorable: [
+    {
+      fr: "L'énergie est porteuse aujourd'hui. Les courants sont avec vous.",
+      en: "The energy is uplifting today. The currents are with you.",
+      zh: "今天的能量充满助力。气流与你同行。",
+      es: "La energía es portadora hoy. Las corrientes están contigo.",
+      de: "Die Energie ist heute tragend. Die Strömungen sind mit Ihnen.",
+      hi: "आज की ऊर्जा सहायक है। धाराएँ आपके साथ हैं।",
+      ja: "今日のエネルギーはあなたを後押ししています。流れがあなたと共にあります。",
+    },
+    {
+      fr: "Les vibrations du jour soutiennent votre élan. Fenêtre favorable.",
+      en: "Today's vibrations support your momentum. A favorable window opens.",
+      zh: "今日的振动支持着你的势头。有利的窗口已经打开。",
+      es: "Las vibraciones del día sostienen tu impulso. Ventana favorable.",
+      de: "Die Schwingungen des Tages unterstützen Ihren Elan. Ein günstiges Fenster öffnet sich.",
+      hi: "दिन की तरंगें आपकी गति को सहारा दे रही हैं। अनुकूल समय खुल रहा है।",
+      ja: "今日の波動があなたの勢いを支えています。好機の窓が開いています。",
+    },
+    {
+      fr: "Le vent tourne en votre direction. Jour propice à l'avancement.",
+      en: "The wind turns in your direction. A propitious day for progress.",
+      zh: "风向朝你转变。这是推进事业的吉日。",
+      es: "El viento gira en tu dirección. Día propicio para avanzar.",
+      de: "Der Wind dreht sich in Ihre Richtung. Ein günstiger Tag für Fortschritt.",
+      hi: "हवा आपकी दिशा में मुड़ रही है। प्रगति के लिए शुभ दिन।",
+      ja: "風があなたの方に向きを変えています。前進に適した吉日です。",
+    },
+  ],
+
+  neutral: [
+    {
+      fr: "L'énergie est calme, ni porteuse ni contraire. Tout dépend de votre détermination.",
+      en: "The energy is calm, neither supportive nor opposing. Everything depends on your determination.",
+      zh: "能量平静，既不助推也不阻碍。一切取决于你的决心。",
+      es: "La energía está en calma, ni portadora ni contraria. Todo depende de tu determinación.",
+      de: "Die Energie ist ruhig, weder tragend noch entgegen. Alles hängt von Ihrer Entschlossenheit ab.",
+      hi: "ऊर्जा शांत है, न सहायक न विरोधी। सब कुछ आपके संकल्प पर निर्भर करता है।",
+      ja: "エネルギーは穏やかで、追い風でも向かい風でもありません。すべてはあなたの決意次第です。",
+    },
+    {
+      fr: "Les forces sont en équilibre. Votre volonté sera le facteur décisif.",
+      en: "The forces are in balance. Your will shall be the decisive factor.",
+      zh: "各方力量处于平衡之中。你的意志将是决定性因素。",
+      es: "Las fuerzas están en equilibrio. Tu voluntad será el factor decisivo.",
+      de: "Die Kräfte sind im Gleichgewicht. Ihr Wille wird der entscheidende Faktor sein.",
+      hi: "शक्तियाँ संतुलन में हैं। आपकी इच्छाशक्ति निर्णायक कारक होगी।",
+      ja: "力は均衡を保っています。あなたの意志が決定的な要因となるでしょう。",
+    },
+    {
+      fr: "Journée sans courant fort. Avancez à votre rythme.",
+      en: "A day without strong currents. Move at your own pace.",
+      zh: "没有强烈气流的一天。按照自己的节奏前行。",
+      es: "Día sin corrientes fuertes. Avanza a tu propio ritmo.",
+      de: "Ein Tag ohne starke Strömungen. Gehen Sie in Ihrem eigenen Tempo voran.",
+      hi: "तेज़ धाराओं से रहित दिन। अपनी गति से आगे बढ़ें।",
+      ja: "強い流れのない一日です。あなた自身のペースで進みましょう。",
+    },
+  ],
+
+  cautious: [
+    {
+      fr: "Des résistances se font sentir dans les courants du jour. Prudence recommandée.",
+      en: "Resistance can be felt in today's currents. Caution is advised.",
+      zh: "今日的气流中能感受到阻力。建议谨慎行事。",
+      es: "Se sienten resistencias en las corrientes del día. Se recomienda prudencia.",
+      de: "Widerstände sind in den Strömungen des Tages spürbar. Vorsicht ist empfohlen.",
+      hi: "दिन की धाराओं में प्रतिरोध महसूस हो रहा है। सावधानी की सलाह दी जाती है।",
+      ja: "今日の流れに抵抗が感じられます。慎重に行動することをお勧めします。",
+    },
+    {
+      fr: "L'énergie n'est pas alignée avec votre intention. Jour d'observation.",
+      en: "The energy is not aligned with your intention. A day for observation.",
+      zh: "能量与你的意念未对齐。这是一个观察的日子。",
+      es: "La energía no está alineada con tu intención. Día de observación.",
+      de: "Die Energie ist nicht mit Ihrer Absicht ausgerichtet. Ein Tag der Beobachtung.",
+      hi: "ऊर्जा आपके संकल्प के अनुरूप नहीं है। अवलोकन का दिन।",
+      ja: "エネルギーはあなたの意図と一致していません。観察の日です。",
+    },
+    {
+      fr: "Les astres invitent à la patience. Préparez sans précipiter.",
+      en: "The stars invite patience. Prepare without haste.",
+      zh: "星辰呼唤耐心。准备但不要急躁。",
+      es: "Los astros invitan a la paciencia. Prepara sin precipitarte.",
+      de: "Die Sterne laden zur Geduld ein. Bereiten Sie vor, ohne zu überstürzen.",
+      hi: "तारे धैर्य का आह्वान करते हैं। जल्दबाज़ी किए बिना तैयारी करें।",
+      ja: "星々が忍耐を促しています。焦らず準備を進めましょう。",
+    },
+  ],
+
+  retreat: [
+    {
+      fr: "L'énergie est au repos. Ce n'est pas un jour pour initier, mais pour contempler.",
+      en: "The energy is at rest. This is not a day to initiate, but to contemplate.",
+      zh: "能量处于休息状态。今天不是开始的日子，而是沉思的日子。",
+      es: "La energía está en reposo. No es un día para iniciar, sino para contemplar.",
+      de: "Die Energie ruht. Dies ist kein Tag zum Beginnen, sondern zum Betrachten.",
+      hi: "ऊर्जा विश्राम में है। यह शुरू करने का नहीं, बल्कि चिंतन करने का दिन है।",
+      ja: "エネルギーは休息の状態にあります。始まりの日ではなく、観想の日です。",
+    },
+    {
+      fr: "Les vibrations du jour demandent du recul. Honorez ce besoin de pause.",
+      en: "Today's vibrations call for stepping back. Honor this need for pause.",
+      zh: "今日的振动需要你后退一步。尊重这份暂停的需要。",
+      es: "Las vibraciones del día piden distancia. Honra esa necesidad de pausa.",
+      de: "Die Schwingungen des Tages verlangen Abstand. Ehren Sie dieses Bedürfnis nach Pause.",
+      hi: "दिन की तरंगें पीछे हटने की माँग करती हैं। इस विराम की आवश्यकता का सम्मान करें।",
+      ja: "今日の波動は一歩退くことを求めています。この休息の必要性を尊重しましょう。",
+    },
+    {
+      fr: "Jour de silence intérieur. La patience est votre meilleure alliée.",
+      en: "A day of inner silence. Patience is your greatest ally.",
+      zh: "内心静默的一天。耐心是你最好的盟友。",
+      es: "Día de silencio interior. La paciencia es tu mejor aliada.",
+      de: "Ein Tag der inneren Stille. Geduld ist Ihre beste Verbündete.",
+      hi: "आंतरिक मौन का दिन। धैर्य आपका सबसे अच्छा सहयोगी है।",
+      ja: "内なる静寂の日。忍耐はあなたの最良の味方です。",
+    },
+  ],
+
+  withdraw: [
+    {
+      fr: "Tensions énergétiques fortes. Protégez votre espace intérieur.",
+      en: "Strong energetic tensions. Protect your inner space.",
+      zh: "能量张力强烈。请保护你的内在空间。",
+      es: "Tensiones energéticas fuertes. Protege tu espacio interior.",
+      de: "Starke energetische Spannungen. Schützen Sie Ihren inneren Raum.",
+      hi: "प्रबल ऊर्जा तनाव। अपने आंतरिक स्थान की रक्षा करें।",
+      ja: "強いエネルギーの緊張があります。あなたの内なる空間を守ってください。",
+    },
+    {
+      fr: "Les courants sont contraires. Reportez les décisions importantes si possible.",
+      en: "The currents are adverse. Postpone important decisions if possible.",
+      zh: "气流是逆向的。如果可能，请推迟重要决定。",
+      es: "Las corrientes son contrarias. Aplaza las decisiones importantes si es posible.",
+      de: "Die Strömungen sind entgegen. Verschieben Sie wichtige Entscheidungen wenn möglich.",
+      hi: "धाराएँ विपरीत हैं। यदि संभव हो तो महत्वपूर्ण निर्णय स्थगित करें।",
+      ja: "流れは逆行しています。可能であれば重要な決断を延期してください。",
+    },
+  ],
+};

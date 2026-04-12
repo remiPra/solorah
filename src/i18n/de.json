@@ -54,6 +54,10 @@
       "name": "Liebeslegung",
       "description": "Eine besondere Liebeslegung mit dem Liebesorakel. Entdecke die Botschaft, die das Herz für dich bereithält."
     },
+    "oracleDesJours": {
+      "name": "Orakel der Tage",
+      "description": "Ein numerologisches Orakel, das die Harmonie Ihrer nachsten 30 Tage enthullt. Vorname, Geburtsdatum und Absicht fur eine personalisierte Vorhersage."
+    },
     "cta": "Karten ziehen"
   },
   "howItWorks": {
@@ -168,6 +172,10 @@
     "blog": {
       "title": "Blog",
       "metaDescription": "Artikel und Tipps über Tarot, Orakel und Spiritualität. Lernen Sie mit Solorah die Karten zu deuten."
+    },
+    "oracleDesJours": {
+      "title": "Orakel der Tage",
+      "metaDescription": "Entdecken Sie die Harmonie Ihrer nachsten 30 Tage mit dem Orakel der Tage. Kostenlose personalisierte numerologische Vorhersage auf Solorah."
     }
   },
   "blog": {

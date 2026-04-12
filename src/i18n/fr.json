@@ -54,6 +54,10 @@
       "name": "Tirage Amour",
       "description": "Un tirage spécial amour avec l'Oracle de l'Amour. Découvre le message que le cœur a pour toi."
     },
+    "oracleDesJours": {
+      "name": "Oracle des Jours",
+      "description": "Un oracle numerologique qui revele l'harmonie de vos 30 prochains jours. Prenom, date de naissance et intention pour une prevision personnalisee."
+    },
     "cta": "Tirer les cartes"
   },
   "howItWorks": {
@@ -168,6 +172,10 @@
     "blog": {
       "title": "Blog",
       "metaDescription": "Articles et conseils sur le tarot, l'oracle et la spiritualité. Apprenez à interpréter les cartes avec Solorah."
+    },
+    "oracleDesJours": {
+      "title": "Oracle des Jours",
+      "metaDescription": "Decouvrez l'harmonie de vos 30 prochains jours avec l'Oracle des Jours. Prevision numerologique personnalisee gratuite sur Solorah."
     }
   },
   "blog": {

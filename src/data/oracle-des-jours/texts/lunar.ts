@@ -1,0 +1,78 @@
+import type { MoonPhase } from '../../../types/oracle-des-jours';
+
+type L = Record<string, string>;
+
+export const lunarTexts: Record<MoonPhase, L> = {
+  new: {
+    fr: "Sous la Nouvelle Lune, plantez l'intention en silence.",
+    en: "Under the New Moon, plant your intention in silence.",
+    zh: "\u65b0\u6708\u4e4b\u4e0b\uff0c\u5728\u5bc2\u9759\u4e2d\u64ad\u4e0b\u610f\u5ff5\u7684\u79cd\u5b50\u3002",
+    es: "Bajo la Luna Nueva, planta tu intenci\u00f3n en silencio.",
+    de: "Unter dem Neumond, pflanzen Sie Ihre Absicht in Stille.",
+    hi: "\u0905\u092e\u093e\u0935\u0938\u094d\u092f\u093e \u0915\u0947 \u0928\u0940\u091a\u0947, \u092e\u094c\u0928 \u092e\u0947\u0902 \u0905\u092a\u0928\u093e \u0938\u0902\u0915\u0932\u094d\u092a \u092c\u094b\u090f\u0902\u0964",
+    ja: "\u65b0\u6708\u306e\u4e0b\u3001\u9759\u5bc2\u306e\u4e2d\u3067\u610f\u56f3\u306e\u7a2e\u3092\u852d\u304d\u307e\u3057\u3087\u3046\u3002",
+  },
+  waxC: {
+    fr: "Le Croissant lunaire porte les premiers \u00e9lans. Initiez en douceur.",
+    en: "The Waxing Crescent carries the first impulses. Begin gently.",
+    zh: "\u5ce8\u7709\u6708\u5e26\u6765\u6700\u521d\u7684\u51b2\u52a8\u3002\u6e29\u67d4\u5730\u5f00\u59cb\u5427\u3002",
+    es: "La Luna Creciente porta los primeros impulsos. Inicie con suavidad.",
+    de: "Die zunehmende Mondsichel tr\u00e4gt die ersten Impulse. Beginnen Sie sanft.",
+    hi: "\u092c\u0922\u093c\u0924\u093e \u0905\u0930\u094d\u0927\u091a\u0902\u0926\u094d\u0930 \u092a\u0939\u0932\u0947 \u0906\u0935\u0947\u0917 \u0932\u093e\u0924\u093e \u0939\u0948\u0964 \u0927\u0940\u0930\u0947-\u0927\u0940\u0930\u0947 \u0936\u0941\u0930\u0942 \u0915\u0930\u0947\u0902\u0964",
+    ja: "\u4e0a\u5f26\u306e\u4e09\u65e5\u6708\u304c\u6700\u521d\u306e\u885d\u52d5\u3092\u904b\u3073\u307e\u3059\u3002\u7a4f\u3084\u304b\u306b\u59cb\u3081\u307e\u3057\u3087\u3046\u3002",
+  },
+  '1Q': {
+    fr: "Le Premier Quartier demande un choix. Tranchez avec clart\u00e9.",
+    en: "The First Quarter demands a choice. Decide with clarity.",
+    zh: "\u4e0a\u5f26\u6708\u8981\u6c42\u4f60\u505a\u51fa\u9009\u62e9\u3002\u6e05\u6670\u5730\u51b3\u65ad\u3002",
+    es: "El Cuarto Creciente pide una elecci\u00f3n. Decida con claridad.",
+    de: "Das erste Viertel verlangt eine Entscheidung. Entscheiden Sie klar.",
+    hi: "\u092a\u0939\u0932\u093e \u091a\u0930\u0923 \u090f\u0915 \u091a\u0941\u0928\u093e\u0935 \u092e\u093e\u0901\u0917\u0924\u093e \u0939\u0948\u0964 \u0938\u094d\u092a\u0937\u094d\u091f\u0924\u093e \u0938\u0947 \u0928\u093f\u0930\u094d\u0923\u092f \u0932\u0947\u0902\u0964",
+    ja: "\u4e0a\u5f26\u306e\u6708\u306f\u9078\u629e\u3092\u6c42\u3081\u307e\u3059\u3002\u660e\u6676\u306b\u6c7a\u65ad\u3057\u307e\u3057\u3087\u3046\u3002",
+  },
+  waxG: {
+    fr: "La Lune Gibbeuse pousse \u00e0 l'action. Le momentum est l\u00e0.",
+    en: "The Waxing Gibbous pushes toward action. The momentum is here.",
+    zh: "\u76c8\u51f8\u6708\u63a8\u52a8\u4f60\u884c\u52a8\u3002\u52bf\u5934\u5df2\u7ecf\u5230\u6765\u3002",
+    es: "La Luna Gibosa Creciente empuja a la acci\u00f3n. El impulso est\u00e1 aqu\u00ed.",
+    de: "Der zunehmende Mond dr\u00e4ngt zur Tat. Der Schwung ist da.",
+    hi: "\u092c\u0922\u093c\u0924\u093e \u0909\u0924\u094d\u0924\u0932 \u091a\u0902\u0926\u094d\u0930\u092e\u093e \u0915\u094d\u0930\u093f\u092f\u093e \u0915\u0940 \u0913\u0930 \u0927\u0915\u0947\u0932\u0924\u093e \u0939\u0948\u0964 \u0917\u0924\u093f \u092f\u0939\u093e\u0901 \u0939\u0948\u0964",
+    ja: "\u4e0a\u5f26\u306e\u51f8\u6708\u306f\u884c\u52d5\u3078\u3068\u99c6\u308a\u7acb\u3066\u307e\u3059\u3002\u52e2\u3044\u304c\u6765\u3066\u3044\u307e\u3059\u3002",
+  },
+  full: {
+    fr: "La Pleine Lune amplifie tout. Accueillez ce qui se r\u00e9v\u00e8le.",
+    en: "The Full Moon amplifies everything. Welcome what is revealed.",
+    zh: "\u6ee1\u6708\u653e\u5927\u4e00\u5207\u3002\u6b22\u8fce\u6240\u663e\u73b0\u7684\u4e00\u5207\u3002",
+    es: "La Luna Llena amplifica todo. Acoja lo que se revela.",
+    de: "Der Vollmond verst\u00e4rkt alles. Empfangen Sie, was sich offenbart.",
+    hi: "\u092a\u0942\u0930\u094d\u0923\u093f\u092e\u093e \u0938\u092c \u0915\u0941\u091b \u092c\u0922\u093c\u093e\u0924\u0940 \u0939\u0948\u0964 \u091c\u094b \u092a\u094d\u0930\u0915\u091f \u0939\u094b \u0909\u0938\u0915\u093e \u0938\u094d\u0935\u093e\u0917\u0924 \u0915\u0930\u0947\u0902\u0964",
+    ja: "\u6e80\u6708\u306f\u3059\u3079\u3066\u3092\u589e\u5e45\u3057\u307e\u3059\u3002\u660e\u304b\u3055\u308c\u308b\u3082\u306e\u3092\u53d7\u3051\u5165\u308c\u307e\u3057\u3087\u3046\u3002",
+  },
+  wanG: {
+    fr: "La Lune d\u00e9cline. Temps d'int\u00e9grer et d'ajuster.",
+    en: "The Moon wanes. Time to integrate and adjust.",
+    zh: "\u6708\u4eae\u6e10\u4e8f\u3002\u662f\u6574\u5408\u548c\u8c03\u6574\u7684\u65f6\u523b\u3002",
+    es: "La Luna mengua. Tiempo de integrar y ajustar.",
+    de: "Der Mond nimmt ab. Zeit zu integrieren und anzupassen.",
+    hi: "\u091a\u0902\u0926\u094d\u0930\u092e\u093e \u0918\u091f \u0930\u0939\u093e \u0939\u0948\u0964 \u0906\u0924\u094d\u092e\u0938\u093e\u0924 \u0914\u0930 \u0938\u092e\u093e\u092f\u094b\u091c\u0928 \u0915\u093e \u0938\u092e\u092f\u0964",
+    ja: "\u6708\u304c\u6b20\u3051\u3066\u3044\u304d\u307e\u3059\u3002\u7d71\u5408\u3057\u3001\u8abf\u6574\u3059\u308b\u6642\u3067\u3059\u3002",
+  },
+  '3Q': {
+    fr: "Le Dernier Quartier invite \u00e0 lib\u00e9rer ce qui ne sert plus.",
+    en: "The Last Quarter invites you to release what no longer serves.",
+    zh: "\u4e0b\u5f26\u6708\u9080\u8bf7\u4f60\u91ca\u653e\u4e0d\u518d\u6709\u7528\u7684\u4e1c\u897f\u3002",
+    es: "El \u00daltimo Cuarto invita a liberar lo que ya no sirve.",
+    de: "Das letzte Viertel l\u00e4dt ein, loszulassen, was nicht mehr dient.",
+    hi: "\u0905\u0902\u0924\u093f\u092e \u091a\u0930\u0923 \u0909\u0938\u0947 \u091b\u094b\u0921\u093c\u0928\u0947 \u0915\u093e \u0928\u093f\u092e\u0902\u0924\u094d\u0930\u0923 \u0926\u0947\u0924\u093e \u0939\u0948 \u091c\u094b \u0905\u092c \u0915\u093e\u092e \u0928\u0939\u0940\u0902 \u0906\u0924\u093e\u0964",
+    ja: "\u4e0b\u5f26\u306e\u6708\u306f\u3001\u3082\u3046\u5f79\u306b\u7acb\u305f\u306a\u3044\u3082\u306e\u3092\u624b\u653e\u3059\u3088\u3046\u4fc3\u3057\u307e\u3059\u3002",
+  },
+  wanC: {
+    fr: "Le Croissant descendant demande le repos. Honorez le silence.",
+    en: "The Waning Crescent calls for rest. Honor the silence.",
+    zh: "\u6b8b\u6708\u547c\u5524\u4f11\u606f\u3002\u5c0a\u91cd\u5bc2\u9759\u3002",
+    es: "La Luna Menguante pide reposo. Honre el silencio.",
+    de: "Die abnehmende Mondsichel ruft nach Ruhe. Ehren Sie die Stille.",
+    hi: "\u0922\u0932\u0924\u093e \u0905\u0930\u094d\u0927\u091a\u0902\u0926\u094d\u0930 \u0935\u093f\u0936\u094d\u0930\u093e\u092e \u092e\u093e\u0901\u0917\u0924\u093e \u0939\u0948\u0964 \u092e\u094c\u0928 \u0915\u093e \u0938\u092e\u094d\u092e\u093e\u0928 \u0915\u0930\u0947\u0902\u0964",
+    ja: "\u4e0b\u5f26\u306e\u4e09\u65e5\u6708\u306f\u4f11\u606f\u3092\u6c42\u3081\u307e\u3059\u3002\u9759\u5bc2\u3092\u5c0a\u3073\u307e\u3057\u3087\u3046\u3002",
+  },
+};

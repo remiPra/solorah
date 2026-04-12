@@ -54,6 +54,10 @@
       "name": "Love Reading",
       "description": "A special love reading with the Love Oracle. Discover the message the heart holds for you."
     },
+    "oracleDesJours": {
+      "name": "Oracle of Days",
+      "description": "A numerological oracle that reveals the harmony of your next 30 days. First name, birth date and intention for a personalized forecast."
+    },
     "cta": "Draw cards"
   },
   "howItWorks": {
@@ -168,6 +172,10 @@
     "blog": {
       "title": "Blog",
       "metaDescription": "Articles and tips about tarot, oracle and spirituality. Learn to interpret cards with Solorah."
+    },
+    "oracleDesJours": {
+      "title": "Oracle of Days",
+      "metaDescription": "Discover the harmony of your next 30 days with the Oracle of Days. Free personalized numerological forecast on Solorah."
     }
   },
   "blog": {

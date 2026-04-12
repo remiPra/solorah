@@ -54,6 +54,10 @@
       "name": "爱情占卜",
       "description": "使用爱情神谕进行特别的爱情占卜。发现心灵为你传递的信息。"
     },
+    "oracleDesJours": {
+      "name": "日之神谕",
+      "description": "一个数字命理神谕，揭示您未来30天的和谐。通过名字、出生日期和意念获得个性化预测。"
+    },
     "cta": "抽牌"
   },
   "howItWorks": {
@@ -168,6 +172,10 @@
     "blog": {
       "title": "博客",
       "metaDescription": "关于塔罗、神谕和灵性的文章与建议。在Solorah学习如何解读牌卡。"
+    },
+    "oracleDesJours": {
+      "title": "日之神谕",
+      "metaDescription": "通过日之神谕发现您未来30天的和谐。Solorah免费个性化数字命理预测。"
     }
   },
   "blog": {

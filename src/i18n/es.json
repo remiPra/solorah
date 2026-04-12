@@ -54,6 +54,10 @@
       "name": "Lectura de Amor",
       "description": "Una lectura especial de amor con el Oráculo del Amor. Descubre el mensaje que el corazón tiene para ti."
     },
+    "oracleDesJours": {
+      "name": "Oraculo de los Dias",
+      "description": "Un oraculo numerologico que revela la armonia de tus proximos 30 dias. Nombre, fecha de nacimiento e intencion para una prevision personalizada."
+    },
     "cta": "Tirar las cartas"
   },
   "howItWorks": {
@@ -168,6 +172,10 @@
     "blog": {
       "title": "Blog",
       "metaDescription": "Artículos y consejos sobre tarot, oráculo y espiritualidad. Aprende a interpretar las cartas con Solorah."
+    },
+    "oracleDesJours": {
+      "title": "Oraculo de los Dias",
+      "metaDescription": "Descubre la armonia de tus proximos 30 dias con el Oraculo de los Dias. Prevision numerologica personalizada gratis en Solorah."
     }
   },
   "blog": {
