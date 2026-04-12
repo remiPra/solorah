@@ -9,7 +9,10 @@
     "consultation": "Lectura profunda",
     "about": "Acerca de",
     "contact": "Contacto",
-    "install": "Instalar app"
+    "install": "Instalar app",
+    "installIos": "Añadir a pantalla de inicio",
+    "installIosStep1": "Toca el botón Compartir",
+    "installIosStep2": "luego \"Añadir a pantalla de inicio\""
   },
   "hero": {
     "title": "SOLORAH",

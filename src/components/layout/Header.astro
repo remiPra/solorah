@@ -122,7 +122,7 @@ const authTranslations: Record<string, string> = {
         </div>
       ))}
 
-      <!-- Install PWA button (hidden by default, shown via JS when available) -->
+      <!-- Install PWA: Chrome/Android button (shown via beforeinstallprompt) -->
       <div id="pwa-install-wrapper" class="hidden">
         <div class="h-px bg-sol-gold/10"></div>
         <button
@@ -137,6 +137,29 @@ const authTranslations: Record<string, string> = {
             {t('nav.install')}
           </span>
         </button>
+      </div>
+
+      <!-- Install PWA: Safari iOS guide (shown via JS detection) -->
+      <div id="pwa-ios-wrapper" class="hidden">
+        <div class="h-px bg-sol-gold/10"></div>
+        <div
+          id="pwa-ios-guide"
+          class="drawer-link text-center py-4 sm:py-5 opacity-0 translate-y-8"
+          style="transition-duration: 500ms"
+        >
+          <p class="font-display text-xl sm:text-2xl text-sol-gold tracking-wider mb-3">
+            {t('nav.installIos')}
+          </p>
+          <div class="flex items-center justify-center gap-2 font-body text-sm text-sol-ash">
+            <span>{t('nav.installIosStep1')}</span>
+            <svg class="w-5 h-5 text-sol-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15" />
+            </svg>
+          </div>
+          <p class="font-body text-sm text-sol-ash mt-1">
+            {t('nav.installIosStep2')}
+          </p>
+        </div>
       </div>
 
       <!-- Language switcher in drawer -->
@@ -355,6 +378,14 @@ const authTranslations: Record<string, string> = {
   // PWA Install prompt
   let deferredPrompt: any = null;
 
+  // Detect iOS Safari (not in standalone mode = not already installed)
+  function isIosSafari(): boolean {
+    const ua = navigator.userAgent;
+    const isIos = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isStandalone = ('standalone' in navigator) && (navigator as any).standalone;
+    return isIos && !isStandalone;
+  }
+
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
@@ -363,6 +394,7 @@ const authTranslations: Record<string, string> = {
   });
 
   function initPwaButton() {
+    // Chrome/Android install
     document.getElementById('pwa-install-btn')?.addEventListener('click', async () => {
       if (!deferredPrompt) return;
       deferredPrompt.prompt();
@@ -373,6 +405,12 @@ const authTranslations: Record<string, string> = {
       }
       deferredPrompt = null;
     });
+
+    // iOS Safari: show guide if no beforeinstallprompt fired
+    if (isIosSafari()) {
+      const iosWrapper = document.getElementById('pwa-ios-wrapper');
+      if (iosWrapper) iosWrapper.classList.remove('hidden');
+    }
   }
 
   document.addEventListener('astro:page-load', initHeader);

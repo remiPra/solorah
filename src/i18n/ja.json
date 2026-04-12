@@ -9,7 +9,10 @@
     "consultation": "深い鑑定",
     "about": "概要",
     "contact": "お問い合わせ",
-    "install": "アプリをインストール"
+    "install": "アプリをインストール",
+    "installIos": "ホーム画面に追加",
+    "installIosStep1": "共有ボタンをタップ",
+    "installIosStep2": "「ホーム画面に追加」を選択"
   },
   "hero": {
     "title": "SOLORAH",

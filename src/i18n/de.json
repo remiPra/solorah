@@ -9,7 +9,10 @@
     "consultation": "Vertiefte Deutung",
     "about": "Über uns",
     "contact": "Kontakt",
-    "install": "App installieren"
+    "install": "App installieren",
+    "installIos": "Zum Home-Bildschirm",
+    "installIosStep1": "Tippe auf den Teilen-Button",
+    "installIosStep2": "dann \"Zum Home-Bildschirm\""
   },
   "hero": {
     "title": "SOLORAH",

@@ -9,7 +9,10 @@
     "consultation": "गहन पाठ",
     "about": "हमारे बारे में",
     "contact": "संपर्क",
-    "install": "ऐप इंस्टॉल करें"
+    "install": "ऐप इंस्टॉल करें",
+    "installIos": "होम स्क्रीन पर जोड़ें",
+    "installIosStep1": "शेयर बटन दबाएं",
+    "installIosStep2": "फिर \"होम स्क्रीन पर जोड़ें\""
   },
   "hero": {
     "title": "SOLORAH",

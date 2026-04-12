@@ -9,7 +9,10 @@
     "consultation": "深度解读",
     "about": "关于",
     "contact": "联系",
-    "install": "安装应用"
+    "install": "安装应用",
+    "installIos": "添加到主屏幕",
+    "installIosStep1": "点击分享按钮",
+    "installIosStep2": "然后选择「添加到主屏幕」"
   },
   "hero": {
     "title": "SOLORAH",
