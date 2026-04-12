@@ -122,6 +122,23 @@ const authTranslations: Record<string, string> = {
         </div>
       ))}
 
+      <!-- Install PWA button (hidden by default, shown via JS when available) -->
+      <div id="pwa-install-wrapper" class="hidden">
+        <div class="h-px bg-sol-gold/10"></div>
+        <button
+          id="pwa-install-btn"
+          class="drawer-link block w-full text-center font-display text-2xl sm:text-3xl font-bold tracking-wider py-4 sm:py-5 text-sol-gold hover:text-sol-gold-light transition-colors opacity-0 translate-y-8"
+          style="transition-duration: 500ms"
+        >
+          <span class="flex items-center justify-center gap-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            {t('nav.install')}
+          </span>
+        </button>
+      </div>
+
       <!-- Language switcher in drawer -->
       <div class="h-px bg-sol-gold/10"></div>
       <div
@@ -335,7 +352,31 @@ const authTranslations: Record<string, string> = {
     header?.classList.toggle('shadow-lg', window.scrollY > 100);
   }
 
+  // PWA Install prompt
+  let deferredPrompt: any = null;
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const wrapper = document.getElementById('pwa-install-wrapper');
+    if (wrapper) wrapper.classList.remove('hidden');
+  });
+
+  function initPwaButton() {
+    document.getElementById('pwa-install-btn')?.addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        const wrapper = document.getElementById('pwa-install-wrapper');
+        if (wrapper) wrapper.classList.add('hidden');
+      }
+      deferredPrompt = null;
+    });
+  }
+
   document.addEventListener('astro:page-load', initHeader);
+  document.addEventListener('astro:page-load', initPwaButton);
 
   window.addEventListener('scroll', () => {
     const header = document.getElementById('site-header');
