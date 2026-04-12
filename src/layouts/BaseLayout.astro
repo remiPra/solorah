@@ -143,5 +143,10 @@ const jaPath = getTranslatedPath(currentPath, 'ja');
       // Run on initial load + after each View Transition navigation
       document.addEventListener('astro:page-load', initScrollReveal);
     </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js');
+      }
+    </script>
   </body>
 </html>
