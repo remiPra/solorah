@@ -11,12 +11,15 @@
     <meta http-equiv="refresh" content="0;url=/fr/" />
     <link rel="canonical" href="https://solorah.com/fr/" />
     <script is:inline>
-      // Detect preferred language and redirect
+      // Detect preferred language and redirect (7 supported locales)
       var lang = navigator.language || (navigator.languages && navigator.languages[0]) || 'fr';
       var target = '/fr/';
       if (lang.startsWith('en')) target = '/en/';
       else if (lang.startsWith('zh')) target = '/zh/';
       else if (lang.startsWith('es')) target = '/es/';
+      else if (lang.startsWith('de')) target = '/de/';
+      else if (lang.startsWith('hi')) target = '/hi/';
+      else if (lang.startsWith('ja')) target = '/ja/';
       window.location.replace(target);
     </script>
   </head>
