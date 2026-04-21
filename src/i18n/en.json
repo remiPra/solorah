@@ -24,11 +24,11 @@
     "sectionTitle": "Choose your oracle",
     "oracleAmour": {
       "name": "Love Oracle",
-      "description": "An oracle dedicated to matters of the heart. 44 cards to illuminate your love life, relationships, and deepest emotions."
+      "description": "An oracle dedicated to matters of the heart. 20 cards to illuminate your love life, relationships, and deepest emotions."
     },
     "tarotMarseille": {
       "name": "Tarot de Marseille Remastered",
-      "description": "The ancestral tarot reimagined with a contemporary aesthetic. 78 arcana to explore all areas of your life."
+      "description": "The ancestral tarot reimagined with a contemporary aesthetic. 22 major arcana to explore all areas of your life."
     },
     "oracleShiva": {
       "name": "Shiva Oracle",
@@ -123,11 +123,11 @@
     },
     "oracleAmour": {
       "title": "Love Oracle",
-      "metaDescription": "Draw cards from the Love Oracle for free. 44 cards to illuminate your love life."
+      "metaDescription": "Draw cards from the Love Oracle for free. 20 cards to illuminate your love life."
     },
     "tarotMarseille": {
       "title": "Tarot de Marseille",
-      "metaDescription": "Draw cards from the Tarot de Marseille Remastered for free. 78 arcana to explore your life path."
+      "metaDescription": "Draw cards from the Tarot de Marseille Remastered for free. 22 major arcana to explore your life path."
     },
     "oracleShiva": {
       "title": "Shiva Oracle",

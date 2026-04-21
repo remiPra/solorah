@@ -24,11 +24,11 @@
     "sectionTitle": "Choisis ton oracle",
     "oracleAmour": {
       "name": "Oracle de l'Amour",
-      "description": "Un oracle dédié aux questions du cœur. 44 cartes pour éclairer ta vie sentimentale, tes relations et tes émotions profondes."
+      "description": "Un oracle dédié aux questions du cœur. 20 cartes pour éclairer ta vie sentimentale, tes relations et tes émotions profondes."
     },
     "tarotMarseille": {
       "name": "Tarot de Marseille Remastered",
-      "description": "Le tarot ancestral revisité avec une esthétique contemporaine. 78 arcanes pour explorer tous les domaines de ta vie."
+      "description": "Le tarot ancestral revisité avec une esthétique contemporaine. 22 arcanes majeurs pour explorer tous les domaines de ta vie."
     },
     "oracleShiva": {
       "name": "Oracle de Shiva",
@@ -123,11 +123,11 @@
     },
     "oracleAmour": {
       "title": "Oracle de l'Amour",
-      "metaDescription": "Tirez les cartes de l'Oracle de l'Amour gratuitement. 44 cartes pour éclairer votre vie sentimentale."
+      "metaDescription": "Tirez les cartes de l'Oracle de l'Amour gratuitement. 20 cartes pour éclairer votre vie sentimentale."
     },
     "tarotMarseille": {
       "title": "Tarot de Marseille",
-      "metaDescription": "Tirez les cartes du Tarot de Marseille Remastered gratuitement. 78 arcanes pour explorer votre chemin de vie."
+      "metaDescription": "Tirez les cartes du Tarot de Marseille Remastered gratuitement. 22 arcanes majeurs pour explorer votre chemin de vie."
     },
     "oracleShiva": {
       "title": "Oracle de Shiva",

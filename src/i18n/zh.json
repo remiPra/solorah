@@ -24,11 +24,11 @@
     "sectionTitle": "选择你的神谕",
     "oracleAmour": {
       "name": "爱情神谕",
-      "description": "专为心灵之问而设的神谕。44张牌卡照亮你的感情生活、人际关系和内心深处的情感。"
+      "description": "专为心灵之问而设的神谕。20张牌卡照亮你的感情生活、人际关系和内心深处的情感。"
     },
     "tarotMarseille": {
       "name": "马赛塔罗重制版",
-      "description": "以现代美学重新诠释的古老塔罗。78张牌卡探索你生活的方方面面。"
+      "description": "以现代美学重新诠释的古老塔罗。22张大阿尔卡那探索你生活的方方面面。"
     },
     "oracleShiva": {
       "name": "湿婆神谕",
@@ -123,11 +123,11 @@
     },
     "oracleAmour": {
       "title": "爱情神谕",
-      "metaDescription": "免费抽取爱情神谕牌卡。44张牌照亮你的感情生活。"
+      "metaDescription": "免费抽取爱情神谕牌卡。20张牌照亮你的感情生活。"
     },
     "tarotMarseille": {
       "title": "马赛塔罗",
-      "metaDescription": "免费抽取马赛塔罗重制版牌卡。78张大阿尔卡那探索你的人生之路。"
+      "metaDescription": "免费抽取马赛塔罗重制版牌卡。22张大阿尔卡那探索你的人生之路。"
     },
     "oracleShiva": {
       "title": "湿婆神谕",
