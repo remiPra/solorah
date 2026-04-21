@@ -59,13 +59,38 @@ const jaPath = getTranslatedPath(currentPath, 'ja');
     <!-- Google Search Console -->
     <meta name="google-site-verification" content="SAag5QmrX15AwEJwY9_O4dBVCcGmHmvin3Ml8nIWgtc" />
 
-    <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F717Z1X2K" is:inline></script>
+    <!-- Google Analytics (GA4) — consent-gated, loads only after explicit user acceptance -->
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4F717Z1X2K');
+      (function() {
+        if (window.__gaInit) return;
+        window.__gaInit = true;
+
+        function loadGA4() {
+          if (window.__gaLoaded) return;
+          window.__gaLoaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-4F717Z1X2K';
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ window.dataLayer.push(arguments); }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-4F717Z1X2K', {
+            anonymize_ip: true,
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false
+          });
+        }
+
+        try {
+          if (localStorage.getItem('solorah-analytics-consent') === 'granted') loadGA4();
+        } catch (e) {}
+
+        window.addEventListener('solorah:consent', function(e) {
+          if (e && e.detail === 'granted') loadGA4();
+        });
+      })();
     </script>
 
     <!-- Favicon -->

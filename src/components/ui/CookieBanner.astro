@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../../i18n/utils';
-import { useTranslations } from '../../i18n/utils';
+import { useTranslations, getTranslatedPath } from '../../i18n/utils';
 
 interface Props {
   lang: Lang;
@@ -8,41 +8,83 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+const privacyPath = getTranslatedPath(`/${lang}/politique-confidentialite`, lang);
 ---
 
 <div
   id="cookie-banner"
   class="fixed bottom-0 left-0 right-0 z-50 hidden"
-  role="status"
+  role="dialog"
   aria-live="polite"
+  aria-label="Cookie consent"
 >
-  <div class="bg-sol-charcoal/95 backdrop-blur-sm border-t border-sol-gold/10 px-4 py-3">
-    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p class="font-ui text-xs text-sol-ash text-center sm:text-left leading-relaxed">
-        {t('footer.cookies')}
+  <div class="bg-sol-charcoal/95 backdrop-blur-sm border-t border-sol-gold/10 px-4 py-4">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-ui text-xs text-sol-ash text-center sm:text-left leading-relaxed flex-1">
+        {t('footer.cookies.description')}{' '}
+        <a href={privacyPath} class="text-sol-gold/80 underline hover:text-sol-gold">
+          {t('footer.privacy')}
+        </a>
       </p>
-      <button
-        id="cookie-accept"
-        class="shrink-0 font-ui text-xs px-4 py-1.5 rounded border border-sol-gold/30 text-sol-gold hover:bg-sol-gold/10 transition-colors cursor-pointer"
-      >
-        {t('footer.cookiesOk')}
-      </button>
+      <div class="flex gap-2 shrink-0">
+        <button
+          id="cookie-decline"
+          type="button"
+          class="font-ui text-xs px-4 py-1.5 rounded border border-sol-gold/20 text-sol-ash hover:text-sol-cream hover:border-sol-gold/40 transition-colors cursor-pointer"
+        >
+          {t('footer.cookies.decline')}
+        </button>
+        <button
+          id="cookie-accept"
+          type="button"
+          class="font-ui text-xs px-4 py-1.5 rounded border border-sol-gold/40 bg-sol-gold/10 text-sol-gold hover:bg-sol-gold/20 transition-colors cursor-pointer"
+        >
+          {t('footer.cookies.accept')}
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
 <script is:inline>
   (function() {
-    if (!localStorage.getItem('solorah-cookies-ok')) {
+    if (window.__cookieBannerInit) return;
+    window.__cookieBannerInit = true;
+
+    function showBanner() {
       var banner = document.getElementById('cookie-banner');
       if (banner) banner.classList.remove('hidden');
     }
+    function hideBanner() {
+      var banner = document.getElementById('cookie-banner');
+      if (banner) banner.classList.add('hidden');
+    }
+    function setConsent(value) {
+      try { localStorage.setItem('solorah-analytics-consent', value); } catch (e) {}
+      window.dispatchEvent(new CustomEvent('solorah:consent', { detail: value }));
+      hideBanner();
+    }
+
+    function maybeShow() {
+      var stored;
+      try { stored = localStorage.getItem('solorah-analytics-consent'); } catch (e) {}
+      if (stored !== 'granted' && stored !== 'denied') showBanner();
+      else hideBanner();
+    }
+
     document.addEventListener('click', function(e) {
-      if (e.target && e.target.id === 'cookie-accept') {
-        localStorage.setItem('solorah-cookies-ok', '1');
-        var banner = document.getElementById('cookie-banner');
-        if (banner) banner.classList.add('hidden');
+      var target = e.target;
+      if (!target || !target.id) return;
+      if (target.id === 'cookie-accept') setConsent('granted');
+      else if (target.id === 'cookie-decline') setConsent('denied');
+      else if (target.id === 'cookie-manage') {
+        try { localStorage.removeItem('solorah-analytics-consent'); } catch (e) {}
+        showBanner();
       }
     });
+
+    maybeShow();
+    document.addEventListener('astro:after-swap', maybeShow);
   })();
 </script>

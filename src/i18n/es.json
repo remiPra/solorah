@@ -86,8 +86,12 @@
     "terms": "Términos de servicio",
     "disclaimer": "Las lecturas se ofrecen exclusivamente con fines de entretenimiento y desarrollo personal. Tienen un carácter puramente cultural, recreativo y lúdico. La adivinación y las lecturas de cartas no constituyen una ciencia exacta. Las interpretaciones se generan automáticamente a título indicativo y no pueden sustituir en ningún caso un consejo médico, psicológico, jurídico o financiero. Servicio reservado a personas mayores de 18 años.",
     "rights": "Todos los derechos reservados.",
-    "cookies": "Este sitio solo utiliza cookies técnicas necesarias para su funcionamiento (preferencias, autenticación). Sin cookies publicitarias ni de seguimiento.",
-    "cookiesOk": "Entendido"
+    "cookies": {
+      "description": "Usamos Google Analytics (con IP anonimizada) para medir la audiencia del sitio. Sin publicidad. Puedes aceptar o rechazar — tu elección es modificable desde el pie de página.",
+      "accept": "Aceptar",
+      "decline": "Rechazar",
+      "manage": "Gestionar cookies"
+    }
   },
   "pages": {
     "about": {

@@ -92,12 +92,13 @@ const lastUpdated = '2026年4月1日';
 
         <div>
           <h2 class="font-display text-xl text-sol-gold mb-3">3. Cookieとローカルストレージ</h2>
-          <p>本サイトでは以下のみ使用しています：</p>
+          <p>本サイトでは以下を使用しています：</p>
           <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
             <li><strong>セッションCookie</strong>（Firebase Auth）：運営に必要不可欠であり、ePrivacy指令に基づき同意が免除されます。</li>
-            <li><strong>ローカルストレージ（localStorage）</strong>：表示設定（ライト/ダークテーマ、オーディオ音量）。これらのデータは個人データではありません。</li>
+            <li><strong>ローカルストレージ（localStorage）</strong>：表示設定（ライト/ダークテーマ、オーディオ音量、アナリティクス同意の選択）。これらのデータは個人データではありません。</li>
+            <li><strong>Google Analytics (GA4)</strong>：IP 匿名化による訪問者数の計測。Google Ads との共有なし、広告のパーソナライズなし。バナーを介した<strong>明示的な同意後にのみ</strong>読み込まれます。フッターの「Cookie を管理」ボタンからいつでも同意を拒否または撤回できます。</li>
           </ul>
-          <p class="mt-3 font-semibold">本サイトでは、広告、トラッキング、またはアナリティクスのCookieは一切使用していません。</p>
+          <p class="mt-3 font-semibold">本サイトでは広告 Cookie は使用していません。</p>
         </div>
 
         <div>
@@ -116,6 +117,11 @@ const lastUpdated = '2026年4月1日';
                 <tr class="border-b border-sol-gold/10">
                   <td class="py-2 pr-4">Google LLC (Firebase)</td>
                   <td class="py-2 pr-4">データベース、認証</td>
+                  <td class="py-2">米国</td>
+                </tr>
+                <tr class="border-b border-sol-gold/10">
+                  <td class="py-2 pr-4">Google LLC (Analytics)</td>
+                  <td class="py-2 pr-4">訪問者数の計測（同意後）</td>
                   <td class="py-2">米国</td>
                 </tr>
                 <tr class="border-b border-sol-gold/10">
