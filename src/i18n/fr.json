@@ -24,11 +24,11 @@
     "sectionTitle": "Choisis ton oracle",
     "oracleAmour": {
       "name": "Oracle de l'Amour",
-      "description": "Un oracle dédié aux questions du cœur. 44 cartes pour éclairer ta vie sentimentale, tes relations et tes émotions profondes."
+      "description": "Un oracle dédié aux questions du cœur. 20 cartes pour éclairer ta vie sentimentale, tes relations et tes émotions profondes."
     },
     "tarotMarseille": {
       "name": "Tarot de Marseille Remastered",
-      "description": "Le tarot ancestral revisité avec une esthétique contemporaine. 78 arcanes pour explorer tous les domaines de ta vie."
+      "description": "Le tarot ancestral revisité avec une esthétique contemporaine. 22 arcanes majeurs pour explorer tous les domaines de ta vie."
     },
     "oracleShiva": {
       "name": "Oracle de Shiva",
@@ -86,8 +86,12 @@
     "terms": "CGV",
     "disclaimer": "Les tirages sont proposés à titre de divertissement et de développement personnel. Ils revêtent un caractère purement culturel, récréatif et ludique. La voyance et les tirages de cartes ne constituent pas une science exacte. Les interprétations sont générées automatiquement à titre indicatif et ne peuvent en aucun cas se substituer à un avis médical, psychologique, juridique ou financier. Service réservé aux personnes majeures.",
     "rights": "Tous droits réservés.",
-    "cookies": "Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement (préférences, authentification). Aucun cookie publicitaire ou de suivi.",
-    "cookiesOk": "Compris"
+    "cookies": {
+      "description": "Nous utilisons Google Analytics (IP anonymisée) pour mesurer l'audience du site. Aucune publicité. Tu peux accepter ou refuser — ton choix est modifiable depuis le footer.",
+      "accept": "Accepter",
+      "decline": "Refuser",
+      "manage": "Gérer les cookies"
+    }
   },
   "pages": {
     "about": {
@@ -123,11 +127,11 @@
     },
     "oracleAmour": {
       "title": "Oracle de l'Amour",
-      "metaDescription": "Tirez les cartes de l'Oracle de l'Amour gratuitement. 44 cartes pour éclairer votre vie sentimentale."
+      "metaDescription": "Tirez les cartes de l'Oracle de l'Amour gratuitement. 20 cartes pour éclairer votre vie sentimentale."
     },
     "tarotMarseille": {
       "title": "Tarot de Marseille",
-      "metaDescription": "Tirez les cartes du Tarot de Marseille Remastered gratuitement. 78 arcanes pour explorer votre chemin de vie."
+      "metaDescription": "Tirez les cartes du Tarot de Marseille Remastered gratuitement. 22 arcanes majeurs pour explorer votre chemin de vie."
     },
     "oracleShiva": {
       "title": "Oracle de Shiva",

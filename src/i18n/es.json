@@ -24,11 +24,11 @@
     "sectionTitle": "Elige tu oráculo",
     "oracleAmour": {
       "name": "Oráculo del Amor",
-      "description": "Un oráculo dedicado a las cuestiones del corazón. 44 cartas para iluminar tu vida sentimental, tus relaciones y tus emociones más profundas."
+      "description": "Un oráculo dedicado a las cuestiones del corazón. 20 cartas para iluminar tu vida sentimental, tus relaciones y tus emociones más profundas."
     },
     "tarotMarseille": {
       "name": "Tarot de Marsella Remasterizado",
-      "description": "El tarot ancestral reimaginado con una estética contemporánea. 78 arcanos para explorar todas las áreas de tu vida."
+      "description": "El tarot ancestral reimaginado con una estética contemporánea. 22 arcanos mayores para explorar todas las áreas de tu vida."
     },
     "oracleShiva": {
       "name": "Oráculo de Shiva",
@@ -86,8 +86,12 @@
     "terms": "Términos de servicio",
     "disclaimer": "Las lecturas se ofrecen exclusivamente con fines de entretenimiento y desarrollo personal. Tienen un carácter puramente cultural, recreativo y lúdico. La adivinación y las lecturas de cartas no constituyen una ciencia exacta. Las interpretaciones se generan automáticamente a título indicativo y no pueden sustituir en ningún caso un consejo médico, psicológico, jurídico o financiero. Servicio reservado a personas mayores de 18 años.",
     "rights": "Todos los derechos reservados.",
-    "cookies": "Este sitio solo utiliza cookies técnicas necesarias para su funcionamiento (preferencias, autenticación). Sin cookies publicitarias ni de seguimiento.",
-    "cookiesOk": "Entendido"
+    "cookies": {
+      "description": "Usamos Google Analytics (con IP anonimizada) para medir la audiencia del sitio. Sin publicidad. Puedes aceptar o rechazar — tu elección es modificable desde el pie de página.",
+      "accept": "Aceptar",
+      "decline": "Rechazar",
+      "manage": "Gestionar cookies"
+    }
   },
   "pages": {
     "about": {
@@ -123,11 +127,11 @@
     },
     "oracleAmour": {
       "title": "Oráculo del Amor",
-      "metaDescription": "Tira las cartas del Oráculo del Amor gratis. 44 cartas para iluminar tu vida sentimental."
+      "metaDescription": "Tira las cartas del Oráculo del Amor gratis. 20 cartas para iluminar tu vida sentimental."
     },
     "tarotMarseille": {
       "title": "Tarot de Marsella",
-      "metaDescription": "Tira las cartas del Tarot de Marsella Remasterizado gratis. 78 arcanos para explorar tu camino de vida."
+      "metaDescription": "Tira las cartas del Tarot de Marsella Remasterizado gratis. 22 arcanos mayores para explorar tu camino de vida."
     },
     "oracleShiva": {
       "title": "Oráculo de Shiva",

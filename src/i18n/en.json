@@ -24,11 +24,11 @@
     "sectionTitle": "Choose your oracle",
     "oracleAmour": {
       "name": "Love Oracle",
-      "description": "An oracle dedicated to matters of the heart. 44 cards to illuminate your love life, relationships, and deepest emotions."
+      "description": "An oracle dedicated to matters of the heart. 20 cards to illuminate your love life, relationships, and deepest emotions."
     },
     "tarotMarseille": {
       "name": "Tarot de Marseille Remastered",
-      "description": "The ancestral tarot reimagined with a contemporary aesthetic. 78 arcana to explore all areas of your life."
+      "description": "The ancestral tarot reimagined with a contemporary aesthetic. 22 major arcana to explore all areas of your life."
     },
     "oracleShiva": {
       "name": "Shiva Oracle",
@@ -86,8 +86,12 @@
     "terms": "Terms of service",
     "disclaimer": "Readings are offered for entertainment and personal development purposes only. They are purely cultural, recreational and playful in nature. Divination and card readings are not an exact science. Interpretations are automatically generated for informational purposes only and should never be used as a substitute for medical, psychological, legal or financial advice. This service is intended for adults (18+) only.",
     "rights": "All rights reserved.",
-    "cookies": "This site only uses technical cookies necessary for its operation (preferences, authentication). No advertising or tracking cookies.",
-    "cookiesOk": "Got it"
+    "cookies": {
+      "description": "We use Google Analytics (with IP anonymization) to measure site audience. No advertising. You can accept or decline — your choice can be changed from the footer.",
+      "accept": "Accept",
+      "decline": "Decline",
+      "manage": "Manage cookies"
+    }
   },
   "pages": {
     "about": {
@@ -123,11 +127,11 @@
     },
     "oracleAmour": {
       "title": "Love Oracle",
-      "metaDescription": "Draw cards from the Love Oracle for free. 44 cards to illuminate your love life."
+      "metaDescription": "Draw cards from the Love Oracle for free. 20 cards to illuminate your love life."
     },
     "tarotMarseille": {
       "title": "Tarot de Marseille",
-      "metaDescription": "Draw cards from the Tarot de Marseille Remastered for free. 78 arcana to explore your life path."
+      "metaDescription": "Draw cards from the Tarot de Marseille Remastered for free. 22 major arcana to explore your life path."
     },
     "oracleShiva": {
       "title": "Shiva Oracle",

@@ -24,11 +24,11 @@
     "sectionTitle": "Wähle dein Orakel",
     "oracleAmour": {
       "name": "Liebesorakel",
-      "description": "Ein Orakel für Herzensangelegenheiten. 44 Karten, um dein Liebesleben, deine Beziehungen und tiefsten Gefühle zu beleuchten."
+      "description": "Ein Orakel für Herzensangelegenheiten. 20 Karten, um dein Liebesleben, deine Beziehungen und tiefsten Gefühle zu beleuchten."
     },
     "tarotMarseille": {
       "name": "Tarot de Marseille Remastered",
-      "description": "Das traditionelle Tarot neu interpretiert mit zeitgenössischer Ästhetik. 78 Arkana, um alle Bereiche deines Lebens zu erkunden."
+      "description": "Das traditionelle Tarot neu interpretiert mit zeitgenössischer Ästhetik. 22 Große Arkana, um alle Bereiche deines Lebens zu erkunden."
     },
     "oracleShiva": {
       "name": "Shiva-Orakel",
@@ -86,8 +86,12 @@
     "terms": "AGB",
     "disclaimer": "Die Kartenziehungen dienen ausschließlich der Unterhaltung und persönlichen Entwicklung. Sie haben einen rein kulturellen, spielerischen und freizeitlichen Charakter. Wahrsagerei und Kartenlegung sind keine exakte Wissenschaft. Die Interpretationen werden automatisch generiert und dienen nur als Hinweis. Sie können in keinem Fall eine ärztliche, psychologische, rechtliche oder finanzielle Beratung ersetzen. Dieser Dienst ist nur für Personen ab 18 Jahren bestimmt.",
     "rights": "Alle Rechte vorbehalten.",
-    "cookies": "Diese Website verwendet ausschließlich technische Cookies, die für den Betrieb erforderlich sind (Einstellungen, Authentifizierung). Keine Werbe- oder Tracking-Cookies.",
-    "cookiesOk": "Verstanden"
+    "cookies": {
+      "description": "Wir verwenden Google Analytics (mit anonymisierter IP), um die Besucherzahlen zu messen. Keine Werbung. Du kannst zustimmen oder ablehnen — deine Wahl ist über den Footer jederzeit änderbar.",
+      "accept": "Akzeptieren",
+      "decline": "Ablehnen",
+      "manage": "Cookies verwalten"
+    }
   },
   "pages": {
     "about": {
@@ -123,11 +127,11 @@
     },
     "oracleAmour": {
       "title": "Liebesorakel",
-      "metaDescription": "Ziehe kostenlos die Karten des Liebesorakels. 44 Karten, um dein Liebesleben zu beleuchten."
+      "metaDescription": "Ziehe kostenlos die Karten des Liebesorakels. 20 Karten, um dein Liebesleben zu beleuchten."
     },
     "tarotMarseille": {
       "title": "Tarot de Marseille",
-      "metaDescription": "Ziehe kostenlos die Karten des Tarot de Marseille Remastered. 78 Arkana, um deinen Lebensweg zu erkunden."
+      "metaDescription": "Ziehe kostenlos die Karten des Tarot de Marseille Remastered. 22 Große Arkana, um deinen Lebensweg zu erkunden."
     },
     "oracleShiva": {
       "title": "Shiva-Orakel",

@@ -92,12 +92,13 @@ const lastUpdated = '2026年4月1日';
 
         <div>
           <h2 class="font-display text-xl text-sol-gold mb-3">3. Cookie和本地存储</h2>
-          <p>本网站仅使用以下内容：</p>
+          <p>本网站使用以下内容：</p>
           <ul class="list-disc ml-6 space-y-2 text-sol-ash mt-3">
             <li><strong>会话Cookie</strong>（Firebase Auth）：运行所必需的，根据ePrivacy指令免于同意要求。</li>
-            <li><strong>本地存储（localStorage）</strong>：显示偏好设置（明/暗主题、音频音量）。这些数据不属于个人数据。</li>
+            <li><strong>本地存储（localStorage）</strong>：显示偏好设置（明/暗主题、音频音量、分析同意选择）。这些数据不属于个人数据。</li>
+            <li><strong>Google Analytics (GA4)</strong>：匿名化 IP 的访问量衡量，不与 Google Ads 共享，不进行广告个性化。<strong>仅在通过横幅明确同意后</strong>加载。你可以随时通过页脚的「管理 Cookie」按钮拒绝或撤回同意。</li>
           </ul>
-          <p class="mt-3 font-semibold">本网站不使用任何广告、跟踪或分析Cookie。</p>
+          <p class="mt-3 font-semibold">本网站不使用任何广告 Cookie。</p>
         </div>
 
         <div>
@@ -116,6 +117,11 @@ const lastUpdated = '2026年4月1日';
                 <tr class="border-b border-sol-gold/10">
                   <td class="py-2 pr-4">Google LLC (Firebase)</td>
                   <td class="py-2 pr-4">数据库、身份验证</td>
+                  <td class="py-2">美国</td>
+                </tr>
+                <tr class="border-b border-sol-gold/10">
+                  <td class="py-2 pr-4">Google LLC (Analytics)</td>
+                  <td class="py-2 pr-4">访问量衡量（同意后）</td>
                   <td class="py-2">美国</td>
                 </tr>
                 <tr class="border-b border-sol-gold/10">
