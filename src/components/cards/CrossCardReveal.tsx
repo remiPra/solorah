@@ -230,21 +230,24 @@ export default function CrossCardReveal({ lang, selectedCards, onNewReading }: C
 
             {/* CTAs */}
             <div className="space-y-4 mb-8 max-w-sm mx-auto">
-              <a
-                href={consultationHref}
-                className="block w-full text-center font-[Inter] tracking-wider uppercase text-sm font-semibold px-6 py-4 rounded-sm transition-all duration-300"
-                style={{ backgroundColor: 'var(--color-sol-gold)', color: 'var(--color-sol-deep)' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-sol-gold-light)';
-                  e.currentTarget.style.boxShadow = '0 0 30px rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-sol-gold)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
-                {t.cta}
-              </a>
+              {/* CTA consultation payante désactivée (site 100% gratuit). */}
+              {false && (
+                <a
+                  href={consultationHref}
+                  className="block w-full text-center font-[Inter] tracking-wider uppercase text-sm font-semibold px-6 py-4 rounded-sm transition-all duration-300"
+                  style={{ backgroundColor: 'var(--color-sol-gold)', color: 'var(--color-sol-deep)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--color-sol-gold-light)';
+                    e.currentTarget.style.boxShadow = '0 0 30px rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--color-sol-gold)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
+                  {t.cta}
+                </a>
+              )}
 
               <button
                 onClick={onNewReading}

@@ -43,13 +43,14 @@ const authTranslations: Record<string, string> = {
 
     <!-- Right side: auth + theme toggle + hamburger (all screens) -->
     <div class="flex items-center gap-3">
-      <!-- Auth (React island) -->
+      {/* Auth temporairement désactivé — site 100% gratuit. Décommenter pour réactiver le login.
       <HeaderAuth
         client:only="react"
         lang={lang}
         translations={authTranslations}
         myReadingsPath={myReadingsPath}
       />
+      */}
 
       <!-- Theme Toggle -->
       <button

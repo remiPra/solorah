@@ -198,25 +198,27 @@ export default function CardReveal({ card, lang, onNewReading }: CardRevealProps
           transition={{ delay: 1.6, duration: 0.5 }}
           className="space-y-4 mb-8"
         >
-          {/* Primary CTA */}
-          <a
-            href={consultationHref}
-            className="block w-full font-[Inter] tracking-wider uppercase text-sm font-semibold px-6 py-4 rounded-sm transition-all duration-300"
-            style={{
-              backgroundColor: 'var(--color-sol-gold)',
-              color: 'var(--color-sol-deep)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-sol-gold-light)';
-              e.currentTarget.style.boxShadow = '0 0 30px rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-sol-gold)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
-          >
-            {t.cta}
-          </a>
+          {/* Primary CTA — consultation payante désactivée (site 100% gratuit). Wrap dans {false && (...)} pour conserver. */}
+          {false && (
+            <a
+              href={consultationHref}
+              className="block w-full font-[Inter] tracking-wider uppercase text-sm font-semibold px-6 py-4 rounded-sm transition-all duration-300"
+              style={{
+                backgroundColor: 'var(--color-sol-gold)',
+                color: 'var(--color-sol-deep)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--color-sol-gold-light)';
+                e.currentTarget.style.boxShadow = '0 0 30px rgba(var(--accent-r),var(--accent-g),var(--accent-b),0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--color-sol-gold)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              {t.cta}
+            </a>
+          )}
 
           {/* Secondary — new reading */}
           <button
