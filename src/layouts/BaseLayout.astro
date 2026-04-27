@@ -96,6 +96,32 @@ const jaPath = getTranslatedPath(currentPath, 'ja');
       })();
     </script>
 
+    <!-- Google Tag Manager — consent-gated, loads only after explicit user acceptance -->
+    <script is:inline>
+      (function() {
+        if (window.__gtmInit) return;
+        window.__gtmInit = true;
+
+        function loadGTM() {
+          if (window.__gtmLoaded) return;
+          window.__gtmLoaded = true;
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-PQLMN3T2');
+        }
+
+        try {
+          if (localStorage.getItem('solorah-analytics-consent') === 'granted') loadGTM();
+        } catch (e) {}
+
+        window.addEventListener('solorah:consent', function(e) {
+          if (e && e.detail === 'granted') loadGTM();
+        });
+      })();
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
@@ -152,6 +178,9 @@ const jaPath = getTranslatedPath(currentPath, 'ja');
     )}
   </head>
   <body class="min-h-screen flex flex-col">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQLMN3T2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <Header lang={lang} />
     <main class="flex-1">
       <slot />
