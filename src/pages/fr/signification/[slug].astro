@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../../i18n/utils';
+import { getCollection, render } from 'astro:content';
+
+export const prerender = true;
+
+const lang = 'fr';
+const t = useTranslations(lang);
+
+export async function getStaticPaths() {
+  const cards = (await getCollection('signification')).filter((c) => c.data.lang === 'fr');
+  return cards.map((card) => ({
+    params: { slug: card.data.slug },
+    props: { card },
+  }));
+}
+
+const { card } = Astro.props;
+const { Content } = await render(card);
+
+// Wikidata sameAs for each arcane
+const wikidataMap: Record<string, string> = {
+  'le-mat': 'https://www.wikidata.org/wiki/Q679505',
+  'le-bateleur': 'https://www.wikidata.org/wiki/Q679473',
+  'la-papesse': 'https://www.wikidata.org/wiki/Q679483',
+  'l-imperatrice': 'https://www.wikidata.org/wiki/Q679487',
+  'l-empereur': 'https://www.wikidata.org/wiki/Q679491',
+  'le-pape': 'https://www.wikidata.org/wiki/Q679495',
+  'l-amoureux': 'https://www.wikidata.org/wiki/Q679497',
+  'le-chariot': 'https://www.wikidata.org/wiki/Q679500',
+  'la-justice': 'https://www.wikidata.org/wiki/Q679502',
+  'l-hermite': 'https://www.wikidata.org/wiki/Q679504',
+  'la-roue-de-fortune': 'https://www.wikidata.org/wiki/Q679506',
+  'la-force': 'https://www.wikidata.org/wiki/Q679508',
+  'le-pendu': 'https://www.wikidata.org/wiki/Q679510',
+  'l-arcane-sans-nom': 'https://www.wikidata.org/wiki/Q679512',
+  'temperance': 'https://www.wikidata.org/wiki/Q679515',
+  'le-diable': 'https://www.wikidata.org/wiki/Q679517',
+  'la-maison-dieu': 'https://www.wikidata.org/wiki/Q679519',
+  'l-etoile': 'https://www.wikidata.org/wiki/Q679521',
+  'la-lune': 'https://www.wikidata.org/wiki/Q679523',
+  'le-soleil': 'https://www.wikidata.org/wiki/Q679525',
+  'le-jugement': 'https://www.wikidata.org/wiki/Q679527',
+  'le-monde': 'https://www.wikidata.org/wiki/Q679529',
+};
+
+// Extract FAQ from markdown body
+function extractFaq(body: string): { question: string; answer: string }[] {
+  const faqMatch = body.match(/## FAQ[^\n]*\n([\s\S]*?)(?=\n## [^#]|$)/);
+  if (!faqMatch) return [];
+  const faqSection = faqMatch[1];
+  const faqs: { question: string; answer: string }[] = [];
+  const parts = faqSection.split(/\n### /);
+  for (const part of parts) {
+    if (!part.trim()) continue;
+    const lines = part.split('\n');
+    const question = lines[0].trim();
+    const answer = lines.slice(1).filter(l => l.trim()).join(' ').trim();
+    if (question && answer) faqs.push({ question, answer });
+  }
+  return faqs;
+}
+
+// Extract mentioned arcane slugs from internal links
+function extractMentions(body: string): string[] {
+  const linkPattern = /\[([^\]]+)\]\(\/fr\/signification\/([a-z-]+)\)/g;
+  const slugs = new Set<string>();
+  let match;
+  while ((match = linkPattern.exec(body)) !== null) {
+    if (match[2] !== card.data.slug) slugs.add(match[2]);
+  }
+  return Array.from(slugs);
+}
+
+const faqs = extractFaq(card.body);
+const mentionedSlugs = extractMentions(card.body);
+const allCards = (await getCollection('signification')).filter((c) => c.data.lang === 'fr');
+const mentions = mentionedSlugs.map(slug => {
+  const c = allCards.find(x => x.data.slug === slug);
+  return c ? {
+    "@type": "Thing",
+    "name": c.data.nom,
+    "url": `https://solorah.com/fr/signification/${slug}`,
+  } : null;
+}).filter(Boolean);
+
+const articleSchema: Record<string, unknown> = {
+  "@type": "Article",
+  "headline": card.data.title,
+  "description": card.data.description,
+  "datePublished": card.data.date.toISOString(),
+  "url": `https://solorah.com/${lang}/signification/${card.data.slug}`,
+  "inLanguage": lang,
+  "image": card.data.image ? `https://solorah.com${card.data.image}` : undefined,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Solorah",
+    "url": "https://solorah.com",
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Rémi Pradère",
+    "url": "https://solorah.com/fr/a-propos",
+  },
+  "keywords": card.data.tags,
+  "about": {
+    "@type": "Thing",
+    "name": card.data.nom,
+    "description": `Arcane ${card.data.numero} du Tarot de Marseille`,
+    "sameAs": wikidataMap[card.data.slug],
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["article h1", "article header p", ".prose h2", ".prose h2 + p"],
+  },
+  ...(mentions.length > 0 ? { "mentions": mentions } : {}),
+};
+
+const graph: Record<string, unknown>[] = [articleSchema];
+
+if (faqs.length > 0) {
+  graph.push({
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  });
+}
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": graph,
+};
+---
+
+<BaseLayout
+  title={card.data.title}
+  description={card.data.description}
+  lang={lang}
+  image={card.data.image}
+  structuredData={structuredData}
+  citationTitle={`${card.data.nom} — Signification Tarot de Marseille`}
+>
+  <article class="max-w-3xl mx-auto px-4 py-16 sm:py-24">
+    <a
+      href={`/${lang}/signification`}
+      class="inline-flex items-center gap-1 font-ui text-xs text-sol-ash hover:text-sol-gold uppercase tracking-wider mb-8 transition-colors"
+    >
+      &larr; Toutes les cartes
+    </a>
+
+    <header class="mb-10">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        {card.data.tags.map((tag: string) => (
+          <span class="font-ui text-xs text-sol-gold/60 border border-sol-gold/20 rounded-full px-2 py-0.5">
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      {card.data.image && (
+        <div class="flex justify-center mb-8">
+          <img
+            src={card.data.image}
+            alt={card.data.nom}
+            class="w-48 sm:w-56 rounded-lg shadow-lg shadow-sol-gold/10"
+            loading="eager"
+          />
+        </div>
+      )}
+
+      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-sol-gold leading-tight text-center">
+        {card.data.nom} — Arcane {card.data.numero}
+      </h1>
+      <p class="text-center font-body text-sol-ash mt-3 text-sm">
+        {card.data.element && <span>Element : {card.data.element}</span>}
+        {card.data.planete && <span> · Planete : {card.data.planete}</span>}
+        {card.data.signe && <span> · Signe : {card.data.signe}</span>}
+      </p>
+    </header>
+
+    <div class="prose prose-invert prose-gold max-w-none font-body text-sol-cream/90 leading-relaxed
+      [&_h2]:font-display [&_h2]:text-sol-gold [&_h2]:text-2xl [&_h2]:mt-12 [&_h2]:mb-4
+      [&_h3]:font-display [&_h3]:text-sol-gold/80 [&_h3]:text-xl [&_h3]:mt-8 [&_h3]:mb-3
+      [&_p]:mb-4
+      [&_a]:text-sol-gold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-sol-gold-light
+      [&_strong]:text-sol-cream [&_strong]:font-semibold
+      [&_em]:text-sol-ash
+      [&_blockquote]:border-l-2 [&_blockquote]:border-sol-gold/30 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-sol-ash
+      [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1
+      [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-1
+      [&_li]:text-sol-cream/80
+      [&_table]:w-full [&_table]:border-collapse
+      [&_th]:text-left [&_th]:text-sol-gold/80 [&_th]:border-b [&_th]:border-sol-gold/20 [&_th]:py-2 [&_th]:px-3 [&_th]:font-display [&_th]:text-sm
+      [&_td]:text-sol-cream/80 [&_td]:border-b [&_td]:border-sol-gold/10 [&_td]:py-2 [&_td]:px-3 [&_td]:text-sm
+    ">
+      <Content />
+    </div>
+
+    <footer class="mt-16 pt-8 border-t border-sol-gold/10 text-center">
+      <a
+        href={`/${lang}/tirage/tarot-marseille`}
+        class="inline-flex items-center gap-2 font-display text-sm text-sol-gold hover:text-sol-gold-light uppercase tracking-wider transition-colors border border-sol-gold/30 hover:border-sol-gold/60 rounded-full px-6 py-3"
+      >
+        Tirer les cartes du Tarot &rarr;
+      </a>
+    </footer>
+  </article>
+</BaseLayout>

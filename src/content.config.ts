@@ -14,4 +14,23 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+const signification = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/signification' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    lang: z.enum(['fr', 'en', 'zh', 'es', 'de', 'hi', 'ja']),
+    date: z.coerce.date(),
+    image: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    slug: z.string(),
+    numero: z.number(),
+    nom: z.string(),
+    element: z.string().optional(),
+    planete: z.string().optional(),
+    signe: z.string().optional(),
+    ouiNon: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, signification };

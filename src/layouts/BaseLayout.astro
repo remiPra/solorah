@@ -15,9 +15,10 @@ interface Props {
   lang: Lang;
   image?: string;
   structuredData?: Record<string, unknown>;
+  citationTitle?: string;
 }
 
-const { title, description, lang, image, structuredData } = Astro.props;
+const { title, description, lang, image, structuredData, citationTitle } = Astro.props;
 const currentPath = Astro.url.pathname;
 const canonicalURL = new URL(Astro.url.pathname, 'https://solorah.com');
 
@@ -36,6 +37,7 @@ const jaPath = getTranslatedPath(currentPath, 'ja');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} | Solorah</title>
     <meta name="description" content={description} />
+    {citationTitle && <meta name="citation_title" content={citationTitle} />}
     <link rel="canonical" href={canonicalURL.href} />
 
     <!-- SPA-like navigation: keeps audio playing across pages -->

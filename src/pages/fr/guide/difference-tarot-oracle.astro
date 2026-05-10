@@ -1,0 +1,157 @@
+---
+import GuideLayout from '../../../layouts/GuideLayout.astro';
+
+const lang = 'fr';
+---
+
+<GuideLayout
+  title="Tarot ou Oracle — Quelle Différence ?"
+  description="Tarot de Marseille ou oracle divinatoire ? On t'explique les vraies différences pour choisir l'outil qui te correspond."
+  lang={lang}
+  breadcrumbs={[{ label: 'Guide', href: '/fr/guide' }, { label: 'Tarot vs Oracle' }]}
+  toc={[
+    { id: 'le-tarot', label: 'Le Tarot' },
+    { id: 'l-oracle', label: "L'Oracle" },
+    { id: 'tableau-comparatif', label: 'Tableau comparatif' },
+    { id: 'lequel-choisir', label: 'Lequel choisir ?' },
+    { id: 'les-deux', label: 'Et si les deux ?' },
+  ]}
+  ctaHref="/fr/tirage"
+  ctaLabel="Essaie les deux →"
+>
+
+  <p>C'est probablement la question qu'on me pose le plus souvent. "Tarot ou oracle, c'est pareil ?" Non. Pas du tout. Mais les deux ont leur place, et comprendre ce qui les distingue t'aidera à choisir l'outil qui te correspond — ou à utiliser les deux intelligemment.</p>
+
+  <h2 id="le-tarot">Le Tarot : un système structuré</h2>
+
+  <p>Le Tarot de Marseille est un <strong>système codifié</strong>. 78 cartes, toujours les mêmes. 22 arcanes majeurs, 56 arcanes mineurs répartis en quatre couleurs (bâtons, coupes, épées, deniers). Chaque carte a un numéro, un nom, une iconographie précise et un réseau de significations qui s'est construit sur des siècles de pratique.</p>
+
+  <p>C'est un langage. Avec sa grammaire, sa syntaxe, ses règles. Et comme tout langage, il faut l'apprendre pour le parler. Ça prend du temps. Mais une fois que tu le maîtrises (ou plutôt : une fois que tu commences à le maîtriser, parce qu'on n'en finit jamais), la richesse de ce qu'il peut exprimer est immense.</p>
+
+  <p>Le tarot s'inscrit dans une <strong>tradition</strong>. La tradition marseillaise, bien sûr, avec ses figures comme Jodorowsky et Camoin. Mais aussi des écoles plus anciennes, des correspondances avec la kabbale, la numérologie, l'astrologie. Chaque carte est un noeud dans un réseau symbolique vaste.</p>
+
+  <p>Points clés du tarot :</p>
+  <ul>
+    <li><strong>78 cartes</strong> (22 majeurs + 56 mineurs), structure fixe</li>
+    <li><strong>Cartes inversées</strong> possibles (ajoutent une couche de lecture)</li>
+    <li>Iconographie <strong>codifiée</strong> — les images ne changent pas d'un jeu à l'autre (dans la tradition de Marseille)</li>
+    <li>Un <strong>système de lecture</strong> qui repose sur les positions, les combinaisons, les axes de symétrie</li>
+    <li>Courbe d'apprentissage plus longue, mais profondeur quasi illimitée</li>
+  </ul>
+
+  <p>Si tu veux commencer à apprendre, notre <a href="/fr/guide/apprendre-tarot-marseille">guide pour débuter le tarot de Marseille</a> couvre toutes les bases. Tu peux aussi directement <a href="/fr/tirage/tarot-marseille">tirer les cartes du tarot de Marseille</a> pour une première expérience.</p>
+
+  <h2 id="l-oracle">L'Oracle : un espace de liberté</h2>
+
+  <p>Un oracle, c'est autre chose. Radicalement.</p>
+
+  <p>Il n'y a pas de structure universelle. Chaque oracle est <strong>la création d'un auteur ou d'une autrice</strong>. Le nombre de cartes varie (30, 44, 52, 72... aucune règle). Les thèmes sont libres : anges, animaux totems, déesses, chakras, plantes, pierres, affirmations positives. L'esthétique est propre à chaque jeu.</p>
+
+  <p>Là où le tarot te demande d'apprendre un système, l'oracle te dit : <em>fais confiance à ton ressenti</em>. Une carte tirée, une image contemplée, un mot qui résonne. L'interprétation est plus intuitive, plus directe, souvent plus douce aussi.</p>
+
+  <p>On ne va pas se mentir : cette liberté a un prix. Sans structure, la lecture peut devenir vague. "Je ressens quelque chose" n'est pas toujours suffisant. Mais pour qui développe une vraie connexion intuitive avec un jeu d'oracle, les messages peuvent être d'une précision surprenante.</p>
+
+  <blockquote>
+    <p>La première fois que j'ai tiré un oracle après des années de tarot exclusif, j'ai eu l'impression de passer d'un roman classique à un poème en vers libres. Moins de structure, plus de souffle. Déstabilisant — puis libérateur.</p>
+  </blockquote>
+
+  <p>Points clés de l'oracle :</p>
+  <ul>
+    <li><strong>Nombre de cartes variable</strong>, aucune structure imposée</li>
+    <li><strong>Pas de cartes inversées</strong> en général</li>
+    <li>Iconographie <strong>libre</strong>, propre à chaque créateur</li>
+    <li>Messages souvent plus <strong>accessibles</strong>, parfois écrits directement sur la carte</li>
+    <li>Prise en main rapide, mais profondeur variable selon le jeu</li>
+  </ul>
+
+  <p>Envie de tester ? Notre <a href="/fr/tirage/oracle-amour">oracle amour</a> et l'<a href="/fr/tirage/oracle-shiva">oracle de Shiva</a> sont disponibles en ligne gratuitement.</p>
+
+  <h2 id="tableau-comparatif">Tableau comparatif</h2>
+
+  <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+    <thead>
+      <tr style="border-bottom: 2px solid rgba(212, 168, 83, 0.4);">
+        <th style="text-align: left; padding: 0.75rem; color: var(--color-sol-gold);">Critère</th>
+        <th style="text-align: left; padding: 0.75rem; color: var(--color-sol-gold);">Tarot de Marseille</th>
+        <th style="text-align: left; padding: 0.75rem; color: var(--color-sol-gold);">Oracle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid rgba(212, 168, 83, 0.15);">
+        <td style="padding: 0.75rem;"><strong>Nombre de cartes</strong></td>
+        <td style="padding: 0.75rem;">78 (fixe)</td>
+        <td style="padding: 0.75rem;">Variable (30 à 72+)</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(212, 168, 83, 0.15);">
+        <td style="padding: 0.75rem;"><strong>Structure</strong></td>
+        <td style="padding: 0.75rem;">Codifiée, universelle</td>
+        <td style="padding: 0.75rem;">Libre, propre à chaque jeu</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(212, 168, 83, 0.15);">
+        <td style="padding: 0.75rem;"><strong>Cartes inversées</strong></td>
+        <td style="padding: 0.75rem;">Oui (optionnel)</td>
+        <td style="padding: 0.75rem;">Non (en général)</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(212, 168, 83, 0.15);">
+        <td style="padding: 0.75rem;"><strong>Tradition</strong></td>
+        <td style="padding: 0.75rem;">Multiséculaire</td>
+        <td style="padding: 0.75rem;">Moderne, auteur unique</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(212, 168, 83, 0.15);">
+        <td style="padding: 0.75rem;"><strong>Apprentissage</strong></td>
+        <td style="padding: 0.75rem;">Long, progressif</td>
+        <td style="padding: 0.75rem;">Rapide, intuitif</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(212, 168, 83, 0.15);">
+        <td style="padding: 0.75rem;"><strong>Approche</strong></td>
+        <td style="padding: 0.75rem;">Analytique + intuitive</td>
+        <td style="padding: 0.75rem;">Principalement intuitive</td>
+      </tr>
+      <tr style="border-bottom: 1px solid rgba(212, 168, 83, 0.15);">
+        <td style="padding: 0.75rem;"><strong>Profondeur</strong></td>
+        <td style="padding: 0.75rem;">Très profond</td>
+        <td style="padding: 0.75rem;">Variable selon le jeu</td>
+      </tr>
+      <tr>
+        <td style="padding: 0.75rem;"><strong>Ton</strong></td>
+        <td style="padding: 0.75rem;">Direct, parfois cru</td>
+        <td style="padding: 0.75rem;">Souvent bienveillant, doux</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="lequel-choisir">Lequel choisir ?</h2>
+
+  <p>Ça dépend de toi. Pas de ce que les gens disent sur Internet.</p>
+
+  <p><strong>Choisis le tarot si :</strong></p>
+  <ul>
+    <li>Tu aimes les systèmes, les structures, la logique derrière les symboles</li>
+    <li>Tu as envie d'un apprentissage long et profond</li>
+    <li>Tu veux un outil qui te confronte autant qu'il te guide</li>
+    <li>Tu es attiré par la tradition, l'histoire, les archétypes universels</li>
+  </ul>
+
+  <p><strong>Choisis un oracle si :</strong></p>
+  <ul>
+    <li>Tu préfères l'intuition brute à l'analyse</li>
+    <li>Tu veux des messages accessibles dès le premier tirage</li>
+    <li>Tu cherches un outil plus doux, plus "enveloppant"</li>
+    <li>Tu es attiré par un thème ou une esthétique spécifique</li>
+  </ul>
+
+  <p>Mais soyons honnêtes : cette question est un peu artificielle. Parce que dans la pratique, beaucoup de gens finissent par utiliser les deux. Et c'est très bien.</p>
+
+  <h2 id="les-deux">Et si tu utilisais les deux ?</h2>
+
+  <p>C'est ce que je fais. Clairement. Le tarot quand j'ai besoin de structure, de profondeur, de cette confrontation un peu rude que les arcanes majeurs savent si bien provoquer. L'oracle quand j'ai besoin d'une direction plus douce, d'un message d'encouragement, ou simplement d'un angle différent sur une situation.</p>
+
+  <p>Certains praticiens font même des tirages combinés : un tirage tarot pour l'analyse de la situation, puis une carte d'oracle tirée en complément pour le "message du coeur". Les deux outils se complètent naturellement.</p>
+
+  <p>Mais il y a une règle que je m'impose : <strong>ne pas mélanger les systèmes dans un même tirage</strong>. Le tarot a sa logique. L'oracle a la sienne. Les faire dialoguer, oui. Les confondre, non.</p>
+
+  <p>L'important, au fond, c'est de pratiquer. Régulièrement. Avec honnêteté. L'outil n'est qu'un miroir — c'est la qualité de ton regard qui fait la différence.</p>
+
+  <p>Tu veux explorer les deux approches ? Consulte notre <a href="/fr/tarot-gratuit">tarot gratuit en ligne</a> et notre <a href="/fr/oracle-gratuit">oracle gratuit</a>. Et si tu veux approfondir le tarot, commence par le <a href="/fr/guide/apprendre-tarot-marseille">guide d'apprentissage du Tarot de Marseille</a>.</p>
+
+</GuideLayout>

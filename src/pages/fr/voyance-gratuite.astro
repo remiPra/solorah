@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+
+const lang = 'fr';
+
+const faqData = [
+  { question: "La voyance en ligne est-elle vraiment gratuite ?", answer: "Oui, tous les tirages de cartes sur Solorah sont 100% gratuits. Pas de numéro surtaxé, pas d'abonnement, pas de frais cachés. Tu tires tes cartes librement, autant de fois que tu veux." },
+  { question: "Quelle est la différence entre voyance et tarot ?", answer: "La voyance désigne l'ensemble des pratiques de divination. Le tarot est un outil spécifique de voyance qui utilise des cartes codifiées (les arcanes) pour éclairer une situation. Sur Solorah, nous pratiquons la voyance par les cartes — tarot et oracles." },
+  { question: "La voyance gratuite en ligne est-elle fiable ?", answer: "La voyance par les cartes est un outil d'introspection, pas une science exacte. Elle capte l'énergie du moment et offre un éclairage symbolique sur ta question. Sa valeur dépend de ta sincérité et de ta capacité à écouter ce que les cartes révèlent." },
+  { question: "Faut-il s'inscrire pour la voyance gratuite ?", answer: "Non. Aucune inscription, aucun email, aucun numéro de téléphone. Tu choisis ton tirage et tu tires tes cartes immédiatement." },
+  { question: "Quels types de voyance proposez-vous ?", answer: "Nous proposons la voyance par les cartes : Tarot de Marseille (3 cartes, tirage en croix, tirage du jour), Oracle de l'Amour, Oracle de Shiva, et tirage Oui/Non. Chaque tirage est gratuit et instantané." },
+  { question: "La voyance peut-elle prédire l'avenir ?", answer: "Non. La voyance par les cartes éclaire les tendances et les dynamiques actuelles. Elle ne prédit pas un avenir figé. Les cartes montrent le paysage, tes choix restent les tiens." },
+  { question: "Est-ce que la voyance en ligne remplace un voyant ?", answer: "Non. Un tirage en ligne offre un éclairage personnel et immédiat. Pour une lecture approfondie et personnalisée, une consultation avec un tarologue expérimenté reste plus complète." }
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Voyance Gratuite en Ligne",
+      "description": "Voyance gratuite en ligne par les cartes.",
+      "url": "https://solorah.com/fr/voyance-gratuite"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqData.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+      }))
+    }
+  ]
+};
+
+const tirages = [
+  {
+    icon: '✦',
+    title: 'Tarot de Marseille',
+    subtitle: '3 cartes',
+    description: 'Le tirage classique passé-présent-avenir avec les 22 arcanes majeurs. Le pilier de la voyance par les cartes.',
+    href: '/fr/tirage/tarot-marseille',
+  },
+  {
+    icon: '☀',
+    title: 'Tirage du Jour',
+    subtitle: '1 carte',
+    description: 'Un arcane majeur pour éclairer ta journée. Un geste simple, chaque matin, pour prendre le pouls du moment.',
+    href: '/fr/tirage/tirage-du-jour',
+  },
+  {
+    icon: '✚',
+    title: 'Tirage en Croix',
+    subtitle: '5 cartes',
+    description: 'Le tirage le plus complet du Tarot de Marseille. Cinq positions pour explorer une question en profondeur.',
+    href: '/fr/tirage/tirage-en-croix',
+  },
+  {
+    icon: '♡',
+    title: 'Oracle de l\'Amour',
+    subtitle: '20 cartes',
+    description: 'Un oracle dédié aux questions du coeur. Relation, attirance, doute, retrouvailles — chaque carte éclaire ta vie sentimentale.',
+    href: '/fr/tirage/oracle-amour',
+  },
+  {
+    icon: 'ॐ',
+    title: 'Oracle de Shiva',
+    subtitle: '20 cartes',
+    description: 'Inspiré de la sagesse hindoue. Un oracle de transformation pour les moments de doute, de transition ou de quête intérieure.',
+    href: '/fr/tirage/oracle-shiva',
+  },
+  {
+    icon: '◯',
+    title: 'Tirage Oui Non',
+    subtitle: '1 carte',
+    description: 'Une question, une réponse. Oui ou non. Quand tu as besoin de clarté immédiate, sans détour.',
+    href: '/fr/tirage/tirage-oui-non',
+  },
+];
+---
+
+<BaseLayout
+  title="Voyance Gratuite en Ligne — Tirage de Cartes Sans Inscription"
+  description="Voyance gratuite en ligne par les cartes. Tarot de Marseille, Oracle de l'Amour, tirage oui/non. 100% gratuit, sans inscription, sans téléphone."
+  lang={lang}
+  structuredData={structuredData}
+>
+  <!-- Hero -->
+  <section class="pt-24 pb-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-8">
+        Voyance Gratuite en Ligne
+      </h1>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-4">
+        <p>
+          Voyance gratuite par les cartes. Pas de numéro surtaxé, pas de voyant au téléphone, pas de "première consultation offerte puis 3,50 € la minute". Ici, tu tires tes cartes toi-même — Tarot de Marseille, oracles, tirage oui/non — et tu lis ton message. C'est gratuit, c'est immédiat, et c'est sans inscription.
+        </p>
+        <p>
+          Quand j'ai commencé à m'intéresser à la voyance, j'ai d'abord vu ce que tout le monde voit : des plateformes de voyance téléphonique, des bannières criardes, des "médiums certifiés" à 5 € la minute. Ce n'est pas mon monde. Ce qui m'a toujours parlé, c'est la voyance par les cartes. Le geste de tirer une lame, l'image qui apparaît, l'interprétation qui se construit. Pas de spectacle, pas de performance. Juste un moment de lucidité silencieuse.
+        </p>
+        <p>
+          Solorah propose six tirages de voyance gratuits, tous fondés sur la tradition du Tarot de Marseille et sur des oracles créés avec soin. Aucun compte à créer, aucune donnée à fournir. Tu choisis ton tirage, tu te concentres, tu tires tes cartes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qu'est-ce que la voyance gratuite ? -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Qu'est-ce que la voyance gratuite ?
+      </h2>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-6">
+        <p>
+          La voyance, au sens large, désigne l'ensemble des arts divinatoires : cartomancie, astrologie, numérologie, lecture des lignes de la main. En France, ces pratiques relèvent du domaine du loisir et du divertissement. Ce n'est ni une science, ni une médecine, ni un conseil juridique. C'est un outil d'introspection, et c'est important de le poser clairement.
+        </p>
+        <p>
+          Quand on parle de "voyance gratuite" en ligne, il faut distinguer deux mondes. D'un côté, la voyance téléphonique — audiotel, numéros surtaxés, consultations par chat ou par SMS, souvent avec une "offre découverte" qui mène à un abonnement. De l'autre, la voyance par les cartes : tu tires toi-même tes lames, tu lis l'interprétation, tu fais ton propre chemin. Solorah est dans le second camp.
+        </p>
+        <p>
+          La voyance par les cartes fonctionne sur trois piliers. D'abord, le symbolisme : chaque carte porte une image chargée de sens, construite au fil des siècles. Ensuite, l'intuition : ce que tu ressens en voyant la carte compte autant que la définition "officielle". Enfin, l'introspection : les cartes ne prédisent pas l'avenir, elles éclairent le présent. Elles posent un miroir devant toi, et c'est à toi de regarder.
+        </p>
+        <p class="text-sol-cream/60 text-base italic border-l-2 border-sol-gold/20 pl-4">
+          La voyance relève des arts divinatoires et constitue un divertissement. Elle ne se substitue pas à un avis médical, juridique ou financier. Loi française : les prestations de voyance sont des services de loisir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Nos tirages de voyance gratuits -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-12">
+        Nos tirages de voyance gratuits
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {tirages.map((tirage) => (
+          <a href={tirage.href} class="group block">
+            <div class="border border-sol-gold/10 rounded-lg p-6 text-center hover:border-sol-gold/30 transition-all duration-300 h-full flex flex-col">
+              <div class="text-4xl mb-4 opacity-60 group-hover:opacity-100 transition-opacity">{tirage.icon}</div>
+              <h3 class="font-display text-xl text-sol-cream mb-1 group-hover:text-sol-gold transition-colors">{tirage.title}</h3>
+              <span class="font-ui text-xs text-sol-gold/60 uppercase tracking-wider mb-3">{tirage.subtitle}</span>
+              <p class="font-body text-sol-cream/80 leading-relaxed mb-4 flex-1">{tirage.description}</p>
+              <span class="inline-flex items-center justify-center gap-2 font-ui text-sm text-sol-gold tracking-wider uppercase group-hover:gap-3 transition-all">
+                Tirer les cartes
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Comment fonctionne la voyance par les cartes -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-12">
+        Comment fonctionne la voyance par les cartes
+      </h2>
+      <div class="space-y-8">
+        <div class="flex gap-6 items-start">
+          <span class="font-display text-3xl text-sol-gold/80 shrink-0 w-10 text-center">1</span>
+          <div>
+            <h3 class="font-display text-xl text-sol-cream mb-2">Choisis ton tirage</h3>
+            <p class="font-body text-sol-cream/80 leading-relaxed">
+              Tarot de Marseille pour une lecture symbolique structurée, oracle pour une guidance plus libre, tirage oui/non pour une réponse directe. Chaque tirage a son angle. Laisse-toi guider par ce qui t'attire.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <span class="font-display text-3xl text-sol-gold/80 shrink-0 w-10 text-center">2</span>
+          <div>
+            <h3 class="font-display text-xl text-sol-cream mb-2">Concentre-toi sur ta question</h3>
+            <p class="font-body text-sol-cream/80 leading-relaxed">
+              Prends un instant de calme. Respire. Formule ta question clairement — dans ta tête ou à voix haute. Une question précise donne un message plus net. "Que dois-je comprendre de cette situation ?" plutôt que "Est-ce que tout ira bien ?"
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <span class="font-display text-3xl text-sol-gold/80 shrink-0 w-10 text-center">3</span>
+          <div>
+            <h3 class="font-display text-xl text-sol-cream mb-2">Lis tes cartes et écoute</h3>
+            <p class="font-body text-sol-cream/80 leading-relaxed">
+              Les cartes se retournent. Chacune porte un message lié à sa position dans le tirage. Lis l'interprétation, mais surtout : écoute ta première réaction. Ce qui te touche, ce qui te surprend, ce qui te dérange — c'est souvent là que se cache le vrai message.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- FAQ -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Questions fréquentes
+      </h2>
+      <div class="space-y-4">
+        {faqData.map((faq) => (
+          <details class="group border border-sol-gold/10 rounded-lg p-4">
+            <summary class="font-display text-lg text-sol-cream cursor-pointer list-none flex items-center justify-between gap-4">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-sol-gold/50 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="font-body text-sol-cream/80 leading-relaxed mt-3 pl-0">
+              {faq.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Pour aller plus loin -->
+  <section class="py-8 pb-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-8">
+        Pour aller plus loin
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/fr/tarot-gratuit" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Tarot gratuit en ligne
+        </a>
+        <a href="/fr/oracle-gratuit" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Oracle gratuit en ligne
+        </a>
+        <a href="/fr/cartomancie-gratuite" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Cartomancie gratuite
+        </a>
+        <a href="/fr/guide/tarot-divinatoire" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Le Tarot divinatoire
+        </a>
+        <a href="/fr/guide/signification-arcanes-majeurs" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Signification des Arcanes Majeurs
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GoldDivider from '../../../components/ui/GoldDivider.astro';
+import YesNoReading from '../../../components/cards/YesNoReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'fr';
+const t = useTranslations(lang);
+
+const faqData = [
+  {
+    question: "Comment fonctionne la boule de cristal en ligne ?",
+    answer: "Notre boule de cristal utilise les 22 arcanes majeurs du Tarot de Marseille pour répondre à ta question par oui ou non. Concentre-toi sur ta question, clique, et laisse la carte se révéler."
+  },
+  {
+    question: "La boule de cristal est-elle gratuite ?",
+    answer: "Oui, 100% gratuit et sans inscription. Pas de compte à créer, pas de mail à donner. Tu poses ta question et tu obtiens ta réponse."
+  },
+  {
+    question: "Peut-on faire confiance à une boule de cristal en ligne ?",
+    answer: "La boule de cristal est un outil d'introspection, pas une science exacte. Elle capte l'énergie de l'instant et t'offre un éclairage sur ta question. La vraie réponse est souvent celle que tu connais déjà au fond de toi."
+  },
+  {
+    question: "Combien de fois puis-je consulter la boule de cristal ?",
+    answer: "Autant de fois que tu veux. Mais pour un résultat plus juste, concentre-toi sur une seule question par consultation et évite de reposer la même question en espérant une réponse différente."
+  },
+  {
+    question: "Quelle est la différence entre la boule de cristal et le tirage oui non ?",
+    answer: "La mécanique est la même : une question, une carte, une réponse. La boule de cristal est simplement une autre façon d'aborder le tirage oui/non, avec une approche plus intuitive et mystique."
+  }
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<BaseLayout
+  title="Boule de Cristal Gratuite en Ligne — Réponse Immédiate"
+  description="Posez votre question à la boule de cristal et obtenez une réponse oui ou non. Tirage gratuit avec le Tarot de Marseille, sans inscription."
+  lang={lang}
+  structuredData={structuredData}
+>
+  <!-- Hero -->
+  <section class="pt-24 pb-8 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-6">
+        Boule de Cristal Gratuite
+      </h1>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-4">
+        <p>
+          La boule de cristal. Cet objet qu'on imagine toujours posé sur une table en velours sombre, quelque part entre la fumée d'encens et la lueur d'une bougie. Il y a quelque chose de fascinant là-dedans. Pas parce qu'une sphère de verre prédit l'avenir — mais parce qu'elle invite à regarder autrement. A ralentir. A poser la question qu'on n'ose pas formuler à voix haute.
+        </p>
+        <p>
+          La première fois que j'ai vu une boule de cristal, c'était chez une vieille dame qui lisait les cartes dans son salon. Elle ne s'en servait presque jamais. Elle disait que la boule ne montrait rien qu'on ne savait déjà. Que son rôle, c'était de créer le silence nécessaire pour que la réponse remonte. J'ai mis du temps à comprendre ce qu'elle voulait dire. Aujourd'hui, je crois que c'est exactement ça.
+        </p>
+        <p>
+          Ici, la boule de cristal s'appuie sur les 22 arcanes majeurs du Tarot de Marseille. Tu poses ta question, tu cliques, et une carte se révèle avec sa réponse — oui ou non. Gratuit, sans inscription, sans fioritures. Juste toi et ta question.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <YesNoReading client:only="react" lang={lang} deck={tarotMarseilleDeck.cards} />
+
+  <!-- SEO content -->
+  <section class="py-16 px-4">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-6">Comment fonctionne la boule de cristal ?</h2>
+      <div class="font-body text-sol-cream/80 leading-relaxed space-y-4">
+        <p>Traditionnellement, la boule de cristal est un outil de cristallomancie — l'art de lire des visions dans une sphère transparente. Les voyants fixaient la boule pendant de longues minutes, laissant leur regard se perdre dans ses reflets, jusqu'à ce que des images ou des impressions émergent. Ce n'était pas de la magie de spectacle. C'était une pratique méditative, un pont entre le conscient et l'inconscient.</p>
+
+        <p>Notre version en ligne reprend l'esprit de cette pratique, pas la lettre. Pas de sphère en quartz, mais le même principe : tu te concentres sur une question précise, tu lâches prise, et tu laisses une réponse émerger. La carte du Tarot de Marseille qui apparaît joue le rôle du reflet dans le cristal. Elle ne te dit pas quoi faire. Elle te montre ce qui vibre autour de ta question, à cet instant.</p>
+
+        <p>Le mécanisme est simple. Si la carte sort à l'endroit, la réponse est oui. Renversée, c'est non. Mais au-delà du oui ou du non, chaque arcane majeur porte un message. Le Soleil n'a pas la même énergie que La Lune. L'Ermite ne parle pas comme Le Chariot. Prends le temps de lire l'interprétation qui accompagne ta carte — c'est souvent là que se trouve la nuance qui fait la différence.</p>
+
+        <p>Est-ce que c'est fiable ? La vraie question, c'est plutôt : est-ce que ta question est sincère ? Plus tu es honnête avec toi-même, plus la carte qui sort résonne avec ta situation. La boule de cristal, en ligne ou ailleurs, n'est qu'un miroir. Ce qu'elle te montre dépend de ce que tu lui apportes.</p>
+      </div>
+
+      <GoldDivider class="max-w-md mx-auto my-16" />
+
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-6">Boule de cristal et Tarot de Marseille</h2>
+      <div class="font-body text-sol-cream/80 leading-relaxed space-y-4">
+        <p>On associe rarement la boule de cristal au Tarot de Marseille. Et pourtant, les deux partagent la même racine : l'idée que certains outils permettent d'accéder à une forme de connaissance intérieure qu'on n'atteint pas par la réflexion seule. La boule de cristal passe par le visuel, le flou, l'hypnotique. Le Tarot passe par le symbole, l'arcane, le récit. Deux chemins différents vers le même endroit.</p>
+
+        <p>En combinant les deux, on obtient quelque chose d'intéressant. L'approche contemplative de la boule de cristal — ce moment de silence où tu te centres sur ta question — associée à la précision symbolique des 22 arcanes majeurs. Le Mat pour l'élan, La Justice pour l'équilibre, La Tour pour ce qui doit tomber. Chaque carte est un monde en soi, codifié depuis le XVe siècle.</p>
+
+        <p>C'est cette combinaison que Solorah te propose ici. L'expérience de la boule de cristal — intuitive, directe, mystique — portée par la profondeur du Tarot de Marseille. Pas besoin de choisir entre les deux. L'un nourrit l'autre.</p>
+      </div>
+
+      <GoldDivider class="max-w-md mx-auto my-16" />
+
+      <!-- FAQ -->
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-10">Questions fréquentes</h2>
+      <div class="space-y-6">
+        {faqData.map((faq) => (
+          <details class="group border border-sol-gold/10 rounded-lg p-4">
+            <summary class="font-display text-lg text-sol-cream cursor-pointer list-none flex items-center justify-between gap-4">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-sol-gold/50 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="font-body text-sol-cream/80 leading-relaxed mt-3 pl-0">
+              {faq.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+
+      <!-- Internal links -->
+      <div class="mt-16 text-center space-y-3">
+        <p class="font-body text-sol-ash text-sm">Explore aussi :</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/fr/tirage/tirage-oui-non" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Tirage Oui Non</a>
+          <a href="/fr/tirage/tarot-marseille" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Tarot de Marseille</a>
+          <a href="/fr/tirage/tirage-du-jour" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Tirage du jour</a>
+          <a href="/fr/guide/comment-tirer-les-cartes" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Comment tirer les cartes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

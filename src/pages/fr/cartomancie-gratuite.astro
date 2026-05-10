@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+
+const lang = 'fr';
+
+const faqData = [
+  {
+    question: "Qu'est-ce que la cartomancie ?",
+    answer: "La cartomancie est l'art de lire l'avenir dans les cartes. Traditionnellement pratiquée avec un jeu de 32 cartes (Petit Lenormand), elle se distingue du tarot par sa structure et ses méthodes d'interprétation."
+  },
+  {
+    question: "Quelle différence entre cartomancie et taromancie ?",
+    answer: "La cartomancie utilise un jeu de 32 cartes classiques (du 7 à l'As dans chaque couleur), tandis que la taromancie utilise les 78 lames du tarot (22 arcanes majeurs + 56 mineurs). Les deux sont des arts divinatoires, mais les systèmes symboliques sont différents."
+  },
+  {
+    question: "La cartomancie en ligne est-elle gratuite ?",
+    answer: "Oui, sur Solorah tous les tirages sont 100% gratuits et sans inscription. Nous proposons des tirages avec le Tarot de Marseille (22 arcanes majeurs), l'approche la plus riche et la plus symbolique des arts divinatoires par les cartes."
+  },
+  {
+    question: "Comment faire un tirage de 32 cartes gratuit ?",
+    answer: "Solorah ne propose pas de tirage avec 32 cartes classiques, mais utilise les 22 arcanes majeurs du Tarot de Marseille, qui offrent une lecture plus profonde et plus riche. Essayez notre tirage en croix (5 cartes) pour une exploration complète."
+  },
+  {
+    question: "Comment apprendre la cartomancie ?",
+    answer: "Commencez par comprendre les bases : chaque carte a une signification qui varie selon sa position et ses voisines. Pour le Tarot de Marseille, consultez notre guide complet des 22 arcanes majeurs."
+  },
+  {
+    question: "Quel est le meilleur tirage de cartes gratuit ?",
+    answer: "Le tirage en croix (5 cartes) est le plus complet pour une question précise. Le tirage 3 cartes (passé-présent-futur) est idéal pour un aperçu rapide. Le tirage oui/non donne une réponse directe."
+  }
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Cartomancie Gratuite en Ligne",
+      "description": "Découvrez la cartomancie gratuite en ligne.",
+      "url": "https://solorah.com/fr/cartomancie-gratuite"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqData.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ]
+};
+
+const tirages = [
+  {
+    icon: '✦',
+    title: 'Tarot de Marseille',
+    subtitle: '3 cartes',
+    description: 'Le tirage classique passé-présent-avenir avec les arcanes majeurs. La référence pour une lecture riche et symbolique.',
+    href: '/fr/tirage/tarot-marseille',
+  },
+  {
+    icon: '✚',
+    title: 'Tirage en Croix',
+    subtitle: '5 cartes',
+    description: 'Cinq positions pour explorer une question en profondeur. Le tirage le plus complet que nous proposons.',
+    href: '/fr/tirage/tirage-en-croix',
+  },
+  {
+    icon: '◯',
+    title: 'Tirage Oui / Non',
+    subtitle: '1 carte',
+    description: 'Une question, une réponse. Quand tu as besoin de clarté sans détour.',
+    href: '/fr/tirage/tirage-oui-non',
+  },
+];
+---
+
+<BaseLayout
+  title="Cartomancie Gratuite en Ligne — Tirage de Cartes Sans Inscription"
+  description="Découvrez la cartomancie gratuite en ligne. Comprendre la tradition des 32 cartes, la différence avec le tarot, et accédez à nos tirages gratuits."
+  lang={lang}
+  structuredData={structuredData}
+>
+  <!-- Hero -->
+  <section class="pt-24 pb-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-8">
+        Cartomancie Gratuite en Ligne
+      </h1>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-4">
+        <p>
+          La cartomancie, c'est l'un des plus vieux arts divinatoires par les cartes. Bien avant le tarot, bien avant les oracles illustrés, il y avait un jeu de 32 cartes sur une table et quelqu'un qui savait les lire. Simple en apparence. Redoutablement précis entre de bonnes mains.
+        </p>
+        <p>
+          J'ai découvert la cartomancie avant le tarot, en fait. Une amie de ma grand-mère qui tirait les cartes avec un vieux jeu de belote. Pas de mise en scène, pas de décorum. Juste les cartes, une question, et cette façon qu'elle avait de poser le doigt sur un pique ou un coeur en disant "ah, ça..." Et le plus troublant, c'est que ça parlait. Vraiment.
+        </p>
+        <p>
+          Sur Solorah, on a fait le choix du Tarot de Marseille plutôt que du jeu de 32 cartes. Pourquoi ? Parce que les 22 arcanes majeurs offrent une profondeur symbolique que les cartes classiques n'atteignent pas. Mais si tu viens de la cartomancie, tu te retrouveras ici. L'intention est la même : poser une question, tirer des cartes, et écouter ce qu'elles racontent. 100% gratuit, sans inscription.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qu'est-ce que la cartomancie -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Qu'est-ce que la cartomancie ?
+      </h2>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-6">
+        <p>
+          La cartomancie est l'art de prédire ou d'éclairer une situation à l'aide de cartes à jouer. Son histoire remonte au XVIIIe siècle, avec la tradition du Petit Lenormand -- du nom de Marie-Anne Lenormand, célèbre voyante parisienne qui lisait l'avenir pour Joséphine de Beauharnais et d'autres figures de l'époque napoléonienne. C'est elle qui a popularisé la pratique en France, et le jeu qui porte son nom reste aujourd'hui la référence de la cartomancie classique.
+        </p>
+        <p>
+          Le principe est simple : on utilise un jeu de 32 cartes, composé des cartes du 7 à l'As dans les quatre couleurs (coeur, carreau, trèfle, pique). Chaque carte porte une signification précise. Le roi de coeur, c'est l'homme aimant. Le 7 de pique, c'est le souci, l'obstacle. L'as de trèfle, c'est la réussite financière. Et ainsi de suite. Les combinaisons entre cartes voisines créent des lectures plus nuancées.
+        </p>
+        <p>
+          Ce qui distingue la cartomancie du tarot, c'est la nature du jeu et la profondeur symbolique. Les 32 cartes offrent des réponses directes, souvent concrètes, orientées vers le quotidien : travail, argent, relations. Le tarot, lui -- et en particulier le Tarot de Marseille avec ses 22 arcanes majeurs -- travaille sur un plan plus archétypal. Le Mat, La Papesse, La Maison Dieu... Ce sont des figures universelles qui parlent à l'inconscient, pas seulement au mental.
+        </p>
+        <p>
+          C'est pour cette raison que Solorah utilise le Tarot de Marseille. Non pas que la cartomancie manque de valeur -- elle a fait ses preuves depuis des siècles. Mais les arcanes majeurs permettent une lecture plus profonde, plus riche en couches de sens. Si tu cherches une réponse rapide sur une situation concrète, la cartomancie est redoutable. Si tu veux comprendre ce qui se joue vraiment, en profondeur, le tarot va plus loin.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Cartomancie vs Taromancie -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Cartomancie vs Taromancie
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full font-body text-sol-cream border-collapse">
+          <thead>
+            <tr class="border-b border-sol-gold/20">
+              <th class="text-left py-3 px-4 font-display text-sol-gold text-sm uppercase tracking-wider">Critère</th>
+              <th class="text-left py-3 px-4 font-display text-sol-gold text-sm uppercase tracking-wider">Cartomancie (32 cartes)</th>
+              <th class="text-left py-3 px-4 font-display text-sol-gold text-sm uppercase tracking-wider">Taromancie (Tarot)</th>
+            </tr>
+          </thead>
+          <tbody class="text-sol-cream/80">
+            <tr class="border-b border-sol-gold/10">
+              <td class="py-3 px-4 font-display text-sol-cream">Jeu</td>
+              <td class="py-3 px-4">32 cartes classiques</td>
+              <td class="py-3 px-4">78 lames (22 majeurs + 56 mineurs)</td>
+            </tr>
+            <tr class="border-b border-sol-gold/10">
+              <td class="py-3 px-4 font-display text-sol-cream">Tradition</td>
+              <td class="py-3 px-4">Petit Lenormand, XVIIIe siècle</td>
+              <td class="py-3 px-4">Tarot de Marseille, XVe siècle</td>
+            </tr>
+            <tr class="border-b border-sol-gold/10">
+              <td class="py-3 px-4 font-display text-sol-cream">Symbolisme</td>
+              <td class="py-3 px-4">Simple, direct</td>
+              <td class="py-3 px-4">Riche, archétypal</td>
+            </tr>
+            <tr class="border-b border-sol-gold/10">
+              <td class="py-3 px-4 font-display text-sol-cream">Apprentissage</td>
+              <td class="py-3 px-4">Accessible</td>
+              <td class="py-3 px-4">Plus profond</td>
+            </tr>
+            <tr class="border-b border-sol-gold/10">
+              <td class="py-3 px-4 font-display text-sol-cream">Types de questions</td>
+              <td class="py-3 px-4">Quotidien, pratique</td>
+              <td class="py-3 px-4">Existentiel, spirituel</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Nos tirages gratuits -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-12">
+        Nos tirages gratuits
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {tirages.map((tirage) => (
+          <a href={tirage.href} class="group block">
+            <div class="border border-sol-gold/10 rounded-lg p-6 text-center hover:border-sol-gold/30 transition-all duration-300 h-full flex flex-col">
+              <div class="text-4xl mb-4 opacity-60 group-hover:opacity-100 transition-opacity">{tirage.icon}</div>
+              <h3 class="font-display text-xl text-sol-cream mb-1 group-hover:text-sol-gold transition-colors">{tirage.title}</h3>
+              <span class="font-ui text-xs text-sol-gold/60 uppercase tracking-wider mb-3">{tirage.subtitle}</span>
+              <p class="font-body text-sol-cream/80 leading-relaxed mb-4 flex-1">{tirage.description}</p>
+              <span class="inline-flex items-center justify-center gap-2 font-ui text-sm text-sol-gold tracking-wider uppercase group-hover:gap-3 transition-all">
+                Tirer les cartes
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- FAQ -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Questions fréquentes
+      </h2>
+      <div class="space-y-4">
+        {faqData.map((faq) => (
+          <details class="group border border-sol-gold/10 rounded-lg p-4">
+            <summary class="font-display text-lg text-sol-cream cursor-pointer list-none flex items-center justify-between gap-4">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-sol-gold/50 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="font-body text-sol-cream/80 leading-relaxed mt-3 pl-0">
+              {faq.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Pour aller plus loin -->
+  <section class="py-8 pb-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-8">
+        Pour aller plus loin
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/fr/guide/signification-arcanes-majeurs" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Signification des Arcanes Majeurs
+        </a>
+        <a href="/fr/guide/apprendre-tarot-marseille" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Apprendre le Tarot de Marseille
+        </a>
+        <a href="/fr/guide/comment-tirer-les-cartes" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Comment tirer les cartes
+        </a>
+        <a href="/fr/tarot-gratuit" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Tarot gratuit en ligne
+        </a>
+        <a href="/fr/oracle-gratuit" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Oracle gratuit en ligne
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

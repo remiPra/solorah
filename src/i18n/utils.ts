@@ -93,6 +93,10 @@ const routeMap: Record<string, Record<Lang, string>> = {
   // FR landing pages
   '/tarot-gratuit': { fr: '/tarot-gratuit', en: '/free-tarot', zh: '/mian-fei-ta-luo', es: '/tarot-gratis', de: '/tarot-kostenlos', hi: '/muft-tarot', ja: '/muryou-tarot' },
   '/oracle-gratuit': { fr: '/oracle-gratuit', en: '/free-oracle', zh: '/mian-fei-shen-yu', es: '/oraculo-gratis', de: '/orakel-kostenlos', hi: '/muft-oracle', ja: '/muryou-orakuru' },
+  '/voyance-gratuite': { fr: '/voyance-gratuite', en: '/free-psychic-reading', zh: '/mian-fei-zhan-bu', es: '/videncia-gratis', de: '/wahrsagen-kostenlos', hi: '/muft-jyotish', ja: '/muryou-uranai' },
+  '/cartomancie-gratuite': { fr: '/cartomancie-gratuite', en: '/free-cartomancy', zh: '/mian-fei-zhan-ka', es: '/cartomancia-gratis', de: '/kartenlegen-kostenlos', hi: '/muft-taash-padhan', ja: '/muryou-cartomancy' },
+  '/tirage/boule-de-cristal': { fr: '/tirage/boule-de-cristal', en: '/reading/crystal-ball', zh: '/zhan-bu/shui-jing-qiu', es: '/lectura/bola-de-cristal', de: '/ziehung/kristallkugel', hi: '/taash/crystal-ball', ja: '/uranai/suishou-dama' },
+  '/guide/tarot-divinatoire': { fr: '/guide/tarot-divinatoire', en: '/guide/divinatory-tarot', zh: '/zhi-nan/zhan-bu-ta-luo', es: '/guia/tarot-adivinatorio', de: '/ratgeber/wahrsage-tarot', hi: '/margdarshak/jyotish-tarot', ja: '/gaido/uranai-tarot' },
   // Blog routes
   '/blog': { fr: '/blog', en: '/blog', zh: '/blog', es: '/blog', de: '/blog', hi: '/blog', ja: '/blog' },
   // EN routes
@@ -113,6 +117,10 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/meaning': { fr: '/signification', en: '/meaning', zh: '/han-yi', es: '/significado', de: '/bedeutung', hi: '/arth', ja: '/imi' },
   '/free-tarot': { fr: '/tarot-gratuit', en: '/free-tarot', zh: '/mian-fei-ta-luo', es: '/tarot-gratis', de: '/tarot-kostenlos', hi: '/muft-tarot', ja: '/muryou-tarot' },
   '/free-oracle': { fr: '/oracle-gratuit', en: '/free-oracle', zh: '/mian-fei-shen-yu', es: '/oraculo-gratis', de: '/orakel-kostenlos', hi: '/muft-oracle', ja: '/muryou-orakuru' },
+  '/free-psychic-reading': { fr: '/voyance-gratuite', en: '/free-psychic-reading', zh: '/mian-fei-zhan-bu', es: '/videncia-gratis', de: '/wahrsagen-kostenlos', hi: '/muft-jyotish', ja: '/muryou-uranai' },
+  '/free-cartomancy': { fr: '/cartomancie-gratuite', en: '/free-cartomancy', zh: '/mian-fei-zhan-ka', es: '/cartomancia-gratis', de: '/kartenlegen-kostenlos', hi: '/muft-taash-padhan', ja: '/muryou-cartomancy' },
+  '/reading/crystal-ball': { fr: '/tirage/boule-de-cristal', en: '/reading/crystal-ball', zh: '/zhan-bu/shui-jing-qiu', es: '/lectura/bola-de-cristal', de: '/ziehung/kristallkugel', hi: '/taash/crystal-ball', ja: '/uranai/suishou-dama' },
+  '/guide/divinatory-tarot': { fr: '/guide/tarot-divinatoire', en: '/guide/divinatory-tarot', zh: '/zhi-nan/zhan-bu-ta-luo', es: '/guia/tarot-adivinatorio', de: '/ratgeber/wahrsage-tarot', hi: '/margdarshak/jyotish-tarot', ja: '/gaido/uranai-tarot' },
   // ZH routes
   '/wo-de-zhan-bu': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/zhan-bu': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
@@ -124,6 +132,10 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/zi-xun': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
   '/lian-xi': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/fa-lv-sheng-ming': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
+  '/mian-fei-zhan-bu': { fr: '/voyance-gratuite', en: '/free-psychic-reading', zh: '/mian-fei-zhan-bu', es: '/videncia-gratis', de: '/wahrsagen-kostenlos', hi: '/muft-jyotish', ja: '/muryou-uranai' },
+  '/mian-fei-zhan-ka': { fr: '/cartomancie-gratuite', en: '/free-cartomancy', zh: '/mian-fei-zhan-ka', es: '/cartomancia-gratis', de: '/kartenlegen-kostenlos', hi: '/muft-taash-padhan', ja: '/muryou-cartomancy' },
+  '/zhan-bu/shui-jing-qiu': { fr: '/tirage/boule-de-cristal', en: '/reading/crystal-ball', zh: '/zhan-bu/shui-jing-qiu', es: '/lectura/bola-de-cristal', de: '/ziehung/kristallkugel', hi: '/taash/crystal-ball', ja: '/uranai/suishou-dama' },
+  '/zhi-nan/zhan-bu-ta-luo': { fr: '/guide/tarot-divinatoire', en: '/guide/divinatory-tarot', zh: '/zhi-nan/zhan-bu-ta-luo', es: '/guia/tarot-adivinatorio', de: '/ratgeber/wahrsage-tarot', hi: '/margdarshak/jyotish-tarot', ja: '/gaido/uranai-tarot' },
   // ES routes
   '/mis-lecturas': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/lectura': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
@@ -135,6 +147,10 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/consulta': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
   '/contacto': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/avisos-legales': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
+  '/videncia-gratis': { fr: '/voyance-gratuite', en: '/free-psychic-reading', zh: '/mian-fei-zhan-bu', es: '/videncia-gratis', de: '/wahrsagen-kostenlos', hi: '/muft-jyotish', ja: '/muryou-uranai' },
+  '/cartomancia-gratis': { fr: '/cartomancie-gratuite', en: '/free-cartomancy', zh: '/mian-fei-zhan-ka', es: '/cartomancia-gratis', de: '/kartenlegen-kostenlos', hi: '/muft-taash-padhan', ja: '/muryou-cartomancy' },
+  '/lectura/bola-de-cristal': { fr: '/tirage/boule-de-cristal', en: '/reading/crystal-ball', zh: '/zhan-bu/shui-jing-qiu', es: '/lectura/bola-de-cristal', de: '/ziehung/kristallkugel', hi: '/taash/crystal-ball', ja: '/uranai/suishou-dama' },
+  '/guia/tarot-adivinatorio': { fr: '/guide/tarot-divinatoire', en: '/guide/divinatory-tarot', zh: '/zhi-nan/zhan-bu-ta-luo', es: '/guia/tarot-adivinatorio', de: '/ratgeber/wahrsage-tarot', hi: '/margdarshak/jyotish-tarot', ja: '/gaido/uranai-tarot' },
   // DE routes
   '/meine-ziehungen': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/ziehung': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
@@ -146,6 +162,10 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/beratung': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
   '/kontakt': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/impressum': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
+  '/wahrsagen-kostenlos': { fr: '/voyance-gratuite', en: '/free-psychic-reading', zh: '/mian-fei-zhan-bu', es: '/videncia-gratis', de: '/wahrsagen-kostenlos', hi: '/muft-jyotish', ja: '/muryou-uranai' },
+  '/kartenlegen-kostenlos': { fr: '/cartomancie-gratuite', en: '/free-cartomancy', zh: '/mian-fei-zhan-ka', es: '/cartomancia-gratis', de: '/kartenlegen-kostenlos', hi: '/muft-taash-padhan', ja: '/muryou-cartomancy' },
+  '/ziehung/kristallkugel': { fr: '/tirage/boule-de-cristal', en: '/reading/crystal-ball', zh: '/zhan-bu/shui-jing-qiu', es: '/lectura/bola-de-cristal', de: '/ziehung/kristallkugel', hi: '/taash/crystal-ball', ja: '/uranai/suishou-dama' },
+  '/ratgeber/wahrsage-tarot': { fr: '/guide/tarot-divinatoire', en: '/guide/divinatory-tarot', zh: '/zhi-nan/zhan-bu-ta-luo', es: '/guia/tarot-adivinatorio', de: '/ratgeber/wahrsage-tarot', hi: '/margdarshak/jyotish-tarot', ja: '/gaido/uranai-tarot' },
   // HI routes
   '/mere-taash': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/taash': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
@@ -157,6 +177,10 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/paramarsh': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
   '/sampark': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/vidhi-suchna': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
+  '/muft-jyotish': { fr: '/voyance-gratuite', en: '/free-psychic-reading', zh: '/mian-fei-zhan-bu', es: '/videncia-gratis', de: '/wahrsagen-kostenlos', hi: '/muft-jyotish', ja: '/muryou-uranai' },
+  '/muft-taash-padhan': { fr: '/cartomancie-gratuite', en: '/free-cartomancy', zh: '/mian-fei-zhan-ka', es: '/cartomancia-gratis', de: '/kartenlegen-kostenlos', hi: '/muft-taash-padhan', ja: '/muryou-cartomancy' },
+  '/taash/crystal-ball': { fr: '/tirage/boule-de-cristal', en: '/reading/crystal-ball', zh: '/zhan-bu/shui-jing-qiu', es: '/lectura/bola-de-cristal', de: '/ziehung/kristallkugel', hi: '/taash/crystal-ball', ja: '/uranai/suishou-dama' },
+  '/margdarshak/jyotish-tarot': { fr: '/guide/tarot-divinatoire', en: '/guide/divinatory-tarot', zh: '/zhi-nan/zhan-bu-ta-luo', es: '/guia/tarot-adivinatorio', de: '/ratgeber/wahrsage-tarot', hi: '/margdarshak/jyotish-tarot', ja: '/gaido/uranai-tarot' },
   // JA routes
   '/watashi-no-uranai': { fr: '/mes-tirages', en: '/my-readings', zh: '/wo-de-zhan-bu', es: '/mis-lecturas', de: '/meine-ziehungen', hi: '/mere-taash', ja: '/watashi-no-uranai' },
   '/uranai': { fr: '/tirage', en: '/reading', zh: '/zhan-bu', es: '/lectura', de: '/ziehung', hi: '/taash', ja: '/uranai' },
@@ -168,6 +192,10 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/soudan': { fr: '/consultation', en: '/consultation', zh: '/zi-xun', es: '/consulta', de: '/beratung', hi: '/paramarsh', ja: '/soudan' },
   '/otoiawase': { fr: '/contact', en: '/contact', zh: '/lian-xi', es: '/contacto', de: '/kontakt', hi: '/sampark', ja: '/otoiawase' },
   '/houki-jouhou': { fr: '/mentions-legales', en: '/legal', zh: '/fa-lv-sheng-ming', es: '/avisos-legales', de: '/impressum', hi: '/vidhi-suchna', ja: '/houki-jouhou' },
+  '/muryou-uranai': { fr: '/voyance-gratuite', en: '/free-psychic-reading', zh: '/mian-fei-zhan-bu', es: '/videncia-gratis', de: '/wahrsagen-kostenlos', hi: '/muft-jyotish', ja: '/muryou-uranai' },
+  '/muryou-cartomancy': { fr: '/cartomancie-gratuite', en: '/free-cartomancy', zh: '/mian-fei-zhan-ka', es: '/cartomancia-gratis', de: '/kartenlegen-kostenlos', hi: '/muft-taash-padhan', ja: '/muryou-cartomancy' },
+  '/uranai/suishou-dama': { fr: '/tirage/boule-de-cristal', en: '/reading/crystal-ball', zh: '/zhan-bu/shui-jing-qiu', es: '/lectura/bola-de-cristal', de: '/ziehung/kristallkugel', hi: '/taash/crystal-ball', ja: '/uranai/suishou-dama' },
+  '/gaido/uranai-tarot': { fr: '/guide/tarot-divinatoire', en: '/guide/divinatory-tarot', zh: '/zhi-nan/zhan-bu-ta-luo', es: '/guia/tarot-adivinatorio', de: '/ratgeber/wahrsage-tarot', hi: '/margdarshak/jyotish-tarot', ja: '/gaido/uranai-tarot' },
 };
 
 /** Get the equivalent path in another language */

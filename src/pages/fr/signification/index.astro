@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export const prerender = true;
+
+const lang = 'fr';
+const cards = (await getCollection('signification'))
+  .filter((c) => c.data.lang === 'fr')
+  .sort((a, b) => a.data.numero - b.data.numero);
+---
+
+<BaseLayout
+  title="Signification des cartes du Tarot de Marseille"
+  description="Découvrez la signification de chaque carte du Tarot de Marseille. Interprétations complètes des 22 arcanes majeurs : amour, travail, oui/non, combinaisons."
+  lang={lang}
+>
+  <section class="max-w-4xl mx-auto px-4 py-16 sm:py-24">
+    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-sol-gold leading-tight text-center mb-4">
+      Signification des cartes du Tarot
+    </h1>
+    <p class="text-center font-body text-sol-ash max-w-2xl mx-auto mb-16">
+      Explorez la signification de chaque arcane majeur du Tarot de Marseille. Interprétations à l'endroit et inversée, en amour, au travail, et dans un tirage oui/non.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      {cards.map((card) => (
+        <a
+          href={`/${lang}/signification/${card.data.slug}`}
+          class="group flex flex-col items-center text-center p-4 rounded-xl border border-sol-gold/10 hover:border-sol-gold/40 transition-all hover:shadow-lg hover:shadow-sol-gold/5"
+        >
+          {card.data.image && (
+            <img
+              src={card.data.image}
+              alt={card.data.nom}
+              class="w-24 sm:w-28 rounded-lg mb-3 group-hover:scale-105 transition-transform"
+              loading="lazy"
+            />
+          )}
+          <span class="font-display text-sm text-sol-gold group-hover:text-sol-gold-light transition-colors">
+            {card.data.nom}
+          </span>
+          <span class="font-ui text-xs text-sol-ash/50 mt-1">
+            Arcane {card.data.numero}
+          </span>
+        </a>
+      ))}
+    </div>
+
+    {cards.length === 0 && (
+      <p class="text-center text-sol-ash font-body">Les pages de signification arrivent bientôt.</p>
+    )}
+  </section>
+</BaseLayout>

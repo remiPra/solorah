@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GoldDivider from '../../../components/ui/GoldDivider.astro';
+import YesNoReading from '../../../components/cards/YesNoReading';
+import { tarotMarseilleDeck } from '../../../data/tarot-marseille';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'fr';
+const t = useTranslations(lang);
+
+const faqData = [
+  {
+    question: "Comment fonctionne le tirage oui non ?",
+    answer: "Tu écris ta question dans le champ prévu, puis tu cliques sur « Tirer ma carte ». Une carte du Tarot de Marseille est tirée au hasard. Si elle apparaît à l'endroit, la réponse est oui. Si elle est renversée, c'est non. Tu reçois aussi le message de la carte pour approfondir ta réflexion."
+  },
+  {
+    question: "La réponse est-elle fiable ?",
+    answer: "Le tirage oui non du Tarot de Marseille est un outil d'introspection, pas une science exacte. Il capte l'énergie de l'instant autour de ta question. Plus ta question est précise et sincère, plus la carte tirée résonnera avec ta situation. Considère la réponse comme un éclairage, pas comme une vérité absolue."
+  },
+  {
+    question: "Combien de fois puis-je poser ma question ?",
+    answer: "Autant de fois que tu le souhaites. Mais un conseil : évite de poser la même question plusieurs fois d'affilée en espérant une réponse différente. Le premier tirage est souvent le plus juste. Si tu veux creuser un sujet, essaie plutôt un tirage en croix ou un tirage à trois cartes."
+  },
+  {
+    question: "Quelle question poser au tarot ?",
+    answer: "Formule une question fermée, à laquelle on peut répondre par oui ou par non. Par exemple : « Est-ce le bon moment pour changer de travail ? » plutôt que « Que va-t-il se passer dans ma carrière ? ». Plus ta question est claire et précise, plus la réponse du tarot sera pertinente."
+  },
+  {
+    question: "Le tirage oui non est-il gratuit ?",
+    answer: "Oui, 100% gratuit et sans inscription. Pas de mail, pas d'abonnement, pas de piège. Tu tires ta carte librement, autant de fois que tu veux."
+  },
+  {
+    question: "Quelle est la différence entre tarot oui non et tirage en croix ?",
+    answer: "Le tirage oui non te donne une réponse directe : oui ou non. Le tirage en croix utilise 5 cartes pour explorer une situation en profondeur — contexte, obstacles, influences, conseil et résultat. Le oui non tranche, le tirage en croix nuance."
+  }
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<BaseLayout
+  title="Tirage Oui Non Gratuit — Réponse Immédiate"
+  description="Pose ta question et tire une carte du Tarot de Marseille pour obtenir une réponse oui ou non. Tirage gratuit et instantané."
+  lang={lang}
+  structuredData={structuredData}
+>
+  <section class="pt-24 pb-8 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-6">
+        Tirage Oui Non Gratuit
+      </h1>
+      <p class="font-body text-lg text-sol-cream leading-relaxed">
+        Tu as une question qui te trotte dans la tête ? Tire une carte du Tarot de Marseille et obtiens ta réponse oui ou non, immédiatement et gratuitement.
+      </p>
+    </div>
+  </section>
+
+  <YesNoReading client:only="react" lang={lang} deck={tarotMarseilleDeck.cards} />
+
+  <!-- SEO content below the reading -->
+  <section class="py-16 px-4">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-6">Comment fonctionne le tirage oui non ?</h2>
+      <div class="font-body text-sol-cream/80 leading-relaxed space-y-4">
+        <p>Le tirage oui non avec le Tarot de Marseille, c'est probablement la forme de divination la plus ancienne et la plus directe qui existe. Pas de longues interprétations. Pas de zones grises. Une question, une carte, une réponse. Dans la tradition des cartomanciens marseillais, on tirait une seule lame pour trancher un doute. C'est exactement ce qu'on te propose ici.</p>
+
+        <p>Mais comment ça marche, concrètement ? Tu formules ta question — clairement, avec un vrai oui ou non possible — puis tu tires ta carte. Si l'arcane sort à l'endroit, la réponse est oui. Renversé ? C'est non. En vrai, c'est aussi simple que ça. Et c'est cette simplicité qui fait toute la puissance du tirage.</p>
+
+        <p>Est-ce que ça veut dire que le destin est figé dans une carte ? Pas du tout. Le Tarot de Marseille ne prédit pas l'avenir comme une sentence. Il éclaire l'énergie du moment. La carte qui sort reflète ce qui vibre autour de ta question, ici et maintenant. C'est un miroir, pas une prison.</p>
+
+        <p>Et le message qui accompagne ta carte n'est pas là par hasard. Chaque arcane majeur porte une sagesse qui dépasse le simple oui ou non. Prends le temps de le lire. Parfois, c'est dans ces quelques mots que se cache la vraie réponse — celle que tu connaissais déjà au fond de toi.</p>
+      </div>
+
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-6 mt-16">Tarot oui non gratuit</h2>
+      <div class="font-body text-sol-cream/80 leading-relaxed space-y-4">
+        <p>Le tarot oui non gratuit est l'outil le plus direct du Tarot de Marseille. Pas besoin d'être initié, pas besoin de connaître la symbolique de chaque arcane. Tu poses ta question, tu tires une carte, tu obtiens ta réponse. C'est la base de la taromancie depuis des siècles.</p>
+        <p>Sur Solorah, le tirage oui non utilise les 22 arcanes majeurs du Tarot de Marseille. Pas un jeu inventé, pas un oracle fantaisiste. Les mêmes lames que celles qu'on retrouve dans la tradition de Jodorowsky ou de Camoin. Chaque carte porte un message qui va au-delà du simple oui ou non.</p>
+        <p>Ce qui fait la force de ce tirage, c'est sa simplicité. Dans mes consultations, c'est souvent le premier tirage que je propose à quelqu'un qui n'a jamais touché un jeu de tarot. Parce qu'il suffit d'une question honnête et d'une carte pour que quelque chose se passe.</p>
+        <p>Gratuit, sans inscription, sans email. Tu peux tirer autant de cartes que tu veux, même si — conseil de tarologue — le premier tirage est souvent le bon.</p>
+      </div>
+
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-6 mt-16">Quelle carte donne oui ou non ?</h2>
+      <div class="font-body text-sol-cream/80 leading-relaxed space-y-4">
+        <p>Chaque arcane majeur du Tarot de Marseille a une tendance naturelle vers le oui ou le non. Voici le résumé des 22 lames :</p>
+      </div>
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full font-body text-sm">
+          <thead>
+            <tr class="border-b border-sol-gold/20">
+              <th class="text-left py-3 px-2 text-sol-gold font-display">Arcane</th>
+              <th class="text-left py-3 px-2 text-sol-gold font-display">Réponse</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/le-mat" class="text-sol-cream hover:text-sol-gold transition-colors">Le Mat</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (mais inattendu)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/le-bateleur" class="text-sol-cream hover:text-sol-gold transition-colors">Le Bateleur</a></td><td class="py-2 px-2 text-sol-cream/80">Oui</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/la-papesse" class="text-sol-cream hover:text-sol-gold transition-colors">La Papesse</a></td><td class="py-2 px-2 text-sol-cream/80">Peut-être (demande du temps)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/l-imperatrice" class="text-sol-cream hover:text-sol-gold transition-colors">L'Impératrice</a></td><td class="py-2 px-2 text-sol-cream/80">Oui</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/l-empereur" class="text-sol-cream hover:text-sol-gold transition-colors">L'Empereur</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (solide)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/le-pape" class="text-sol-cream hover:text-sol-gold transition-colors">Le Pape</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (si c'est juste)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/l-amoureux" class="text-sol-cream hover:text-sol-gold transition-colors">L'Amoureux</a></td><td class="py-2 px-2 text-sol-cream/80">Indécis (à toi de choisir)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/le-chariot" class="text-sol-cream hover:text-sol-gold transition-colors">Le Chariot</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (fonce)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/la-justice" class="text-sol-cream hover:text-sol-gold transition-colors">La Justice</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (si c'est juste)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/l-hermite" class="text-sol-cream hover:text-sol-gold transition-colors">L'Hermite</a></td><td class="py-2 px-2 text-sol-cream/80">Pas encore (patience)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/la-roue-de-fortune" class="text-sol-cream hover:text-sol-gold transition-colors">La Roue de Fortune</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (le destin est en mouvement)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/la-force" class="text-sol-cream hover:text-sol-gold transition-colors">La Force</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (avec courage et patience)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/le-pendu" class="text-sol-cream hover:text-sol-gold transition-colors">Le Pendu</a></td><td class="py-2 px-2 text-sol-cream/80">Non (pas maintenant, patience)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/l-arcane-sans-nom" class="text-sol-cream hover:text-sol-gold transition-colors">L'Arcane Sans Nom</a></td><td class="py-2 px-2 text-sol-cream/80">Non (fin d'un cycle)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/temperance" class="text-sol-cream hover:text-sol-gold transition-colors">Tempérance</a></td><td class="py-2 px-2 text-sol-cream/80">Plutôt Oui (avec patience)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/le-diable" class="text-sol-cream hover:text-sol-gold transition-colors">Le Diable</a></td><td class="py-2 px-2 text-sol-cream/80">Non (attachement, dépendance)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/la-maison-dieu" class="text-sol-cream hover:text-sol-gold transition-colors">La Maison Dieu</a></td><td class="py-2 px-2 text-sol-cream/80">Non (bouleversement soudain)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/l-etoile" class="text-sol-cream hover:text-sol-gold transition-colors">L'Étoile</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (espoir et inspiration)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/la-lune" class="text-sol-cream hover:text-sol-gold transition-colors">La Lune</a></td><td class="py-2 px-2 text-sol-cream/80">Plutôt Non</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/le-soleil" class="text-sol-cream hover:text-sol-gold transition-colors">Le Soleil</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (succès éclatant)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/le-jugement" class="text-sol-cream hover:text-sol-gold transition-colors">Le Jugement</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (renouveau, appel du destin)</td></tr>
+            <tr class="border-b border-sol-gold/5"><td class="py-2 px-2"><a href="/fr/signification/le-monde" class="text-sol-cream hover:text-sol-gold transition-colors">Le Monde</a></td><td class="py-2 px-2 text-sol-cream/80">Oui (accomplissement total)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="font-body text-sol-cream/60 text-sm mt-4 italic">Rappel : ces tendances s'appliquent quand la carte sort à l'endroit. Une carte renversée inverse la tendance.</p>
+
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-6 mt-16">Les meilleures questions à poser</h2>
+      <div class="font-body text-sol-cream/80 leading-relaxed space-y-4">
+        <p>Le tirage oui non fonctionne mieux avec des questions fermées, précises et sincères. Voici quelques exemples pour t'inspirer :</p>
+        <ul class="space-y-2 pl-4">
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Est-ce le bon moment pour changer de travail ?</li>
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Cette relation est-elle bonne pour moi ?</li>
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Dois-je faire confiance à cette personne ?</li>
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Vais-je recevoir de bonnes nouvelles bientôt ?</li>
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Est-ce que ce projet va aboutir ?</li>
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Suis-je sur le bon chemin ?</li>
+        </ul>
+        <p>Évite les questions trop vagues ("Est-ce que tout ira bien ?") ou les questions à choix multiples ("Dois-je faire A ou B ?"). Le tarot oui non donne une réponse binaire — ta question doit l'être aussi.</p>
+      </div>
+
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-10 mt-16">Questions fréquentes</h2>
+      <div class="space-y-6">
+        {faqData.map((faq) => (
+          <details class="group border border-sol-gold/10 rounded-lg p-4">
+            <summary class="font-body text-sol-cream cursor-pointer font-semibold">{faq.question}</summary>
+            <p class="font-body text-sol-ash mt-3 leading-relaxed">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+
+      <!-- Internal links -->
+      <div class="mt-16 text-center space-y-3">
+        <p class="font-body text-sol-ash text-sm">Découvre aussi nos autres tirages :</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/fr/tirage/tarot-marseille" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Tarot de Marseille</a>
+          <a href="/fr/tirage/tirage-du-jour" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Tirage du jour</a>
+          <a href="/fr/tirage/tirage-en-croix" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Tirage en croix</a>
+          <a href="/fr/guide/comment-tirer-les-cartes" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Comment tirer les cartes</a>
+          <a href="/fr/tirage/boule-de-cristal" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Boule de cristal</a>
+          <a href="/fr/voyance-gratuite" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Voyance gratuite</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

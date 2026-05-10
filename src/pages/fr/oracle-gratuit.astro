@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+
+const lang = 'fr';
+
+const faqData = [
+  {
+    question: "Quelle différence entre tarot et oracle ?",
+    answer: "Le tarot suit une structure fixe (22 arcanes majeurs dans le Tarot de Marseille), avec une symbolique codifiée depuis des siècles. L'oracle est plus libre : chaque jeu a ses propres cartes, ses propres thèmes, sa propre logique. Le tarot cadre, l'oracle ouvre."
+  },
+  {
+    question: "L'oracle est-il gratuit ?",
+    answer: "Oui, tous les oracles sur Solorah sont 100% gratuits. Pas d'inscription, pas de mail, pas d'abonnement. Tu tires tes cartes librement, autant de fois que tu veux."
+  },
+  {
+    question: "Quel oracle choisir ?",
+    answer: "L'Oracle de l'Amour est idéal pour les questions sentimentales et relationnelles. L'Oracle de Shiva convient aux questions de transformation intérieure et de chemin de vie. Le Tirage Oui/Non donne une réponse directe quand tu as besoin de trancher."
+  },
+  {
+    question: "Comment poser sa question à l'oracle ?",
+    answer: "Formule une question ouverte et sincère. Plutôt que 'Est-ce qu'il m'aime ?', essaie 'Que dois-je comprendre de cette relation ?' Plus ta question est honnête, plus la carte qui sort fait écho à ce que tu portes."
+  }
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const oracles = [
+  {
+    icon: '♡',
+    title: 'Oracle de l\'Amour',
+    subtitle: '20 cartes',
+    description: 'Un oracle dédié aux questions du coeur. Relation, attirance, rupture, retrouvailles : chaque carte éclaire ta vie sentimentale.',
+    href: '/fr/tirage/oracle-amour',
+  },
+  {
+    icon: 'ॐ',
+    title: 'Oracle de Shiva',
+    subtitle: '20 cartes',
+    description: 'Inspiré de la sagesse hindoue. Un oracle de transformation pour les moments de doute, de transition ou de quête intérieure.',
+    href: '/fr/tirage/oracle-shiva',
+  },
+  {
+    icon: '◯',
+    title: 'Tirage Oui / Non',
+    subtitle: '1 carte',
+    description: 'Une question, une réponse. Oui ou non. Quand tu as besoin de clarté, pas de nuances.',
+    href: '/fr/tirage/tirage-oui-non',
+  },
+];
+---
+
+<BaseLayout
+  title="Oracle Gratuit en Ligne"
+  description="Oracle gratuit en ligne : Oracle de l'Amour, Oracle de Shiva, Tirage Oui/Non. 100% gratuit, sans inscription."
+  lang={lang}
+  structuredData={structuredData}
+>
+  <!-- Hero -->
+  <section class="pt-24 pb-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-8">
+        Oracle Gratuit en Ligne
+      </h1>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-4">
+        <p>
+          Un oracle gratuit en ligne, sans inscription, sans email. Trois oracles différents pour trois types de questions. L'Oracle de l'Amour pour les affaires de coeur, l'Oracle de Shiva pour la transformation intérieure, et le Tirage Oui/Non quand tu veux une réponse franche.
+        </p>
+        <p>
+          La première fois que j'ai tiré une carte d'oracle (c'était un soir, tard, sur un vieux tapis), j'ai trouvé ça étrangement juste. Pas comme une prédiction. Plutôt comme un miroir. La carte ne dit pas ce qui va arriver. Elle montre ce que tu sais déjà, quelque part, mais que tu n'as pas encore formulé.
+        </p>
+        <p>
+          Solorah propose des oracles originaux, créés avec soin, 100% gratuits. Pas de publicité, pas de pop-up, pas de piège. Juste un espace pour tirer tes cartes tranquillement.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Les oracles disponibles -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-12">
+        Les oracles disponibles
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {oracles.map((oracle) => (
+          <a href={oracle.href} class="group block">
+            <div class="border border-sol-gold/10 rounded-lg p-6 text-center hover:border-sol-gold/30 transition-all duration-300 h-full flex flex-col">
+              <div class="text-4xl mb-4 opacity-60 group-hover:opacity-100 transition-opacity">{oracle.icon}</div>
+              <h3 class="font-display text-xl text-sol-cream mb-1 group-hover:text-sol-gold transition-colors">{oracle.title}</h3>
+              <span class="font-ui text-xs text-sol-gold/60 uppercase tracking-wider mb-3">{oracle.subtitle}</span>
+              <p class="font-body text-sol-cream/80 leading-relaxed mb-4 flex-1">{oracle.description}</p>
+              <span class="inline-flex items-center justify-center gap-2 font-ui text-sm text-sol-gold tracking-wider uppercase group-hover:gap-3 transition-all">
+                Tirer les cartes
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Différence tarot vs oracle -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Tarot ou oracle : quelle différence ?
+      </h2>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-6">
+        <p>
+          On confond souvent les deux. Normal. Mais la différence est assez nette une fois qu'on la connaît.
+        </p>
+        <p>
+          Le tarot — le Tarot de Marseille en particulier — suit une structure fixe. 22 arcanes majeurs, chacun avec une symbolique précise, codifiée depuis des siècles. Le Mat, La Papesse, La Roue de Fortune... Chaque lame a une place, un sens, une histoire. C'est un système. On l'apprend, on l'étudie, on le pratique.
+        </p>
+        <p>
+          L'oracle, c'est plus libre. Chaque jeu d'oracle est une création unique, avec ses propres cartes, ses propres thèmes, sa propre esthétique. Il n'y a pas de "règle" universelle. L'Oracle de l'Amour ne fonctionne pas comme l'Oracle de Shiva, et c'est fait exprès. L'oracle parle à l'intuition, le tarot parle au symbole.
+        </p>
+        <p>
+          En pratique, beaucoup de gens utilisent les deux. Et c'est une bonne idée.
+        </p>
+        <p>
+          <a href="/fr/guide/difference-tarot-oracle" class="text-sol-gold underline underline-offset-4 hover:text-sol-gold/80 transition-colors">
+            Lire notre guide complet : Tarot vs Oracle
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Comment ça marche -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-12">
+        Comment ça marche
+      </h2>
+      <div class="space-y-8">
+        <div class="flex gap-6 items-start">
+          <span class="font-display text-3xl text-sol-gold/80 shrink-0 w-10 text-center">1</span>
+          <div>
+            <h3 class="font-display text-xl text-sol-cream mb-2">Choisis ton oracle</h3>
+            <p class="font-body text-sol-cream/80 leading-relaxed">
+              Amour, transformation, ou oui/non. Chaque oracle a son angle. Laisse-toi guider par ce qui t'attire sur le moment.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <span class="font-display text-3xl text-sol-gold/80 shrink-0 w-10 text-center">2</span>
+          <div>
+            <h3 class="font-display text-xl text-sol-cream mb-2">Formule ta question</h3>
+            <p class="font-body text-sol-cream/80 leading-relaxed">
+              Prends un instant. Respire. Pose ta question sincèrement, à voix haute ou dans ta tête. Les questions ouvertes donnent les messages les plus riches. "Que dois-je voir dans cette situation ?" plutôt que "Est-ce que ça va marcher ?"
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <span class="font-display text-3xl text-sol-gold/80 shrink-0 w-10 text-center">3</span>
+          <div>
+            <h3 class="font-display text-xl text-sol-cream mb-2">Tire ta carte et lis ton message</h3>
+            <p class="font-body text-sol-cream/80 leading-relaxed">
+              La carte se révèle. Lis l'interprétation, mais fais aussi confiance à ta première réaction. Ce qui te touche, ce qui te surprend, ce qui te dérange — c'est souvent là que se trouve le vrai message.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- FAQ -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Questions fréquentes
+      </h2>
+      <div class="space-y-4">
+        {faqData.map((faq) => (
+          <details class="group border border-sol-gold/10 rounded-lg p-4">
+            <summary class="font-display text-lg text-sol-cream cursor-pointer list-none flex items-center justify-between gap-4">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-sol-gold/50 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="font-body text-sol-cream/80 leading-relaxed mt-3 pl-0">
+              {faq.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Related links -->
+  <section class="py-8 pb-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-8">
+        Pour aller plus loin
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/fr/guide/difference-tarot-oracle" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Tarot vs Oracle : le guide
+        </a>
+        <a href="/fr/tirage/tirage-3-cartes" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Tirage 3 cartes
+        </a>
+        <a href="/fr/tarot-gratuit" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Tarot gratuit en ligne
+        </a>
+        <a href="/fr/guide/tarot-amour-signification" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Tarot amour : signification
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

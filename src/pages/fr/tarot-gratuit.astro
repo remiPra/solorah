@@ -1,0 +1,302 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GoldDivider from '../../components/ui/GoldDivider.astro';
+
+const lang = 'fr';
+
+const faqData = [
+  {
+    question: "Est-ce vraiment gratuit ?",
+    answer: "Oui, tous nos tirages sont 100% gratuits et sans inscription. Pas de piège, pas d'abonnement caché."
+  },
+  {
+    question: "Combien de fois puis-je tirer les cartes ?",
+    answer: "Autant de fois que tu le souhaites. Mais pour un tirage plus juste, on recommande de se concentrer sur une question par session."
+  },
+  {
+    question: "Le tirage en ligne est-il fiable ?",
+    answer: "Le tirage en ligne utilise les mêmes 22 arcanes majeurs du Tarot de Marseille que le tirage physique. L'interprétation reste guidée par ton intuition et ta connexion au moment présent."
+  },
+  {
+    question: "Dois-je créer un compte ?",
+    answer: "Non. Aucune inscription, aucun email, aucune donnée personnelle. Tu tires tes cartes librement."
+  }
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const tirages = [
+  {
+    icon: '✦',
+    title: 'Tarot de Marseille',
+    subtitle: '3 cartes',
+    description: 'Le tirage classique passé-présent-avenir. Trois arcanes majeurs pour éclairer ta situation.',
+    href: '/fr/tirage/tarot-marseille',
+  },
+  {
+    icon: '☀',
+    title: 'Tirage du Jour',
+    subtitle: '1 carte',
+    description: 'Un arcane majeur pour donner le ton de ta journée. Simple, rapide, puissant.',
+    href: '/fr/tirage/tirage-du-jour',
+  },
+  {
+    icon: '✚',
+    title: 'Tirage en Croix',
+    subtitle: '5 cartes',
+    description: 'Le tirage le plus complet. Cinq positions pour explorer ta question en profondeur.',
+    href: '/fr/tirage/tirage-en-croix',
+  },
+];
+---
+
+<BaseLayout
+  title="Tirage de Tarot Gratuit en Ligne"
+  description="Tirage de tarot gratuit en ligne avec le Tarot de Marseille. 100% gratuit, sans inscription. Tire tes cartes et découvre ton message."
+  lang={lang}
+  structuredData={structuredData}
+>
+  <!-- Hero -->
+  <section class="pt-24 pb-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <GoldDivider class="max-w-xs mx-auto mb-8" />
+      <h1 class="font-display text-4xl sm:text-5xl text-sol-gold mb-8">
+        Tirage de Tarot Gratuit en Ligne
+      </h1>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-4">
+        <p>
+          Un tirage de tarot gratuit, avec les 22 arcanes majeurs du Tarot de Marseille. Pas d'inscription, pas de mail à donner, pas de compte à créer. Tu choisis ton tirage, tu te concentres, tu tires tes cartes. C'est tout.
+        </p>
+        <p>
+          J'ai tiré mes premières cartes il y a des années, sur un coin de table, avec un vieux jeu emprunté. Le tarot en ligne n'existait pas encore (ou alors il était moche). Ce qui m'a frappé ce jour-là, c'est que les cartes ne disent pas l'avenir. Elles posent les bonnes questions. Et parfois, c'est exactement ce dont on a besoin.
+        </p>
+        <p>
+          Solorah propose trois tirages de tarot de Marseille gratuits, chacun adapté à un usage différent. Que tu cherches une réponse rapide ou une exploration plus profonde, il y a un tirage pour toi.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Les tirages disponibles -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-12">
+        Les tirages disponibles
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {tirages.map((tirage) => (
+          <a href={tirage.href} class="group block">
+            <div class="border border-sol-gold/10 rounded-lg p-6 text-center hover:border-sol-gold/30 transition-all duration-300 h-full flex flex-col">
+              <div class="text-4xl mb-4 opacity-60 group-hover:opacity-100 transition-opacity">{tirage.icon}</div>
+              <h3 class="font-display text-xl text-sol-cream mb-1 group-hover:text-sol-gold transition-colors">{tirage.title}</h3>
+              <span class="font-ui text-xs text-sol-gold/60 uppercase tracking-wider mb-3">{tirage.subtitle}</span>
+              <p class="font-body text-sol-cream/80 leading-relaxed mb-4 flex-1">{tirage.description}</p>
+              <span class="inline-flex items-center justify-center gap-2 font-ui text-sm text-sol-gold tracking-wider uppercase group-hover:gap-3 transition-all">
+                Tirer les cartes
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Comment ça marche -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-12">
+        Comment ça marche
+      </h2>
+      <div class="space-y-8">
+        <div class="flex gap-6 items-start">
+          <span class="font-display text-3xl text-sol-gold/80 shrink-0 w-10 text-center">1</span>
+          <div>
+            <h3 class="font-display text-xl text-sol-cream mb-2">Choisis ton tirage</h3>
+            <p class="font-body text-sol-cream/80 leading-relaxed">
+              Trois cartes pour une vue d'ensemble, une carte pour ta journée, ou cinq cartes pour aller en profondeur. Chaque tirage a sa force.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <span class="font-display text-3xl text-sol-gold/80 shrink-0 w-10 text-center">2</span>
+          <div>
+            <h3 class="font-display text-xl text-sol-cream mb-2">Concentre-toi sur ta question</h3>
+            <p class="font-body text-sol-cream/80 leading-relaxed">
+              Prends une respiration. Formule ta question clairement, dans ta tête ou à voix haute. Le tarot fonctionne mieux quand la question est précise. "Comment avancer dans ma relation ?" plutôt que "Est-ce que tout ira bien ?"
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <span class="font-display text-3xl text-sol-gold/80 shrink-0 w-10 text-center">3</span>
+          <div>
+            <h3 class="font-display text-xl text-sol-cream mb-2">Tire tes cartes et lis ton message</h3>
+            <p class="font-body text-sol-cream/80 leading-relaxed">
+              Les cartes se retournent. Chaque arcane majeur porte un message symbolique lié à ta position dans le tirage. Lis l'interprétation, mais surtout : écoute ce qui résonne en toi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Pourquoi Solorah -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Pourquoi tirer les cartes sur Solorah
+      </h2>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-6">
+        <p>
+          Beaucoup de sites de tarot gratuit en ligne existent. Clairement, ce n'est pas ce qui manque. Mais la plupart ressemblent à des formulaires administratifs des années 2000, entre publicités clignotantes et promesses de voyance. Ce n'est pas l'idée ici.
+        </p>
+        <p>
+          Solorah utilise les 22 arcanes majeurs du Tarot de Marseille, le jeu historique qui structure la tradition du tarot depuis le XVe siècle. Pas de cartes inventées, pas de deck fantaisiste. Les mêmes lames que celles qu'on retrouve chez Jodorowsky, chez Camoin, ou dans les ouvrages de référence sur le sujet. Chaque carte est accompagnée d'une interprétation qui respecte la symbolique traditionnelle tout en restant accessible.
+        </p>
+        <p>
+          Et en vrai, le plus important pour un tirage de tarot, c'est l'état d'esprit dans lequel tu le fais. C'est pour ça que Solorah est pensé comme un espace calme. Pas de pop-ups, pas de compte à rebours, pas de "offre limitée". Juste toi, les cartes, et le silence pour lire ce qu'elles racontent.
+        </p>
+        <p>
+          100% gratuit, sans inscription, sans email. Parce que le tarot devrait être accessible à tout le monde, pas réservé à ceux qui ont un budget voyance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Tirage de tarot de Marseille gratuit sans inscription -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Tirage de tarot de Marseille gratuit sans inscription
+      </h2>
+      <div class="font-body text-lg text-sol-cream leading-relaxed space-y-6">
+        <p>
+          Pas de mail. Pas de mot de passe. Pas de "créez votre compte pour continuer". Sur Solorah, tu arrives, tu tires tes cartes, tu repars avec ton message. C'est tout.
+        </p>
+        <p>
+          Pourquoi tant de sites demandent une inscription pour un tirage de tarot gratuit ? Honnêtement, pour récolter des emails et vendre des consultations payantes derrière. Ce n'est pas le modèle ici. Solorah est un projet indépendant, sans pub, sans tracking invasif, sans newsletter forcée.
+        </p>
+        <p>
+          Le tirage utilise les 22 arcanes majeurs du Tarot de Marseille — les mêmes lames que celles décrites par Jodorowsky dans <em>La Voie du Tarot</em>. Chaque carte est accompagnée d'une interprétation qui respecte la symbolique traditionnelle. Tu peux aussi consulter notre <a href="/fr/guide/signification-arcanes-majeurs" class="text-sol-gold underline underline-offset-4 hover:text-sol-gold/80 transition-colors">guide complet des arcanes majeurs</a> pour approfondir chaque lame.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Les 22 arcanes du tarot -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Les 22 arcanes majeurs du Tarot de Marseille
+      </h2>
+      <p class="font-body text-lg text-sol-cream/80 leading-relaxed text-center mb-8">
+        Chaque arcane majeur porte un message unique. Clique sur une carte pour découvrir sa signification complète.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <a href="/fr/signification/le-mat" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">0 · Le Mat</a>
+        <a href="/fr/signification/le-bateleur" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">I · Le Bateleur</a>
+        <a href="/fr/signification/la-papesse" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">II · La Papesse</a>
+        <a href="/fr/signification/l-imperatrice" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">III · L'Impératrice</a>
+        <a href="/fr/signification/l-empereur" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">IIII · L'Empereur</a>
+        <a href="/fr/signification/le-pape" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">V · Le Pape</a>
+        <a href="/fr/signification/l-amoureux" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">VI · L'Amoureux</a>
+        <a href="/fr/signification/le-chariot" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">VII · Le Chariot</a>
+        <a href="/fr/signification/la-justice" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">VIII · La Justice</a>
+        <a href="/fr/signification/l-hermite" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">VIIII · L'Hermite</a>
+        <a href="/fr/signification/la-roue-de-fortune" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">X · La Roue de Fortune</a>
+        <a href="/fr/signification/la-force" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XI · La Force</a>
+        <a href="/fr/signification/le-pendu" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XII · Le Pendu</a>
+        <a href="/fr/signification/l-arcane-sans-nom" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XIII · L'Arcane Sans Nom</a>
+        <a href="/fr/signification/temperance" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XIIII · Tempérance</a>
+        <a href="/fr/signification/le-diable" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XV · Le Diable</a>
+        <a href="/fr/signification/la-maison-dieu" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XVI · La Maison Dieu</a>
+        <a href="/fr/signification/l-etoile" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XVII · L'Étoile</a>
+        <a href="/fr/signification/la-lune" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XVIII · La Lune</a>
+        <a href="/fr/signification/le-soleil" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XVIIII · Le Soleil</a>
+        <a href="/fr/signification/le-jugement" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XX · Le Jugement</a>
+        <a href="/fr/signification/le-monde" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-3 py-2 text-center text-sm hover:border-sol-gold/30">XXI · Le Monde</a>
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- FAQ -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl text-sol-gold text-center mb-10">
+        Questions fréquentes
+      </h2>
+      <div class="space-y-4">
+        {faqData.map((faq) => (
+          <details class="group border border-sol-gold/10 rounded-lg p-4">
+            <summary class="font-display text-lg text-sol-cream cursor-pointer list-none flex items-center justify-between gap-4">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-sol-gold/50 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="font-body text-sol-cream/80 leading-relaxed mt-3 pl-0">
+              {faq.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GoldDivider class="max-w-md mx-auto" />
+
+  <!-- Related guides -->
+  <section class="py-8 pb-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-8">
+        Pour aller plus loin
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/fr/guide/apprendre-tarot-marseille" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Apprendre le Tarot de Marseille
+        </a>
+        <a href="/fr/guide/signification-arcanes-majeurs" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Signification des Arcanes Majeurs
+        </a>
+        <a href="/fr/guide/comment-tirer-les-cartes" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Comment tirer les cartes
+        </a>
+        <a href="/fr/oracle-gratuit" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Oracle gratuit en ligne
+        </a>
+        <a href="/fr/voyance-gratuite" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Voyance gratuite en ligne
+        </a>
+        <a href="/fr/cartomancie-gratuite" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Cartomancie gratuite
+        </a>
+        <a href="/fr/guide/tarot-divinatoire" class="font-body text-sol-cream/70 hover:text-sol-gold transition-colors border border-sol-gold/10 rounded-lg px-4 py-2 hover:border-sol-gold/30">
+          Le tarot divinatoire
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

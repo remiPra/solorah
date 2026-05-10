@@ -1,0 +1,202 @@
+---
+import GuideLayout from '../../../layouts/GuideLayout.astro';
+
+const lang = 'fr';
+
+const faqData = [
+  { question: "Qu'est-ce que le tarot divinatoire ?", answer: "Le tarot divinatoire est l'art d'utiliser les cartes du tarot pour explorer une situation, éclairer une question, ou comprendre les dynamiques en jeu dans ta vie. Ce n'est pas de la prédiction — c'est un miroir symbolique." },
+  { question: "Quelle différence entre tarot de Marseille et Rider-Waite ?", answer: "Le Tarot de Marseille (XVe siècle) utilise une symbolique épurée et archétypale. Le Rider-Waite (1909) est plus illustratif avec des scènes narratives sur chaque carte. Les deux sont valides — le Marseille est plus profond pour qui prend le temps de l'étudier." },
+  { question: "Le tarot divinatoire est-il fiable ?", answer: "Le tarot n'est pas une science exacte. C'est un outil d'introspection qui utilise les symboles pour éclairer ce que tu vis. Sa fiabilité dépend de la qualité de ta question et de ta capacité à écouter ce que les cartes révèlent." },
+  { question: "Comment apprendre le tarot divinatoire ?", answer: "Commence par les 22 arcanes majeurs du Tarot de Marseille. Tire une carte par jour, note tes impressions. Lis des ouvrages de référence comme La Voie du Tarot de Jodorowsky. Et surtout : pratique, pratique, pratique." },
+  { question: "Peut-on faire un tirage de tarot divinatoire gratuit en ligne ?", answer: "Oui, Solorah propose plusieurs tirages gratuits avec le Tarot de Marseille : tirage 3 cartes, tirage en croix, tirage du jour, et tirage oui/non. Sans inscription, sans frais." },
+  { question: "Le tarot divinatoire prédit-il l'avenir ?", answer: "Non. Le tarot éclaire les tendances, les dynamiques et les possibilités. Il ne prédit pas un avenir figé. Tes choix restent les tiens — les cartes montrent le paysage, pas la destination." }
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Le Tarot Divinatoire — Guide Complet",
+      "description": "Guide complet du tarot divinatoire : histoire, pratique, les grands systèmes (Marseille, Rider-Waite, Thoth), les 22 arcanes majeurs et les types de tirages.",
+      "image": "https://solorah.com/images/og/solorah-default.jpg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Solorah",
+        "url": "https://solorah.com"
+      },
+      "inLanguage": "fr",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://solorah.com/fr/guide/tarot-divinatoire"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqData.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ]
+};
+---
+
+<GuideLayout
+  title="Le Tarot Divinatoire — Guide Complet"
+  description="Guide complet du tarot divinatoire : histoire, pratique, les grands systèmes, les 22 arcanes et les types de tirages."
+  lang={lang}
+  breadcrumbs={[{ label: 'Guide', href: '/fr/guide' }, { label: 'Tarot Divinatoire' }]}
+  toc={[
+    { id: 'quest-ce-que', label: "Qu'est-ce que le tarot divinatoire ?" },
+    { id: 'histoire', label: 'Histoire et origines' },
+    { id: 'les-grands-systemes', label: 'Les grands systèmes' },
+    { id: 'les-22-arcanes', label: 'Les 22 arcanes majeurs' },
+    { id: 'types-de-tirages', label: 'Les types de tirages' },
+    { id: 'comment-commencer', label: 'Comment commencer' },
+    { id: 'faq', label: 'FAQ' },
+  ]}
+  ctaHref="/fr/tirage/tarot-marseille"
+  ctaLabel="Tire tes cartes →"
+  structuredData={structuredData}
+>
+
+  <h2 id="quest-ce-que">Qu'est-ce que le tarot divinatoire ?</h2>
+
+  <p>Le tarot divinatoire, c'est l'art de lire les cartes du tarot pour explorer une question, éclairer une situation, ou mieux comprendre ce qui se joue dans ta vie. Et non, ce n'est pas de la voyance. Ce n'est pas non plus un truc de foire avec une boule de cristal et des rideaux en velours. C'est un outil d'introspection, vieux de plusieurs siècles, qui utilise les symboles pour te parler de toi.</p>
+
+  <p>Concrètement, un jeu de tarot divinatoire est composé de 78 cartes : 22 arcanes majeurs (les "grandes" cartes, les archétypes fondamentaux) et 56 arcanes mineurs (divisés en quatre couleurs). Quand on parle de "tarot divinatoire", on se concentre souvent sur les 22 majeurs, parce que c'est là que se trouve la substance. Chaque arcane majeur — du Mat au Monde — incarne une étape du parcours humain. Naissance, choix, épreuve, transformation, accomplissement. Tout est là.</p>
+
+  <p>Ce qui rend le tarot divinatoire puissant, ce n'est pas la magie. C'est la rencontre entre un symbole universel et ta situation personnelle. Quand tu tires L'Hermite après une semaine de doutes, ce n'est pas un hasard — c'est un miroir. La carte ne te dit pas quoi faire. Elle te montre ce que tu vis déjà, mais que tu n'as peut-être pas encore formulé. Et ça, c'est souvent plus utile qu'une prédiction.</p>
+
+  <p>Si tu veux essayer par toi-même, Solorah propose plusieurs <a href="/fr/tarot-gratuit">tirages de tarot gratuits</a> avec les 22 arcanes majeurs du Tarot de Marseille. Sans inscription, sans frais. Juste toi et les cartes.</p>
+
+  <h2 id="histoire">Histoire et origines du tarot divinatoire</h2>
+
+  <p>Les premières cartes de tarot apparaissent dans le nord de l'Italie au XVe siècle. On les appelle alors les <em>trionfi</em> — les triomphes. Le jeu Visconti-Sforza, commandé par la famille ducale de Milan vers 1440, est l'un des plus anciens qui nous soient parvenus. À cette époque, le tarot est un jeu de cartes. Un jeu aristocratique, certes, richement enluminé et doré à la feuille, mais un jeu. Personne ne songe encore à lire l'avenir avec.</p>
+
+  <p>Le basculement vers l'usage divinatoire se produit en France au XVIIIe siècle. En 1781, Antoine Court de Gébelin publie dans son <em>Monde primitif</em> une théorie audacieuse : les cartes du tarot seraient un héritage de l'Égypte ancienne, un Livre de Thoth codé en images. L'hypothèse est fausse historiquement, mais elle enflamme l'imagination. Quelques années plus tard, Jean-Baptiste Alliette — dit Etteilla — crée le premier jeu de tarot explicitement conçu pour la divination et publie des méthodes de tirage. Le tarot divinatoire tel qu'on le connaît est né.</p>
+
+  <p>Au XXe siècle, deux événements transforment la pratique. D'abord, la publication du Rider-Waite en 1909 à Londres, illustré par Pamela Colman Smith sous la direction d'Arthur Edward Waite. Ce jeu rend le tarot accessible à un public anglophone et introduit des scènes figuratives sur les arcanes mineurs — une révolution. Ensuite, dans les années 1990, Alejandro Jodorowsky et Philippe Camoin entreprennent la restauration du Tarot de Marseille, en revenant aux sources symboliques et chromatiques des jeux anciens. Leur travail redonne au Marseille une profondeur que des siècles de copies approximatives avaient érodée.</p>
+
+  <p>Aujourd'hui, le tarot divinatoire est pratiqué dans le monde entier, sous des formes qui vont de la tradition ésotérique rigoureuse au développement personnel grand public. Les outils changent — on tire des cartes en ligne, on regarde des vidéos YouTube — mais la mécanique reste la même : un symbole, une question, et la capacité de l'esprit humain à faire des liens que la raison seule ne ferait pas.</p>
+
+  <h2 id="les-grands-systemes">Les grands systèmes de tarot</h2>
+
+  <p>Tous les tarots ne se ressemblent pas. Il existe des dizaines de jeux, mais trois grandes traditions dominent la pratique du tarot divinatoire. Les connaître, c'est comprendre d'où viennent les cartes que tu tires — et pourquoi elles disent ce qu'elles disent.</p>
+
+  <h3>Le Tarot de Marseille</h3>
+
+  <p>Le classique. Le fondamental. Le Tarot de Marseille est le système le plus ancien encore en usage, avec ses racines dans les jeux italiens du XVe siècle et sa codification française aux XVIIe-XVIIIe siècles. Ses 22 arcanes majeurs utilisent une symbolique épurée, archétypale, presque brutale dans sa simplicité. Pas de fioritures narratives — chaque détail compte : la direction d'un regard, la couleur d'un vêtement, la position d'une main.</p>
+
+  <p>C'est le tarot qui demande le plus de travail. Et c'est aussi celui qui récompense le mieux cet effort. Si tu veux l'apprendre sérieusement, consulte notre <a href="/fr/guide/apprendre-tarot-marseille">guide pour apprendre le Tarot de Marseille</a>.</p>
+
+  <h3>Le Rider-Waite-Smith</h3>
+
+  <p>Publié en 1909 par Arthur Edward Waite et illustré par Pamela Colman Smith, le Rider-Waite est le tarot le plus populaire dans le monde anglophone. Sa grande innovation : des scènes figuratives sur les 56 arcanes mineurs, là où le Marseille ne montre que des motifs géométriques (dix coupes, six bâtons, etc.). Résultat : le Rider-Waite est plus intuitif pour les débutants. On "voit" immédiatement l'histoire que raconte la carte.</p>
+
+  <p>Mais cette accessibilité a un coût. L'illustration narrative oriente l'interprétation — parfois au détriment de la profondeur symbolique. Le Rider-Waite te montre ce que la carte veut dire. Le Marseille te laisse le découvrir.</p>
+
+  <h3>Le Thoth de Crowley</h3>
+
+  <p>Créé entre 1938 et 1943 par Aleister Crowley avec les peintures de Lady Frieda Harris, le Tarot Thoth est le plus ésotérique des trois grands systèmes. Chaque carte intègre des correspondances kabbalistiques, astrologiques et alchimiques. Les illustrations sont somptueuses — presque psychédéliques — et la structure théorique est d'une densité redoutable.</p>
+
+  <p>Le Thoth n'est pas un tarot pour commencer. C'est un tarot pour approfondir, une fois qu'on maîtrise les bases. Il s'adresse à ceux qui cherchent une lecture ésotérique complète, pas seulement psychologique.</p>
+
+  <p>Entre ces trois systèmes, le Tarot de Marseille reste à mes yeux la tradition la plus profonde. Non pas parce qu'il est "meilleur", mais parce que son dépouillement te force à développer ta propre lecture. Il ne te donne pas de réponses toutes faites. Il te pose des questions — et c'est là que commence le vrai travail.</p>
+
+  <h2 id="les-22-arcanes">Les 22 arcanes majeurs</h2>
+
+  <p>Les 22 arcanes majeurs sont le coeur du tarot divinatoire. Que tu utilises le Marseille, le Rider-Waite ou le Thoth, ces 22 cartes portent les archétypes fondamentaux. Voici chacune d'entre elles, avec un lien vers sa page de signification détaillée.</p>
+
+  <ul>
+    <li><a href="/fr/signification/le-mat">Le Mat</a> — Liberté, commencement, folie sacrée</li>
+    <li><a href="/fr/signification/le-bateleur">Le Bateleur</a> — Potentiel, initiative, créativité</li>
+    <li><a href="/fr/signification/la-papesse">La Papesse</a> — Intuition, savoir silencieux, gestation</li>
+    <li><a href="/fr/signification/limperatrice">L'Impératrice</a> — Fertilité, abondance, expression</li>
+    <li><a href="/fr/signification/lempereur">L'Empereur</a> — Autorité, structure, stabilité</li>
+    <li><a href="/fr/signification/le-pape">Le Pape</a> — Transmission, guidance, spiritualité</li>
+    <li><a href="/fr/signification/lamoureux">L'Amoureux</a> — Choix, union, engagement du coeur</li>
+    <li><a href="/fr/signification/le-chariot">Le Chariot</a> — Victoire, volonté, progression</li>
+    <li><a href="/fr/signification/la-justice">La Justice</a> — Équilibre, vérité, responsabilité</li>
+    <li><a href="/fr/signification/lhermite">L'Hermite</a> — Introspection, sagesse, solitude choisie</li>
+    <li><a href="/fr/signification/la-roue-de-fortune">La Roue de Fortune</a> — Cycle, changement, opportunité</li>
+    <li><a href="/fr/signification/la-force">La Force</a> — Courage, maîtrise de soi, énergie</li>
+    <li><a href="/fr/signification/le-pendu">Le Pendu</a> — Lâcher prise, suspension, regard neuf</li>
+    <li><a href="/fr/signification/larcane-sans-nom">L'Arcane sans Nom</a> — Transformation, fin de cycle, renouveau</li>
+    <li><a href="/fr/signification/temperance">Tempérance</a> — Harmonie, patience, guérison</li>
+    <li><a href="/fr/signification/le-diable">Le Diable</a> — Attachement, ombre, passion</li>
+    <li><a href="/fr/signification/la-maison-dieu">La Maison Dieu</a> — Effondrement, révélation, libération</li>
+    <li><a href="/fr/signification/letoile">L'Étoile</a> — Espoir, inspiration, sérénité</li>
+    <li><a href="/fr/signification/la-lune">La Lune</a> — Inconscient, illusions, intuition profonde</li>
+    <li><a href="/fr/signification/le-soleil">Le Soleil</a> — Joie, clarté, vitalité</li>
+    <li><a href="/fr/signification/le-jugement">Le Jugement</a> — Renaissance, appel intérieur, absolution</li>
+    <li><a href="/fr/signification/le-monde">Le Monde</a> — Accomplissement, plénitude, fin de cycle</li>
+  </ul>
+
+  <p>Pour une exploration approfondie de chaque arcane avec ses interprétations à l'endroit et inversé, consulte notre <a href="/fr/guide/signification-arcanes-majeurs">guide complet de la signification des arcanes majeurs</a>.</p>
+
+  <h2 id="types-de-tirages">Les types de tirages</h2>
+
+  <p>Le tirage, c'est la méthode que tu utilises pour disposer les cartes et les lire. Chaque tirage a sa logique, sa profondeur, son usage. Voici les principaux — ceux qui couvrent 90% des situations.</p>
+
+  <h3>Tirage 3 cartes</h3>
+
+  <p>Le classique passé-présent-futur. Trois arcanes, trois positions, une lecture fluide. C'est le tirage le plus accessible pour commencer et le plus polyvalent au quotidien. Il répond bien aux questions ouvertes du type "où en suis-je avec...?" ou "comment évolue cette situation?". <a href="/fr/tirage/tarot-marseille">Faire un tirage 3 cartes gratuit</a>.</p>
+
+  <h3>Tirage en croix</h3>
+
+  <p>Cinq cartes disposées en croix : la situation, l'obstacle, le conseil, l'issue, et la synthèse. C'est le tirage pour les questions qui méritent une exploration profonde. Plus complexe à lire, mais beaucoup plus riche en nuances. Quand le tirage 3 cartes te semble trop court pour ta question, passe à la croix. <a href="/fr/tirage/tirage-en-croix">Faire un tirage en croix gratuit</a>.</p>
+
+  <h3>Tirage du jour</h3>
+
+  <p>Une seule carte, tirée chaque matin. Pas de question précise — juste : "quel est le message du jour?". C'est un exercice de pratique quotidienne extraordinaire. Au bout d'un mois, tu connais les 22 arcanes majeurs de manière viscérale, pas intellectuelle. <a href="/fr/tirage/tirage-du-jour">Faire un tirage du jour gratuit</a>.</p>
+
+  <h3>Tirage oui/non</h3>
+
+  <p>Pour les questions fermées qui attendent une réponse directe. Oui ou non. Le tirage oui/non utilise l'énergie de la carte tirée pour donner une tendance claire. Utile quand tu tournes en rond sur une décision. Mais attention : le tarot n'est pas un interrupteur. Le "oui" ou le "non" vient toujours avec des nuances. <a href="/fr/tirage/tirage-oui-non">Faire un tirage oui/non gratuit</a>.</p>
+
+  <h3>Tirage amour</h3>
+
+  <p>Un tirage spécifiquement conçu pour les questions sentimentales. Relation amoureuse, rupture, rencontre, blocage affectif — c'est le tirage le plus demandé, et pour cause. L'amour est le terrain où nos angles morts sont les plus grands. Les cartes aident à voir ce qu'on refuse de regarder. <a href="/fr/tirage/tirage-amour">Faire un tirage amour gratuit</a>.</p>
+
+  <p>Pour apprendre à tirer les cartes toi-même avec un jeu physique, consulte notre guide <a href="/fr/guide/comment-tirer-les-cartes">comment tirer les cartes soi-même</a>.</p>
+
+  <h2 id="comment-commencer">Comment commencer le tarot divinatoire</h2>
+
+  <p>Quand j'ai commencé le tarot, j'ai fait l'erreur que tout le monde fait : j'ai voulu tout apprendre en même temps. Les 78 cartes, les combinaisons, les tirages complexes, la kabbale, l'astrologie associée... Résultat : j'étais noyé en trois jours. Ne fais pas ça.</p>
+
+  <p>Le tarot divinatoire s'apprend comme un instrument de musique. Pas en lisant la théorie, mais en pratiquant. Tous les jours. Avec patience. Voici ce que je recommande à quelqu'un qui part de zéro :</p>
+
+  <ol>
+    <li><strong>Choisis un jeu et tiens-t'y.</strong> Le Tarot de Marseille restauré par Camoin-Jodorowsky est mon premier choix. Le Rider-Waite est une bonne alternative si tu préfères des images narratives. Mais ne change pas de jeu toutes les semaines — tu as besoin de construire une relation avec tes cartes.</li>
+    <li><strong>Commence par les 22 arcanes majeurs.</strong> Mets les 56 mineurs de côté. Sérieusement. 22 cartes, c'est déjà un univers entier. Les mineurs viendront plus tard.</li>
+    <li><strong>Tire une carte par jour.</strong> Chaque matin, tire un arcane. Regarde-le. Note tes impressions brutes dans un carnet — ce que tu vois, ce que tu ressens, ce qui te dérange. Le soir, relis ta note et compare avec ta journée. Au bout de 22 jours, tu as rencontré chaque arcane au moins une fois.</li>
+    <li><strong>Tiens un journal de tirages.</strong> Date, question, cartes tirées, interprétation immédiate, et — quelques semaines plus tard — ce qui s'est réellement passé. Ce journal est ton meilleur professeur. Il te montre où tu lis juste et où tu projettes.</li>
+    <li><strong>Lis La Voie du Tarot de Jodorowsky.</strong> C'est l'ouvrage de référence sur le Tarot de Marseille. Dense, parfois ésotérique, mais profondément riche. Ne le lis pas d'un coup — prends-le carte par carte, en parallèle de ta pratique.</li>
+    <li><strong>Pratique avec des questions simples.</strong> Pas "quand vais-je rencontrer l'amour de ma vie?". Plutôt : "qu'est-ce que je dois voir dans ma situation actuelle?" ou "quel aspect de moi-même demande de l'attention?". Les bonnes questions donnent de bonnes lectures.</li>
+  </ol>
+
+  <p>Et un dernier conseil, peut-être le plus important : ne cherche pas à avoir raison. Le tarot n'est pas un examen. Il n'y a pas de "bonne" interprétation. Il y a ta lecture, dans ce moment précis, avec cette question précise. Et elle est valide.</p>
+
+  <h2 id="faq">Questions fréquentes</h2>
+
+  {faqData.map((faq) => (
+    <details class="group border border-sol-gold/10 rounded-lg p-4 mb-4">
+      <summary class="font-display text-lg text-sol-cream cursor-pointer list-none flex items-center justify-between gap-4">
+        <span>{faq.question}</span>
+        <svg class="w-5 h-5 text-sol-gold/50 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <p class="font-body text-sol-cream/80 leading-relaxed mt-3 pl-0">{faq.answer}</p>
+    </details>
+  ))}
+
+  <p class="text-sol-cream/50 text-sm mt-12 italic">Le tarot divinatoire est un outil d'introspection. Il ne se substitue pas à un avis médical, juridique ou financier.</p>
+
+</GuideLayout>

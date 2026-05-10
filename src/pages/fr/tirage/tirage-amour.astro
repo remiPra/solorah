@@ -7,12 +7,53 @@ import { useTranslations } from '../../../i18n/utils';
 
 const lang = 'fr';
 const t = useTranslations(lang);
+
+const faqData = [
+  {
+    question: "Comment fonctionne le tirage amour ?",
+    answer: "Concentre-toi sur ta question sentimentale, parcours les cartes et choisis celle qui t'attire. L'Oracle de l'Amour te délivrera un message personnalisé."
+  },
+  {
+    question: "Puis-je faire plusieurs tirages ?",
+    answer: "Oui, tu peux recommencer autant de fois que tu le souhaites. Cependant, pour un tirage plus précis, nous recommandons de te concentrer sur une seule question par session."
+  },
+  {
+    question: "Le tirage est-il gratuit ?",
+    answer: "Oui, tous nos tirages sont 100% gratuits et sans inscription. Pas de mail, pas d'abonnement caché."
+  },
+  {
+    question: "Quelle question poser au tarot amour ?",
+    answer: "Les meilleures questions sont ouvertes et sincères : « Que dois-je comprendre de cette relation ? », « Quel message l'univers a pour mon cœur ? », « Comment avancer sur le plan sentimental ? ». Évite les questions fermées comme « Est-ce qu'il m'aime ? » — préfère « Que dois-je voir dans cette relation ? »."
+  },
+  {
+    question: "Quelle est la différence entre le tarot amour et l'oracle amour ?",
+    answer: "Le Tarot de Marseille en tirage amour utilise les 22 arcanes majeurs avec une symbolique codifiée. L'Oracle de l'Amour de Solorah est un jeu original de 44 cartes créé spécifiquement pour les questions sentimentales, avec des messages plus directs et intuitifs."
+  },
+  {
+    question: "Le tarot amour prédit-il l'avenir de ma relation ?",
+    answer: "Le tarot amour n'est pas une prédiction. C'est un miroir de l'énergie présente autour de ta question. Il éclaire ce qui se passe maintenant et t'aide à prendre conscience de dynamiques que tu ne voyais peut-être pas. Les cartes ne décident pas à ta place."
+  }
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
 
 <BaseLayout
   title={t('pages.loveReading.title')}
   description={t('pages.loveReading.metaDescription')}
   lang={lang}
+  structuredData={structuredData}
 >
   <!-- SEO intro -->
   <section class="pt-24 pb-8 px-4">
@@ -33,23 +74,64 @@ const t = useTranslations(lang);
   <!-- Interactive reading -->
   <OracleReading client:only="react" lang={lang} deck={oracleAmourDeck.cards} />
 
+  <!-- Les cartes les plus importantes en amour -->
+  <section class="py-16 px-4">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-6">Les cartes les plus importantes en amour</h2>
+      <div class="font-body text-sol-cream/80 leading-relaxed space-y-4">
+        <p>Dans le Tarot de Marseille, certaines cartes résonnent plus fort que d'autres quand on parle d'amour. Ce sont celles que je vois revenir le plus souvent dans mes tirages sentimentaux.</p>
+        <p><a href="/fr/signification/l-amoureux" class="text-sol-gold underline underline-offset-2 hover:text-sol-gold/80">L'Amoureux</a> (Arcane VI) est la carte du choix amoureux par excellence. Elle ne parle pas forcément de romance — elle parle de décision. Qui choisis-tu ? Quel chemin prends-tu ? C'est la carte qui tombe quand un triangle amoureux se forme, ou quand tu dois choisir entre la raison et le cœur.</p>
+        <p><a href="/fr/signification/l-imperatrice" class="text-sol-gold underline underline-offset-2 hover:text-sol-gold/80">L'Impératrice</a> (Arcane III) incarne la sensualité, la fertilité, l'amour qui crée. Quand elle apparaît dans un tirage amour, c'est souvent signe d'une énergie féminine puissante, d'un désir qui s'épanouit, ou d'une relation qui porte ses fruits.</p>
+        <p><a href="/fr/signification/le-soleil" class="text-sol-gold underline underline-offset-2 hover:text-sol-gold/80">Le Soleil</a> (Arcane XVIIII) est la carte la plus positive du tarot. En amour, elle annonce une relation lumineuse, un bonheur partagé, une union authentique. C'est le "oui" le plus franc que le tarot puisse donner sur une question sentimentale.</p>
+        <p><a href="/fr/signification/la-lune" class="text-sol-gold underline underline-offset-2 hover:text-sol-gold/80">La Lune</a> (Arcane XVIII) parle des zones d'ombre dans une relation. Les non-dits, les peurs, les projections. Elle n'est pas négative — elle invite à regarder ce qu'on préfère ignorer. En amour, elle demande de l'honnêteté avec soi-même.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions à poser au tarot amour -->
+  <section class="py-8 px-4">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-display text-2xl text-sol-gold text-center mb-6">Questions à poser au tarot amour</h2>
+      <div class="font-body text-sol-cream/80 leading-relaxed space-y-4">
+        <p>La qualité de ton tirage dépend en grande partie de la qualité de ta question. Voici quelques formulations qui fonctionnent bien :</p>
+        <ul class="space-y-2 pl-4">
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Que dois-je comprendre de cette relation ?</li>
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Quel message l'univers a pour mon cœur en ce moment ?</li>
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Que dois-je voir que je ne vois pas dans ma vie sentimentale ?</li>
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Comment puis-je attirer un amour authentique ?</li>
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Quelle énergie dois-je cultiver pour ma relation ?</li>
+          <li class="before:content-['•'] before:text-sol-gold before:mr-3">Que me dit cette carte sur ma prochaine rencontre ?</li>
+        </ul>
+        <p>Évite les questions trop fermées comme "Est-ce qu'il va revenir ?" ou "Est-ce qu'elle m'aime ?". Le tarot amour fonctionne mieux quand tu lui laisses de l'espace pour te parler.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="py-16 px-4">
     <div class="max-w-2xl mx-auto">
       <h2 class="font-display text-2xl text-sol-gold text-center mb-10">Questions fréquentes</h2>
       <div class="space-y-6">
-        <details class="group border border-sol-gold/10 rounded-lg p-4">
-          <summary class="font-body text-sol-cream cursor-pointer font-semibold">Comment fonctionne le tirage amour ?</summary>
-          <p class="font-body text-sol-ash mt-3 leading-relaxed">Concentre-toi sur ta question sentimentale, parcours les cartes et choisis celle qui t'attire. L'Oracle de l'Amour te délivrera un message personnalisé.</p>
-        </details>
-        <details class="group border border-sol-gold/10 rounded-lg p-4">
-          <summary class="font-body text-sol-cream cursor-pointer font-semibold">Puis-je faire plusieurs tirages ?</summary>
-          <p class="font-body text-sol-ash mt-3 leading-relaxed">Oui, tu peux recommencer autant de fois que tu le souhaites. Cependant, pour un tirage plus précis, nous recommandons de te concentrer sur une seule question par session.</p>
-        </details>
-        <details class="group border border-sol-gold/10 rounded-lg p-4">
-          <summary class="font-body text-sol-cream cursor-pointer font-semibold">Le tirage est-il gratuit ?</summary>
-          <p class="font-body text-sol-ash mt-3 leading-relaxed">Oui, tous nos tirages sont 100% gratuits et sans inscription. Pour aller plus loin, tu peux demander une consultation personnalisée.</p>
-        </details>
+        {faqData.map((faq) => (
+          <details class="group border border-sol-gold/10 rounded-lg p-4">
+            <summary class="font-body text-sol-cream cursor-pointer font-semibold">{faq.question}</summary>
+            <p class="font-body text-sol-ash mt-3 leading-relaxed">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Internal links -->
+  <section class="py-8 pb-24 px-4">
+    <div class="max-w-2xl mx-auto text-center space-y-3">
+      <p class="font-body text-sol-ash text-sm">Découvre aussi :</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/fr/tirage/tarot-marseille" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Tarot de Marseille</a>
+        <a href="/fr/tirage/tirage-oui-non" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Tirage Oui Non</a>
+        <a href="/fr/tirage/tirage-en-croix" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Tirage en croix</a>
+        <a href="/fr/oracle-gratuit" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Oracle gratuit</a>
+        <a href="/fr/guide/tarot-amour-signification" class="font-body text-sol-gold hover:text-sol-gold-light text-sm underline underline-offset-2">Signification tarot amour</a>
       </div>
     </div>
   </section>
